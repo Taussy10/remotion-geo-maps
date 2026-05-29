@@ -43,6 +43,29 @@ export const CoastlineComposition: React.FC = () => {
     easing: smoothEasing,
   });
 
+  // The 3D CSS Tilt effect from MapTilt3D
+  const rotateX = interpolate(
+    frame,
+    [0, 90, 180],
+    [0, 33, 26],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: Easing.bezier(0.25, 0.1, 0.25, 1),
+    }
+  );
+
+  const scale = interpolate(frame, [0, 180], [1.5, 1.8], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Pull map upward to compensate for the tilt gap
+  const translateY = interpolate(frame, [0, 180], [-120, -160], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
   useEffect(() => {
     if (!ref.current) {
       return;
@@ -128,8 +151,31 @@ export const CoastlineComposition: React.FC = () => {
   });
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <div ref={ref} style={{ width, height, position: "absolute" }} />
+    <AbsoluteFill style={{ backgroundColor: "#000", overflow: "hidden" }}>
+      {/* 3D Perspective Container wrapping the MapLibre canvas */}
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          perspective: `${width * 0.85}px`, // lower number = more dramatic tilt
+          perspectiveOrigin: "50% 20%", // vanishing point, pushed higher to fix void
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            transform: `translateY(${translateY}px) rotateX(${rotateX}deg) scale(${scale})`,
+            transformStyle: "preserve-3d",
+            position: "absolute",
+          }}
+        >
+          <div ref={ref} style={{ width, height, position: "absolute" }} />
+        </div>
+      </div>
       
       {/* Overlay Text */}
       <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: 40 }}>

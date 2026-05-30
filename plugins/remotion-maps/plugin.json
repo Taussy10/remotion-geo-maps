@@ -1,0 +1,16 @@
+{
+  "name": "remotion-maps",
+  "version": "1.0.0",
+  "description": "Standard styling, safe zones, and boundary projection rules for Remotion Maps projects",
+  "author": {
+    "name": "Antigravity Dev Team"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "remotion",
+    "maplibre",
+    "maps",
+    "styling",
+    "safe-zones"
+  ]
+}

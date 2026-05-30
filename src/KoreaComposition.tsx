@@ -12,6 +12,8 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 // Inlined at build time — same pattern as canada.json / norway.json
 import koreanPeninsulaData from "./korean-peninsula.json";
+import japanData from "./japan.json";
+import storyboard from "./korea_storyboard.json";
 
 // 38th Parallel hint line — inlined to avoid runtime fetch issues
 const thirtyEighthParallel = {
@@ -26,6 +28,84 @@ const thirtyEighthParallel = {
   },
 };
 
+interface CameraKeyframe {
+  frame: number;
+  center: number[];
+  zoom: number;
+  easing?: string;
+}
+
+interface LayerKeyframe {
+  frame: number;
+  value: number;
+}
+
+// ── HELPER FUNCTIONS ────────────────────────────────────────────────
+function getCameraPosition(frame: number, keyframes: CameraKeyframe[]) {
+  if (keyframes.length === 0) {
+    return { center: [127.5, 37.5] as [number, number], zoom: 5.0 };
+  }
+  // 1. Before first keyframe
+  if (frame <= keyframes[0].frame) {
+    return {
+      center: keyframes[0].center as [number, number],
+      zoom: keyframes[0].zoom,
+    };
+  }
+  // 2. After last keyframe
+  if (frame >= keyframes[keyframes.length - 1].frame) {
+    return {
+      center: keyframes[keyframes.length - 1].center as [number, number],
+      zoom: keyframes[keyframes.length - 1].zoom,
+    };
+  }
+  // 3. Find segment
+  for (let i = 0; i < keyframes.length - 1; i++) {
+    const k1 = keyframes[i];
+    const k2 = keyframes[i + 1];
+    if (frame >= k1.frame && frame <= k2.frame) {
+      const easing = k2.easing === "quadInOut" ? Easing.inOut(Easing.quad) : undefined;
+      const lng = interpolate(frame, [k1.frame, k2.frame], [k1.center[0], k2.center[0]], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing,
+      });
+      const lat = interpolate(frame, [k1.frame, k2.frame], [k1.center[1], k2.center[1]], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing,
+      });
+      const zoom = interpolate(frame, [k1.frame, k2.frame], [k1.zoom, k2.zoom], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing,
+      });
+      return { center: [lng, lat] as [number, number], zoom };
+    }
+  }
+  return { center: keyframes[0].center as [number, number], zoom: keyframes[0].zoom };
+}
+
+function getLayerOpacity(frame: number, keyframes: LayerKeyframe[]) {
+  if (!keyframes || keyframes.length === 0) return 0;
+  // 1. Before first keyframe
+  if (frame <= keyframes[0].frame) return keyframes[0].value;
+  // 2. After last keyframe
+  if (frame >= keyframes[keyframes.length - 1].frame) return keyframes[keyframes.length - 1].value;
+  // 3. Find segment
+  for (let i = 0; i < keyframes.length - 1; i++) {
+    const k1 = keyframes[i];
+    const k2 = keyframes[i + 1];
+    if (frame >= k1.frame && frame <= k2.frame) {
+      return interpolate(frame, [k1.frame, k2.frame], [k1.value, k2.value], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      });
+    }
+  }
+  return 0;
+}
+
 export const KoreaComposition: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { delayRender, continueRender } = useDelayRender();
@@ -34,86 +114,6 @@ export const KoreaComposition: React.FC = () => {
   const [handle] = useState(() => delayRender("Loading Korea map..."));
   const [map, setMap] = useState<maplibregl.Map | null>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
-
-  // ════════════════════════════════════════════════════════════════════
-  // OPACITY VALUES — all frame-independent, clamp-safe
-  // ════════════════════════════════════════════════════════════════════
-
-  // Scene 1 caption: fade in 0→20, hold, fade out 70→90
-  const caption1Opacity = interpolate(
-    frame, [0, 20, 70, 90], [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-  );
-
-  // Scene 2 fill: fade in 90→140, hold forever (carry through S3/S4)
-  const fillOpacity = interpolate(frame, [90, 140], [0, 0.92], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.out(Easing.cubic),
-  });
-
-  // Scene 2 borders: fade in 100→150, hold forever
-  const borderO1 = interpolate(frame, [100, 150], [0, 0.35], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp",
-  });
-  const borderO2 = interpolate(frame, [100, 150], [0, 0.65], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp",
-  });
-  const borderO3 = interpolate(frame, [105, 150], [0, 1.0], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp",
-  });
-
-  // Scene 2 italic label: fade in 115→150, fade out 195→210
-  const labelOpacity = interpolate(
-    frame, [115, 150, 195, 210], [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-  );
-
-  // Scene 2 caption: fade in 130→165, fade out 195→210
-  const caption2Opacity = interpolate(
-    frame, [130, 165, 195, 210], [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-  );
-
-  // Scene 3 stat cards: staggered fade in, fade out 340→360 before S4
-  const stat1Opacity = interpolate(
-    frame, [220, 255, 340, 360], [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.quad) }
-  );
-  const stat2Opacity = interpolate(
-    frame, [245, 280, 340, 360], [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.quad) }
-  );
-  const stat3Opacity = interpolate(
-    frame, [270, 305, 340, 360], [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.quad) }
-  );
-
-  // Scene 3 caption: fade in 215→250, fade out 340→360
-  const caption3Opacity = interpolate(
-    frame, [215, 250, 340, 360], [0, 1, 1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-  );
-
-  // Scene 4 DMZ hint line: fade in 400→440
-  const dmzOpacity = interpolate(frame, [400, 440], [0, 0.9], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp",
-    easing: Easing.out(Easing.quad),
-  });
-  const dmzGlowOpacity = interpolate(frame, [400, 440], [0, 0.45], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp",
-    easing: Easing.out(Easing.quad),
-  });
-
-  // Scene 4 "?" label: fade in 380→420
-  const questionOpacity = interpolate(frame, [380, 420], [0, 1], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp",
-  });
-
-  // Scene 4 caption: fade in 365→400
-  const caption4Opacity = interpolate(frame, [365, 400], [0, 1], {
-    extrapolateLeft: "clamp", extrapolateRight: "clamp",
-  });
 
   // ════════════════════════════════════════════════════════════════════
   // MAP INITIALISATION — ALL sources + layers in style from frame 0
@@ -139,6 +139,11 @@ export const KoreaComposition: React.FC = () => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             data: koreanPeninsulaData as any,
           },
+          "japan-src": {
+            type: "geojson",
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: japanData as any,
+          },
           "dmz-hint-src": {
             type: "geojson",
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -160,6 +165,76 @@ export const KoreaComposition: React.FC = () => {
             type: "fill",
             source: "korea-fill-src",
             paint: { "fill-color": "#cc5500", "fill-opacity": 0 },
+          },
+          // Korean Peninsula Gold fill — opacity 0, driven per frame
+          {
+            id: "korea-gold-fill",
+            type: "fill",
+            source: "korea-fill-src",
+            paint: { "fill-color": "#c8a84b", "fill-opacity": 0 },
+          },
+          // Korean Peninsula Conflict fill — opacity 0, driven per frame
+          {
+            id: "korea-conflict-fill",
+            type: "fill",
+            source: "korea-fill-src",
+            paint: { "fill-color": "#cc2200", "fill-opacity": 0 },
+          },
+          // Japan fill — opacity 0, driven per frame
+          {
+            id: "japan-fill",
+            type: "fill",
+            source: "japan-src",
+            paint: { "fill-color": "#d35454", "fill-opacity": 0 },
+          },
+          // Japan Border — outer glow
+          {
+            id: "japan-border-outer",
+            type: "line",
+            source: "japan-src",
+            paint: { "line-color": "#cc2200", "line-width": 10, "line-blur": 7, "line-opacity": 0 },
+          },
+          // Japan Border — mid glow
+          {
+            id: "japan-border-mid",
+            type: "line",
+            source: "japan-src",
+            paint: { "line-color": "#cc2200", "line-width": 5, "line-blur": 3, "line-opacity": 0 },
+          },
+          // Japan Border — crisp core
+          {
+            id: "japan-border-core",
+            type: "line",
+            source: "japan-src",
+            paint: { "line-color": "#f0f0f0", "line-width": 1, "line-blur": 0, "line-opacity": 0 },
+          },
+          // Korea occupied fill — opacity 0, driven per frame
+          {
+            id: "korea-occupied-fill",
+            type: "fill",
+            source: "korea-fill-src",
+            paint: { "fill-color": "#d35454", "fill-opacity": 0 },
+          },
+          // Korea occupied border — outer
+          {
+            id: "korea-occupied-border-outer",
+            type: "line",
+            source: "korea-fill-src",
+            paint: { "line-color": "#cc2200", "line-width": 10, "line-blur": 7, "line-opacity": 0 },
+          },
+          // Korea occupied border — mid
+          {
+            id: "korea-occupied-border-mid",
+            type: "line",
+            source: "korea-fill-src",
+            paint: { "line-color": "#cc2200", "line-width": 5, "line-blur": 3, "line-opacity": 0 },
+          },
+          // Korea occupied border — core
+          {
+            id: "korea-occupied-border-core",
+            type: "line",
+            source: "korea-fill-src",
+            paint: { "line-color": "#f0f0f0", "line-width": 1, "line-blur": 0, "line-opacity": 0 },
           },
           // Border — outer glow
           {
@@ -225,290 +300,191 @@ export const KoreaComposition: React.FC = () => {
     return () => {};
   }, [handle, continueRender]);
 
-  // ════════════════════════════════════════════════════════════════════
-  // PER-FRAME EFFECT — deterministic jumpTo + setPaintProperty
-  // Works correctly when Remotion scrubs to ANY frame
-  // ════════════════════════════════════════════════════════════════════
+  // ── PER-FRAME EFFECT — deterministic jumpTo + setPaintProperty ──
   useEffect(() => {
     if (!map || !mapLoaded) return;
 
-    // ── CAMERA keyframes across all 4 scenes ─────────────────────────
-    // S1 (0–90):    [118,34] z3.0 → [127.5,37.5] z5.2
-    // S2 (90–210):  hold pos, zoom creep → z5.5
-    // S3 (210–360): slow creep → [127.8,37.2] z5.7, hold
-    // S4 (360–510): zoom out → [127.5,38.0] z5.3, hold
-    const camLng = interpolate(
-      frame,
-      [0,    30,    90,    150,   210,   270,   360,   420,   510],
-      [118,  118,   127.5, 127.5, 127.5, 127.8, 127.8, 127.5, 127.5],
-      { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-    );
-    const camLat = interpolate(
-      frame,
-      [0,   30,   90,   150,  210,  270,  360,  420,  510],
-      [34,  34,   37.5, 37.5, 37.5, 37.2, 37.2, 38.0, 38.0],
-      { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-    );
-    const camZoom = interpolate(
-      frame,
-      [0,   30,   90,   150,  210,  270,  360,  420,  510],
-      [3.0, 3.0,  5.2,  5.5,  5.5,  5.7,  5.7,  5.3,  5.3],
-      { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
-    );
+    // Camera transitions
+    const { center, zoom } = getCameraPosition(frame, storyboard.cameraKeyframes);
+    map.jumpTo({ center, zoom });
 
-    map.jumpTo({ center: [camLng, camLat] as [number, number], zoom: camZoom });
-
-    // ── MAP LAYER OPACITIES ───────────────────────────────────────────
-    map.setPaintProperty("korea-fill",         "fill-opacity", fillOpacity);
-    map.setPaintProperty("korea-border-outer", "line-opacity",  borderO1);
-    map.setPaintProperty("korea-border-mid",   "line-opacity",  borderO2);
-    map.setPaintProperty("korea-border-core",  "line-opacity",  borderO3);
-    map.setPaintProperty("dmz-glow",           "line-opacity",  dmzGlowOpacity);
-    map.setPaintProperty("dmz-hint-line",      "line-opacity",  dmzOpacity);
+    // Layer animations
+    Object.keys(storyboard.layerAnimations).forEach((layerId) => {
+      const keys = storyboard.layerAnimations[layerId as keyof typeof storyboard.layerAnimations];
+      const opacity = getLayerOpacity(frame, keys);
+      const prop = layerId.endsWith("-fill") ? "fill-opacity" : "line-opacity";
+      map.setPaintProperty(layerId, prop, opacity);
+    });
 
     map.triggerRepaint();
-  }, [frame, map, mapLoaded, fillOpacity, borderO1, borderO2, borderO3, dmzOpacity, dmzGlowOpacity]);
+  }, [frame, map, mapLoaded]);
 
-  // Project label positions from geo coords to screen coords
-  const peninsulaLabelPoint = map ? map.project([127.5, 37.0]) : { x: 0, y: 0 };
-  const questionMarkPoint   = map ? map.project([127.5, 37.5]) : { x: 0, y: 0 };
+  // ── RENDER TEXT OVERLAYS & CAPTIONS ──
 
-  // ════════════════════════════════════════════════════════════════════
-  // RENDER
-  // ════════════════════════════════════════════════════════════════════
+  // Find active caption
+  const activeCaption = storyboard.captions.find(
+    (c) => frame >= c.fadeIn[0] && frame <= (c.fadeOut ? c.fadeOut[1] : 999999)
+  );
+
+  let captionOpacity = 0;
+  if (activeCaption) {
+    if (frame >= activeCaption.fadeIn[0] && frame <= activeCaption.fadeIn[1]) {
+      captionOpacity = interpolate(frame, activeCaption.fadeIn, [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      });
+    } else if (activeCaption.fadeOut && frame >= activeCaption.fadeOut[0] && frame <= activeCaption.fadeOut[1]) {
+      captionOpacity = interpolate(frame, activeCaption.fadeOut, [1, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      });
+    } else {
+      captionOpacity = 1;
+    }
+  }
+
+  // Render text overlays
+  const renderedOverlays = storyboard.textOverlays.map((overlay, index) => {
+    const isVisible = frame >= overlay.fadeIn[0] && frame <= (overlay.fadeOut ? overlay.fadeOut[1] : 999999);
+    if (!isVisible) return null;
+
+    let opacity = 0;
+    if (frame >= overlay.fadeIn[0] && frame <= overlay.fadeIn[1]) {
+      opacity = interpolate(frame, overlay.fadeIn, [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      });
+    } else if (overlay.fadeOut && frame >= overlay.fadeOut[0] && frame <= overlay.fadeOut[1]) {
+      opacity = interpolate(frame, overlay.fadeOut, [1, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      });
+    } else {
+      opacity = 1;
+    }
+
+    let positionStyle: React.CSSProperties = {};
+    if (overlay.type === "projected" && "coords" in overlay) {
+      const pt = map ? map.project(overlay.coords as [number, number]) : { x: 0, y: 0 };
+      positionStyle = {
+        left: pt.x,
+        top: pt.y,
+        transform: "translate(-50%, -50%)",
+      };
+    } else if (overlay.type === "html" && "style" in overlay) {
+      positionStyle = overlay.style as React.CSSProperties;
+    }
+
+    return (
+      <div
+        key={index}
+        style={{
+          position: "absolute",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          pointerEvents: "none",
+          zIndex: 15,
+          opacity,
+          ...positionStyle,
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 400,
+            color: "#ffffff",
+            textAlign: "center",
+            whiteSpace: "nowrap",
+            ...(overlay.textStyle as React.CSSProperties),
+          }}
+        >
+          {overlay.text}
+        </span>
+        {"hasDivider" in overlay && overlay.hasDivider && (
+          <div
+            style={{
+              width: 60,
+              height: 2,
+              background: "rgba(255,255,255,0.6)",
+              marginTop: 10,
+              borderRadius: 2,
+            }}
+          />
+        )}
+        {"subtitle" in overlay && overlay.subtitle && (
+          <span
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 400,
+              color: "rgba(255,255,255,0.80)",
+              textAlign: "center",
+              whiteSpace: "nowrap",
+              ...(overlay.subStyle as React.CSSProperties),
+            }}
+          >
+            {overlay.subtitle}
+          </span>
+        )}
+      </div>
+    );
+  });
+
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-
       {/* Map canvas */}
       <div ref={ref} style={{ width, height, position: "absolute" }} />
 
-      {/* ── SCENE 2: "Korean Peninsula" italic label ── */}
-      {frame >= 115 && frame < 215 && (
-        <div style={{
+      {/* Render overlay elements */}
+      {renderedOverlays}
+
+      {/* Vignette */}
+      <div
+        style={{
           position: "absolute",
-          left: peninsulaLabelPoint.x,
-          top: peninsulaLabelPoint.y,
-          transform: "translate(-50%, -50%)",
-          opacity: labelOpacity,
-          fontFamily: "'Playfair Display', Georgia, serif",
-          fontStyle: "italic",
-          fontWeight: 600,
-          fontSize: 38,
-          color: "#ffffff",
-          textShadow: "0 2px 16px rgba(0,0,0,0.9)",
-          whiteSpace: "nowrap",
+          inset: 0,
+          background: `radial-gradient(ellipse at center,
+            transparent 45%,
+            rgba(0,0,0,0.5) 100%)`,
           pointerEvents: "none",
-          zIndex: 15,
-        }}>
-          Korean Peninsula
-        </div>
-      )}
+          zIndex: 10,
+        }}
+      />
 
-      {/* ── SCENE 3: Stat card — Population ── */}
-      {frame >= 220 && frame < 365 && (
-        <div style={{
-          position: "absolute",
-          left: "50%", top: "38%",
-          transform: "translateX(-50%)",
-          opacity: stat1Opacity,
-          display: "flex", flexDirection: "column", alignItems: "center",
-          pointerEvents: "none", zIndex: 15,
-        }}>
-          <span style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontStyle: "italic", fontSize: 52, fontWeight: 700,
-            color: "#ffffff", textShadow: "0 2px 20px rgba(0,0,0,0.95)", lineHeight: 1,
-          }}>75M+</span>
-          <span style={{
-            fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 22,
-            color: "rgba(255,255,255,0.80)", textShadow: "0 1px 8px rgba(0,0,0,0.9)",
-            marginTop: 6, letterSpacing: "0.08em", textTransform: "uppercase",
-          }}>people</span>
-        </div>
-      )}
-
-      {/* ── SCENE 3: Stat card — History ── */}
-      {frame >= 245 && frame < 365 && (
-        <div style={{
-          position: "absolute",
-          left: "50%", top: "48%",
-          transform: "translateX(-50%)",
-          opacity: stat2Opacity,
-          display: "flex", flexDirection: "column", alignItems: "center",
-          pointerEvents: "none", zIndex: 15,
-        }}>
-          <span style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontStyle: "italic", fontSize: 52, fontWeight: 700,
-            color: "#ffffff", textShadow: "0 2px 20px rgba(0,0,0,0.95)", lineHeight: 1,
-          }}>1 History</span>
-          <span style={{
-            fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 22,
-            color: "rgba(255,255,255,0.80)", textShadow: "0 1px 8px rgba(0,0,0,0.9)",
-            marginTop: 6, letterSpacing: "0.08em", textTransform: "uppercase",
-          }}>shared</span>
-        </div>
-      )}
-
-      {/* ── SCENE 3: Stat card — Language ── */}
-      {frame >= 270 && frame < 365 && (
-        <div style={{
-          position: "absolute",
-          left: "50%", top: "58%",
-          transform: "translateX(-50%)",
-          opacity: stat3Opacity,
-          display: "flex", flexDirection: "column", alignItems: "center",
-          pointerEvents: "none", zIndex: 15,
-        }}>
-          <span style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontStyle: "italic", fontSize: 52, fontWeight: 700,
-            color: "#ffffff", textShadow: "0 2px 20px rgba(0,0,0,0.95)", lineHeight: 1,
-          }}>1 Language</span>
-          <span style={{
-            fontFamily: "'Inter', sans-serif", fontWeight: 400, fontSize: 22,
-            color: "rgba(255,255,255,0.80)", textShadow: "0 1px 8px rgba(0,0,0,0.9)",
-            marginTop: 6, letterSpacing: "0.08em", textTransform: "uppercase",
-          }}>한국어 · Korean</span>
-        </div>
-      )}
-
-      {/* ── SCENE 4: "?" label — center of peninsula ── */}
-      {frame >= 380 && (
-        <div style={{
-          position: "absolute",
-          left: questionMarkPoint.x,
-          top: questionMarkPoint.y,
-          transform: "translate(-50%, -50%)",
-          opacity: questionOpacity,
-          fontFamily: "'Playfair Display', Georgia, serif",
-          fontStyle: "italic",
-          fontWeight: 700,
-          fontSize: 72,
-          color: "#ffffff",
-          textShadow: "0 2px 24px rgba(0,0,0,0.95)",
-          pointerEvents: "none",
-          zIndex: 15,
-        }}>
-          ?
-        </div>
-      )}
-
-      {/* Vignette — static across all scenes */}
-      <div style={{
-        position: "absolute",
-        inset: 0,
-        background: `radial-gradient(ellipse at center,
-          transparent 45%,
-          rgba(0,0,0,0.5) 100%)`,
-        pointerEvents: "none",
-        zIndex: 10,
-      }} />
-
-      {/* ── SCENE 1: caption pill ── */}
-      <div style={{
-        position: "absolute",
-        bottom: 90, left: "50%",
-        transform: "translateX(-50%)",
-        opacity: caption1Opacity,
-        background: "rgba(0,0,0,0.55)",
-        backdropFilter: "blur(8px)",
-        borderRadius: 8,
-        border: "1px solid rgba(255,255,255,0.12)",
-        padding: "10px 32px",
-        pointerEvents: "none",
-        zIndex: 20,
-        whiteSpace: "nowrap",
-      }}>
-        <span style={{
-          fontFamily: '"Arial Black", sans-serif',
-          fontWeight: "900", fontSize: 26,
-          color: "#ffffff", letterSpacing: "0.01em",
-        }}>
-          Why are there 2 Koreas? 🇰🇷🇰🇵
-        </span>
-      </div>
-
-      {/* ── SCENE 2: caption pill ── */}
-      {frame >= 130 && frame < 215 && (
-        <div style={{
-          position: "absolute",
-          bottom: 90, left: "50%",
-          transform: "translateX(-50%)",
-          opacity: caption2Opacity,
-          background: "rgba(0,0,0,0.55)",
-          backdropFilter: "blur(8px)",
-          borderRadius: 8,
-          border: "1px solid rgba(255,255,255,0.12)",
-          padding: "10px 32px",
-          pointerEvents: "none",
-          zIndex: 20,
-          whiteSpace: "nowrap",
-        }}>
-          <span style={{
-            fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
-            fontWeight: 400, fontSize: 26,
-            color: "#ffffff", letterSpacing: "0.01em",
-          }}>
-            This is the Korean Peninsula.
+      {/* Render active caption */}
+      {activeCaption && (
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            transform: "translateX(-50%)",
+            opacity: captionOpacity,
+            background: "rgba(0,0,0,0.78)",
+            backdropFilter: "blur(10px)",
+            borderRadius: 10,
+            border: "1px solid rgba(255,255,255,0.18)",
+            padding: "14px 40px",
+            whiteSpace: "nowrap",
+            pointerEvents: "none",
+            zIndex: 20,
+            ...(activeCaption.style as React.CSSProperties),
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 500,
+              fontSize: 32,
+              color: "#ffffff",
+              letterSpacing: "0.02em",
+              textShadow: "0 1px 6px rgba(0,0,0,0.9)",
+              ...(activeCaption.spanStyle as React.CSSProperties),
+            }}
+          >
+            {activeCaption.text}
           </span>
         </div>
       )}
-
-      {/* ── SCENE 3: caption bar ── */}
-      {frame >= 215 && frame < 365 && (
-        <div style={{
-          position: "absolute",
-          bottom: 120, left: "50%",
-          transform: "translateX(-50%)",
-          opacity: caption3Opacity,
-          background: "rgba(0,0,0,0.78)",
-          backdropFilter: "blur(10px)",
-          borderRadius: 10,
-          border: "1px solid rgba(255,255,255,0.18)",
-          padding: "14px 40px",
-          whiteSpace: "nowrap",
-          pointerEvents: "none",
-          zIndex: 20,
-        }}>
-          <span style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 500, fontSize: 32,
-            color: "#ffffff", letterSpacing: "0.02em",
-            textShadow: "0 1px 6px rgba(0,0,0,0.9)",
-          }}>
-            Home to over 75 million people.
-          </span>
-        </div>
-      )}
-
-      {/* ── SCENE 4: caption bar ── */}
-      {frame >= 365 && (
-        <div style={{
-          position: "absolute",
-          bottom: 120, left: "50%",
-          transform: "translateX(-50%)",
-          opacity: caption4Opacity,
-          background: "rgba(0,0,0,0.78)",
-          backdropFilter: "blur(10px)",
-          borderRadius: 10,
-          border: "1px solid rgba(255,255,255,0.18)",
-          padding: "14px 40px",
-          whiteSpace: "nowrap",
-          pointerEvents: "none",
-          zIndex: 20,
-        }}>
-          <span style={{
-            fontFamily: "'Inter', sans-serif",
-            fontWeight: 500, fontSize: 32,
-            color: "#ffffff", letterSpacing: "0.02em",
-            textShadow: "0 1px 6px rgba(0,0,0,0.9)",
-          }}>
-            But why are there two Koreas?
-          </span>
-        </div>
-      )}
-
     </AbsoluteFill>
   );
 };

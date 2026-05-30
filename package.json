@@ -31,7 +31,8 @@
     "dev": "remotion studio",
     "build": "remotion bundle",
     "upgrade": "remotion upgrade",
-    "lint": "eslint src && tsc"
+    "lint": "eslint src && tsc",
+    "install-plugins": "node scripts/install-plugins.js"
   },
   "sideEffects": [
     "*.css"

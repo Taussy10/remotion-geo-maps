@@ -3,6 +3,7 @@ import { Composition } from "remotion";
 import { MyComposition } from "./Composition";
 import { CoastlineComposition } from "./CoastlineComposition";
 import { CanadaComposition } from "./CanadaComposition";
+import { KoreaComposition } from "./KoreaComposition";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -27,6 +28,14 @@ export const RemotionRoot: React.FC = () => {
         id="CanadaGlowMap"
         component={CanadaComposition}
         durationInFrames={450} // 15 seconds to fit both Canada and Norway animations
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="KoreaScene1"
+        component={KoreaComposition}
+        durationInFrames={90}
         fps={30}
         width={1080}
         height={1920}

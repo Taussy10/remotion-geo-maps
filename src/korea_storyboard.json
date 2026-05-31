@@ -17,7 +17,43 @@
     { "frame": 1020, "center": [132.0, 36.5], "zoom": 4.5 },
     { "frame": 1060, "center": [137.0, 36.0], "zoom": 5.0, "easing": "quadInOut" },
     { "frame": 1080, "center": [137.0, 36.0], "zoom": 5.0 },
-    { "frame": 1140, "center": [131.0, 36.5], "zoom": 4.5, "easing": "quadInOut" }
+    { "frame": 1140, "center": [131.0, 36.5], "zoom": 4.5, "easing": "quadInOut" },
+    { "frame": 1380, "center": [131.0, 36.5], "zoom": 4.5 },
+    { "frame": 1430, "center": [125.0, 35.0], "zoom": 3.5, "easing": "quadInOut" },
+    { "frame": 1470, "center": [125.0, 35.0], "zoom": 3.5 },
+    { "frame": 1530, "center": [125.0, 35.0], "zoom": 3.5 },
+    { "frame": 1590, "center": [127.5, 37.5], "zoom": 5.2, "easing": "quadInOut" },
+    { "frame": 1710, "center": [127.5, 37.5], "zoom": 5.2 },
+    { "frame": 1755, "center": [127.5, 37.5], "zoom": 4.8 },
+    { "frame": 1890, "center": [127.5, 37.5], "zoom": 4.8 },
+    { "frame": 1935, "center": [127.5, 38.5], "zoom": 5.4 },
+    { "frame": 2010, "center": [127.5, 38.5], "zoom": 5.4 },
+    { "frame": 2055, "center": [127.5, 36.5], "zoom": 5.4, "easing": "quadInOut" },
+    { "frame": 2100, "center": [127.5, 36.5], "zoom": 5.4 },
+    { "frame": 2130, "center": [127.5, 36.5], "zoom": 5.4 },
+    { "frame": 2175, "center": [127.5, 38.0], "zoom": 5.2, "easing": "quadInOut" },
+    { "frame": 2640, "center": [127.5, 38.0], "zoom": 5.2 },
+    { "frame": 2685, "center": [127.0, 40.0], "zoom": 5.8, "easing": "quadInOut" },
+    { "frame": 2730, "center": [127.0, 40.0], "zoom": 5.8 },
+    { "frame": 2775, "center": [127.5, 36.0], "zoom": 5.8, "easing": "quadInOut" },
+    { "frame": 2820, "center": [127.5, 36.0], "zoom": 5.8 },
+    { "frame": 2865, "center": [127.5, 38.0], "zoom": 5.0, "easing": "quadInOut" },
+    { "frame": 2910, "center": [127.5, 38.0], "zoom": 5.0 },
+    { "frame": 2955, "center": [127.5, 38.0], "zoom": 5.6, "easing": "quadInOut" },
+    { "frame": 3030, "center": [127.5, 38.0], "zoom": 5.6 },
+    { "frame": 3075, "center": [127.5, 37.5], "zoom": 5.0, "easing": "quadInOut" },
+    { "frame": 3120, "center": [127.5, 37.5], "zoom": 5.0 },
+    { "frame": 3240, "center": [127.5, 37.5], "zoom": 5.0 },
+    { "frame": 3390, "center": [127.5, 37.5], "zoom": 5.0 },
+    { "frame": 3435, "center": [127.5, 37.5], "zoom": 4.8, "easing": "quadInOut" },
+    { "frame": 3510, "center": [127.5, 37.5], "zoom": 4.8 },
+    { "frame": 3600, "center": [127.5, 37.5], "zoom": 4.8 },
+    { "frame": 3645, "center": [127.5, 38.0], "zoom": 5.6, "easing": "quadInOut" },
+    { "frame": 3720, "center": [127.5, 38.0], "zoom": 5.6 },
+    { "frame": 3750, "center": [127.5, 37.5], "zoom": 5.0, "easing": "quadInOut" },
+    { "frame": 3900, "center": [127.5, 37.5], "zoom": 5.0 },
+    { "frame": 4020, "center": [127.5, 35.0], "zoom": 4.0, "easing": "quadInOut" },
+    { "frame": 4110, "center": [127.5, 35.0], "zoom": 4.0 }
   ],
   "layerAnimations": {
     "korea-fill": [
@@ -65,25 +101,101 @@
     "korea-conflict-fill": [
       { "frame": 820, "value": 0 },
       { "frame": 850, "value": 0.45 },
-      { "frame": 890, "value": 0 }
+      { "frame": 890, "value": 0 },
+      { "frame": 3240, "value": 0 }
     ],
     "japan-fill": [
       { "frame": 960, "value": 0 },
-      { "frame": 1010, "value": 0.70 },
-      { "frame": 1020, "value": 0.70 },
-      { "frame": 1060, "value": 0.80 }
+      { "frame": 1010, "value": 0.55 },
+      { "frame": 1020, "value": 0.55 },
+      { "frame": 1060, "value": 0.55 },
+      { "frame": 1470, "value": 0.55 },
+      { "frame": 1510, "value": 0 },
+      { "frame": 2010, "value": 0 }
     ],
     "japan-border-core": [
       { "frame": 965, "value": 0 },
-      { "frame": 1010, "value": 1.0 }
+      { "frame": 1010, "value": 1.0 },
+      { "frame": 1470, "value": 1.0 },
+      { "frame": 1510, "value": 0 },
+      { "frame": 2010, "value": 0 }
     ],
     "korea-occupied-fill": [
       { "frame": 1140, "value": 0 },
-      { "frame": 1200, "value": 0.80 }
+      { "frame": 1200, "value": 0.55 },
+      { "frame": 1530, "value": 0.55 },
+      { "frame": 1570, "value": 0 },
+      { "frame": 2010, "value": 0 }
     ],
     "korea-occupied-border-core": [
       { "frame": 1145, "value": 0 },
-      { "frame": 1200, "value": 1.0 }
+      { "frame": 1200, "value": 1.0 },
+      { "frame": 1530, "value": 1.0 },
+      { "frame": 1570, "value": 0 },
+      { "frame": 2010, "value": 0 }
+    ],
+    "korea-resistance-fill": [
+      { "frame": 1299, "value": 0 },
+      { "frame": 1300, "value": 0 },
+      { "frame": 1330, "value": 0.35 },
+      { "frame": 1370, "value": 0 },
+      { "frame": 1380, "value": 0 }
+    ],
+    "korea-free-fill": [
+      { "frame": 1569, "value": 0 },
+      { "frame": 1570, "value": 0 },
+      { "frame": 1600, "value": 0.40 },
+      { "frame": 1650, "value": 0.40 },
+      { "frame": 1690, "value": 0 },
+      { "frame": 2010, "value": 0 }
+    ],
+    "nk-red-fill": [
+      { "frame": 1919, "value": 0 },
+      { "frame": 1920, "value": 0 },
+      { "frame": 1970, "value": 0.88 },
+      { "frame": 3720, "value": 0.88 }
+    ],
+    "nk-border-outer": [
+      { "frame": 1919, "value": 0 },
+      { "frame": 1920, "value": 0 },
+      { "frame": 1970, "value": 0.35 },
+      { "frame": 3720, "value": 0.35 }
+    ],
+    "nk-border-mid": [
+      { "frame": 1919, "value": 0 },
+      { "frame": 1920, "value": 0 },
+      { "frame": 1970, "value": 0.65 },
+      { "frame": 3720, "value": 0.65 }
+    ],
+    "nk-border-core": [
+      { "frame": 1924, "value": 0 },
+      { "frame": 1925, "value": 0 },
+      { "frame": 1970, "value": 1.0 },
+      { "frame": 3720, "value": 1.0 }
+    ],
+    "sk-blue-fill": [
+      { "frame": 2039, "value": 0 },
+      { "frame": 2040, "value": 0 },
+      { "frame": 2090, "value": 0.88 },
+      { "frame": 3720, "value": 0.88 }
+    ],
+    "sk-border-outer": [
+      { "frame": 2039, "value": 0 },
+      { "frame": 2040, "value": 0 },
+      { "frame": 2090, "value": 0.35 },
+      { "frame": 3720, "value": 0.35 }
+    ],
+    "sk-border-mid": [
+      { "frame": 2039, "value": 0 },
+      { "frame": 2040, "value": 0 },
+      { "frame": 2090, "value": 0.65 },
+      { "frame": 3720, "value": 0.65 }
+    ],
+    "sk-border-core": [
+      { "frame": 2044, "value": 0 },
+      { "frame": 2045, "value": 0 },
+      { "frame": 2090, "value": 1.0 },
+      { "frame": 3720, "value": 1.0 }
     ]
   },
   "captions": [
@@ -178,6 +290,207 @@
     {
       "text": "Japan takes control of Korea.",
       "fadeIn": [1085, 1120],
+      "fadeOut": [1260, 1265],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "The Koreans are not exactly thrilled. 😔",
+      "fadeIn": [1265, 1300],
+      "fadeOut": [1370, 1380],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Then comes World War II. ⚔️",
+      "fadeIn": [1385, 1420],
+      "fadeOut": [1460, 1470],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Japan loses.",
+      "fadeIn": [1475, 1495],
+      "fadeOut": [1525, 1530],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Korea is finally free.",
+      "fadeIn": [1535, 1565],
+      "fadeOut": [1610, 1620],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Great!",
+      "fadeIn": [1622, 1630],
+      "fadeOut": [1645, 1650],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Well... not exactly.",
+      "fadeIn": [1655, 1675],
+      "fadeOut": [1700, 1710],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "The US and the Soviet Union arrive.",
+      "fadeIn": [1715, 1740],
+      "fadeOut": [1880, 1890],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "The Soviets move into the north.",
+      "fadeIn": [1895, 1925],
+      "fadeOut": [2000, 2010],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "The Americans move into the south.",
+      "fadeIn": [2015, 2040],
+      "fadeOut": [2120, 2130],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "They draw a line at the 38th parallel.",
+      "fadeIn": [2135, 2160],
+      "fadeOut": [2300, 2310],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Just until things get sorted out.",
+      "fadeIn": [2315, 2335],
+      "fadeOut": [2390, 2400],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Yeah... about that.",
+      "fadeIn": [2400, 2415],
+      "fadeOut": [2455, 2460],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Tensions grow — neither side can agree.",
+      "fadeIn": [2465, 2490],
+      "fadeOut": [2630, 2640],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "The north forms its own government.",
+      "fadeIn": [2645, 2670],
+      "fadeOut": [2720, 2730],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "The south forms its own government.",
+      "fadeIn": [2735, 2760],
+      "fadeOut": [2810, 2820],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "And suddenly, there are two Koreas.",
+      "fadeIn": [2825, 2845],
+      "fadeOut": [2900, 2910],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "This temporary border isn't so temporary.",
+      "fadeIn": [2915, 2940],
+      "fadeOut": [3020, 3030],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "A few years later, war breaks out.",
+      "fadeIn": [3035, 3055],
+      "fadeOut": [3110, 3120],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "North Korea invades the south.",
+      "fadeIn": [3125, 3150],
+      "fadeOut": [3230, 3240],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "One of the deadliest conflicts of the Cold War.",
+      "fadeIn": [3245, 3270],
+      "fadeOut": [3380, 3390],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "After three years — neither side wins.",
+      "fadeIn": [3395, 3420],
+      "fadeOut": [3500, 3510],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "A ceasefire is signed.",
+      "fadeIn": [3515, 3535],
+      "fadeOut": [3590, 3600],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "The border stays almost exactly where it started.",
+      "fadeIn": [3605, 3630],
+      "fadeOut": [3710, 3720],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "Two separate countries. Today.",
+      "fadeIn": [3780, 3810],
+      "fadeOut": [3890, 3900],
+      "style": {
+        "bottom": 280
+      }
+    },
+    {
+      "text": "One peninsula. One people. Two very different nations.",
+      "fadeIn": [3940, 3970],
+      "fadeOut": [4100, 4110],
       "style": {
         "bottom": 280
       }
@@ -399,6 +712,7 @@
       "type": "html",
       "text": "Early 1900s",
       "fadeIn": [950, 985],
+      "fadeOut": [1130, 1140],
       "style": {
         "top": 80,
         "left": "50%",
@@ -413,6 +727,525 @@
         "textShadow": "0 2px 20px rgba(0,0,0,0.95)",
         "letterSpacing": "0.06em"
       }
+    },
+    {
+      "type": "projected",
+      "text": "Occupied",
+      "subtitle": "1910–1945",
+      "coords": [127.5, 37.0],
+      "fadeIn": [1140, 1180],
+      "fadeOut": [1380, 1410],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 48,
+        "color": "#ffffff",
+        "textShadow": "0 2px 20px rgba(0,0,0,0.95)"
+      },
+      "subStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 400,
+        "fontSize": 20,
+        "color": "rgba(255,255,255,0.80)",
+        "letterSpacing": "0.08em",
+        "textShadow": "0 1px 8px rgba(0,0,0,0.9)",
+        "marginTop": 4
+      }
+    },
+    {
+      "id": "year-1939",
+      "type": "html",
+      "text": "1939",
+      "fadeIn": [1420, 1455],
+      "fadeOut": [1470, 1500],
+      "hasDivider": true,
+      "style": {
+        "top": 80,
+        "left": "50%",
+        "transform": "translateX(-50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 72,
+        "color": "#ffffff",
+        "textShadow": "0 2px 24px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.06em",
+        "lineHeight": 1
+      }
+    },
+    {
+      "id": "wwii",
+      "type": "html",
+      "text": "World War II",
+      "fadeIn": [1430, 1465],
+      "fadeOut": [1470, 1500],
+      "style": {
+        "top": "42%",
+        "left": "50%",
+        "transform": "translate(-50%, -50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 56,
+        "color": "#ffffff",
+        "textShadow": "0 2px 28px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.04em",
+        "textAlign": "center"
+      }
+    },
+    {
+      "id": "year-1945",
+      "type": "html",
+      "text": "1945",
+      "fadeIn": [1495, 1525],
+      "fadeOut": [1620, 1630],
+      "hasDivider": true,
+      "style": {
+        "top": 80,
+        "left": "50%",
+        "transform": "translateX(-50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 72,
+        "color": "#ffffff",
+        "textShadow": "0 2px 24px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.06em",
+        "lineHeight": 1
+      }
+    },
+    {
+      "id": "free-label",
+      "type": "projected",
+      "text": "Free",
+      "coords": [127.5, 37.5],
+      "fadeIn": [1575, 1610],
+      "fadeOut": [1620, 1640],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 64,
+        "color": "#ffffff",
+        "textShadow": "0 2px 24px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.06em"
+      }
+    },
+    {
+      "id": "great-label",
+      "type": "html",
+      "fadeIn": [1622, 1640],
+      "fadeOut": [1650, 1670]
+    },
+    {
+      "id": "not-exactly-label",
+      "type": "html",
+      "text": "Well... not exactly.",
+      "fadeIn": [1665, 1700],
+      "fadeOut": [1705, 1710],
+      "style": {
+        "top": "45%",
+        "left": "50%",
+        "transform": "translate(-50%, -50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 64,
+        "color": "#ffffff",
+        "textShadow": "0 2px 28px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.04em",
+        "textAlign": "center"
+      }
+    },
+    {
+      "id": "usa-label",
+      "type": "projected",
+      "text": "USA",
+      "coords": [127.5, 32.5],
+      "fadeIn": [1800, 1840],
+      "fadeOut": [1890, 1920],
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 800,
+        "fontSize": 32,
+        "color": "#0055ff",
+        "letterSpacing": "0.1em",
+        "textShadow": "0 2px 16px rgba(0,0,0,0.95)"
+      }
+    },
+    {
+      "id": "ussr-label",
+      "type": "projected",
+      "text": "USSR",
+      "coords": [127.5, 43.5],
+      "fadeIn": [1800, 1840],
+      "fadeOut": [1890, 1920],
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 800,
+        "fontSize": 32,
+        "color": "#ff3333",
+        "letterSpacing": "0.1em",
+        "textShadow": "0 2px 16px rgba(0,0,0,0.95)"
+      }
+    },
+    {
+      "id": "soviet-zone-label",
+      "type": "projected",
+      "text": "Soviet Zone",
+      "coords": [127.0, 40.5],
+      "fadeIn": [1950, 1985],
+      "fadeOut": [2005, 2010],
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 700,
+        "fontSize": 28,
+        "color": "#ff3333",
+        "letterSpacing": "0.12em",
+        "textTransform": "uppercase",
+        "textShadow": "0 2px 12px rgba(0,0,0,0.95)"
+      }
+    },
+    {
+      "id": "us-zone-label",
+      "type": "projected",
+      "text": "US Zone",
+      "coords": [127.5, 35.8],
+      "fadeIn": [2070, 2105],
+      "fadeOut": [2125, 2130],
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 700,
+        "fontSize": 28,
+        "color": "#0055ff",
+        "letterSpacing": "0.12em",
+        "textTransform": "uppercase",
+        "textShadow": "0 2px 12px rgba(0,0,0,0.95)"
+      }
+    },
+    {
+      "id": "thirty-eighth-label",
+      "type": "projected",
+      "text": "38th Parallel",
+      "coords": [130.8, 38.0],
+      "fadeIn": [2250, 2285],
+      "fadeOut": [2395, 2400],
+      "style": {
+        "background": "rgba(0,0,0,0.7)",
+        "padding": "4px 12px",
+        "borderRadius": 4,
+        "border": "1px solid rgba(255,255,255,0.3)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": "bold",
+        "fontSize": 20,
+        "color": "#ffffff"
+      }
+    },
+    {
+      "id": "temporary-label",
+      "type": "projected",
+      "text": "temporary",
+      "coords": [127.5, 38.2],
+      "fadeIn": [2330, 2365],
+      "fadeOut": [2400, 2420],
+      "style": {
+        "background": "rgba(0,0,0,0.6)",
+        "padding": "2px 8px",
+        "borderRadius": 2,
+        "border": "1px dashed rgba(255,255,255,0.4)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": "bold",
+        "fontSize": 16,
+        "color": "rgba(255,255,255,0.9)",
+        "letterSpacing": "0.1em",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "id": "yeah-about-that-label",
+      "type": "html",
+      "fadeIn": [2415, 2445],
+      "fadeOut": [2460, 2480]
+    },
+    {
+      "id": "dprk-label",
+      "type": "projected",
+      "text": "DPRK",
+      "subtitle": "est. 1948",
+      "coords": [127.0, 40.0],
+      "fadeIn": [2670, 2705],
+      "fadeOut": [3020, 3030],
+      "style": {
+        "background": "rgba(0,0,0,0.72)",
+        "backdropFilter": "blur(8px)",
+        "padding": "8px 20px",
+        "borderRadius": 6,
+        "border": "1px solid rgba(255, 34, 0, 0.4)",
+        "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": "bold",
+        "fontSize": 24,
+        "color": "#ffffff",
+        "letterSpacing": "0.15em"
+      },
+      "subStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 500,
+        "fontSize": 14,
+        "color": "rgba(255,255,255,0.7)",
+        "marginTop": 4,
+        "letterSpacing": "0.08em"
+      }
+    },
+    {
+      "id": "year-1948",
+      "type": "html",
+      "text": "1948",
+      "fadeIn": [2670, 2705],
+      "fadeOut": [3030, 3050],
+      "style": {
+        "top": 80,
+        "left": "50%",
+        "transform": "translateX(-50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 72,
+        "color": "#ffffff",
+        "textShadow": "0 2px 24px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.06em",
+        "lineHeight": 1
+      }
+    },
+    {
+      "id": "rok-label",
+      "type": "projected",
+      "text": "Republic of Korea",
+      "subtitle": "est. 1948",
+      "coords": [127.5, 36.0],
+      "fadeIn": [2760, 2795],
+      "fadeOut": [3020, 3030],
+      "style": {
+        "background": "rgba(0,0,0,0.72)",
+        "backdropFilter": "blur(8px)",
+        "padding": "8px 20px",
+        "borderRadius": 6,
+        "border": "1px solid rgba(0, 85, 255, 0.4)",
+        "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": "bold",
+        "fontSize": 20,
+        "color": "#ffffff",
+        "letterSpacing": "0.1em"
+      },
+      "subStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 500,
+        "fontSize": 14,
+        "color": "rgba(255,255,255,0.7)",
+        "marginTop": 4,
+        "letterSpacing": "0.08em"
+      }
+    },
+    {
+      "id": "not-so-temporary-label",
+      "type": "projected",
+      "text": "not so temporary",
+      "coords": [127.5, 38.3],
+      "fadeIn": [2950, 2985],
+      "fadeOut": [3020, 3030],
+      "style": {
+        "background": "rgba(0,0,0,0.72)",
+        "backdropFilter": "blur(8px)",
+        "padding": "4px 16px",
+        "borderRadius": 4,
+        "border": "1px dashed rgba(255, 255, 255, 0.4)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": "bold",
+        "fontSize": 18,
+        "color": "#ffffff",
+        "letterSpacing": "0.08em",
+        "textTransform": "uppercase"
+      }
+    },
+    {
+      "id": "year-1950",
+      "type": "html",
+      "text": "1950",
+      "fadeIn": [3055, 3085],
+      "fadeOut": [3525, 3545],
+      "style": {
+        "top": 80,
+        "left": "50%",
+        "transform": "translateX(-50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 72,
+        "color": "#ffffff",
+        "textShadow": "0 2px 24px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.06em",
+        "lineHeight": 1
+      }
+    },
+    {
+      "id": "korean-war-label",
+      "type": "html",
+      "fadeIn": [3270, 3310],
+      "fadeOut": [3380, 3390]
+    },
+    {
+      "id": "stalemate-label",
+      "type": "html",
+      "fadeIn": [3440, 3475],
+      "fadeOut": [3510, 3530]
+    },
+    {
+      "id": "year-1953",
+      "type": "html",
+      "text": "1953",
+      "fadeIn": [3530, 3560],
+      "fadeOut": [3690, 3710],
+      "style": {
+        "top": 80,
+        "left": "50%",
+        "transform": "translateX(-50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 72,
+        "color": "#ffffff",
+        "textShadow": "0 2px 24px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.06em",
+        "lineHeight": 1
+      }
+    },
+    {
+      "id": "ceasefire-label",
+      "type": "html",
+      "fadeIn": [3545, 3575],
+      "fadeOut": [3640, 3660]
+    },
+    {
+      "id": "dmz-label",
+      "type": "projected",
+      "text": "DMZ",
+      "coords": [127.5, 38.1],
+      "fadeIn": [3650, 3685],
+      "fadeOut": [3720, 3730],
+      "style": {
+        "background": "rgba(0,0,0,0.75)",
+        "backdropFilter": "blur(8px)",
+        "padding": "4px 16px",
+        "borderRadius": 4,
+        "border": "1px solid rgba(255,255,255,0.5)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 800,
+        "fontSize": 18,
+        "color": "#ffffff",
+        "letterSpacing": "0.2em"
+      }
+    },
+    {
+      "id": "year-today",
+      "type": "html",
+      "text": "Today.",
+      "fadeIn": [3730, 3760],
+      "fadeOut": [3890, 3900],
+      "style": {
+        "top": 80,
+        "left": "50%",
+        "transform": "translateX(-50%)"
+      },
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 72,
+        "color": "#ffffff",
+        "textShadow": "0 2px 24px rgba(0,0,0,0.95)",
+        "letterSpacing": "0.06em",
+        "lineHeight": 1
+      }
+    },
+    {
+      "id": "south-korea-final-label",
+      "type": "projected",
+      "text": "South Korea \uD83C\uDDF0\uD83C\uDDF7",
+      "coords": [127.5, 36.2],
+      "fadeIn": [3760, 3800],
+      "fadeOut": [3890, 3900],
+      "style": {
+        "background": "rgba(0,0,0,0.72)",
+        "backdropFilter": "blur(8px)",
+        "padding": "10px 24px",
+        "borderRadius": 8,
+        "border": "1px solid rgba(0,85,255,0.5)",
+        "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 700,
+        "fontSize": 22,
+        "color": "#ffffff",
+        "letterSpacing": "0.06em"
+      }
+    },
+    {
+      "id": "north-korea-final-label",
+      "type": "projected",
+      "text": "North Korea \uD83C\uDDF0\uD83C\uDDF5",
+      "coords": [127.0, 40.2],
+      "fadeIn": [3800, 3840],
+      "fadeOut": [3890, 3900],
+      "style": {
+        "background": "rgba(0,0,0,0.72)",
+        "backdropFilter": "blur(8px)",
+        "padding": "10px 24px",
+        "borderRadius": 8,
+        "border": "1px solid rgba(255,34,0,0.5)",
+        "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+      },
+      "textStyle": {
+        "fontFamily": "'Inter', sans-serif",
+        "fontWeight": 700,
+        "fontSize": 22,
+        "color": "#ffffff",
+        "letterSpacing": "0.06em"
+      }
+    },
+    {
+      "id": "finale-text",
+      "type": "html",
+      "fadeIn": [3940, 3975],
+      "fadeOut": [4100, 4110]
     }
   ]
 }

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "remotion-maps": {
+      "source": "Taussy10/remotion-maps-plugin",
+      "sourceType": "github",
+      "skillPath": "skills/SKILL.md",
+      "computedHash": "2a3130b30b3ae8c02f37cc800d936a0102ee10516785b6f12226d5d2b446b0a1"
+    }
+  }
+}

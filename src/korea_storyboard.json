@@ -31,7 +31,7 @@
     { "frame": 2055, "center": [127.5, 36.5], "zoom": 5.4, "easing": "quadInOut" },
     { "frame": 2100, "center": [127.5, 36.5], "zoom": 5.4 },
     { "frame": 2130, "center": [127.5, 36.5], "zoom": 5.4 },
-    { "frame": 2175, "center": [127.5, 38.0], "zoom": 5.2, "easing": "quadInOut" },
+    { "frame": 2175, "center": [127.5, 38.0], "zoom": 6.5, "easing": "quadInOut" },
     { "frame": 2640, "center": [127.5, 38.0], "zoom": 5.2 },
     { "frame": 2685, "center": [127.0, 40.0], "zoom": 5.8, "easing": "quadInOut" },
     { "frame": 2730, "center": [127.0, 40.0], "zoom": 5.8 },
@@ -42,9 +42,9 @@
     { "frame": 2955, "center": [127.5, 38.0], "zoom": 5.6, "easing": "quadInOut" },
     { "frame": 3030, "center": [127.5, 38.0], "zoom": 5.6 },
     { "frame": 3075, "center": [127.5, 37.5], "zoom": 5.0, "easing": "quadInOut" },
-    { "frame": 3120, "center": [127.5, 37.5], "zoom": 5.0 },
-    { "frame": 3240, "center": [127.5, 37.5], "zoom": 5.0 },
-    { "frame": 3390, "center": [127.5, 37.5], "zoom": 5.0 },
+    { "frame": 3120, "center": [127.5, 37.5], "zoom": 6.5 },
+    { "frame": 3240, "center": [127.5, 37.5], "zoom": 6.5 },
+    { "frame": 3390, "center": [127.5, 37.5], "zoom": 6.5 },
     { "frame": 3435, "center": [127.5, 37.5], "zoom": 4.8, "easing": "quadInOut" },
     { "frame": 3510, "center": [127.5, 37.5], "zoom": 4.8 },
     { "frame": 3600, "center": [127.5, 37.5], "zoom": 4.8 },
@@ -296,7 +296,7 @@
       }
     },
     {
-      "text": "The Koreans are not exactly thrilled. 😔",
+      "text": "The Koreans were not happy",
       "fadeIn": [1265, 1300],
       "fadeOut": [1370, 1380],
       "style": {

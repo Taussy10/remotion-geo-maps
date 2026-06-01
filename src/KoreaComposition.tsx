@@ -341,6 +341,217 @@ const USACoin: React.FC<{ size: number; style?: React.CSSProperties }> = ({ size
   );
 };
 
+const NKSoldierCoin: React.FC<{ size: number; style?: React.CSSProperties }> = ({ size, style }) => {
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        border: "3px solid #eaeaea",
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.6), inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.5)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        ...style,
+      }}
+    >
+      {/* North Korea flag background */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(to bottom, #3e569c 15%, #ffffff 15%, #ffffff 18%, #c62828 18%, #c62828 82%, #ffffff 82%, #ffffff 85%, #3e569c 85%)",
+          display: "flex",
+          alignItems: "center",
+          pointerEvents: "none",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            left: "12%",
+            width: "30%",
+            height: "30%",
+            borderRadius: "50%",
+            backgroundColor: "#ffffff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <svg viewBox="0 0 24 24" style={{ width: "80%", height: "80%", fill: "#c62828" }}>
+            <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192z" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Soldier Foreground */}
+      <svg
+        viewBox="0 0 100 100"
+        style={{
+          width: "72%",
+          height: "72%",
+          zIndex: 2,
+          filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))",
+          pointerEvents: "none",
+        }}
+      >
+        <path d="M 50,20 C 35,20 30,32 30,42 C 30,46 32,48 35,48 L 65,48 C 68,48 70,46 70,42 C 70,32 65,20 50,20 Z" fill="#4d6e4b" stroke="#2e422d" strokeWidth="2" />
+        <path d="M 38,48 L 50,60 L 62,48" fill="none" stroke="#2e422d" strokeWidth="2" />
+        <circle cx="50" cy="20" r="3" fill="#ffdd00" />
+        <path d="M 36,48 C 36,60 42,65 50,65 C 58,65 64,60 64,48 Z" fill="#ffcca3" stroke="#2e422d" strokeWidth="1.5" />
+        <path d="M 45,62 L 45,68 L 55,68 L 55,62 Z" fill="#ffcca3" stroke="#2e422d" strokeWidth="1.5" />
+        <path d="M 22,85 C 22,72 32,68 50,68 C 68,68 78,72 78,85 L 78,95 L 22,95 Z" fill="#3e593c" stroke="#1f2d1e" strokeWidth="2" />
+        <rect x="35" y="76" width="12" height="14" rx="2" fill="#587c55" stroke="#1f2d1e" strokeWidth="1.5" />
+        <rect x="53" y="76" width="12" height="14" rx="2" fill="#587c55" stroke="#1f2d1e" strokeWidth="1.5" />
+      </svg>
+
+      {/* Gloss overlay */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "50%",
+          background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+          borderRadius: `${size}px ${size}px 0 0`,
+          pointerEvents: "none",
+          zIndex: 3,
+        }}
+      />
+    </div>
+  );
+};
+
+const SKSoldierCoin: React.FC<{ size: number; style?: React.CSSProperties }> = ({ size, style }) => {
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        border: "3px solid #eaeaea",
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.6), inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.5)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        ...style,
+      }}
+    >
+      {/* South Korea flag background */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundColor: "#ffffff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          pointerEvents: "none",
+        }}
+      >
+        <div
+          style={{
+            width: "45%",
+            height: "45%",
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #c62828 50%, #1565c0 50%)",
+            position: "relative",
+            transform: "rotate(-30deg)",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              left: "25%",
+              top: 0,
+              width: "50%",
+              height: "50%",
+              borderRadius: "50%",
+              backgroundColor: "#c62828",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              left: "25%",
+              bottom: 0,
+              width: "50%",
+              height: "50%",
+              borderRadius: "50%",
+              backgroundColor: "#1565c0",
+            }}
+          />
+        </div>
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
+          <div style={{ position: "absolute", top: "18%", left: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(45deg)" }}>
+            <div style={{ height: "1.5px", backgroundColor: "#000000" }} />
+            <div style={{ height: "1.5px", backgroundColor: "#000000" }} />
+            <div style={{ height: "1.5px", backgroundColor: "#000000" }} />
+          </div>
+          <div style={{ position: "absolute", bottom: "18%", right: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(45deg)" }}>
+            <div style={{ display: "flex", gap: "2px" }}><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /></div>
+            <div style={{ display: "flex", gap: "2px" }}><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /></div>
+            <div style={{ display: "flex", gap: "2px" }}><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /></div>
+          </div>
+          <div style={{ position: "absolute", top: "18%", right: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(-45deg)" }}>
+            <div style={{ display: "flex", gap: "2px" }}><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /></div>
+            <div style={{ height: "1.5px", backgroundColor: "#000000" }} />
+            <div style={{ display: "flex", gap: "2px" }}><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /></div>
+          </div>
+          <div style={{ position: "absolute", bottom: "18%", left: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(-45deg)" }}>
+            <div style={{ height: "1.5px", backgroundColor: "#000000" }} />
+            <div style={{ display: "flex", gap: "2px" }}><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /><div style={{ flex: 1, height: "1.5px", backgroundColor: "#000000" }} /></div>
+            <div style={{ height: "1.5px", backgroundColor: "#000000" }} />
+          </div>
+        </div>
+      </div>
+
+      {/* Soldier Foreground */}
+      <svg
+        viewBox="0 0 100 100"
+        style={{
+          width: "72%",
+          height: "72%",
+          zIndex: 2,
+          filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))",
+          pointerEvents: "none",
+        }}
+      >
+        <path d="M 50,20 C 35,20 30,32 30,42 C 30,46 32,48 35,48 L 65,48 C 68,48 70,46 70,42 C 70,32 65,20 50,20 Z" fill="#4d6e4b" stroke="#2e422d" strokeWidth="2" />
+        <path d="M 38,48 L 50,60 L 62,48" fill="none" stroke="#2e422d" strokeWidth="2" />
+        <circle cx="50" cy="20" r="3" fill="#ffdd00" />
+        <path d="M 36,48 C 36,60 42,65 50,65 C 58,65 64,60 64,48 Z" fill="#ffcca3" stroke="#2e422d" strokeWidth="1.5" />
+        <path d="M 45,62 L 45,68 L 55,68 L 55,62 Z" fill="#ffcca3" stroke="#2e422d" strokeWidth="1.5" />
+        <path d="M 22,85 C 22,72 32,68 50,68 C 68,68 78,72 78,85 L 78,95 L 22,95 Z" fill="#3e593c" stroke="#1f2d1e" strokeWidth="2" />
+        <rect x="35" y="76" width="12" height="14" rx="2" fill="#587c55" stroke="#1f2d1e" strokeWidth="1.5" />
+        <rect x="53" y="76" width="12" height="14" rx="2" fill="#587c55" stroke="#1f2d1e" strokeWidth="1.5" />
+      </svg>
+
+      {/* Gloss overlay */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "50%",
+          background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+          borderRadius: `${size}px ${size}px 0 0`,
+          pointerEvents: "none",
+          zIndex: 3,
+        }}
+      />
+    </div>
+  );
+};
+
 export const KoreaComposition: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { delayRender, continueRender } = useDelayRender();
@@ -913,6 +1124,21 @@ export const KoreaComposition: React.FC = () => {
     planePosition = map.project([planeLng, planeLat]);
   }
 
+  // Plane 2 flight timeline: frame 3045 to 3130 (wingman staggered slightly behind)
+  const isPlane2Active = frame >= 3045 && frame <= 3130;
+  let plane2Position = { x: 0, y: 0 };
+  if (isPlane2Active && map) {
+    const plane2Lng = interpolate(frame, [3045, 3130], [126.2, 128.2], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
+    const plane2Lat = interpolate(frame, [3045, 3130], [40.7, 34.7], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
+    plane2Position = map.project([plane2Lng, plane2Lat]);
+  }
+
   // Bomb 1: falls from 3060 to 3080. Target: Seoul [127.0, 37.5] (slowed)
   const isBomb1Active = frame >= 3060 && frame <= 3080;
   let bomb1Position = { x: 0, y: 0 };
@@ -1061,6 +1287,63 @@ export const KoreaComposition: React.FC = () => {
     if (usaCoin1Active) usaCoin1Pos = map.project([usaCoin1Lng, usaCoin1Lat]);
     if (usaCoin2Active) usaCoin2Pos = map.project([usaCoin2Lng, usaCoin2Lat]);
     if (usaCoin3Active) usaCoin3Pos = map.project([usaCoin3Lng, usaCoin3Lat]);
+  }
+
+  // Soldier Coins positions
+  const soldierCoinsActive = frame >= 3240 && frame <= 3390;
+  const soldierCoinOpacity = interpolate(frame, [3240, 3260, 3370, 3390], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  let warFrontLat = 38.0;
+  if (soldierCoinsActive) {
+    if (frame <= 3272) {
+      warFrontLat = interpolate(frame, [3240, 3272], [38.0, 36.3], {
+        extrapolateLeft: "clamp", extrapolateRight: "clamp",
+        easing: Easing.in(Easing.quad),
+      });
+    } else if (frame <= 3305) {
+      warFrontLat = 36.3;
+    } else if (frame <= 3348) {
+      warFrontLat = interpolate(frame, [3305, 3348], [36.3, 40.5], {
+        extrapolateLeft: "clamp", extrapolateRight: "clamp",
+        easing: Easing.out(Easing.quad),
+      });
+    } else if (frame <= 3375) {
+      warFrontLat = interpolate(frame, [3348, 3375], [40.5, 38.2], {
+        extrapolateLeft: "clamp", extrapolateRight: "clamp",
+        easing: Easing.inOut(Easing.quad),
+      });
+    } else {
+      warFrontLat = interpolate(frame, [3375, 3390], [38.2, 38.0], {
+        extrapolateLeft: "clamp", extrapolateRight: "clamp",
+      });
+    }
+  }
+
+  // Calculate soldier coordinates
+  const nkSoldier1Lng = 126.6;
+  const nkSoldier1Lat = warFrontLat + 0.6;
+  const nkSoldier2Lng = 128.2;
+  const nkSoldier2Lat = warFrontLat + 0.8;
+
+  const skSoldier1Lng = 126.8;
+  const skSoldier1Lat = warFrontLat - 0.6;
+  const skSoldier2Lng = 128.0;
+  const skSoldier2Lat = warFrontLat - 0.8;
+
+  // Project points
+  let nkSoldier1Pos = { x: 0, y: 0 };
+  let nkSoldier2Pos = { x: 0, y: 0 };
+  let skSoldier1Pos = { x: 0, y: 0 };
+  let skSoldier2Pos = { x: 0, y: 0 };
+
+  if (map && soldierCoinsActive) {
+    nkSoldier1Pos = map.project([nkSoldier1Lng, nkSoldier1Lat]);
+    nkSoldier2Pos = map.project([nkSoldier2Lng, nkSoldier2Lat]);
+    skSoldier1Pos = map.project([skSoldier1Lng, skSoldier1Lat]);
+    skSoldier2Pos = map.project([skSoldier2Lng, skSoldier2Lat]);
   }
 
   // Find active caption
@@ -1501,6 +1784,63 @@ export const KoreaComposition: React.FC = () => {
         />
       )}
 
+      {/* Soldier Coins */}
+      {map && soldierCoinsActive && (
+        <>
+          {/* North Korean Soldier Coins */}
+          <NKSoldierCoin
+            size={60}
+            style={{
+              position: "absolute",
+              left: nkSoldier1Pos.x,
+              top: nkSoldier1Pos.y,
+              transform: "translate(-50%, -50%)",
+              opacity: soldierCoinOpacity,
+              zIndex: 18,
+              pointerEvents: "none",
+            }}
+          />
+          <NKSoldierCoin
+            size={60}
+            style={{
+              position: "absolute",
+              left: nkSoldier2Pos.x,
+              top: nkSoldier2Pos.y,
+              transform: "translate(-50%, -50%)",
+              opacity: soldierCoinOpacity,
+              zIndex: 18,
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* South Korean Soldier Coins */}
+          <SKSoldierCoin
+            size={60}
+            style={{
+              position: "absolute",
+              left: skSoldier1Pos.x,
+              top: skSoldier1Pos.y,
+              transform: "translate(-50%, -50%)",
+              opacity: soldierCoinOpacity,
+              zIndex: 18,
+              pointerEvents: "none",
+            }}
+          />
+          <SKSoldierCoin
+            size={60}
+            style={{
+              position: "absolute",
+              left: skSoldier2Pos.x,
+              top: skSoldier2Pos.y,
+              transform: "translate(-50%, -50%)",
+              opacity: soldierCoinOpacity,
+              zIndex: 18,
+              pointerEvents: "none",
+            }}
+          />
+        </>
+      )}
+
       {/* Fighter Plane & Bomb Attack Animation (Scene 28) */}
       {isPlaneActive && planePosition && (
         <div
@@ -1520,6 +1860,32 @@ export const KoreaComposition: React.FC = () => {
             fill="#121212"
             style={{
               filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.75))",
+            }}
+          >
+            <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />
+          </svg>
+        </div>
+      )}
+
+      {/* Fighter Plane 2 (Wingman Formation) */}
+      {isPlane2Active && plane2Position && (
+        <div
+          style={{
+            position: "absolute",
+            left: plane2Position.x,
+            top: plane2Position.y,
+            transform: "translate(-50%, -50%) rotate(172deg)",
+            zIndex: 18,
+            pointerEvents: "none",
+          }}
+        >
+          <svg
+            width="48"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="#1c1c1c"
+            style={{
+              filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.65))",
             }}
           >
             <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />

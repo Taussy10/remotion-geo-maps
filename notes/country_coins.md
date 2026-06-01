@@ -45,3 +45,16 @@ To move the coins over time, we interpolated their coordinates in **geographic c
 const point = map.project([currentLng, currentLat]);
 ```
 This keeps the coins locked to their physical map positions (e.g. flying precisely from Okinawa and Manchuria to land inside South and North Korea) regardless of map zoom level or camera panning.
+
+---
+
+## 5. Soldier Coins Construction (Korean War Scene)
+For the battle scenes (frames 3240–3390), we created `NKSoldierCoin` and `SKSoldierCoin` components featuring detailed flag backgrounds and vector soldiers:
+*   **Flag Backdrops (HTML/CSS)**:
+    *   **North Korean Flag**: Rendered using a linear gradient representing the horizontal blue and red stripes, with a white circle and custom SVG red star positioned on the left.
+    *   **South Korean Flag**: Rendered with a white base, a custom interlocking red/blue gradient Taegeukgi circle rotated at -30 degrees, and four absolutely positioned corner trigrams (composed of solid and split black line segments).
+*   **Vector Soldier Foreground**: Draw a styled army soldier using SVG shapes:
+    *   Dark green helmet (`#4d6e4b`) with a chin strap, black borders, and a yellow insignia tip.
+    *   Stylized face (`#ffcca3`) and collar.
+    *   Shoulders covered by a tactical vest (`#3e593c`) with two detailed pockets (`#587c55`).
+*   **War-Front Tracking**: The six soldier coins are horizontally distributed across the peninsula (West, Center, East) and set to track `warFrontLat` with distinct vertical offsets. This dynamically coordinates their movements as the battle line fluctuates.

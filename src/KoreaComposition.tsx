@@ -1346,27 +1346,6 @@ export const KoreaComposition: React.FC = () => {
     skSoldier2Pos = map.project([skSoldier2Lng, skSoldier2Lat]);
   }
 
-  // Find active caption
-  const activeCaption = storyboard.captions.find(
-    (c) => frame >= c.fadeIn[0] && frame <= (c.fadeOut ? c.fadeOut[1] : 999999)
-  );
-
-  let captionOpacity = 0;
-  if (activeCaption) {
-    if (frame >= activeCaption.fadeIn[0] && frame <= activeCaption.fadeIn[1]) {
-      captionOpacity = interpolate(frame, activeCaption.fadeIn, [0, 1], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      });
-    } else if (activeCaption.fadeOut && frame >= activeCaption.fadeOut[0] && frame <= activeCaption.fadeOut[1]) {
-      captionOpacity = interpolate(frame, activeCaption.fadeOut, [1, 0], {
-        extrapolateLeft: "clamp",
-        extrapolateRight: "clamp",
-      });
-    } else {
-      captionOpacity = 1;
-    }
-  }
 
   // Render text overlays
   const renderedOverlays = storyboard.textOverlays.map((overlay, index) => {
@@ -2020,40 +1999,7 @@ export const KoreaComposition: React.FC = () => {
         }}
       />
 
-      {/* Render active caption */}
-      {activeCaption && (
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            transform: "translateX(-50%)",
-            opacity: captionOpacity,
-            background: "rgba(0,0,0,0.78)",
-            backdropFilter: "blur(10px)",
-            borderRadius: 10,
-            border: "1px solid rgba(255,255,255,0.18)",
-            padding: "14px 40px",
-            whiteSpace: "nowrap",
-            pointerEvents: "none",
-            zIndex: 20,
-            ...(activeCaption.style as React.CSSProperties),
-          }}
-        >
-          <span
-            style={{
-              fontFamily: "'Inter', sans-serif",
-              fontWeight: 500,
-              fontSize: 32,
-              color: "#ffffff",
-              letterSpacing: "0.02em",
-              textShadow: "0 1px 6px rgba(0,0,0,0.9)",
-              ...(activeCaption.spanStyle as React.CSSProperties),
-            }}
-          >
-            {activeCaption.text}
-          </span>
-        </div>
-      )}
+
     </AbsoluteFill>
   );
 };

@@ -16,116 +16,6 @@ import koreanPeninsulaData from "./korean-peninsula.json";
 import japanData from "./japan.json";
 import storyboard from "./korea_storyboard.json";
 
-function getUSArrowGeometry(progress: number) {
-  if (progress <= 0.001) {
-    return {
-      type: "Feature" as const,
-      properties: {},
-      geometry: {
-        type: "Polygon" as const,
-        coordinates: [],
-      },
-    };
-  }
-  const startLat = 28.0;
-  const endLat = 35.5;
-  const shaftEndLat = 34.5;
-  const currentLat = startLat + progress * (endLat - startLat);
-  
-  if (currentLat <= shaftEndLat) {
-    return {
-      type: "Feature" as const,
-      properties: {},
-      geometry: {
-        type: "Polygon" as const,
-        coordinates: [[
-          [127.425, startLat],
-          [127.425, currentLat],
-          [127.575, currentLat],
-          [127.575, startLat],
-          [127.425, startLat],
-        ]],
-      },
-    };
-  } else {
-    const scale = (currentLat - shaftEndLat) / (endLat - shaftEndLat);
-    const leftCornerX = 127.5 - scale * 0.35;
-    const rightCornerX = 127.5 + scale * 0.35;
-    return {
-      type: "Feature" as const,
-      properties: {},
-      geometry: {
-        type: "Polygon" as const,
-        coordinates: [[
-          [127.425, startLat],
-          [127.425, shaftEndLat],
-          [leftCornerX, shaftEndLat],
-          [127.5, currentLat],
-          [rightCornerX, shaftEndLat],
-          [127.575, shaftEndLat],
-          [127.575, startLat],
-          [127.425, startLat],
-        ]],
-      },
-    };
-  }
-}
-
-function getUSSRArrowGeometry(progress: number) {
-  if (progress <= 0.001) {
-    return {
-      type: "Feature" as const,
-      properties: {},
-      geometry: {
-        type: "Polygon" as const,
-        coordinates: [],
-      },
-    };
-  }
-  const startLat = 47.0;
-  const endLat = 40.5;
-  const shaftEndLat = 41.5;
-  const currentLat = startLat - progress * (startLat - endLat);
-  
-  if (currentLat >= shaftEndLat) {
-    return {
-      type: "Feature" as const,
-      properties: {},
-      geometry: {
-        type: "Polygon" as const,
-        coordinates: [[
-          [127.425, startLat],
-          [127.425, currentLat],
-          [127.575, currentLat],
-          [127.575, startLat],
-          [127.425, startLat],
-        ]],
-      },
-    };
-  } else {
-    const scale = (shaftEndLat - currentLat) / (shaftEndLat - endLat);
-    const leftCornerX = 127.5 - scale * 0.35;
-    const rightCornerX = 127.5 + scale * 0.35;
-    return {
-      type: "Feature" as const,
-      properties: {},
-      geometry: {
-        type: "Polygon" as const,
-        coordinates: [[
-          [127.425, startLat],
-          [127.425, shaftEndLat],
-          [leftCornerX, shaftEndLat],
-          [127.5, currentLat],
-          [rightCornerX, shaftEndLat],
-          [127.575, shaftEndLat],
-          [127.575, startLat],
-          [127.425, startLat],
-        ]],
-      },
-    };
-  }
-}
-
 // NK invasion arrow — from just above 38th parallel southward
 function getNKInvasionArrowGeometry(progress: number) {
   if (progress <= 0.001) {
@@ -179,9 +69,17 @@ const sanitizeGeom = (geom: any): any => {
   return { ...geom, coordinates: cleanedCoords };
 };
 
+const peninsulaGeo = koreanPeninsulaData as unknown as {
+  type: string;
+  features?: unknown[];
+  geometry: {
+    type: string;
+    coordinates: unknown[];
+  };
+};
+
 const rawNorthKoreaGeoJSON = bboxClip(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (koreanPeninsulaData as any).features ? (koreanPeninsulaData as any).features[0] : koreanPeninsulaData as any,
+  (peninsulaGeo.features ? peninsulaGeo.features[0] : peninsulaGeo) as unknown as Parameters<typeof bboxClip>[0],
   [120.0, 38.0, 133.0, 44.0]
 );
 
@@ -191,8 +89,7 @@ const northKoreaGeoJSON = {
 };
 
 const rawSouthKoreaGeoJSON = bboxClip(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (koreanPeninsulaData as any).features ? (koreanPeninsulaData as any).features[0] : koreanPeninsulaData as any,
+  (peninsulaGeo.features ? peninsulaGeo.features[0] : peninsulaGeo) as unknown as Parameters<typeof bboxClip>[0],
   [120.0, 33.0, 133.0, 38.0]
 );
 
@@ -202,10 +99,9 @@ const southKoreaGeoJSON = {
 };
 
 // Full peninsula feature for war-front clipping
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const fullPeninsulaFeature = (koreanPeninsulaData as any).features
-  ? (koreanPeninsulaData as any).features[0]
-  : (koreanPeninsulaData as any);
+const fullPeninsulaFeature = (peninsulaGeo.features
+  ? peninsulaGeo.features[0]
+  : peninsulaGeo) as unknown as Parameters<typeof bboxClip>[0];
 
 // 38th Parallel hint line — inlined to avoid runtime fetch issues
 const thirtyEighthParallel = {
@@ -305,6 +201,146 @@ const emptyFeature = {
   geometry: { type: "Polygon" as const, coordinates: [] as number[][][] },
 };
 
+const USSRCoin: React.FC<{ size: number; style?: React.CSSProperties }> = ({ size, style }) => {
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        background: "radial-gradient(circle at 35% 35%, #d32f2f, #b71c1c 70%, #7f0000)",
+        border: "3.5px solid #eaeaea",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.5)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        ...style,
+      }}
+    >
+      {/* Gloss overlay */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "50%",
+          background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+          borderRadius: `${size}px ${size}px 0 0`,
+          pointerEvents: "none",
+        }}
+      />
+      {/* Hammer and Sickle SVG */}
+      <svg
+        viewBox="0 0 24 24"
+        style={{
+          width: "55%",
+          height: "55%",
+          fill: "#ffdd00",
+          filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.5))",
+          zIndex: 1,
+        }}
+      >
+        <path d="M12.012 3c-1.503 0-2.923.364-4.237 1.01l1.506 1.505a7.012 7.012 0 012.731-.515c3.547 0 6.49 2.656 6.941 6.096l2.022.613C20.354 7.202 16.593 3 12.012 3zm-2.42 2.233a7.013 7.013 0 00-4.077 5.253l2.03.35c.298-1.597 1.258-2.969 2.56-3.83L9.592 5.233zM12 9a2.99 2.99 0 00-1.898.679L7.414 6.992c.636-.632 1.488-.992 2.586-.992 2.206 0 4 1.794 4 4 0 1.098-.36 1.95-1 2.586L10.32 9.902A2.99 2.99 0 0012 9zm-3.87 2.018a3.013 3.013 0 00.35 1.562l-4.237 4.237-1.414-1.414 4.237-4.237c.307-.06.67-.148 1.064-.148zm5.291 1.797l1.414 1.414-6.364 6.364-1.414-1.414 6.364-6.364z" />
+      </svg>
+    </div>
+  );
+};
+
+const USACoin: React.FC<{ size: number; style?: React.CSSProperties }> = ({ size, style }) => {
+  return (
+    <div
+      style={{
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        background: "#ffffff",
+        border: "3.5px solid #eaeaea",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.5)",
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        ...style,
+      }}
+    >
+      {/* 13 Stripes (red and white) */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+        }}
+      >
+        {Array.from({ length: 13 }).map((_, i) => (
+          <div
+            key={i}
+            style={{
+              flex: 1,
+              backgroundColor: i % 2 === 0 ? "#b22234" : "#ffffff",
+              width: "100%",
+            }}
+          />
+        ))}
+      </div>
+      {/* Canton (blue field in upper left corner) */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "50%",
+          height: "53.85%",
+          backgroundColor: "#3c3b6e",
+          display: "grid",
+          gridTemplateColumns: "repeat(6, 1fr)",
+          gridTemplateRows: "repeat(5, 1fr)",
+          padding: "2px",
+          boxSizing: "border-box",
+        }}
+      >
+        {/* Simple stars represented by tiny white dots */}
+        {Array.from({ length: 30 }).map((_, i) => (
+          <div
+            key={i}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: "2.5px",
+                height: "2.5px",
+                backgroundColor: "#ffffff",
+                borderRadius: "50%",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+      {/* Gloss overlay */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "50%",
+          background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+          borderRadius: `${size}px ${size}px 0 0`,
+          pointerEvents: "none",
+        }}
+      />
+    </div>
+  );
+};
+
 export const KoreaComposition: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { delayRender, continueRender } = useDelayRender();
@@ -357,16 +393,6 @@ export const KoreaComposition: React.FC = () => {
             type: "geojson",
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             data: thirtyEighthParallel as any,
-          },
-          "us-arrow-src": {
-            type: "geojson",
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            data: getUSArrowGeometry(0) as any,
-          },
-          "ussr-arrow-src": {
-            type: "geojson",
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            data: getUSSRArrowGeometry(0) as any,
           },
           "north-korea-src": {
             type: "geojson",
@@ -510,48 +536,6 @@ export const KoreaComposition: React.FC = () => {
             type: "line",
             source: "korea-fill-src",
             paint: { "line-color": "#ffffff", "line-width": 1.5, "line-blur": 0, "line-opacity": 0 },
-          },
-          // US arrow
-          {
-            id: "us-arrow",
-            type: "fill",
-            source: "us-arrow-src",
-            paint: {
-              "fill-color": "#003d99",
-              "fill-opacity": 0,
-            },
-          },
-          // US arrow border
-          {
-            id: "us-arrow-border",
-            type: "line",
-            source: "us-arrow-src",
-            paint: {
-              "line-color": "#ffffff",
-              "line-width": 1.5,
-              "line-opacity": 0,
-            },
-          },
-          // USSR arrow
-          {
-            id: "ussr-arrow",
-            type: "fill",
-            source: "ussr-arrow-src",
-            paint: {
-              "fill-color": "#cc2200",
-              "fill-opacity": 0,
-            },
-          },
-          // USSR arrow border
-          {
-            id: "ussr-arrow-border",
-            type: "line",
-            source: "ussr-arrow-src",
-            paint: {
-              "line-color": "#ffffff",
-              "line-width": 1.5,
-              "line-opacity": 0,
-            },
           },
           // NK red fill
           {
@@ -705,53 +689,6 @@ export const KoreaComposition: React.FC = () => {
       const prop = layerId.endsWith("-fill") ? "fill-opacity" : "line-opacity";
       map.setPaintProperty(layerId, prop, opacity);
     });
-
-    // Compute progress for arrows
-    const usProgress = interpolate(frame, [1760, 1820], [0, 1], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-      easing: Easing.out(Easing.quad),
-    });
-    const ussrProgress = interpolate(frame, [1760, 1820], [0, 1], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-      easing: Easing.out(Easing.quad),
-    });
-
-    // Update arrow geometries dynamically
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (map.getSource("us-arrow-src") as any).setData(getUSArrowGeometry(usProgress));
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (map.getSource("ussr-arrow-src") as any).setData(getUSSRArrowGeometry(ussrProgress));
-
-    // Control arrow opacities based on frame
-    let usOpacity = 0;
-    if (frame >= 1760) {
-      if (frame <= 2030) {
-        usOpacity = 1;
-      } else {
-        usOpacity = interpolate(frame, [2030, 2060], [1, 0], {
-          extrapolateLeft: "clamp",
-          extrapolateRight: "clamp",
-        });
-      }
-    }
-    map.setPaintProperty("us-arrow", "fill-opacity", usOpacity);
-    map.setPaintProperty("us-arrow-border", "line-opacity", usOpacity);
-
-    let ussrOpacity = 0;
-    if (frame >= 1760) {
-      if (frame <= 1890) {
-        ussrOpacity = 1;
-      } else {
-        ussrOpacity = interpolate(frame, [1890, 1920], [1, 0], {
-          extrapolateLeft: "clamp",
-          extrapolateRight: "clamp",
-        });
-      }
-    }
-    map.setPaintProperty("ussr-arrow", "fill-opacity", ussrOpacity);
-    map.setPaintProperty("ussr-arrow-border", "line-opacity", ussrOpacity);
 
     // 38th parallel line draw animation (frames 2180 onwards)
     if (frame >= 2180) {
@@ -1076,6 +1013,54 @@ export const KoreaComposition: React.FC = () => {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
     });
+  }
+
+  // Coin positions calculation
+  const ussrCoin1Active = frame >= 1740 && frame <= 1920;
+  const ussrCoin2Active = frame >= 1740 && frame <= 1920;
+  const usaCoin1Active = frame >= 1740 && frame <= 2060;
+  const usaCoin2Active = frame >= 1740 && frame <= 2060;
+  const usaCoin3Active = frame >= 1740 && frame <= 2060;
+
+  // Let's interpolate coordinates
+  // USSR Coin 1
+  const ussrCoin1Lng = interpolate(frame, [1760, 1820], [125.0, 126.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const ussrCoin1Lat = interpolate(frame, [1760, 1820], [46.0, 40.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const ussrCoin1Opacity = interpolate(frame, [1740, 1760, 1890, 1920], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+
+  // USSR Coin 2
+  const ussrCoin2Lng = interpolate(frame, [1760, 1820], [130.0, 128.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const ussrCoin2Lat = interpolate(frame, [1760, 1820], [46.0, 41.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const ussrCoin2Opacity = interpolate(frame, [1740, 1760, 1890, 1920], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+
+  // USA Coin 1
+  const usaCoin1Lng = interpolate(frame, [1760, 1820], [127.5, 127.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const usaCoin1Lat = interpolate(frame, [1760, 1820], [29.0, 35.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const usaCoin1Opacity = interpolate(frame, [1740, 1760, 2030, 2060], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+
+  // USA Coin 2
+  const usaCoin2Lng = interpolate(frame, [1760, 1820], [131.0, 129.0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const usaCoin2Lat = interpolate(frame, [1760, 1820], [29.5, 36.0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const usaCoin2Opacity = interpolate(frame, [1740, 1760, 2030, 2060], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+
+  // USA Coin 3
+  const usaCoin3Lng = interpolate(frame, [1760, 1820], [134.5, 127.0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const usaCoin3Lat = interpolate(frame, [1760, 1820], [30.0, 37.5], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const usaCoin3Opacity = interpolate(frame, [1740, 1760, 2030, 2060], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+
+  // Project points
+  let ussrCoin1Pos = { x: 0, y: 0 };
+  let ussrCoin2Pos = { x: 0, y: 0 };
+  let usaCoin1Pos = { x: 0, y: 0 };
+  let usaCoin2Pos = { x: 0, y: 0 };
+  let usaCoin3Pos = { x: 0, y: 0 };
+
+  if (map) {
+    if (ussrCoin1Active) ussrCoin1Pos = map.project([ussrCoin1Lng, ussrCoin1Lat]);
+    if (ussrCoin2Active) ussrCoin2Pos = map.project([ussrCoin2Lng, ussrCoin2Lat]);
+    if (usaCoin1Active) usaCoin1Pos = map.project([usaCoin1Lng, usaCoin1Lat]);
+    if (usaCoin2Active) usaCoin2Pos = map.project([usaCoin2Lng, usaCoin2Lat]);
+    if (usaCoin3Active) usaCoin3Pos = map.project([usaCoin3Lng, usaCoin3Lat]);
   }
 
   // Find active caption
@@ -1443,6 +1428,78 @@ export const KoreaComposition: React.FC = () => {
 
       {/* Render overlay elements */}
       {renderedOverlays}
+
+      {/* Country Coins */}
+      {map && ussrCoin1Active && (
+        <USSRCoin
+          size={70}
+          style={{
+            position: "absolute",
+            left: ussrCoin1Pos.x,
+            top: ussrCoin1Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: ussrCoin1Opacity,
+            zIndex: 18,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+      {map && ussrCoin2Active && (
+        <USSRCoin
+          size={70}
+          style={{
+            position: "absolute",
+            left: ussrCoin2Pos.x,
+            top: ussrCoin2Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: ussrCoin2Opacity,
+            zIndex: 18,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+      {map && usaCoin1Active && (
+        <USACoin
+          size={70}
+          style={{
+            position: "absolute",
+            left: usaCoin1Pos.x,
+            top: usaCoin1Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: usaCoin1Opacity,
+            zIndex: 18,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+      {map && usaCoin2Active && (
+        <USACoin
+          size={70}
+          style={{
+            position: "absolute",
+            left: usaCoin2Pos.x,
+            top: usaCoin2Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: usaCoin2Opacity,
+            zIndex: 18,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+      {map && usaCoin3Active && (
+        <USACoin
+          size={70}
+          style={{
+            position: "absolute",
+            left: usaCoin3Pos.x,
+            top: usaCoin3Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: usaCoin3Opacity,
+            zIndex: 18,
+            pointerEvents: "none",
+          }}
+        />
+      )}
 
       {/* Fighter Plane & Bomb Attack Animation (Scene 28) */}
       {isPlaneActive && planePosition && (

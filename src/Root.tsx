@@ -15,10 +15,11 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
+      {/* Bangladesh — Scene 1 (0-114) + Scene 2 (115-228) in one composition */}
       <Composition
-        id="BangladeshScene1"
+        id="BangladeshVideo"
         component={BangladeshComposition}
-        durationInFrames={105}
+        durationInFrames={229}
         fps={30}
         width={1080}
         height={1920}
@@ -26,4 +27,3 @@ export const RemotionRoot: React.FC = () => {
     </>
   );
 };
-

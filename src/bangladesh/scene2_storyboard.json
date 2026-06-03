@@ -1,0 +1,118 @@
+{
+  "cameraKeyframes": [
+    {
+      "frame": 0,
+      "center": [90.36, 23.68],
+      "zoom": 5.82,
+      "pitch": 10,
+      "bearing": 2.0
+    },
+    {
+      "frame": 28,
+      "center": [55.0, 31.0],
+      "zoom": 3.2,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 113,
+      "center": [55.0, 31.0],
+      "zoom": 3.2,
+      "pitch": 0,
+      "bearing": 0
+    }
+  ],
+  "greeceReveal": {
+    "startFrame": 40,
+    "endFrame": 82,
+    "color": "#003d99",
+    "maxOpacity": 0.25,
+    "centroid": [21.82, 39.07]
+  },
+  "layerAnimations": {
+    "greece-border-outer": [
+      { "frame": 40, "value": 0 },
+      { "frame": 62, "value": 0.35 }
+    ],
+    "greece-border-mid": [
+      { "frame": 40, "value": 0 },
+      { "frame": 62, "value": 0.65 }
+    ],
+    "greece-border-core": [
+      { "frame": 40, "value": 0 },
+      { "frame": 62, "value": 1.0 }
+    ]
+  },
+  "wordTimings": [
+    { "word": "But",        "fs": 0,  "fe": 5  },
+    { "word": "how",        "fs": 5,  "fe": 10 },
+    { "word": "can",        "fs": 10, "fe": 15 },
+    { "word": "a",          "fs": 15, "fe": 18 },
+    { "word": "country",    "fs": 18, "fe": 26 },
+    { "word": "smaller",    "fs": 26, "fe": 36 },
+    { "word": "than",       "fs": 36, "fe": 41 },
+    { "word": "Greece",     "fs": 41, "fe": 55 },
+    { "word": "have",       "fs": 55, "fe": 61 },
+    { "word": "a",          "fs": 61, "fe": 64 },
+    { "word": "population", "fs": 64, "fe": 78 },
+    { "word": "larger",     "fs": 78, "fe": 88 },
+    { "word": "than",       "fs": 88, "fe": 93 },
+    { "word": "Russia?",    "fs": 93, "fe": 113 }
+  ],
+  "textOverlays": [
+    {
+      "type": "projected",
+      "text": "BANGLADESH",
+      "subtext": "~148,000 km²",
+      "coords": [90.35, 23.68],
+      "fadeIn": [28, 42],
+      "fadeOut": [108, 113],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 20,
+        "color": "#ff6622",
+        "letterSpacing": "0.1em",
+        "textShadow": "0 0 16px rgba(0,0,0,0.9), 2px 2px 4px rgba(0,0,0,1)"
+      },
+      "subtextStyle": {
+        "fontFamily": "'Outfit', sans-serif",
+        "fontSize": 13,
+        "color": "#ffaa77",
+        "letterSpacing": "0.04em",
+        "textShadow": "0 0 8px rgba(0,0,0,0.9)"
+      }
+    },
+    {
+      "type": "projected",
+      "text": "GREECE",
+      "subtext": "~132,000 km²",
+      "coords": [21.82, 39.07],
+      "fadeIn": [43, 58],
+      "fadeOut": [108, 113],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 20,
+        "color": "#4499ff",
+        "letterSpacing": "0.1em",
+        "textShadow": "0 0 16px rgba(0,0,0,0.9), 2px 2px 4px rgba(0,0,0,1)"
+      },
+      "subtextStyle": {
+        "fontFamily": "'Outfit', sans-serif",
+        "fontSize": 13,
+        "color": "#88bbff",
+        "letterSpacing": "0.04em",
+        "textShadow": "0 0 8px rgba(0,0,0,0.9)"
+      }
+    }
+  ],
+  "emojiOverlay": {
+    "emoji": "❓",
+    "startFrame": 105,
+    "coords": [55.0, 24.0]
+  }
+}

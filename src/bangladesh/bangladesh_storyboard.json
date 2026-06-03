@@ -30,11 +30,14 @@
       "bearing": 2.0
     }
   ],
+  "radialReveal": {
+    "startFrame": 45,
+    "endFrame": 104,
+    "color": "#cc5500",
+    "maxOpacity": 0.6,
+    "centroid": [90.35, 23.68]
+  },
   "layerAnimations": {
-    "bangladesh-fill": [
-      { "frame": 11, "value": 0 },
-      { "frame": 45, "value": 0.55 }
-    ],
     "bangladesh-border-outer": [
       { "frame": 11, "value": 0 },
       { "frame": 40, "value": 0.35 }

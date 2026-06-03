@@ -15,11 +15,11 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
-      {/* Bangladesh — Scene 1 (0-114) + Scene 2 (115-228) in one composition */}
+      {/* Bangladesh — Scene 1 + 2 + 3 + 4 + 5 + 7 + 8 + 9 + 10 (0-1381) in one composition */}
       <Composition
         id="BangladeshVideo"
         component={BangladeshComposition}
-        durationInFrames={229}
+        durationInFrames={1382}
         fps={30}
         width={1080}
         height={1920}

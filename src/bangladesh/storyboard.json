@@ -1,0 +1,519 @@
+{
+  "cameraKeyframes": [
+    {
+      "frame": 0,
+      "center": [85.0, 24.0],
+      "zoom": 3.2,
+      "pitch": 0,
+      "bearing": 0
+    },
+    {
+      "frame": 10,
+      "center": [85.01, 24.0],
+      "zoom": 3.21,
+      "pitch": 0,
+      "bearing": 0
+    },
+    {
+      "frame": 45,
+      "center": [90.35, 23.68],
+      "zoom": 5.8,
+      "pitch": 10,
+      "bearing": 1.5,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 104,
+      "center": [90.36, 23.68],
+      "zoom": 5.82,
+      "pitch": 10,
+      "bearing": 2.0
+    },
+    {
+      "frame": 115,
+      "center": [90.35, 23.68],
+      "zoom": 5.82,
+      "pitch": 10,
+      "bearing": 2.0
+    },
+    {
+      "frame": 135,
+      "center": [90.35, 23.68],
+      "zoom": 3.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 165,
+      "center": [21.82, 39.07],
+      "zoom": 3.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 185,
+      "center": [21.82, 39.07],
+      "zoom": 5.2,
+      "pitch": 5,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 228,
+      "center": [21.82, 39.07],
+      "zoom": 5.2,
+      "pitch": 5,
+      "bearing": 0
+    },
+    {
+      "frame": 246,
+      "center": [90.0, 60.0],
+      "zoom": 2.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 285,
+      "center": [90.0, 60.0],
+      "zoom": 3.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 340,
+      "center": [90.0, 60.0],
+      "zoom": 3.0,
+      "pitch": 0,
+      "bearing": 0
+    },
+    {
+      "frame": 578,
+      "center": [90.35, 23.68],
+      "zoom": 2.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 638,
+      "center": [90.35, 23.68],
+      "zoom": 4.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 713,
+      "center": [89.5, 22.5],
+      "zoom": 5.5,
+      "pitch": 25,
+      "bearing": 0,
+      "easing": "quadOut"
+    },
+    {
+      "frame": 764,
+      "center": [89.5, 22.4],
+      "zoom": 5.6,
+      "pitch": 25,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 872,
+      "center": [90.0, 23.5],
+      "zoom": 5.0,
+      "pitch": 30,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1080,
+      "center": [90.0, 23.5],
+      "zoom": 6.0,
+      "pitch": 30,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1382,
+      "center": [90.0, 23.5],
+      "zoom": 7.0,
+      "pitch": 45,
+      "bearing": 45,
+      "easing": "quadInOut"
+    }
+  ],
+  "bangladeshReveal": {
+    "startFrame": 45,
+    "endFrame": 104,
+    "color": "#cc5500",
+    "maxOpacity": 0.6,
+    "centroid": [90.35, 23.68]
+  },
+  "greeceReveal": {
+    "startFrame": 185,
+    "endFrame": 207,
+    "color": "#003d99",
+    "maxOpacity": 0.3,
+    "centroid": [21.82, 39.07]
+  },
+  "bangladeshOnGreece": {
+    "startFrame": 201,
+    "endFrame": 220,
+    "bangladeshCentroid": [90.35, 23.68],
+    "greeceCentroid": [21.82, 39.07],
+    "color": "#cc5500",
+    "opacity": 0.72
+  },
+  "russiaReveal": {
+    "startFrame": 246,
+    "endFrame": 265,
+    "color": "#cc2200",
+    "maxOpacity": 0.55,
+    "centroid": [95.0, 62.0]
+  },
+  "bangladeshOnRussia": {
+    "baseStartFrame": 285,
+    "staggerFrames": 2,
+    "duration": 15,
+    "bangladeshCentroid": [90.3563, 23.685],
+    "targets": [
+      [45.0, 60.0],
+      [55.0, 62.0],
+      [65.0, 64.0],
+      [75.0, 61.0],
+      [85.0, 63.0],
+      [95.0, 65.0],
+      [105.0, 62.0],
+      [115.0, 64.0],
+      [125.0, 66.0],
+      [135.0, 63.0],
+      [145.0, 65.0],
+      [155.0, 62.0],
+      [165.0, 64.0]
+    ],
+    "color": "#cc5500",
+    "opacity": 0.8
+  },
+  "layerAnimations": {
+    "bangladesh-border-outer": [
+      { "frame": 11, "value": 0 },
+      { "frame": 40, "value": 0.35 }
+    ],
+    "bangladesh-border-mid": [
+      { "frame": 11, "value": 0 },
+      { "frame": 40, "value": 0.65 }
+    ],
+    "bangladesh-border-core": [
+      { "frame": 11, "value": 0 },
+      { "frame": 40, "value": 1.0 }
+    ],
+    "greece-border-outer": [
+      { "frame": 185, "value": 0 },
+      { "frame": 203, "value": 0.35 }
+    ],
+    "greece-border-mid": [
+      { "frame": 185, "value": 0 },
+      { "frame": 203, "value": 0.65 }
+    ],
+    "greece-border-core": [
+      { "frame": 185, "value": 0 },
+      { "frame": 203, "value": 1.0 }
+    ],
+    "russia-border-outer": [
+      { "frame": 246, "value": 0 },
+      { "frame": 260, "value": 0.35 }
+    ],
+    "russia-border-mid": [
+      { "frame": 246, "value": 0 },
+      { "frame": 260, "value": 0.65 }
+    ],
+    "russia-border-core": [
+      { "frame": 246, "value": 0 },
+      { "frame": 260, "value": 1.0 }
+    ]
+  },
+  "wordTimings": [
+    { "word": "This",        "fs": 0,   "fe": 8   },
+    { "word": "is",          "fs": 8,   "fe": 11  },
+    { "word": "Bangladesh,", "fs": 11,  "fe": 21  },
+    { "word": "one",         "fs": 37,  "fe": 43  },
+    { "word": "of",          "fs": 43,  "fe": 46  },
+    { "word": "the",         "fs": 46,  "fe": 48  },
+    { "word": "most",        "fs": 48,  "fe": 55  },
+    { "word": "densely",     "fs": 55,  "fe": 67  },
+    { "word": "populated",   "fs": 67,  "fe": 77  },
+    { "word": "countries",   "fs": 77,  "fe": 91  },
+    { "word": "on",          "fs": 91,  "fe": 97  },
+    { "word": "earth.",      "fs": 97,  "fe": 104 },
+    { "word": "But",         "fs": 133, "fe": 139 },
+    { "word": "how",         "fs": 139, "fe": 145 },
+    { "word": "can",         "fs": 145, "fe": 151 },
+    { "word": "a",           "fs": 151, "fe": 154 },
+    { "word": "country",     "fs": 154, "fe": 163 },
+    { "word": "smaller",     "fs": 163, "fe": 173 },
+    { "word": "than",        "fs": 173, "fe": 178 },
+    { "word": "Greece",      "fs": 178, "fe": 192 },
+    { "word": "have",        "fs": 192, "fe": 198 },
+    { "word": "a",           "fs": 198, "fe": 201 },
+    { "word": "population",  "fs": 201, "fe": 213 },
+    { "word": "larger",      "fs": 213, "fe": 221 },
+    { "word": "than",        "fs": 221, "fe": 224 },
+    { "word": "Russia?",     "fs": 224, "fe": 228 },
+    { "word": "Russia",      "fs": 246, "fe": 252 },
+    { "word": "is",          "fs": 252, "fe": 255 },
+    { "word": "the",         "fs": 255, "fe": 258 },
+    { "word": "largest",     "fs": 258, "fe": 267 },
+    { "word": "country",     "fs": 267, "fe": 274 },
+    { "word": "in",          "fs": 274, "fe": 277 },
+    { "word": "the",         "fs": 277, "fe": 280 },
+    { "word": "world.",      "fs": 280, "fe": 290 },
+    { "word": "Yet",         "fs": 392, "fe": 400 },
+    { "word": "Bangladesh",  "fs": 400, "fe": 415 },
+    { "word": "has",         "fs": 415, "fe": 420 },
+    { "word": "around",      "fs": 420, "fe": 430 },
+    { "word": "170",         "fs": 430, "fe": 445 },
+    { "word": "million",     "fs": 445, "fe": 460 },
+    { "word": "people,",     "fs": 460, "fe": 475 },
+    { "word": "while",       "fs": 480, "fe": 490 },
+    { "word": "Russia",      "fs": 490, "fe": 505 },
+    { "word": "has",         "fs": 505, "fe": 515 },
+    { "word": "around",      "fs": 515, "fe": 524 },
+    { "word": "145",         "fs": 524, "fe": 540 },
+    { "word": "million.",    "fs": 540, "fe": 562 },
+    { "word": "But",         "fs": 578, "fe": 585 },
+    { "word": "how?",        "fs": 585, "fe": 610 },
+    { "word": "Because",     "fs": 638, "fe": 648 },
+    { "word": "unlike",      "fs": 648, "fe": 656 },
+    { "word": "Russia,",     "fs": 656, "fe": 666 },
+    { "word": "much",        "fs": 666, "fe": 673 },
+    { "word": "of",          "fs": 673, "fe": 678 },
+    { "word": "Bangladesh",  "fs": 678, "fe": 688 },
+    { "word": "sits",        "fs": 688, "fe": 695 },
+    { "word": "on",          "fs": 695, "fe": 700 },
+    { "word": "the",         "fs": 700, "fe": 705 },
+    { "word": "fertile",     "fs": 705, "fe": 713 },
+    { "word": "Ganges",      "fs": 713, "fe": 725 },
+    { "word": "Brahmaputra", "fs": 725, "fe": 745 },
+    { "word": "Delta.",      "fs": 745, "fe": 764 },
+    { "word": "Every",       "fs": 770, "fe": 776 },
+    { "word": "year",        "fs": 776, "fe": 785 },
+    { "word": "rivers",      "fs": 791, "fe": 805 },
+    { "word": "deposit",     "fs": 805, "fe": 820 },
+    { "word": "And",         "fs": 1080, "fe": 1090 },
+    { "word": "because",     "fs": 1090, "fe": 1100 },
+    { "word": "most",        "fs": 1100, "fe": 1110 },
+    { "word": "of",          "fs": 1110, "fe": 1120 },
+    { "word": "the",         "fs": 1120, "fe": 1130 },
+    { "word": "country's",   "fs": 1130, "fe": 1150 },
+    { "word": "flat...",     "fs": 1150, "fe": 1200 },
+    { "word": "for",         "fs": 1250, "fe": 1265 },
+    { "word": "thousands",   "fs": 1265, "fe": 1280 },
+    { "word": "of",          "fs": 1280, "fe": 1290 },
+    { "word": "years",       "fs": 1290, "fe": 1300 },
+    { "word": "these",       "fs": 1300, "fe": 1310 },
+    { "word": "conditions",  "fs": 1310, "fe": 1320 },
+    { "word": "supported",   "fs": 1320, "fe": 1330 },
+    { "word": "huge",        "fs": 1330, "fe": 1346 },
+    { "word": "populations.", "fs": 1346, "fe": 1380 }
+  ],
+  "textOverlays": [
+    {
+      "type": "projected",
+      "text": "BANGLADESH",
+      "coords": [90.35, 23.68],
+      "fadeIn": [11, 30],
+      "fadeOut": [100, 104],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 28,
+        "color": "#ffffff",
+        "letterSpacing": "0.1em",
+        "textShadow": "0 0 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1)"
+      }
+    },
+    {
+      "type": "projected",
+      "text": "GREECE",
+      "subtext": "~132,000 km²",
+      "coords": [21.82, 37.0],
+      "fadeIn": [185, 197],
+      "fadeOut": [224, 228],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 24,
+        "color": "#ffffff",
+        "letterSpacing": "0.1em",
+        "textShadow": "0 0 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.8), 2px 2px 4px rgba(0,0,0,1)"
+      },
+      "subtextStyle": {
+        "fontFamily": "'Outfit', sans-serif",
+        "fontSize": 14,
+        "color": "rgba(255,255,255,0.75)",
+        "letterSpacing": "0.04em",
+        "textShadow": "0 0 8px rgba(0,0,0,0.9)"
+      }
+    },
+    {
+      "type": "projected",
+      "text": "BANGLADESH",
+      "subtext": "~148,000 km²  (fits inside!)",
+      "coords": [21.82, 42.0],
+      "fadeIn": [201, 213],
+      "fadeOut": [224, 228],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 22,
+        "color": "#ffffff",
+        "letterSpacing": "0.08em",
+        "textShadow": "0 0 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.8), 2px 2px 4px rgba(0,0,0,1)"
+      },
+      "subtextStyle": {
+        "fontFamily": "'Outfit', sans-serif",
+        "fontSize": 13,
+        "color": "rgba(255,255,255,0.75)",
+        "letterSpacing": "0.03em",
+        "textShadow": "0 0 8px rgba(0,0,0,0.9)"
+      }
+    },
+    {
+      "type": "projected",
+      "text": "RUSSIA",
+      "subtext": "~17.1M km²",
+      "coords": [95.0, 68.0],
+      "fadeIn": [246, 260],
+      "fadeOut": [330, 340],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 32,
+        "color": "#ffffff",
+        "letterSpacing": "0.15em",
+        "textShadow": "0 0 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.8), 2px 2px 4px rgba(0,0,0,1)"
+      },
+      "subtextStyle": {
+        "fontFamily": "'Outfit', sans-serif",
+        "fontSize": 18,
+        "color": "rgba(255,255,255,0.75)",
+        "letterSpacing": "0.04em",
+        "textShadow": "0 0 8px rgba(0,0,0,0.9)"
+      }
+    },
+    {
+      "type": "projected",
+      "text": "THOUSANDS OF YEARS",
+      "coords": [90.0, 25.0],
+      "fadeIn": [1250, 1265],
+      "textStyle": {
+        "fontFamily": "'Outfit', sans-serif",
+        "fontWeight": 800,
+        "fontSize": 35,
+        "color": "#ffffff",
+        "letterSpacing": "0.15em",
+        "textShadow": "0 0 20px rgba(0,0,0,1), 0 0 40px rgba(0,0,0,0.8), 2px 2px 4px rgba(0,0,0,1)"
+      }
+    },
+    {
+      "type": "projected",
+      "text": "170M PEOPLE",
+      "coords": [90.0, 23.0],
+      "fadeIn": [1330, 1346],
+      "textStyle": {
+        "fontFamily": "'Playfair Display', Georgia, serif",
+        "fontStyle": "italic",
+        "fontWeight": 700,
+        "fontSize": 45,
+        "color": "#ffffff",
+        "letterSpacing": "0.1em",
+        "textShadow": "0 0 20px rgba(255,100,0,0.9), 0 0 40px rgba(255,100,0,0.7), 2px 2px 4px rgba(0,0,0,1)"
+      }
+    }
+  ],
+  "emojiOverlay": {
+    "startFrame": 286,
+    "emoji": "😲",
+    "coords": [37.6173, 55.7558]
+  },
+  "emojiOverlay2": {
+    "startFrame": 585,
+    "emoji": "❓",
+    "coords": [90.35, 23.68]
+  },
+  "scene4": {
+    "startFrame": 392,
+    "endFrame": 562,
+    "bangladesh": {
+      "counterStartFrame": 430,
+      "counterDuration": 30,
+      "color": "#cc5500",
+      "population": 170
+    },
+    "russia": {
+      "counterStartFrame": 524,
+      "counterDuration": 30,
+      "color": "#cc2200",
+      "population": 145
+    }
+  },
+  "scene5": {
+    "startFrame": 578,
+    "endFrame": 638,
+    "pulseColor": "#ffffff"
+  },
+  "scene7": {
+    "startFrame": 638,
+    "endFrame": 764,
+    "color": "#00ff44",
+    "opacity": 0.55,
+    "centroid": [89.5, 22.5]
+  },
+  "scene8": {
+    "startFrame": 764,
+    "endFrame": 872,
+    "color": "#00ff44",
+    "opacity": 0.65
+  },
+  "scene9": {
+    "startFrame": 872,
+    "endFrame": 1080,
+    "color": "#c8a84b",
+    "opacity": 0.65
+  },
+  "scene10": {
+    "startFrame": 1080,
+    "endFrame": 1382,
+    "color": "#cc5500",
+    "opacity": 0.55
+  },
+  "emojiOverlay3": {
+    "startFrame": 745,
+    "emoji": "🌊",
+    "coords": [89.5, 22.5]
+  },
+  "emojiOverlay4": {
+    "startFrame": 834,
+    "emoji": "🌱",
+    "coords": [90.0, 23.5]
+  },
+  "weatherOverlay": {
+    "startFrame": 872,
+    "rainStartFrame": 938,
+    "sunStartFrame": 970,
+    "farmingStartFrame": 1035,
+    "coords": [90.0, 24.5]
+  },
+  "populationOverlay": {
+    "startFrame": 1265
+  }
+}

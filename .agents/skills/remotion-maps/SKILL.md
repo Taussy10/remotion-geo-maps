@@ -19,7 +19,7 @@ sources: {
   satellite: {
     type: "raster",
     tiles: [
-      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+      "https://wi.maptiles.arcgis.com/arcgis/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
     ],
     tileSize: 256,
     attribution: "Esri"

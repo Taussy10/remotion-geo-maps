@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 4836
+/***/ 633
 (__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -623,7 +623,7 @@ const korean_peninsula_namespaceObject = /*#__PURE__*/JSON.parse('{"type":"Featu
 ;// ./src/japan.json
 const japan_namespaceObject = /*#__PURE__*/JSON.parse('{"type":"FeatureCollection","features":[{"type":"Feature","id":"392","properties":{"name":"Japan"},"geometry":{"type":"MultiPolygon","coordinates":[[[[141.8828188281883,39.18161549046809],[140.96120961209613,38.17454312148554],[140.97560975609758,37.14208237345302],[140.60120601206012,36.343194712680315],[140.77400774007742,35.84219736609404],[140.2520025200252,35.138092987107925],[138.97398973989743,34.66756169538162],[137.21717217172176,34.606629585661665],[135.79155791557918,33.464152528412555],[135.1219512195122,33.84836333136893],[135.0787507875079,34.59647423404168],[133.33993339933403,34.37644161560851],[132.15552155521556,33.90421776527889],[130.98550985509854,33.885599620642225],[132.00072000720007,33.1493366281928],[131.3311133111331,31.450007790447472],[130.68670686706866,31.030253256821126],[130.20070200702008,31.417849176984163],[130.44910449104492,32.31998291256012],[129.81549815498158,32.61110299233323],[129.4086940869409,33.296589226682684],[130.35550355503557,33.604634892489116],[130.8775087750878,34.23257413432529],[131.88551885518854,34.75049706694489],[132.61632616326165,35.432598184087695],[134.6071460714607,35.73218105687745],[135.67635676356764,35.527381465874285],[136.7239672396724,37.30456799937289],[137.389973899739,36.827266473233266],[138.8587885878859,37.827568607802476],[139.4275942759428,38.21516452796551],[140.0540005400054,39.43888439817455],[139.88479884798846,40.56274331078701],[140.3060030600306,41.19576022843319],[141.3680136801368,41.37855655759304],[141.91521915219153,39.99235106146412],[141.8828188281883,39.18161549046809]]],[[[144.6116461164612,43.96140098627768],[145.32085320853207,44.38454063711069],[145.54405544055442,43.262374283101565],[144.06084060840607,42.988179789361794],[143.18243182431826,41.99464788920589],[141.61281612816128,42.67844156495204],[141.06561065610657,41.58504870719955],[139.9567995679957,41.56981567976956],[139.81639816398166,42.56334757992545],[140.31320313203133,43.33346174444151],[141.3788137881379,43.389316178351464],[141.67041670416705,44.77213655727371],[141.96921969219693,45.55071351480646],[143.1428314283143,44.50978997375725],[143.90963909639095,44.17466337029751],[144.6116461164612,43.96140098627768]]],[[[132.37152371523717,33.464152528412555],[132.92592925929262,34.05993315678543],[133.49473494734946,33.944839171758844],[133.9051390513905,34.36459370538519],[134.63954639546398,34.149638762762024],[134.76554765547655,33.80604936628562],[134.20394203942038,33.201805944896094],[133.7935379353794,33.52169952092585],[133.2787327873279,33.28981899226936],[133.0159301593016,32.70419371551648],[132.36432364323645,32.988543560876266],[132.37152371523717,33.464152528412555]]]]}}]}');
 ;// ./src/korea_storyboard.json
-const korea_storyboard_namespaceObject = /*#__PURE__*/JSON.parse('{"f0":[{"frame":0,"center":[118,34],"zoom":3},{"frame":30,"center":[118,34],"zoom":3},{"frame":90,"center":[127.5,37.5],"zoom":5.2},{"frame":150,"center":[127.5,37.5],"zoom":5.5},{"frame":210,"center":[127.5,37.5],"zoom":5.5},{"frame":270,"center":[127.8,37.2],"zoom":5.7},{"frame":360,"center":[127.8,37.2],"zoom":5.7},{"frame":420,"center":[127.5,38],"zoom":5.3},{"frame":510,"center":[127.5,38],"zoom":5.3},{"frame":600,"center":[127.5,38],"zoom":5.3},{"frame":660,"center":[127.5,37.5],"zoom":5.6},{"frame":780,"center":[127.5,37.5],"zoom":5.6},{"frame":900,"center":[127.5,37.5],"zoom":5.6},{"frame":970,"center":[132,36.5],"zoom":4.5,"easing":"quadInOut"},{"frame":1020,"center":[132,36.5],"zoom":4.5},{"frame":1060,"center":[137,36],"zoom":5,"easing":"quadInOut"},{"frame":1080,"center":[137,36],"zoom":5},{"frame":1140,"center":[131,36.5],"zoom":4.5,"easing":"quadInOut"},{"frame":1380,"center":[131,36.5],"zoom":4.5},{"frame":1430,"center":[125,35],"zoom":3.5,"easing":"quadInOut"},{"frame":1470,"center":[125,35],"zoom":3.5},{"frame":1530,"center":[125,35],"zoom":3.5},{"frame":1590,"center":[127.5,37.5],"zoom":5.2,"easing":"quadInOut"},{"frame":1710,"center":[127.5,37.5],"zoom":5.2},{"frame":1755,"center":[127.5,37.5],"zoom":4.8},{"frame":1890,"center":[127.5,37.5],"zoom":4.8},{"frame":1935,"center":[127.5,38.5],"zoom":5.4},{"frame":2010,"center":[127.5,38.5],"zoom":5.4}],"pq":{"korea-fill":[{"frame":90,"value":0},{"frame":130,"value":1},{"frame":355,"value":1},{"frame":365,"value":0}],"korea-border-outer":[{"frame":90,"value":0},{"frame":130,"value":0.35},{"frame":355,"value":0.35},{"frame":365,"value":0}],"korea-border-mid":[{"frame":90,"value":0},{"frame":130,"value":0.65},{"frame":355,"value":0.65},{"frame":365,"value":0}],"korea-border-core":[{"frame":95,"value":0},{"frame":130,"value":1},{"frame":355,"value":1},{"frame":365,"value":0}],"dmz-glow":[{"frame":370,"value":0},{"frame":400,"value":0.65},{"frame":600,"value":0.65},{"frame":630,"value":0}],"dmz-hint-line":[{"frame":365,"value":0},{"frame":400,"value":1},{"frame":600,"value":1},{"frame":630,"value":0}],"korea-gold-fill":[{"frame":630,"value":0},{"frame":660,"value":0.88},{"frame":900,"value":0.88},{"frame":940,"value":0}],"korea-conflict-fill":[{"frame":820,"value":0},{"frame":850,"value":0.45},{"frame":890,"value":0}],"japan-fill":[{"frame":960,"value":0},{"frame":1010,"value":0.55},{"frame":1020,"value":0.55},{"frame":1060,"value":0.55},{"frame":1470,"value":0.55},{"frame":1510,"value":0},{"frame":2010,"value":0}],"japan-border-core":[{"frame":965,"value":0},{"frame":1010,"value":1},{"frame":1470,"value":1},{"frame":1510,"value":0},{"frame":2010,"value":0}],"korea-occupied-fill":[{"frame":1140,"value":0},{"frame":1200,"value":0.55},{"frame":1530,"value":0.55},{"frame":1570,"value":0},{"frame":2010,"value":0}],"korea-occupied-border-core":[{"frame":1145,"value":0},{"frame":1200,"value":1},{"frame":1530,"value":1},{"frame":1570,"value":0},{"frame":2010,"value":0}],"korea-resistance-fill":[{"frame":1299,"value":0},{"frame":1300,"value":0},{"frame":1330,"value":0.35},{"frame":1370,"value":0},{"frame":1380,"value":0}],"korea-free-fill":[{"frame":1569,"value":0},{"frame":1570,"value":0},{"frame":1600,"value":0.4},{"frame":1650,"value":0.4},{"frame":1690,"value":0},{"frame":2010,"value":0}],"nk-red-fill":[{"frame":1919,"value":0},{"frame":1920,"value":0},{"frame":1970,"value":0.88},{"frame":2010,"value":0.88}],"nk-border-outer":[{"frame":1919,"value":0},{"frame":1920,"value":0},{"frame":1970,"value":0.35},{"frame":2010,"value":0.35}],"nk-border-mid":[{"frame":1919,"value":0},{"frame":1920,"value":0},{"frame":1970,"value":0.65},{"frame":2010,"value":0.65}],"nk-border-core":[{"frame":1924,"value":0},{"frame":1925,"value":0},{"frame":1970,"value":1},{"frame":2010,"value":1}]},"g4":[{"text":"Why are there 2 Koreas? 🇰🇷🇰🇵","fadeIn":[0,20],"fadeOut":[80,90],"style":{"bottom":250,"background":"rgba(0,0,0,0.55)","border":"1px solid rgba(255,255,255,0.12)","padding":"10px 32px"},"spanStyle":{"fontFamily":"\\"Arial Black\\", sans-serif","fontWeight":"900","fontSize":26}},{"text":"This is the Korean Peninsula.","fadeIn":[130,160],"fadeOut":[210,215],"style":{"bottom":250,"background":"rgba(0,0,0,0.55)","border":"1px solid rgba(255,255,255,0.12)","padding":"10px 32px"},"spanStyle":{"fontFamily":"\'Inter\', \'Helvetica Neue\', sans-serif","fontWeight":400,"fontSize":26}},{"text":"Home to over 75 million people.","fadeIn":[215,250],"fadeOut":[355,365],"style":{"bottom":280}},{"text":"But why are there two Koreas?","fadeIn":[365,400],"fadeOut":[510,515],"style":{"bottom":280}},{"text":"Well, the answer, as always, is history.","fadeIn":[515,545],"fadeOut":[600,605],"style":{"bottom":280}},{"text":"For centuries, Korea existed as a single kingdom.","fadeIn":[605,640],"fadeOut":[780,785],"style":{"bottom":280}},{"text":"But the peninsula remained united.","fadeIn":[785,820],"fadeOut":[900,905],"style":{"bottom":280}},{"text":"Then, another country showed up.","fadeIn":[905,940],"fadeOut":[1020,1022],"style":{"bottom":280}},{"text":"Japan.","fadeIn":[1022,1045],"fadeOut":[1080,1082],"style":{"bottom":280}},{"text":"Japan takes control of Korea.","fadeIn":[1085,1120],"fadeOut":[1260,1265],"style":{"bottom":280}},{"text":"The Koreans are not exactly thrilled. 😔","fadeIn":[1265,1300],"fadeOut":[1370,1380],"style":{"bottom":280}},{"text":"Then comes World War II. ⚔️","fadeIn":[1385,1420],"fadeOut":[1460,1470],"style":{"bottom":280}},{"text":"Japan loses.","fadeIn":[1475,1495],"fadeOut":[1525,1530],"style":{"bottom":280}},{"text":"Korea is finally free.","fadeIn":[1535,1565],"fadeOut":[1610,1620],"style":{"bottom":280}},{"text":"Great!","fadeIn":[1622,1630],"fadeOut":[1645,1650],"style":{"bottom":280}},{"text":"Well... not exactly.","fadeIn":[1655,1675],"fadeOut":[1700,1710],"style":{"bottom":280}},{"text":"The US and the Soviet Union arrive.","fadeIn":[1715,1740],"fadeOut":[1880,1890],"style":{"bottom":280}},{"text":"The Soviets move into the north.","fadeIn":[1895,1925],"fadeOut":[2000,2010],"style":{"bottom":280}}],"vu":[{"type":"projected","text":"Korean Peninsula","coords":[127.5,37],"fadeIn":[115,140],"fadeOut":[210,215],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":600,"fontSize":38,"textShadow":"0 2px 16px rgba(0,0,0,0.9)"}},{"type":"html","text":"75M+","subtitle":"people","fadeIn":[220,250],"fadeOut":[355,365],"style":{"left":"50%","top":"38%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontSize":52,"fontWeight":700,"lineHeight":1,"textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textTransform":"uppercase","marginTop":6,"textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"html","text":"1 History","subtitle":"shared","fadeIn":[245,275],"fadeOut":[355,365],"style":{"left":"50%","top":"48%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontSize":52,"fontWeight":700,"lineHeight":1,"textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textTransform":"uppercase","marginTop":6,"textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"html","text":"1 Language","subtitle":"한국어 · Korean","fadeIn":[270,300],"fadeOut":[355,365],"style":{"left":"50%","top":"58%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontSize":52,"fontWeight":700,"lineHeight":1,"textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textTransform":"uppercase","marginTop":6,"textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"projected","text":"?","coords":[127.5,37.5],"fadeIn":[380,410],"fadeOut":[510,540],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"textShadow":"0 2px 24px rgba(0,0,0,0.95)"}},{"type":"projected","text":"History","coords":[127.5,37.5],"fadeIn":[545,575],"fadeOut":[600,630],"hasDivider":true,"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":64,"letterSpacing":"0.06em","textTransform":"uppercase","textShadow":"0 2px 24px rgba(0,0,0,0.95)"}},{"type":"projected","text":"One Kingdom","subtitle":"centuries of unity","coords":[127.5,37.5],"fadeIn":[650,680],"fadeOut":[900,950],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":52,"textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.04em"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.75)","textShadow":"0 1px 8px rgba(0,0,0,0.9)","marginTop":8,"letterSpacing":"0.1em","textTransform":"uppercase"}},{"type":"projected","text":"North Korea","subtitle":"조선민주주의인민공화국","coords":[127.5,40.2],"fadeIn":[365,400],"fadeOut":[600,630],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":28,"color":"#ffffff","letterSpacing":"0.18em","textTransform":"uppercase","textShadow":"0 2px 12px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":18,"color":"rgba(255,255,255,0.65)","letterSpacing":"0.08em","textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"projected","text":"South Korea","subtitle":"대한민국","coords":[127.5,35.8],"fadeIn":[365,400],"fadeOut":[600,630],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":28,"color":"#ffffff","letterSpacing":"0.18em","textTransform":"uppercase","textShadow":"0 2px 12px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":18,"color":"rgba(255,255,255,0.65)","letterSpacing":"0.08em","textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"html","text":"Early 1900s","fadeIn":[950,985],"fadeOut":[1130,1140],"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":48,"color":"#ffffff","textShadow":"0 2px 20px rgba(0,0,0,0.95)","letterSpacing":"0.06em"}},{"type":"projected","text":"Occupied","subtitle":"1910–1945","coords":[127.5,37],"fadeIn":[1140,1180],"fadeOut":[1380,1410],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":48,"color":"#ffffff","textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":20,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textShadow":"0 1px 8px rgba(0,0,0,0.9)","marginTop":4}},{"id":"year-1939","type":"html","text":"1939","fadeIn":[1420,1455],"fadeOut":[1470,1500],"hasDivider":true,"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"wwii","type":"html","text":"World War II","fadeIn":[1430,1465],"fadeOut":[1470,1500],"style":{"top":"42%","left":"50%","transform":"translate(-50%, -50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":56,"color":"#ffffff","textShadow":"0 2px 28px rgba(0,0,0,0.95)","letterSpacing":"0.04em","textAlign":"center"}},{"id":"year-1945","type":"html","text":"1945","fadeIn":[1495,1525],"fadeOut":[1620,1630],"hasDivider":true,"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"free-label","type":"projected","text":"Free","coords":[127.5,37.5],"fadeIn":[1575,1610],"fadeOut":[1620,1640],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":64,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em"}},{"id":"great-label","type":"html","fadeIn":[1622,1640],"fadeOut":[1650,1670]},{"id":"not-exactly-label","type":"html","text":"Well... not exactly.","fadeIn":[1665,1700],"fadeOut":[1705,1710],"style":{"top":"45%","left":"50%","transform":"translate(-50%, -50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":64,"color":"#ffffff","textShadow":"0 2px 28px rgba(0,0,0,0.95)","letterSpacing":"0.04em","textAlign":"center"}},{"id":"usa-label","type":"projected","text":"USA","coords":[127.5,32.5],"fadeIn":[1800,1840],"fadeOut":[1890,1920],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":800,"fontSize":32,"color":"#0055ff","letterSpacing":"0.1em","textShadow":"0 2px 16px rgba(0,0,0,0.95)"}},{"id":"ussr-label","type":"projected","text":"USSR","coords":[127.5,43.5],"fadeIn":[1800,1840],"fadeOut":[1890,1920],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":800,"fontSize":32,"color":"#ff3333","letterSpacing":"0.1em","textShadow":"0 2px 16px rgba(0,0,0,0.95)"}},{"id":"soviet-zone-label","type":"projected","text":"Soviet Zone","coords":[127,40.5],"fadeIn":[1950,1985],"fadeOut":[2005,2010],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":28,"color":"#ff3333","letterSpacing":"0.12em","textTransform":"uppercase","textShadow":"0 2px 12px rgba(0,0,0,0.95)"}}]}');
+const korea_storyboard_namespaceObject = /*#__PURE__*/JSON.parse('{"f0":[{"frame":0,"center":[118,34],"zoom":3},{"frame":30,"center":[118,34],"zoom":3},{"frame":90,"center":[127.5,37.5],"zoom":5.2},{"frame":150,"center":[127.5,37.5],"zoom":5.5},{"frame":210,"center":[127.5,37.5],"zoom":5.5},{"frame":270,"center":[127.8,37.2],"zoom":5.7},{"frame":360,"center":[127.8,37.2],"zoom":5.7},{"frame":420,"center":[127.5,38],"zoom":5.3},{"frame":510,"center":[127.5,38],"zoom":5.3},{"frame":600,"center":[127.5,38],"zoom":5.3},{"frame":660,"center":[127.5,37.5],"zoom":5.6},{"frame":780,"center":[127.5,37.5],"zoom":5.6},{"frame":900,"center":[127.5,37.5],"zoom":5.6},{"frame":970,"center":[132,36.5],"zoom":4.5,"easing":"quadInOut"},{"frame":1020,"center":[132,36.5],"zoom":4.5},{"frame":1060,"center":[137,36],"zoom":5,"easing":"quadInOut"},{"frame":1080,"center":[137,36],"zoom":5},{"frame":1140,"center":[131,36.5],"zoom":4.5,"easing":"quadInOut"},{"frame":1380,"center":[131,36.5],"zoom":4.5},{"frame":1430,"center":[125,35],"zoom":3.5,"easing":"quadInOut"},{"frame":1470,"center":[125,35],"zoom":3.5},{"frame":1530,"center":[125,35],"zoom":3.5},{"frame":1590,"center":[127.5,37.5],"zoom":5.2,"easing":"quadInOut"},{"frame":1710,"center":[127.5,37.5],"zoom":5.2},{"frame":1755,"center":[127.5,37.5],"zoom":4.8},{"frame":1890,"center":[127.5,37.5],"zoom":4.8},{"frame":1935,"center":[127.5,38.5],"zoom":5.4},{"frame":2010,"center":[127.5,38.5],"zoom":5.4},{"frame":2055,"center":[127.5,36.5],"zoom":5.4,"easing":"quadInOut"},{"frame":2100,"center":[127.5,36.5],"zoom":5.4},{"frame":2130,"center":[127.5,36.5],"zoom":5.4},{"frame":2175,"center":[127.5,38],"zoom":6.5,"easing":"quadInOut"},{"frame":2640,"center":[127.5,38],"zoom":5.2},{"frame":2685,"center":[127,40],"zoom":5.8,"easing":"quadInOut"},{"frame":2730,"center":[127,40],"zoom":5.8},{"frame":2775,"center":[127.5,36],"zoom":5.8,"easing":"quadInOut"},{"frame":2820,"center":[127.5,36],"zoom":5.8},{"frame":2865,"center":[127.5,38],"zoom":5,"easing":"quadInOut"},{"frame":2910,"center":[127.5,38],"zoom":5},{"frame":2955,"center":[127.5,38],"zoom":5.6,"easing":"quadInOut"},{"frame":3030,"center":[127.5,38],"zoom":5.6},{"frame":3075,"center":[127.5,37.5],"zoom":5,"easing":"quadInOut"},{"frame":3120,"center":[127.5,37.5],"zoom":6.5},{"frame":3240,"center":[127.5,37.5],"zoom":6.5},{"frame":3390,"center":[127.5,37.5],"zoom":6.5},{"frame":3435,"center":[127.5,37.5],"zoom":4.8,"easing":"quadInOut"},{"frame":3510,"center":[127.5,37.5],"zoom":4.8},{"frame":3600,"center":[127.5,37.5],"zoom":4.8},{"frame":3645,"center":[127.5,38],"zoom":5.6,"easing":"quadInOut"},{"frame":3720,"center":[127.5,38],"zoom":5.6},{"frame":3750,"center":[127.5,37.5],"zoom":5,"easing":"quadInOut"},{"frame":3900,"center":[127.5,37.5],"zoom":5},{"frame":4020,"center":[127.5,35],"zoom":4,"easing":"quadInOut"},{"frame":4110,"center":[127.5,35],"zoom":4}],"pq":{"korea-fill":[{"frame":90,"value":0},{"frame":130,"value":1},{"frame":355,"value":1},{"frame":365,"value":0}],"korea-border-outer":[{"frame":90,"value":0},{"frame":130,"value":0.35},{"frame":355,"value":0.35},{"frame":365,"value":0}],"korea-border-mid":[{"frame":90,"value":0},{"frame":130,"value":0.65},{"frame":355,"value":0.65},{"frame":365,"value":0}],"korea-border-core":[{"frame":95,"value":0},{"frame":130,"value":1},{"frame":355,"value":1},{"frame":365,"value":0}],"dmz-glow":[{"frame":370,"value":0},{"frame":400,"value":0.65},{"frame":600,"value":0.65},{"frame":630,"value":0}],"dmz-hint-line":[{"frame":365,"value":0},{"frame":400,"value":1},{"frame":600,"value":1},{"frame":630,"value":0}],"korea-gold-fill":[{"frame":630,"value":0},{"frame":660,"value":0.88},{"frame":900,"value":0.88},{"frame":940,"value":0}],"korea-conflict-fill":[{"frame":820,"value":0},{"frame":850,"value":0.45},{"frame":890,"value":0},{"frame":3240,"value":0}],"japan-fill":[{"frame":960,"value":0},{"frame":1010,"value":0.55},{"frame":1020,"value":0.55},{"frame":1060,"value":0.55},{"frame":1470,"value":0.55},{"frame":1510,"value":0},{"frame":2010,"value":0}],"japan-border-core":[{"frame":965,"value":0},{"frame":1010,"value":1},{"frame":1470,"value":1},{"frame":1510,"value":0},{"frame":2010,"value":0}],"korea-occupied-fill":[{"frame":1140,"value":0},{"frame":1200,"value":0.55},{"frame":1530,"value":0.55},{"frame":1570,"value":0},{"frame":2010,"value":0}],"korea-occupied-border-core":[{"frame":1145,"value":0},{"frame":1200,"value":1},{"frame":1530,"value":1},{"frame":1570,"value":0},{"frame":2010,"value":0}],"korea-resistance-fill":[{"frame":1299,"value":0},{"frame":1300,"value":0},{"frame":1330,"value":0.35},{"frame":1370,"value":0},{"frame":1380,"value":0}],"korea-free-fill":[{"frame":1569,"value":0},{"frame":1570,"value":0},{"frame":1600,"value":0.4},{"frame":1650,"value":0.4},{"frame":1690,"value":0},{"frame":2010,"value":0}],"nk-red-fill":[{"frame":1919,"value":0},{"frame":1920,"value":0},{"frame":1970,"value":0.88},{"frame":3720,"value":0.88}],"nk-border-outer":[{"frame":1919,"value":0},{"frame":1920,"value":0},{"frame":1970,"value":0.35},{"frame":3720,"value":0.35}],"nk-border-mid":[{"frame":1919,"value":0},{"frame":1920,"value":0},{"frame":1970,"value":0.65},{"frame":3720,"value":0.65}],"nk-border-core":[{"frame":1924,"value":0},{"frame":1925,"value":0},{"frame":1970,"value":1},{"frame":3720,"value":1}],"sk-blue-fill":[{"frame":2039,"value":0},{"frame":2040,"value":0},{"frame":2090,"value":0.88},{"frame":3720,"value":0.88}],"sk-border-outer":[{"frame":2039,"value":0},{"frame":2040,"value":0},{"frame":2090,"value":0.35},{"frame":3720,"value":0.35}],"sk-border-mid":[{"frame":2039,"value":0},{"frame":2040,"value":0},{"frame":2090,"value":0.65},{"frame":3720,"value":0.65}],"sk-border-core":[{"frame":2044,"value":0},{"frame":2045,"value":0},{"frame":2090,"value":1},{"frame":3720,"value":1}]},"vu":[{"type":"projected","text":"Korean Peninsula","coords":[127.5,37],"fadeIn":[115,140],"fadeOut":[210,215],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":600,"fontSize":38,"textShadow":"0 2px 16px rgba(0,0,0,0.9)"}},{"type":"html","text":"75M+","subtitle":"people","fadeIn":[220,250],"fadeOut":[355,365],"style":{"left":"50%","top":"38%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontSize":52,"fontWeight":700,"lineHeight":1,"textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textTransform":"uppercase","marginTop":6,"textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"html","text":"1 History","subtitle":"shared","fadeIn":[245,275],"fadeOut":[355,365],"style":{"left":"50%","top":"48%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontSize":52,"fontWeight":700,"lineHeight":1,"textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textTransform":"uppercase","marginTop":6,"textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"html","text":"1 Language","subtitle":"한국어 · Korean","fadeIn":[270,300],"fadeOut":[355,365],"style":{"left":"50%","top":"58%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontSize":52,"fontWeight":700,"lineHeight":1,"textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textTransform":"uppercase","marginTop":6,"textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"projected","text":"?","coords":[127.5,37.5],"fadeIn":[380,410],"fadeOut":[510,540],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"textShadow":"0 2px 24px rgba(0,0,0,0.95)"}},{"type":"projected","text":"History","coords":[127.5,37.5],"fadeIn":[545,575],"fadeOut":[600,630],"hasDivider":true,"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":64,"letterSpacing":"0.06em","textTransform":"uppercase","textShadow":"0 2px 24px rgba(0,0,0,0.95)"}},{"type":"projected","text":"One Kingdom","subtitle":"centuries of unity","coords":[127.5,37.5],"fadeIn":[650,680],"fadeOut":[900,950],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":52,"textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.04em"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":22,"color":"rgba(255,255,255,0.75)","textShadow":"0 1px 8px rgba(0,0,0,0.9)","marginTop":8,"letterSpacing":"0.1em","textTransform":"uppercase"}},{"type":"projected","text":"North Korea","subtitle":"조선민주주의인민공화국","coords":[127.5,40.2],"fadeIn":[365,400],"fadeOut":[600,630],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":28,"color":"#ffffff","letterSpacing":"0.18em","textTransform":"uppercase","textShadow":"0 2px 12px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":18,"color":"rgba(255,255,255,0.65)","letterSpacing":"0.08em","textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"projected","text":"South Korea","subtitle":"대한민국","coords":[127.5,35.8],"fadeIn":[365,400],"fadeOut":[600,630],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":28,"color":"#ffffff","letterSpacing":"0.18em","textTransform":"uppercase","textShadow":"0 2px 12px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":18,"color":"rgba(255,255,255,0.65)","letterSpacing":"0.08em","textShadow":"0 1px 8px rgba(0,0,0,0.9)"}},{"type":"html","text":"Early 1900s","fadeIn":[950,985],"fadeOut":[1130,1140],"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":48,"color":"#ffffff","textShadow":"0 2px 20px rgba(0,0,0,0.95)","letterSpacing":"0.06em"}},{"type":"projected","text":"Occupied","subtitle":"1910–1945","coords":[127.5,37],"fadeIn":[1140,1180],"fadeOut":[1380,1410],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":48,"color":"#ffffff","textShadow":"0 2px 20px rgba(0,0,0,0.95)"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":400,"fontSize":20,"color":"rgba(255,255,255,0.80)","letterSpacing":"0.08em","textShadow":"0 1px 8px rgba(0,0,0,0.9)","marginTop":4}},{"id":"year-1939","type":"html","text":"1939","fadeIn":[1420,1455],"fadeOut":[1470,1500],"hasDivider":true,"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"wwii","type":"html","text":"World War II","fadeIn":[1430,1465],"fadeOut":[1470,1500],"style":{"top":"42%","left":"50%","transform":"translate(-50%, -50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":56,"color":"#ffffff","textShadow":"0 2px 28px rgba(0,0,0,0.95)","letterSpacing":"0.04em","textAlign":"center"}},{"id":"year-1945","type":"html","text":"1945","fadeIn":[1495,1525],"fadeOut":[1620,1630],"hasDivider":true,"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"free-label","type":"projected","text":"Free","coords":[127.5,37.5],"fadeIn":[1575,1610],"fadeOut":[1620,1640],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":64,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em"}},{"id":"great-label","type":"html","fadeIn":[1622,1640],"fadeOut":[1650,1670]},{"id":"not-exactly-label","type":"html","text":"Well... not exactly.","fadeIn":[1665,1700],"fadeOut":[1705,1710],"style":{"top":"45%","left":"50%","transform":"translate(-50%, -50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":64,"color":"#ffffff","textShadow":"0 2px 28px rgba(0,0,0,0.95)","letterSpacing":"0.04em","textAlign":"center"}},{"id":"usa-label","type":"projected","text":"USA","coords":[127.5,32.5],"fadeIn":[1800,1840],"fadeOut":[1890,1920],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":800,"fontSize":32,"color":"#0055ff","letterSpacing":"0.1em","textShadow":"0 2px 16px rgba(0,0,0,0.95)"}},{"id":"ussr-label","type":"projected","text":"USSR","coords":[127.5,43.5],"fadeIn":[1800,1840],"fadeOut":[1890,1920],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":800,"fontSize":32,"color":"#ff3333","letterSpacing":"0.1em","textShadow":"0 2px 16px rgba(0,0,0,0.95)"}},{"id":"soviet-zone-label","type":"projected","text":"Soviet Zone","coords":[127,40.5],"fadeIn":[1950,1985],"fadeOut":[2005,2010],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":28,"color":"#ff3333","letterSpacing":"0.12em","textTransform":"uppercase","textShadow":"0 2px 12px rgba(0,0,0,0.95)"}},{"id":"us-zone-label","type":"projected","text":"US Zone","coords":[127.5,35.8],"fadeIn":[2070,2105],"fadeOut":[2125,2130],"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":28,"color":"#0055ff","letterSpacing":"0.12em","textTransform":"uppercase","textShadow":"0 2px 12px rgba(0,0,0,0.95)"}},{"id":"thirty-eighth-label","type":"projected","text":"38th Parallel","coords":[130.8,38],"fadeIn":[2250,2285],"fadeOut":[2395,2400],"style":{"background":"rgba(0,0,0,0.7)","padding":"4px 12px","borderRadius":4,"border":"1px solid rgba(255,255,255,0.3)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":"bold","fontSize":20,"color":"#ffffff"}},{"id":"temporary-label","type":"projected","text":"temporary","coords":[127.5,38.2],"fadeIn":[2330,2365],"fadeOut":[2400,2420],"style":{"background":"rgba(0,0,0,0.6)","padding":"2px 8px","borderRadius":2,"border":"1px dashed rgba(255,255,255,0.4)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":"bold","fontSize":16,"color":"rgba(255,255,255,0.9)","letterSpacing":"0.1em","textTransform":"uppercase"}},{"id":"yeah-about-that-label","type":"html","fadeIn":[2415,2445],"fadeOut":[2460,2480]},{"id":"dprk-label","type":"projected","text":"DPRK","subtitle":"est. 1948","coords":[127,40],"fadeIn":[2670,2705],"fadeOut":[3020,3030],"style":{"background":"rgba(0,0,0,0.72)","backdropFilter":"blur(8px)","padding":"8px 20px","borderRadius":6,"border":"1px solid rgba(255, 34, 0, 0.4)","boxShadow":"0 4px 20px rgba(0,0,0,0.5)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":"bold","fontSize":24,"color":"#ffffff","letterSpacing":"0.15em"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":500,"fontSize":14,"color":"rgba(255,255,255,0.7)","marginTop":4,"letterSpacing":"0.08em"}},{"id":"year-1948","type":"html","text":"1948","fadeIn":[2670,2705],"fadeOut":[3030,3050],"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"rok-label","type":"projected","text":"Republic of Korea","subtitle":"est. 1948","coords":[127.5,36],"fadeIn":[2760,2795],"fadeOut":[3020,3030],"style":{"background":"rgba(0,0,0,0.72)","backdropFilter":"blur(8px)","padding":"8px 20px","borderRadius":6,"border":"1px solid rgba(0, 85, 255, 0.4)","boxShadow":"0 4px 20px rgba(0,0,0,0.5)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":"bold","fontSize":20,"color":"#ffffff","letterSpacing":"0.1em"},"subStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":500,"fontSize":14,"color":"rgba(255,255,255,0.7)","marginTop":4,"letterSpacing":"0.08em"}},{"id":"not-so-temporary-label","type":"projected","text":"not so temporary","coords":[127.5,38.3],"fadeIn":[2950,2985],"fadeOut":[3020,3030],"style":{"background":"rgba(0,0,0,0.72)","backdropFilter":"blur(8px)","padding":"4px 16px","borderRadius":4,"border":"1px dashed rgba(255, 255, 255, 0.4)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":"bold","fontSize":18,"color":"#ffffff","letterSpacing":"0.08em","textTransform":"uppercase"}},{"id":"year-1950","type":"html","text":"1950","fadeIn":[3055,3085],"fadeOut":[3525,3545],"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"korean-war-label","type":"html","fadeIn":[3270,3310],"fadeOut":[3380,3390]},{"id":"stalemate-label","type":"html","fadeIn":[3440,3475],"fadeOut":[3510,3530]},{"id":"year-1953","type":"html","text":"1953","fadeIn":[3530,3560],"fadeOut":[3690,3710],"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"ceasefire-label","type":"html","fadeIn":[3545,3575],"fadeOut":[3640,3660]},{"id":"dmz-label","type":"projected","text":"DMZ","coords":[127.5,38.1],"fadeIn":[3650,3685],"fadeOut":[3720,3730],"style":{"background":"rgba(0,0,0,0.75)","backdropFilter":"blur(8px)","padding":"4px 16px","borderRadius":4,"border":"1px solid rgba(255,255,255,0.5)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":800,"fontSize":18,"color":"#ffffff","letterSpacing":"0.2em"}},{"id":"year-today","type":"html","text":"Today.","fadeIn":[3730,3760],"fadeOut":[3890,3900],"style":{"top":80,"left":"50%","transform":"translateX(-50%)"},"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":72,"color":"#ffffff","textShadow":"0 2px 24px rgba(0,0,0,0.95)","letterSpacing":"0.06em","lineHeight":1}},{"id":"south-korea-final-label","type":"projected","text":"South Korea 🇰🇷","coords":[127.5,36.2],"fadeIn":[3760,3800],"fadeOut":[3890,3900],"style":{"background":"rgba(0,0,0,0.72)","backdropFilter":"blur(8px)","padding":"10px 24px","borderRadius":8,"border":"1px solid rgba(0,85,255,0.5)","boxShadow":"0 4px 20px rgba(0,0,0,0.5)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":22,"color":"#ffffff","letterSpacing":"0.06em"}},{"id":"north-korea-final-label","type":"projected","text":"North Korea 🇰🇵","coords":[127,40.2],"fadeIn":[3800,3840],"fadeOut":[3890,3900],"style":{"background":"rgba(0,0,0,0.72)","backdropFilter":"blur(8px)","padding":"10px 24px","borderRadius":8,"border":"1px solid rgba(255,34,0,0.5)","boxShadow":"0 4px 20px rgba(0,0,0,0.5)"},"textStyle":{"fontFamily":"\'Inter\', sans-serif","fontWeight":700,"fontSize":22,"color":"#ffffff","letterSpacing":"0.06em"}},{"id":"finale-text","type":"html","fadeIn":[3940,3975],"fadeOut":[4100,4110]}]}');
 ;// ./src/KoreaComposition.tsx
 
 
@@ -635,33 +635,70 @@ const korea_storyboard_namespaceObject = /*#__PURE__*/JSON.parse('{"f0":[{"frame
 
 
 
-const usArrowFeature = {
-  type: "Feature",
-  properties: {},
-  geometry: {
-    type: "LineString",
-    coordinates: [
-      [127.5, 28],
-      [127.5, 35.5]
-    ]
+function getNKInvasionArrowGeometry(progress) {
+  if (progress <= 1e-3) {
+    return {
+      type: "Feature",
+      properties: {},
+      geometry: { type: "Polygon", coordinates: [] }
+    };
   }
-};
-const ussrArrowFeature = {
-  type: "Feature",
-  properties: {},
-  geometry: {
-    type: "LineString",
-    coordinates: [
-      [127.5, 47],
-      [127.5, 40.5]
-    ]
+  const startLat = 38;
+  const endLat = 35;
+  const shaftEndLat = 36;
+  const currentLat = startLat - progress * (startLat - endLat);
+  if (currentLat >= shaftEndLat) {
+    return {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "Polygon",
+        coordinates: [[[127.43, startLat], [127.43, currentLat], [127.57, currentLat], [127.57, startLat], [127.43, startLat]]]
+      }
+    };
+  } else {
+    const scale = (shaftEndLat - currentLat) / (shaftEndLat - endLat);
+    const leftCornerX = 127.5 - scale * 0.35;
+    const rightCornerX = 127.5 + scale * 0.35;
+    return {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "Polygon",
+        coordinates: [[[127.43, startLat], [127.43, shaftEndLat], [leftCornerX, shaftEndLat], [127.5, currentLat], [rightCornerX, shaftEndLat], [127.57, shaftEndLat], [127.57, startLat], [127.43, startLat]]]
+      }
+    };
   }
+}
+const sanitizeGeom = (geom) => {
+  if (!geom || !geom.coordinates) return null;
+  const filterEmpty = (arr) => {
+    if (!Array.isArray(arr)) return arr;
+    if (arr.length > 0 && typeof arr[0] === "number") return arr;
+    return arr.map(filterEmpty).filter((child) => child.length > 0);
+  };
+  const cleanedCoords = filterEmpty(geom.coordinates);
+  if (cleanedCoords.length === 0) return null;
+  return { ...geom, coordinates: cleanedCoords };
 };
-const northKoreaGeoJSON = index_default(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  korean_peninsula_namespaceObject,
+const peninsulaGeo = korean_peninsula_namespaceObject;
+const rawNorthKoreaGeoJSON = index_default(
+  peninsulaGeo.features ? peninsulaGeo.features[0] : peninsulaGeo,
   [120, 38, 133, 44]
 );
+const northKoreaGeoJSON = {
+  ...rawNorthKoreaGeoJSON,
+  geometry: sanitizeGeom(rawNorthKoreaGeoJSON.geometry) || { type: "Polygon", coordinates: [] }
+};
+const rawSouthKoreaGeoJSON = index_default(
+  peninsulaGeo.features ? peninsulaGeo.features[0] : peninsulaGeo,
+  [120, 33, 133, 38]
+);
+const southKoreaGeoJSON = {
+  ...rawSouthKoreaGeoJSON,
+  geometry: sanitizeGeom(rawSouthKoreaGeoJSON.geometry) || { type: "Polygon", coordinates: [] }
+};
+const fullPeninsulaFeature = peninsulaGeo.features ? peninsulaGeo.features[0] : peninsulaGeo;
 const thirtyEighthParallel = {
   type: "Feature",
   properties: { name: "38th Parallel" },
@@ -730,6 +767,414 @@ function getLayerOpacity(frame, keyframes) {
   }
   return 0;
 }
+const emptyFeature = {
+  type: "Feature",
+  properties: {},
+  geometry: { type: "Polygon", coordinates: [] }
+};
+const USSRCoin = ({ size, style }) => {
+  return /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+    "div",
+    {
+      style: {
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        background: "radial-gradient(circle at 35% 35%, #d32f2f, #b71c1c 70%, #7f0000)",
+        border: "3.5px solid #eaeaea",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.5)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        ...style
+      },
+      children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "50%",
+              background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+              borderRadius: `${size}px ${size}px 0 0`,
+              pointerEvents: "none"
+            }
+          }
+        ),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "svg",
+          {
+            viewBox: "0 0 24 24",
+            style: {
+              width: "55%",
+              height: "55%",
+              fill: "#ffdd00",
+              filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.5))",
+              zIndex: 1
+            },
+            children: /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M12.012 3c-1.503 0-2.923.364-4.237 1.01l1.506 1.505a7.012 7.012 0 012.731-.515c3.547 0 6.49 2.656 6.941 6.096l2.022.613C20.354 7.202 16.593 3 12.012 3zm-2.42 2.233a7.013 7.013 0 00-4.077 5.253l2.03.35c.298-1.597 1.258-2.969 2.56-3.83L9.592 5.233zM12 9a2.99 2.99 0 00-1.898.679L7.414 6.992c.636-.632 1.488-.992 2.586-.992 2.206 0 4 1.794 4 4 0 1.098-.36 1.95-1 2.586L10.32 9.902A2.99 2.99 0 0012 9zm-3.87 2.018a3.013 3.013 0 00.35 1.562l-4.237 4.237-1.414-1.414 4.237-4.237c.307-.06.67-.148 1.064-.148zm5.291 1.797l1.414 1.414-6.364 6.364-1.414-1.414 6.364-6.364z" })
+          }
+        )
+      ]
+    }
+  );
+};
+const USACoin = ({ size, style }) => {
+  return /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+    "div",
+    {
+      style: {
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        background: "#ffffff",
+        border: "3.5px solid #eaeaea",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.65), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -4px 8px rgba(0, 0, 0, 0.5)",
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        flexDirection: "column",
+        ...style
+      },
+      children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              flexDirection: "column",
+              height: "100%"
+            },
+            children: Array.from({ length: 13 }).map((_, i) => /* @__PURE__ */ (0,jsx_runtime.jsx)(
+              "div",
+              {
+                style: {
+                  flex: 1,
+                  backgroundColor: i % 2 === 0 ? "#b22234" : "#ffffff",
+                  width: "100%"
+                }
+              },
+              i
+            ))
+          }
+        ),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "50%",
+              height: "53.85%",
+              backgroundColor: "#3c3b6e",
+              display: "grid",
+              gridTemplateColumns: "repeat(6, 1fr)",
+              gridTemplateRows: "repeat(5, 1fr)",
+              padding: "2px",
+              boxSizing: "border-box"
+            },
+            children: Array.from({ length: 30 }).map((_, i) => /* @__PURE__ */ (0,jsx_runtime.jsx)(
+              "div",
+              {
+                style: {
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                },
+                children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
+                  "div",
+                  {
+                    style: {
+                      width: "2.5px",
+                      height: "2.5px",
+                      backgroundColor: "#ffffff",
+                      borderRadius: "50%"
+                    }
+                  }
+                )
+              },
+              i
+            ))
+          }
+        ),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "50%",
+              background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+              borderRadius: `${size}px ${size}px 0 0`,
+              pointerEvents: "none"
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+const NKSoldierCoin = ({ size, style }) => {
+  return /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+    "div",
+    {
+      style: {
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        border: "3px solid #eaeaea",
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.6), inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.5)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        ...style
+      },
+      children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to bottom, #3e569c 15%, #ffffff 15%, #ffffff 18%, #c62828 18%, #c62828 82%, #ffffff 82%, #ffffff 85%, #3e569c 85%)",
+              display: "flex",
+              alignItems: "center",
+              pointerEvents: "none"
+            },
+            children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
+              "div",
+              {
+                style: {
+                  position: "absolute",
+                  left: "12%",
+                  width: "30%",
+                  height: "30%",
+                  borderRadius: "50%",
+                  backgroundColor: "#ffffff",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center"
+                },
+                children: /* @__PURE__ */ (0,jsx_runtime.jsx)("svg", { viewBox: "0 0 24 24", style: { width: "80%", height: "80%", fill: "#c62828" }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.4 8.168L12 18.896l-7.334 3.857 1.4-8.168L.132 9.21l8.2-1.192z" }) })
+              }
+            )
+          }
+        ),
+        /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+          "svg",
+          {
+            viewBox: "0 0 100 100",
+            style: {
+              width: "72%",
+              height: "72%",
+              zIndex: 2,
+              filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))",
+              pointerEvents: "none"
+            },
+            children: [
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 50,20 C 35,20 30,32 30,42 C 30,46 32,48 35,48 L 65,48 C 68,48 70,46 70,42 C 70,32 65,20 50,20 Z", fill: "#4d6e4b", stroke: "#2e422d", strokeWidth: "2" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 38,48 L 50,60 L 62,48", fill: "none", stroke: "#2e422d", strokeWidth: "2" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("circle", { cx: "50", cy: "20", r: "3", fill: "#ffdd00" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 36,48 C 36,60 42,65 50,65 C 58,65 64,60 64,48 Z", fill: "#ffcca3", stroke: "#2e422d", strokeWidth: "1.5" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 45,62 L 45,68 L 55,68 L 55,62 Z", fill: "#ffcca3", stroke: "#2e422d", strokeWidth: "1.5" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 22,85 C 22,72 32,68 50,68 C 68,68 78,72 78,85 L 78,95 L 22,95 Z", fill: "#3e593c", stroke: "#1f2d1e", strokeWidth: "2" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("rect", { x: "35", y: "76", width: "12", height: "14", rx: "2", fill: "#587c55", stroke: "#1f2d1e", strokeWidth: "1.5" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("rect", { x: "53", y: "76", width: "12", height: "14", rx: "2", fill: "#587c55", stroke: "#1f2d1e", strokeWidth: "1.5" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "50%",
+              background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+              borderRadius: `${size}px ${size}px 0 0`,
+              pointerEvents: "none",
+              zIndex: 3
+            }
+          }
+        )
+      ]
+    }
+  );
+};
+const SKSoldierCoin = ({ size, style }) => {
+  return /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+    "div",
+    {
+      style: {
+        width: size,
+        height: size,
+        borderRadius: "50%",
+        border: "3px solid #eaeaea",
+        boxShadow: "0 6px 12px rgba(0, 0, 0, 0.6), inset 0 2px 3px rgba(255, 255, 255, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.5)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+        overflow: "hidden",
+        ...style
+      },
+      children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "#ffffff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              pointerEvents: "none"
+            },
+            children: [
+              /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+                "div",
+                {
+                  style: {
+                    width: "45%",
+                    height: "45%",
+                    borderRadius: "50%",
+                    background: "linear-gradient(135deg, #c62828 50%, #1565c0 50%)",
+                    position: "relative",
+                    transform: "rotate(-30deg)"
+                  },
+                  children: [
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)(
+                      "div",
+                      {
+                        style: {
+                          position: "absolute",
+                          left: "25%",
+                          top: 0,
+                          width: "50%",
+                          height: "50%",
+                          borderRadius: "50%",
+                          backgroundColor: "#c62828"
+                        }
+                      }
+                    ),
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)(
+                      "div",
+                      {
+                        style: {
+                          position: "absolute",
+                          left: "25%",
+                          bottom: 0,
+                          width: "50%",
+                          height: "50%",
+                          borderRadius: "50%",
+                          backgroundColor: "#1565c0"
+                        }
+                      }
+                    )
+                  ]
+                }
+              ),
+              /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "absolute", inset: 0, pointerEvents: "none" }, children: [
+                /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "absolute", top: "18%", left: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(45deg)" }, children: [
+                  /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { height: "1.5px", backgroundColor: "#000000" } }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { height: "1.5px", backgroundColor: "#000000" } }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { height: "1.5px", backgroundColor: "#000000" } })
+                ] }),
+                /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "absolute", bottom: "18%", right: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(45deg)" }, children: [
+                  /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "2px" }, children: [
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } }),
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } })
+                  ] }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "2px" }, children: [
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } }),
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } })
+                  ] }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "2px" }, children: [
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } }),
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } })
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "absolute", top: "18%", right: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(-45deg)" }, children: [
+                  /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "2px" }, children: [
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } }),
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } })
+                  ] }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { height: "1.5px", backgroundColor: "#000000" } }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "2px" }, children: [
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } }),
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } })
+                  ] })
+                ] }),
+                /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { position: "absolute", bottom: "18%", left: "18%", width: "12px", height: "8px", display: "flex", flexDirection: "column", gap: "1.5px", transform: "rotate(-45deg)" }, children: [
+                  /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { height: "1.5px", backgroundColor: "#000000" } }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "2px" }, children: [
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } }),
+                    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { flex: 1, height: "1.5px", backgroundColor: "#000000" } })
+                  ] }),
+                  /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: { height: "1.5px", backgroundColor: "#000000" } })
+                ] })
+              ] })
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0,jsx_runtime.jsxs)(
+          "svg",
+          {
+            viewBox: "0 0 100 100",
+            style: {
+              width: "72%",
+              height: "72%",
+              zIndex: 2,
+              filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.5))",
+              pointerEvents: "none"
+            },
+            children: [
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 50,20 C 35,20 30,32 30,42 C 30,46 32,48 35,48 L 65,48 C 68,48 70,46 70,42 C 70,32 65,20 50,20 Z", fill: "#4d6e4b", stroke: "#2e422d", strokeWidth: "2" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 38,48 L 50,60 L 62,48", fill: "none", stroke: "#2e422d", strokeWidth: "2" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("circle", { cx: "50", cy: "20", r: "3", fill: "#ffdd00" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 36,48 C 36,60 42,65 50,65 C 58,65 64,60 64,48 Z", fill: "#ffcca3", stroke: "#2e422d", strokeWidth: "1.5" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 45,62 L 45,68 L 55,68 L 55,62 Z", fill: "#ffcca3", stroke: "#2e422d", strokeWidth: "1.5" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M 22,85 C 22,72 32,68 50,68 C 68,68 78,72 78,85 L 78,95 L 22,95 Z", fill: "#3e593c", stroke: "#1f2d1e", strokeWidth: "2" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("rect", { x: "35", y: "76", width: "12", height: "14", rx: "2", fill: "#587c55", stroke: "#1f2d1e", strokeWidth: "1.5" }),
+              /* @__PURE__ */ (0,jsx_runtime.jsx)("rect", { x: "53", y: "76", width: "12", height: "14", rx: "2", fill: "#587c55", stroke: "#1f2d1e", strokeWidth: "1.5" })
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "50%",
+              background: "linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%)",
+              borderRadius: `${size}px ${size}px 0 0`,
+              pointerEvents: "none",
+              zIndex: 3
+            }
+          }
+        )
+      ]
+    }
+  );
+};
 const KoreaComposition = () => {
   const ref = (0,react.useRef)(null);
   const { delayRender, continueRender } = (0,esm.useDelayRender)();
@@ -745,6 +1190,16 @@ const KoreaComposition = () => {
       style: {
         version: 8,
         sources: {
+          "nk-invasion-arrow-src": {
+            type: "geojson",
+            data: emptyFeature,
+            maxzoom: 22
+          },
+          "war-advance-src": {
+            type: "geojson",
+            data: emptyFeature,
+            maxzoom: 22
+          },
           satellite: {
             type: "raster",
             tiles: [
@@ -768,20 +1223,26 @@ const KoreaComposition = () => {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             data: thirtyEighthParallel
           },
-          "us-arrow-src": {
-            type: "geojson",
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            data: usArrowFeature
-          },
-          "ussr-arrow-src": {
-            type: "geojson",
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            data: ussrArrowFeature
-          },
           "north-korea-src": {
             type: "geojson",
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             data: northKoreaGeoJSON
+          },
+          "south-korea-src": {
+            type: "geojson",
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            data: southKoreaGeoJSON
+          },
+          "38th-line-src": {
+            type: "geojson",
+            data: {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "LineString",
+                coordinates: [[124.5, 38], [124.5, 38]]
+              }
+            }
           }
         },
         layers: [
@@ -819,7 +1280,7 @@ const KoreaComposition = () => {
             id: "japan-fill",
             type: "fill",
             source: "japan-src",
-            paint: { "fill-color": "#d35454", "fill-opacity": 0 }
+            paint: { "fill-color": "#cc2200", "fill-opacity": 0 }
           },
           // Japan Border — outer glow
           {
@@ -847,7 +1308,7 @@ const KoreaComposition = () => {
             id: "korea-occupied-fill",
             type: "fill",
             source: "korea-fill-src",
-            paint: { "fill-color": "#d35454", "fill-opacity": 0 }
+            paint: { "fill-color": "#cc2200", "fill-opacity": 0 }
           },
           // Korea occupied border — outer
           {
@@ -905,30 +1366,6 @@ const KoreaComposition = () => {
             source: "korea-fill-src",
             paint: { "line-color": "#ffffff", "line-width": 1.5, "line-blur": 0, "line-opacity": 0 }
           },
-          // US arrow
-          {
-            id: "us-arrow",
-            type: "line",
-            source: "us-arrow-src",
-            paint: {
-              "line-color": "#003d99",
-              "line-width": 4,
-              "line-opacity": 0,
-              "line-dasharray": [0, 1]
-            }
-          },
-          // USSR arrow
-          {
-            id: "ussr-arrow",
-            type: "line",
-            source: "ussr-arrow-src",
-            paint: {
-              "line-color": "#cc2200",
-              "line-width": 4,
-              "line-opacity": 0,
-              "line-dasharray": [0, 1]
-            }
-          },
           // NK red fill
           {
             id: "nk-red-fill",
@@ -957,6 +1394,34 @@ const KoreaComposition = () => {
             source: "north-korea-src",
             paint: { "line-color": "#ffffff", "line-width": 1.5, "line-blur": 0, "line-opacity": 0 }
           },
+          // SK blue fill
+          {
+            id: "sk-blue-fill",
+            type: "fill",
+            source: "south-korea-src",
+            paint: { "fill-color": "#0044cc", "fill-opacity": 0 }
+          },
+          // SK border outer
+          {
+            id: "sk-border-outer",
+            type: "line",
+            source: "south-korea-src",
+            paint: { "line-color": "#ffffff", "line-width": 10, "line-blur": 7, "line-opacity": 0 }
+          },
+          // SK border mid
+          {
+            id: "sk-border-mid",
+            type: "line",
+            source: "south-korea-src",
+            paint: { "line-color": "#ffffff", "line-width": 5, "line-blur": 3, "line-opacity": 0 }
+          },
+          // SK border core
+          {
+            id: "sk-border-core",
+            type: "line",
+            source: "south-korea-src",
+            paint: { "line-color": "#ffffff", "line-width": 1.5, "line-blur": 0, "line-opacity": 0 }
+          },
           // 38th Parallel — soft glow beneath the dashes
           {
             id: "dmz-glow",
@@ -980,6 +1445,44 @@ const KoreaComposition = () => {
               "line-dasharray": [8, 5],
               "line-opacity": 0
             }
+          },
+          // 38th Parallel line for trim-offset animation in Scene 20
+          {
+            id: "38th-line",
+            type: "line",
+            source: "38th-line-src",
+            paint: {
+              "line-color": "#ffffff",
+              "line-width": 3,
+              "line-dasharray": [6, 4],
+              "line-opacity": 0
+            }
+          },
+          // NK Invasion Arrow (Scene 29)
+          {
+            id: "nk-invasion-arrow",
+            type: "fill",
+            source: "nk-invasion-arrow-src",
+            paint: { "fill-color": "#ff2200", "fill-opacity": 0 }
+          },
+          {
+            id: "nk-invasion-arrow-border",
+            type: "line",
+            source: "nk-invasion-arrow-src",
+            paint: { "line-color": "#ffffff", "line-width": 1.5, "line-opacity": 0 }
+          },
+          // War-front advance fill (Scene 30 — paint the front line dynamically)
+          {
+            id: "war-advance-fill",
+            type: "fill",
+            source: "war-advance-src",
+            paint: { "fill-color": "#cc2200", "fill-opacity": 0 }
+          },
+          {
+            id: "war-advance-border",
+            type: "line",
+            source: "war-advance-src",
+            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 1, "line-opacity": 0 }
           }
         ]
       },
@@ -1008,58 +1511,378 @@ const KoreaComposition = () => {
       const prop = layerId.endsWith("-fill") ? "fill-opacity" : "line-opacity";
       map.setPaintProperty(layerId, prop, opacity);
     });
-    if (frame >= 1760 && frame <= 1890) {
-      const progress = (0,esm.interpolate)(frame, [1760, 1820], [0, 1], {
+    if (frame >= 2180) {
+      const trimEnd = (0,esm.interpolate)(frame, [2180, 2250], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
         easing: esm.Easing.out(esm.Easing.quad)
       });
-      map.setPaintProperty("us-arrow", "line-opacity", 1);
-      map.setPaintProperty("us-arrow", "line-dasharray", [progress * 10, (1 - progress) * 10]);
-      map.setPaintProperty("ussr-arrow", "line-opacity", 1);
-      map.setPaintProperty("ussr-arrow", "line-dasharray", [progress * 10, (1 - progress) * 10]);
+      const currentLng = 124.5 + trimEnd * 6;
+      map.getSource("38th-line-src").setData({
+        type: "Feature",
+        properties: {},
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [124.5, 38],
+            [currentLng, 38]
+          ]
+        }
+      });
+      map.setPaintProperty("38th-line", "line-opacity", 1);
     } else {
-      if (frame < 1760) {
-        map.setPaintProperty("us-arrow", "line-opacity", 0);
-        map.setPaintProperty("ussr-arrow", "line-opacity", 0);
-      } else if (frame > 1890) {
-        const ussrOpacity = (0,esm.interpolate)(frame, [1890, 1920], [1, 0], {
+      map.setPaintProperty("38th-line", "line-opacity", 0);
+    }
+    if (frame >= 2820) {
+      map.setPaintProperty("38th-line", "line-dasharray", [1, 0]);
+    } else {
+      map.setPaintProperty("38th-line", "line-dasharray", [6, 4]);
+    }
+    let thirtyEighthLineWidth = 3;
+    if (frame >= 2940) {
+      thirtyEighthLineWidth = (0,esm.interpolate)(frame, [2940, 3e3], [8, 12], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.inOut(esm.Easing.sin)
+      });
+    } else if (frame >= 2840) {
+      thirtyEighthLineWidth = (0,esm.interpolate)(frame, [2840, 2880], [6, 8], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+    } else if (frame >= 2500) {
+      thirtyEighthLineWidth = (0,esm.interpolate)(frame, [2500, 2580], [3, 6], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+    }
+    map.setPaintProperty("38th-line", "line-width", thirtyEighthLineWidth);
+    if (frame >= 2500) {
+      let nkPulse = 0.88;
+      if (frame >= 3060) {
+        nkPulse = (0,esm.interpolate)(frame, [3060, 3100], [0.88, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: esm.Easing.inOut(esm.Easing.sin)
+        });
+      } else {
+        nkPulse = (0,esm.interpolate)(frame, [2500, 2560], [0.88, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: esm.Easing.inOut(esm.Easing.sin)
+        });
+      }
+      map.setPaintProperty("nk-red-fill", "fill-opacity", nkPulse);
+      let skPulse = 0.88;
+      if (frame >= 3060) {
+        skPulse = (0,esm.interpolate)(frame, [3060, 3100], [0.88, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: esm.Easing.inOut(esm.Easing.sin)
+        });
+      } else {
+        skPulse = (0,esm.interpolate)(frame, [2500, 2560], [0.88, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: esm.Easing.inOut(esm.Easing.sin)
+        });
+      }
+      map.setPaintProperty("sk-blue-fill", "fill-opacity", skPulse);
+    }
+    if (frame >= 3720 && frame < 3900) {
+      map.setPaintProperty("nk-red-fill", "fill-opacity", 1);
+      map.setPaintProperty("sk-blue-fill", "fill-opacity", 1);
+      map.setPaintProperty("nk-red-fill", "fill-color", "#cc2200");
+      map.setPaintProperty("sk-blue-fill", "fill-color", "#0044cc");
+    }
+    if (frame >= 3900) {
+      const finaleFade = (0,esm.interpolate)(frame, [3900, 3940], [1, 0.75], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+      map.setPaintProperty("nk-red-fill", "fill-opacity", finaleFade);
+      map.setPaintProperty("sk-blue-fill", "fill-opacity", finaleFade);
+      map.setPaintProperty("nk-red-fill", "fill-color", "#cc2200");
+      map.setPaintProperty("sk-blue-fill", "fill-color", "#0044cc");
+    }
+    map.setPaintProperty("sk-blue-fill", "fill-color", "#0044cc");
+    const nkInvasionProgress = (0,esm.interpolate)(frame, [3125, 3210], [0, 1], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: esm.Easing.out(esm.Easing.quad)
+    });
+    map.getSource("nk-invasion-arrow-src").setData(getNKInvasionArrowGeometry(nkInvasionProgress));
+    const nkInvasionOpacity = (0,esm.interpolate)(frame, [3125, 3150, 3230, 3240], [0, 1, 1, 0], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+    map.setPaintProperty("nk-invasion-arrow", "fill-opacity", nkInvasionOpacity);
+    map.setPaintProperty("nk-invasion-arrow-border", "line-opacity", nkInvasionOpacity);
+    if (frame >= 3240 && frame <= 3390) {
+      let warFrontLat2;
+      if (frame <= 3272) {
+        warFrontLat2 = (0,esm.interpolate)(frame, [3240, 3272], [38, 36.3], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: esm.Easing.in(esm.Easing.quad)
+        });
+      } else if (frame <= 3305) {
+        warFrontLat2 = 36.3;
+      } else if (frame <= 3348) {
+        warFrontLat2 = (0,esm.interpolate)(frame, [3305, 3348], [36.3, 40.5], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: esm.Easing.out(esm.Easing.quad)
+        });
+      } else if (frame <= 3375) {
+        warFrontLat2 = (0,esm.interpolate)(frame, [3348, 3375], [40.5, 38.2], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: esm.Easing.inOut(esm.Easing.quad)
+        });
+      } else {
+        warFrontLat2 = (0,esm.interpolate)(frame, [3375, 3390], [38.2, 38], {
           extrapolateLeft: "clamp",
           extrapolateRight: "clamp"
         });
-        map.setPaintProperty("ussr-arrow", "line-opacity", ussrOpacity);
-        if (frame > 2010) {
-          const usOpacity = (0,esm.interpolate)(frame, [2010, 2040], [1, 0], {
-            extrapolateLeft: "clamp",
-            extrapolateRight: "clamp"
-          });
-          map.setPaintProperty("us-arrow", "line-opacity", usOpacity);
-        } else {
-          map.setPaintProperty("us-arrow", "line-opacity", 1);
-          map.setPaintProperty("us-arrow", "line-dasharray", [10, 0]);
-        }
       }
+      if (warFrontLat2 < 38) {
+        const rawFront = index_default(fullPeninsulaFeature, [120, warFrontLat2, 133, 38]);
+        const frontGeom = sanitizeGeom(rawFront.geometry);
+        const frontData = frontGeom ? { ...rawFront, geometry: frontGeom } : emptyFeature;
+        map.getSource("war-advance-src").setData(frontData);
+        map.setPaintProperty("war-advance-fill", "fill-color", "#dd1100");
+        map.setPaintProperty("war-advance-fill", "fill-opacity", 0.85);
+        map.setPaintProperty("war-advance-border", "line-opacity", 0.7);
+      } else {
+        const rawFront = index_default(fullPeninsulaFeature, [120, 38, 133, warFrontLat2]);
+        const frontGeom = sanitizeGeom(rawFront.geometry);
+        const frontData = frontGeom ? { ...rawFront, geometry: frontGeom } : emptyFeature;
+        map.getSource("war-advance-src").setData(frontData);
+        map.setPaintProperty("war-advance-fill", "fill-color", "#0055ff");
+        map.setPaintProperty("war-advance-fill", "fill-opacity", 0.8);
+        map.setPaintProperty("war-advance-border", "line-opacity", 0.6);
+      }
+      map.setPaintProperty("nk-red-fill", "fill-color", "#cc2200");
+      map.setPaintProperty("sk-blue-fill", "fill-color", "#0044cc");
+      map.setPaintProperty("korea-conflict-fill", "fill-opacity", 0);
+    } else {
+      if (frame > 3390) {
+        map.getSource("war-advance-src").setData(emptyFeature);
+        map.setPaintProperty("war-advance-fill", "fill-opacity", 0);
+        map.setPaintProperty("war-advance-border", "line-opacity", 0);
+        map.setPaintProperty("nk-red-fill", "fill-color", "#cc2200");
+        map.setPaintProperty("sk-blue-fill", "fill-color", "#0044cc");
+        map.setPaintProperty("korea-conflict-fill", "fill-opacity", 0);
+      }
+    }
+    if (frame >= 3600) {
+      map.setPaintProperty("38th-line", "line-color", "#ffffff");
+      map.setPaintProperty("38th-line", "line-width", 10);
+      map.setPaintProperty("38th-line", "line-opacity", 1);
+      map.setPaintProperty("38th-line", "line-dasharray", [1, 0]);
     }
     map.triggerRepaint();
   }, [frame, map, mapLoaded]);
-  const activeCaption = korea_storyboard_namespaceObject.g4.find(
-    (c) => frame >= c.fadeIn[0] && frame <= (c.fadeOut ? c.fadeOut[1] : 999999)
-  );
-  let captionOpacity = 0;
-  if (activeCaption) {
-    if (frame >= activeCaption.fadeIn[0] && frame <= activeCaption.fadeIn[1]) {
-      captionOpacity = (0,esm.interpolate)(frame, activeCaption.fadeIn, [0, 1], {
+  const isPlaneActive = frame >= 3035 && frame <= 3120;
+  let planePosition = { x: 0, y: 0 };
+  if (isPlaneActive && map) {
+    const planeLng = (0,esm.interpolate)(frame, [3035, 3120], [127, 129], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+    const planeLat = (0,esm.interpolate)(frame, [3035, 3120], [40.5, 34.5], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+    planePosition = map.project([planeLng, planeLat]);
+  }
+  const isPlane2Active = frame >= 3045 && frame <= 3130;
+  let plane2Position = { x: 0, y: 0 };
+  if (isPlane2Active && map) {
+    const plane2Lng = (0,esm.interpolate)(frame, [3045, 3130], [126.2, 128.2], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+    const plane2Lat = (0,esm.interpolate)(frame, [3045, 3130], [40.7, 34.7], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+    plane2Position = map.project([plane2Lng, plane2Lat]);
+  }
+  const isBomb1Active = frame >= 3060 && frame <= 3080;
+  let bomb1Position = { x: 0, y: 0 };
+  if (isBomb1Active && map) {
+    const startLng = (0,esm.interpolate)(3060, [3035, 3120], [127, 129]);
+    const startLat = (0,esm.interpolate)(3060, [3035, 3120], [40.5, 34.5]);
+    const targetLng = 127;
+    const targetLat = 37.5;
+    const currentLng = (0,esm.interpolate)(frame, [3060, 3080], [startLng, targetLng], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    const currentLat = (0,esm.interpolate)(frame, [3060, 3080], [startLat, targetLat], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    bomb1Position = map.project([currentLng, currentLat]);
+  }
+  const isBomb2Active = frame >= 3080 && frame <= 3100;
+  let bomb2Position = { x: 0, y: 0 };
+  if (isBomb2Active && map) {
+    const startLng = (0,esm.interpolate)(3080, [3035, 3120], [127, 129]);
+    const startLat = (0,esm.interpolate)(3080, [3035, 3120], [40.5, 34.5]);
+    const targetLng = 127.4;
+    const targetLat = 36.3;
+    const currentLng = (0,esm.interpolate)(frame, [3080, 3100], [startLng, targetLng], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    const currentLat = (0,esm.interpolate)(frame, [3080, 3100], [startLat, targetLat], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    bomb2Position = map.project([currentLng, currentLat]);
+  }
+  const isBomb3Active = frame >= 3100 && frame <= 3120;
+  let bomb3Position = { x: 0, y: 0 };
+  if (isBomb3Active && map) {
+    const startLng = (0,esm.interpolate)(3100, [3035, 3120], [127, 129]);
+    const startLat = (0,esm.interpolate)(3100, [3035, 3120], [40.5, 34.5]);
+    const targetLng = 128.6;
+    const targetLat = 35.8;
+    const currentLng = (0,esm.interpolate)(frame, [3100, 3120], [startLng, targetLng], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    const currentLat = (0,esm.interpolate)(frame, [3100, 3120], [startLat, targetLat], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    bomb3Position = map.project([currentLng, currentLat]);
+  }
+  const isExplosion1Active = frame >= 3080;
+  let explosion1Position = { x: 0, y: 0 };
+  let explosion1Scale = 0;
+  let explosion1Opacity = 0;
+  if (isExplosion1Active && map) {
+    explosion1Position = map.project([127, 37.5]);
+    explosion1Scale = (0,esm.interpolate)(frame, [3080, 3092, 3110], [0, 1.8, 1.2], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: esm.Easing.out(esm.Easing.quad)
+    });
+    if (frame > 3110) {
+      explosion1Scale += Math.sin((frame - 3110) * 0.4) * 0.08;
+    }
+    explosion1Opacity = (0,esm.interpolate)(frame, [3080, 3086, 3125, 3135], [0, 0.9, 0.8, 0], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+  }
+  const isExplosion2Active = frame >= 3100;
+  let explosion2Position = { x: 0, y: 0 };
+  let explosion2Scale = 0;
+  let explosion2Opacity = 0;
+  if (isExplosion2Active && map) {
+    explosion2Position = map.project([127.4, 36.3]);
+    explosion2Scale = (0,esm.interpolate)(frame, [3100, 3110, 3125], [0, 1.8, 1.2], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: esm.Easing.out(esm.Easing.quad)
+    });
+    if (frame > 3125) {
+      explosion2Scale += Math.sin((frame - 3125) * 0.4) * 0.08;
+    }
+    explosion2Opacity = (0,esm.interpolate)(frame, [3100, 3106, 3130, 3140], [0, 0.9, 0.8, 0], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+  }
+  const isExplosion3Active = frame >= 3120;
+  let explosion3Position = { x: 0, y: 0 };
+  let explosion3Scale = 0;
+  let explosion3Opacity = 0;
+  if (isExplosion3Active && map) {
+    explosion3Position = map.project([128.6, 35.8]);
+    explosion3Scale = (0,esm.interpolate)(frame, [3120, 3130, 3145], [0, 1.8, 1.2], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: esm.Easing.out(esm.Easing.quad)
+    });
+    if (frame > 3145) {
+      explosion3Scale += Math.sin((frame - 3145) * 0.4) * 0.08;
+    }
+    explosion3Opacity = (0,esm.interpolate)(frame, [3120, 3126, 3145, 3155], [0, 0.9, 0.8, 0], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp"
+    });
+  }
+  const ussrCoin1Active = frame >= 1740 && frame <= 1920;
+  const ussrCoin2Active = frame >= 1740 && frame <= 1920;
+  const usaCoin1Active = frame >= 1740 && frame <= 2060;
+  const usaCoin2Active = frame >= 1740 && frame <= 2060;
+  const usaCoin3Active = frame >= 1740 && frame <= 2060;
+  const ussrCoin1Lng = (0,esm.interpolate)(frame, [1760, 1820], [125, 126.5], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const ussrCoin1Lat = (0,esm.interpolate)(frame, [1760, 1820], [46, 40.5], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const ussrCoin1Opacity = (0,esm.interpolate)(frame, [1740, 1760, 1890, 1920], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const ussrCoin2Lng = (0,esm.interpolate)(frame, [1760, 1820], [130, 128.5], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const ussrCoin2Lat = (0,esm.interpolate)(frame, [1760, 1820], [46, 41.5], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const ussrCoin2Opacity = (0,esm.interpolate)(frame, [1740, 1760, 1890, 1920], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin1Lng = (0,esm.interpolate)(frame, [1760, 1820], [127.5, 127.5], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin1Lat = (0,esm.interpolate)(frame, [1760, 1820], [29, 35.5], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin1Opacity = (0,esm.interpolate)(frame, [1740, 1760, 2030, 2060], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin2Lng = (0,esm.interpolate)(frame, [1760, 1820], [131, 129], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin2Lat = (0,esm.interpolate)(frame, [1760, 1820], [29.5, 36], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin2Opacity = (0,esm.interpolate)(frame, [1740, 1760, 2030, 2060], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin3Lng = (0,esm.interpolate)(frame, [1760, 1820], [134.5, 127], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin3Lat = (0,esm.interpolate)(frame, [1760, 1820], [30, 37.5], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const usaCoin3Opacity = (0,esm.interpolate)(frame, [1740, 1760, 2030, 2060], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  let ussrCoin1Pos = { x: 0, y: 0 };
+  let ussrCoin2Pos = { x: 0, y: 0 };
+  let usaCoin1Pos = { x: 0, y: 0 };
+  let usaCoin2Pos = { x: 0, y: 0 };
+  let usaCoin3Pos = { x: 0, y: 0 };
+  if (map) {
+    if (ussrCoin1Active) ussrCoin1Pos = map.project([ussrCoin1Lng, ussrCoin1Lat]);
+    if (ussrCoin2Active) ussrCoin2Pos = map.project([ussrCoin2Lng, ussrCoin2Lat]);
+    if (usaCoin1Active) usaCoin1Pos = map.project([usaCoin1Lng, usaCoin1Lat]);
+    if (usaCoin2Active) usaCoin2Pos = map.project([usaCoin2Lng, usaCoin2Lat]);
+    if (usaCoin3Active) usaCoin3Pos = map.project([usaCoin3Lng, usaCoin3Lat]);
+  }
+  const soldierCoinsActive = frame >= 3240 && frame <= 3390;
+  const soldierCoinOpacity = (0,esm.interpolate)(frame, [3240, 3260, 3370, 3390], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp"
+  });
+  let warFrontLat = 38;
+  if (soldierCoinsActive) {
+    if (frame <= 3272) {
+      warFrontLat = (0,esm.interpolate)(frame, [3240, 3272], [38, 36.3], {
         extrapolateLeft: "clamp",
-        extrapolateRight: "clamp"
+        extrapolateRight: "clamp",
+        easing: esm.Easing.in(esm.Easing.quad)
       });
-    } else if (activeCaption.fadeOut && frame >= activeCaption.fadeOut[0] && frame <= activeCaption.fadeOut[1]) {
-      captionOpacity = (0,esm.interpolate)(frame, activeCaption.fadeOut, [1, 0], {
+    } else if (frame <= 3305) {
+      warFrontLat = 36.3;
+    } else if (frame <= 3348) {
+      warFrontLat = (0,esm.interpolate)(frame, [3305, 3348], [36.3, 40.5], {
         extrapolateLeft: "clamp",
-        extrapolateRight: "clamp"
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.quad)
+      });
+    } else if (frame <= 3375) {
+      warFrontLat = (0,esm.interpolate)(frame, [3348, 3375], [40.5, 38.2], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.inOut(esm.Easing.quad)
       });
     } else {
-      captionOpacity = 1;
+      warFrontLat = (0,esm.interpolate)(frame, [3375, 3390], [38.2, 38], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
     }
+  }
+  const nkSoldier1Lng = 126.6;
+  const nkSoldier1Lat = warFrontLat + 0.6;
+  const nkSoldier2Lng = 128.2;
+  const nkSoldier2Lat = warFrontLat + 0.8;
+  const skSoldier1Lng = 126.8;
+  const skSoldier1Lat = warFrontLat - 0.6;
+  const skSoldier2Lng = 128;
+  const skSoldier2Lat = warFrontLat - 0.8;
+  let nkSoldier1Pos = { x: 0, y: 0 };
+  let nkSoldier2Pos = { x: 0, y: 0 };
+  let skSoldier1Pos = { x: 0, y: 0 };
+  let skSoldier2Pos = { x: 0, y: 0 };
+  if (map && soldierCoinsActive) {
+    nkSoldier1Pos = map.project([nkSoldier1Lng, nkSoldier1Lat]);
+    nkSoldier2Pos = map.project([nkSoldier2Lng, nkSoldier2Lat]);
+    skSoldier1Pos = map.project([skSoldier1Lng, skSoldier1Lat]);
+    skSoldier2Pos = map.project([skSoldier2Lng, skSoldier2Lat]);
   }
   const renderedOverlays = korea_storyboard_namespaceObject.vu.map((overlay, index) => {
     const isVisible = frame >= overlay.fadeIn[0] && frame <= (overlay.fadeOut ? overlay.fadeOut[1] : 999999);
@@ -1113,13 +1936,245 @@ const KoreaComposition = () => {
         index
       );
     }
+    if ("id" in overlay && overlay.id === "yeah-about-that-label") {
+      const yeahScale = (0,esm.interpolate)(frame, [2415, 2445], [0.7, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.back(1.2))
+      });
+      return /* @__PURE__ */ (0,jsx_runtime.jsx)(
+        "div",
+        {
+          style: {
+            position: "absolute",
+            top: "42%",
+            left: "50%",
+            transform: `translate(-50%, -50%) scale(${yeahScale})`,
+            opacity,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            pointerEvents: "none",
+            zIndex: 15
+          },
+          children: /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontStyle: "italic",
+            fontWeight: 700,
+            fontSize: 64,
+            color: "#ffffff",
+            textShadow: "0 2px 28px rgba(0,0,0,0.95)",
+            letterSpacing: "0.04em",
+            textAlign: "center"
+          }, children: "Yeah... about that." })
+        },
+        index
+      );
+    }
+    if ("id" in overlay && overlay.id === "korean-war-label") {
+      const warScale = (0,esm.interpolate)(frame, [3270, 3310], [0.7, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.back(1.2))
+      });
+      return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: {
+        position: "absolute",
+        top: "38%",
+        left: "50%",
+        transform: `translate(-50%, -50%) scale(${warScale})`,
+        opacity,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        pointerEvents: "none",
+        zIndex: 15
+      }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 700,
+          fontSize: 72,
+          color: "#ffffff",
+          textShadow: "0 2px 28px rgba(0,0,0,0.95)",
+          letterSpacing: "0.04em",
+          textAlign: "center"
+        }, children: "Korean War" }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+          fontFamily: "'Inter', sans-serif",
+          fontWeight: 400,
+          fontSize: 28,
+          color: "rgba(255,255,255,0.75)",
+          letterSpacing: "0.12em",
+          marginTop: 10,
+          textShadow: "0 1px 8px rgba(0,0,0,0.9)"
+        }, children: "1950 \u2013 1953" })
+      ] }, index);
+    }
+    if ("id" in overlay && overlay.id === "stalemate-label") {
+      const stalemateScale = (0,esm.interpolate)(frame, [3440, 3475], [0.8, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.back(1.2))
+      });
+      return /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: {
+        position: "absolute",
+        top: "40%",
+        left: "50%",
+        transform: `translate(-50%, -50%) scale(${stalemateScale})`,
+        opacity,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        pointerEvents: "none",
+        zIndex: 15
+      }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+        fontFamily: "'Playfair Display', Georgia, serif",
+        fontStyle: "italic",
+        fontWeight: 700,
+        fontSize: 72,
+        color: "#ffffff",
+        textShadow: "0 0 40px rgba(255,255,255,0.55), 0 0 18px rgba(255,255,255,0.3), 0 2px 24px rgba(0,0,0,0.95)",
+        letterSpacing: "0.04em",
+        textAlign: "center"
+      }, children: "Stalemate" }) }, index);
+    }
+    if ("id" in overlay && overlay.id === "ceasefire-label") {
+      const ceasefireScale = (0,esm.interpolate)(frame, [3545, 3575], [0.8, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.back(1.2))
+      });
+      return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: {
+        position: "absolute",
+        top: "40%",
+        left: "50%",
+        transform: `translate(-50%, -50%) scale(${ceasefireScale})`,
+        opacity,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        pointerEvents: "none",
+        zIndex: 15
+      }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 700,
+          fontSize: 72,
+          color: "#ffffff",
+          textShadow: "0 0 40px rgba(255,255,255,0.55), 0 0 18px rgba(255,255,255,0.3), 0 2px 24px rgba(0,0,0,0.95)",
+          letterSpacing: "0.04em",
+          textAlign: "center"
+        }, children: "Ceasefire" }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+          fontFamily: "'Inter', sans-serif",
+          fontWeight: 400,
+          fontSize: 28,
+          color: "rgba(255,255,255,0.70)",
+          letterSpacing: "0.14em",
+          marginTop: 12,
+          textShadow: "0 0 16px rgba(255,255,255,0.4), 0 1px 8px rgba(0,0,0,0.9)"
+        }, children: "July 27, 1953" })
+      ] }, index);
+    }
+    if ("id" in overlay && overlay.id === "finale-text") {
+      const line1Opacity = (0,esm.interpolate)(frame, [3940, 3975], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+      const line2Opacity = (0,esm.interpolate)(frame, [3975, 4010], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+      const line3Opacity = (0,esm.interpolate)(frame, [4010, 4050], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+      const line1Y = (0,esm.interpolate)(frame, [3940, 3975], [18, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.quad)
+      });
+      const line2Y = (0,esm.interpolate)(frame, [3975, 4010], [18, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.quad)
+      });
+      const line3Y = (0,esm.interpolate)(frame, [4010, 4050], [18, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: esm.Easing.out(esm.Easing.quad)
+      });
+      return /* @__PURE__ */ (0,jsx_runtime.jsxs)("div", { style: {
+        position: "absolute",
+        top: "38%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        opacity,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 18,
+        pointerEvents: "none",
+        zIndex: 20
+      }, children: [
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: {
+          opacity: line1Opacity,
+          transform: `translateY(${line1Y}px)`
+        }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 700,
+          fontSize: 58,
+          color: "#ffffff",
+          textShadow: "0 0 30px rgba(255,255,255,0.3), 0 2px 24px rgba(0,0,0,0.95)",
+          letterSpacing: "0.04em",
+          display: "block",
+          textAlign: "center"
+        }, children: "One Peninsula." }) }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: {
+          opacity: line2Opacity,
+          transform: `translateY(${line2Y}px)`
+        }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 700,
+          fontSize: 58,
+          color: "#ffffff",
+          textShadow: "0 0 30px rgba(255,255,255,0.3), 0 2px 24px rgba(0,0,0,0.95)",
+          letterSpacing: "0.04em",
+          display: "block",
+          textAlign: "center"
+        }, children: "One People." }) }),
+        /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { style: {
+          opacity: line3Opacity,
+          transform: `translateY(${line3Y}px)`
+        }, children: /* @__PURE__ */ (0,jsx_runtime.jsx)("span", { style: {
+          fontFamily: "'Playfair Display', Georgia, serif",
+          fontStyle: "italic",
+          fontWeight: 700,
+          fontSize: 58,
+          background: "linear-gradient(90deg, #0044cc 0%, #ffffff 45%, #cc2200 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          textShadow: "none",
+          filter: "drop-shadow(0 2px 20px rgba(0,0,0,0.85))",
+          letterSpacing: "0.04em",
+          display: "block",
+          textAlign: "center"
+        }, children: "Two Nations. \u{1F1F0}\u{1F1F7}\u{1F1F0}\u{1F1F5}" }) })
+      ] }, index);
+    }
     let positionStyle = {};
     if (overlay.type === "projected" && "coords" in overlay) {
       const pt = map ? map.project(overlay.coords) : { x: 0, y: 0 };
       positionStyle = {
         left: pt.x,
         top: pt.y,
-        transform: "translate(-50%, -50%)"
+        transform: "translate(-50%, -50%)",
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        ...overlay.style
       };
     } else if (overlay.type === "html" && "style" in overlay) {
       positionStyle = overlay.style;
@@ -1186,6 +2241,309 @@ const KoreaComposition = () => {
   return /* @__PURE__ */ (0,jsx_runtime.jsxs)(esm.AbsoluteFill, { style: { backgroundColor: "#000" }, children: [
     /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { ref, style: { width, height, position: "absolute" } }),
     renderedOverlays,
+    map && ussrCoin1Active && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      USSRCoin,
+      {
+        size: 70,
+        style: {
+          position: "absolute",
+          left: ussrCoin1Pos.x,
+          top: ussrCoin1Pos.y,
+          transform: "translate(-50%, -50%)",
+          opacity: ussrCoin1Opacity,
+          zIndex: 18,
+          pointerEvents: "none"
+        }
+      }
+    ),
+    map && ussrCoin2Active && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      USSRCoin,
+      {
+        size: 70,
+        style: {
+          position: "absolute",
+          left: ussrCoin2Pos.x,
+          top: ussrCoin2Pos.y,
+          transform: "translate(-50%, -50%)",
+          opacity: ussrCoin2Opacity,
+          zIndex: 18,
+          pointerEvents: "none"
+        }
+      }
+    ),
+    map && usaCoin1Active && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      USACoin,
+      {
+        size: 70,
+        style: {
+          position: "absolute",
+          left: usaCoin1Pos.x,
+          top: usaCoin1Pos.y,
+          transform: "translate(-50%, -50%)",
+          opacity: usaCoin1Opacity,
+          zIndex: 18,
+          pointerEvents: "none"
+        }
+      }
+    ),
+    map && usaCoin2Active && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      USACoin,
+      {
+        size: 70,
+        style: {
+          position: "absolute",
+          left: usaCoin2Pos.x,
+          top: usaCoin2Pos.y,
+          transform: "translate(-50%, -50%)",
+          opacity: usaCoin2Opacity,
+          zIndex: 18,
+          pointerEvents: "none"
+        }
+      }
+    ),
+    map && usaCoin3Active && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      USACoin,
+      {
+        size: 70,
+        style: {
+          position: "absolute",
+          left: usaCoin3Pos.x,
+          top: usaCoin3Pos.y,
+          transform: "translate(-50%, -50%)",
+          opacity: usaCoin3Opacity,
+          zIndex: 18,
+          pointerEvents: "none"
+        }
+      }
+    ),
+    map && soldierCoinsActive && /* @__PURE__ */ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [
+      /* @__PURE__ */ (0,jsx_runtime.jsx)(
+        NKSoldierCoin,
+        {
+          size: 60,
+          style: {
+            position: "absolute",
+            left: nkSoldier1Pos.x,
+            top: nkSoldier1Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: soldierCoinOpacity,
+            zIndex: 18,
+            pointerEvents: "none"
+          }
+        }
+      ),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)(
+        NKSoldierCoin,
+        {
+          size: 60,
+          style: {
+            position: "absolute",
+            left: nkSoldier2Pos.x,
+            top: nkSoldier2Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: soldierCoinOpacity,
+            zIndex: 18,
+            pointerEvents: "none"
+          }
+        }
+      ),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)(
+        SKSoldierCoin,
+        {
+          size: 60,
+          style: {
+            position: "absolute",
+            left: skSoldier1Pos.x,
+            top: skSoldier1Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: soldierCoinOpacity,
+            zIndex: 18,
+            pointerEvents: "none"
+          }
+        }
+      ),
+      /* @__PURE__ */ (0,jsx_runtime.jsx)(
+        SKSoldierCoin,
+        {
+          size: 60,
+          style: {
+            position: "absolute",
+            left: skSoldier2Pos.x,
+            top: skSoldier2Pos.y,
+            transform: "translate(-50%, -50%)",
+            opacity: soldierCoinOpacity,
+            zIndex: 18,
+            pointerEvents: "none"
+          }
+        }
+      )
+    ] }),
+    isPlaneActive && planePosition && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: planePosition.x,
+          top: planePosition.y,
+          transform: "translate(-50%, -50%) rotate(172deg)",
+          zIndex: 18,
+          pointerEvents: "none"
+        },
+        children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "svg",
+          {
+            width: "48",
+            height: "48",
+            viewBox: "0 0 24 24",
+            fill: "#121212",
+            style: {
+              filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.75))"
+            },
+            children: /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" })
+          }
+        )
+      }
+    ),
+    isPlane2Active && plane2Position && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: plane2Position.x,
+          top: plane2Position.y,
+          transform: "translate(-50%, -50%) rotate(172deg)",
+          zIndex: 18,
+          pointerEvents: "none"
+        },
+        children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "svg",
+          {
+            width: "48",
+            height: "48",
+            viewBox: "0 0 24 24",
+            fill: "#1c1c1c",
+            style: {
+              filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.65))"
+            },
+            children: /* @__PURE__ */ (0,jsx_runtime.jsx)("path", { d: "M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" })
+          }
+        )
+      }
+    ),
+    isBomb1Active && bomb1Position && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: bomb1Position.x,
+          top: bomb1Position.y,
+          transform: `translate(-50%, -50%) scale(${(0,esm.interpolate)(frame, [3060, 3080], [1.3, 0.4], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`,
+          zIndex: 17,
+          pointerEvents: "none",
+          width: 10,
+          height: 20,
+          borderRadius: "50% 50% 35% 35%",
+          backgroundColor: "#1c1c1c",
+          border: "1px solid rgba(255,255,255,0.4)",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.5)"
+        }
+      }
+    ),
+    isBomb2Active && bomb2Position && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: bomb2Position.x,
+          top: bomb2Position.y,
+          transform: `translate(-50%, -50%) scale(${(0,esm.interpolate)(frame, [3080, 3100], [1.3, 0.4], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`,
+          zIndex: 17,
+          pointerEvents: "none",
+          width: 10,
+          height: 20,
+          borderRadius: "50% 50% 35% 35%",
+          backgroundColor: "#1c1c1c",
+          border: "1px solid rgba(255,255,255,0.4)",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.5)"
+        }
+      }
+    ),
+    isBomb3Active && bomb3Position && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: bomb3Position.x,
+          top: bomb3Position.y,
+          transform: `translate(-50%, -50%) scale(${(0,esm.interpolate)(frame, [3100, 3120], [1.3, 0.4], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`,
+          zIndex: 17,
+          pointerEvents: "none",
+          width: 10,
+          height: 20,
+          borderRadius: "50% 50% 35% 35%",
+          backgroundColor: "#1c1c1c",
+          border: "1px solid rgba(255,255,255,0.4)",
+          boxShadow: "0 4px 8px rgba(0,0,0,0.5)"
+        }
+      }
+    ),
+    isExplosion1Active && explosion1Position && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: explosion1Position.x,
+          top: explosion1Position.y,
+          transform: `translate(-50%, -50%) scale(${explosion1Scale})`,
+          opacity: explosion1Opacity,
+          zIndex: 16,
+          pointerEvents: "none",
+          width: 80,
+          height: 80,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(255,75,0,1) 0%, rgba(200,20,0,0.85) 45%, rgba(150,0,0,0) 70%)",
+          filter: "blur(2px) drop-shadow(0 0 16px #ff3300)"
+        }
+      }
+    ),
+    isExplosion2Active && explosion2Position && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: explosion2Position.x,
+          top: explosion2Position.y,
+          transform: `translate(-50%, -50%) scale(${explosion2Scale})`,
+          opacity: explosion2Opacity,
+          zIndex: 16,
+          pointerEvents: "none",
+          width: 80,
+          height: 80,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(255,75,0,1) 0%, rgba(200,20,0,0.85) 45%, rgba(150,0,0,0) 70%)",
+          filter: "blur(2px) drop-shadow(0 0 16px #ff3300)"
+        }
+      }
+    ),
+    isExplosion3Active && explosion3Position && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      "div",
+      {
+        style: {
+          position: "absolute",
+          left: explosion3Position.x,
+          top: explosion3Position.y,
+          transform: `translate(-50%, -50%) scale(${explosion3Scale})`,
+          opacity: explosion3Opacity,
+          zIndex: 16,
+          pointerEvents: "none",
+          width: 80,
+          height: 80,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(255,75,0,1) 0%, rgba(200,20,0,0.85) 45%, rgba(150,0,0,0) 70%)",
+          filter: "blur(2px) drop-shadow(0 0 16px #ff3300)"
+        }
+      }
+    ),
     /* @__PURE__ */ (0,jsx_runtime.jsx)(
       "div",
       {
@@ -1199,42 +2557,356 @@ const KoreaComposition = () => {
           zIndex: 10
         }
       }
-    ),
-    activeCaption && /* @__PURE__ */ (0,jsx_runtime.jsx)(
+    )
+  ] });
+};
+
+;// ./src/bangladesh.json
+const bangladesh_namespaceObject = /*#__PURE__*/JSON.parse('{"type":"FeatureCollection","features":[{"type":"Feature","id":"BGD","properties":{"name":"Bangladesh"},"geometry":{"type":"Polygon","coordinates":[[[92.672721,22.041239],[92.652257,21.324048],[92.303234,21.475485],[92.368554,20.670883],[92.082886,21.192195],[92.025215,21.70157],[91.834891,22.182936],[91.417087,22.765019],[90.496006,22.805017],[90.586957,22.392794],[90.272971,21.836368],[89.847467,22.039146],[89.70205,21.857116],[89.418863,21.966179],[89.031961,22.055708],[88.876312,22.879146],[88.52977,23.631142],[88.69994,24.233715],[88.084422,24.501657],[88.306373,24.866079],[88.931554,25.238692],[88.209789,25.768066],[88.563049,26.446526],[89.355094,26.014407],[89.832481,25.965082],[89.920693,25.26975],[90.872211,25.132601],[91.799596,25.147432],[92.376202,24.976693],[91.915093,24.130414],[91.46773,24.072639],[91.158963,23.503527],[91.706475,22.985264],[91.869928,23.624346],[92.146035,23.627499],[92.672721,22.041239]]]}}]}');
+;// ./src/bangladesh_storyboard.json
+const bangladesh_storyboard_namespaceObject = /*#__PURE__*/JSON.parse('{"f0":[{"frame":0,"center":[85,24],"zoom":3.2,"pitch":0,"bearing":0},{"frame":10,"center":[85.01,24],"zoom":3.21,"pitch":0,"bearing":0},{"frame":45,"center":[90.35,23.68],"zoom":5.8,"pitch":10,"bearing":1.5,"easing":"quadInOut"},{"frame":104,"center":[90.36,23.68],"zoom":5.82,"pitch":10,"bearing":2}],"pq":{"bangladesh-fill":[{"frame":11,"value":0},{"frame":45,"value":0.55}],"bangladesh-border-outer":[{"frame":11,"value":0},{"frame":40,"value":0.35}],"bangladesh-border-mid":[{"frame":11,"value":0},{"frame":40,"value":0.65}],"bangladesh-border-core":[{"frame":11,"value":0},{"frame":40,"value":1}]},"C4":[{"word":"This","fs":0,"fe":8},{"word":"is","fs":8,"fe":11},{"word":"Bangladesh,","fs":11,"fe":21},{"word":"one","fs":37,"fe":43},{"word":"of","fs":43,"fe":46},{"word":"the","fs":46,"fe":48},{"word":"most","fs":48,"fe":55},{"word":"densely","fs":55,"fe":67},{"word":"populated","fs":67,"fe":77},{"word":"countries","fs":77,"fe":91},{"word":"on","fs":91,"fe":97},{"word":"earth.","fs":97,"fe":104}],"vu":[{"type":"projected","text":"BANGLADESH","coords":[90.35,23.68],"fadeIn":[11,30],"fadeOut":[100,104],"textStyle":{"fontFamily":"\'Playfair Display\', Georgia, serif","fontStyle":"italic","fontWeight":700,"fontSize":28,"color":"#ffffff","letterSpacing":"0.1em","textShadow":"0 0 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,1)"}}]}');
+;// ./src/BangladeshComposition.tsx
+
+
+
+
+
+
+
+
+function BangladeshComposition_getCameraPosition(frame, keyframes) {
+  if (keyframes.length === 0) {
+    return { center: [90.35, 23.68], zoom: 5, pitch: 0, bearing: 0 };
+  }
+  if (frame <= keyframes[0].frame) {
+    return {
+      center: keyframes[0].center,
+      zoom: keyframes[0].zoom,
+      pitch: keyframes[0].pitch ?? 0,
+      bearing: keyframes[0].bearing ?? 0
+    };
+  }
+  if (frame >= keyframes[keyframes.length - 1].frame) {
+    const last = keyframes[keyframes.length - 1];
+    return {
+      center: last.center,
+      zoom: last.zoom,
+      pitch: last.pitch ?? 0,
+      bearing: last.bearing ?? 0
+    };
+  }
+  for (let i = 0; i < keyframes.length - 1; i++) {
+    const k1 = keyframes[i];
+    const k2 = keyframes[i + 1];
+    if (frame >= k1.frame && frame <= k2.frame) {
+      const easing = k2.easing === "quadInOut" ? esm.Easing.inOut(esm.Easing.quad) : void 0;
+      const lng = (0,esm.interpolate)(frame, [k1.frame, k2.frame], [k1.center[0], k2.center[0]], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing
+      });
+      const lat = (0,esm.interpolate)(frame, [k1.frame, k2.frame], [k1.center[1], k2.center[1]], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing
+      });
+      const zoom = (0,esm.interpolate)(frame, [k1.frame, k2.frame], [k1.zoom, k2.zoom], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing
+      });
+      const pitch = (0,esm.interpolate)(frame, [k1.frame, k2.frame], [k1.pitch ?? 0, k2.pitch ?? 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing
+      });
+      const bearing = (0,esm.interpolate)(frame, [k1.frame, k2.frame], [k1.bearing ?? 0, k2.bearing ?? 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing
+      });
+      return { center: [lng, lat], zoom, pitch, bearing };
+    }
+  }
+  return {
+    center: keyframes[0].center,
+    zoom: keyframes[0].zoom,
+    pitch: keyframes[0].pitch ?? 0,
+    bearing: keyframes[0].bearing ?? 0
+  };
+}
+function BangladeshComposition_getLayerOpacity(frame, keyframes) {
+  if (!keyframes || keyframes.length === 0) return 0;
+  if (frame <= keyframes[0].frame) return keyframes[0].value;
+  if (frame >= keyframes[keyframes.length - 1].frame) return keyframes[keyframes.length - 1].value;
+  for (let i = 0; i < keyframes.length - 1; i++) {
+    const k1 = keyframes[i];
+    const k2 = keyframes[i + 1];
+    if (frame >= k1.frame && frame <= k2.frame) {
+      return (0,esm.interpolate)(frame, [k1.frame, k2.frame], [k1.value, k2.value], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+    }
+  }
+  return 0;
+}
+const CaptionContainer = ({ frame }) => {
+  return /* @__PURE__ */ (0,jsx_runtime.jsx)(
+    "div",
+    {
+      style: {
+        position: "absolute",
+        bottom: 280,
+        // Safe zone as per SKILL.md
+        left: "50%",
+        transform: "translateX(-50%)",
+        width: "90%",
+        maxWidth: 800,
+        background: "rgba(0, 0, 0, 0.78)",
+        // Premium glassmorphism
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+        border: "1px solid rgba(255, 255, 255, 0.18)",
+        borderRadius: "14px",
+        padding: "20px 30px",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "8px 12px",
+        zIndex: 25,
+        boxShadow: "0 12px 36px rgba(0, 0, 0, 0.6)"
+      },
+      children: bangladesh_storyboard_namespaceObject.C4.map((wt, i) => {
+        const isActive = frame >= wt.fs && frame < wt.fe;
+        const isPast = frame >= wt.fe;
+        let color = "rgba(255, 255, 255, 0.5)";
+        let scale = 1;
+        let fontWeight = 400;
+        let textShadow = "none";
+        if (isActive) {
+          color = "#ff7700";
+          scale = 1.12;
+          fontWeight = 700;
+          textShadow = "0 0 15px rgba(255, 119, 0, 0.6)";
+        } else if (isPast) {
+          color = "#ffffff";
+          fontWeight = 500;
+        }
+        return /* @__PURE__ */ (0,jsx_runtime.jsx)(
+          "span",
+          {
+            style: {
+              fontFamily: "'Outfit', 'Inter', sans-serif",
+              fontSize: "32px",
+              color,
+              fontWeight,
+              transform: `scale(${scale})`,
+              display: "inline-block",
+              textShadow
+            },
+            children: wt.word
+          },
+          i
+        );
+      })
+    }
+  );
+};
+const BangladeshComposition = () => {
+  const ref = (0,react.useRef)(null);
+  const { delayRender, continueRender } = (0,esm.useDelayRender)();
+  const { width, height } = (0,esm.useVideoConfig)();
+  const frame = (0,esm.useCurrentFrame)();
+  const [handle] = (0,react.useState)(() => delayRender("Loading Bangladesh map..."));
+  const [map, setMap] = (0,react.useState)(null);
+  const [mapLoaded, setMapLoaded] = (0,react.useState)(false);
+  const lastCameraRef = (0,react.useRef)(null);
+  const lastOpacitiesRef = (0,react.useRef)({});
+  (0,react.useEffect)(() => {
+    if (!ref.current) return;
+    const mapInstance = new (maplibre_gl_default()).Map({
+      container: ref.current,
+      style: {
+        version: 8,
+        sources: {
+          satellite: {
+            type: "raster",
+            // Google Satellite Tile Server with Access-Control-Allow-Origin: *
+            tiles: [
+              "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
+            ],
+            tileSize: 256,
+            attribution: "Google"
+          },
+          "bangladesh-src": {
+            type: "geojson",
+            data: bangladesh_namespaceObject
+          }
+        },
+        layers: [
+          // Base satellite
+          {
+            id: "satellite",
+            type: "raster",
+            source: "satellite",
+            minzoom: 0,
+            maxzoom: 22
+          },
+          // Bangladesh Highlight Fill
+          {
+            id: "bangladesh-fill",
+            type: "fill",
+            source: "bangladesh-src",
+            paint: {
+              "fill-color": "#cc5500",
+              "fill-opacity": 0
+            }
+          },
+          // Three-layer glowing borders
+          // A. Outer Glow (10px, blur 7px)
+          {
+            id: "bangladesh-border-outer",
+            type: "line",
+            source: "bangladesh-src",
+            paint: {
+              "line-color": "#ffffff",
+              "line-width": 10,
+              "line-blur": 7,
+              "line-opacity": 0
+            }
+          },
+          // B. Mid Glow (5px, blur 3px)
+          {
+            id: "bangladesh-border-mid",
+            type: "line",
+            source: "bangladesh-src",
+            paint: {
+              "line-color": "#ffffff",
+              "line-width": 5,
+              "line-blur": 3,
+              "line-opacity": 0
+            }
+          },
+          // C. Crisp Core (1.5px, no blur)
+          {
+            id: "bangladesh-border-core",
+            type: "line",
+            source: "bangladesh-src",
+            paint: {
+              "line-color": "#ffffff",
+              "line-width": 1.5,
+              "line-blur": 0,
+              "line-opacity": 0
+            }
+          }
+        ]
+      },
+      center: [85, 24],
+      zoom: 3.2,
+      interactive: false,
+      attributionControl: false,
+      fadeDuration: 0,
+      canvasContextAttributes: { preserveDrawingBuffer: true }
+    });
+    mapInstance.on("load", () => {
+      setMap(mapInstance);
+      setMapLoaded(true);
+      mapInstance.once("idle", () => continueRender(handle));
+    });
+    return () => {
+      mapInstance.remove();
+    };
+  }, [handle, continueRender]);
+  (0,react.useEffect)(() => {
+    if (!map || !mapLoaded) return;
+    const camera = BangladeshComposition_getCameraPosition(frame, bangladesh_storyboard_namespaceObject.f0);
+    const lastCamera = lastCameraRef.current;
+    const cameraChanged = !lastCamera || lastCamera.zoom !== camera.zoom || lastCamera.pitch !== camera.pitch || lastCamera.bearing !== camera.bearing || lastCamera.center[0] !== camera.center[0] || lastCamera.center[1] !== camera.center[1];
+    if (cameraChanged) {
+      map.jumpTo({
+        center: camera.center,
+        zoom: camera.zoom,
+        pitch: camera.pitch,
+        bearing: camera.bearing
+      });
+      lastCameraRef.current = camera;
+    }
+    Object.keys(bangladesh_storyboard_namespaceObject.pq).forEach((layerId) => {
+      const keys = bangladesh_storyboard_namespaceObject.pq[layerId];
+      const opacity = BangladeshComposition_getLayerOpacity(frame, keys);
+      const lastOpacity = lastOpacitiesRef.current[layerId];
+      if (lastOpacity !== opacity) {
+        const prop = layerId.endsWith("-fill") ? "fill-opacity" : "line-opacity";
+        map.setPaintProperty(layerId, prop, opacity);
+        lastOpacitiesRef.current[layerId] = opacity;
+      }
+    });
+    map.triggerRepaint();
+  }, [frame, map, mapLoaded]);
+  const renderedOverlays = bangladesh_storyboard_namespaceObject.vu.map((overlay, index) => {
+    const isVisible = frame >= overlay.fadeIn[0] && frame <= (overlay.fadeOut ? overlay.fadeOut[1] : 999999);
+    if (!isVisible) return null;
+    let opacity = 0;
+    if (frame >= overlay.fadeIn[0] && frame <= overlay.fadeIn[1]) {
+      opacity = (0,esm.interpolate)(frame, overlay.fadeIn, [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+    } else if (overlay.fadeOut && frame >= overlay.fadeOut[0] && frame <= overlay.fadeOut[1]) {
+      opacity = (0,esm.interpolate)(frame, overlay.fadeOut, [1, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+    } else {
+      opacity = 1;
+    }
+    let positionStyle = {};
+    if (overlay.type === "projected" && "coords" in overlay) {
+      const pt = map ? map.project(overlay.coords) : { x: 0, y: 0 };
+      positionStyle = {
+        left: pt.x,
+        top: pt.y,
+        transform: "translate(-50%, -50%)"
+      };
+    }
+    return /* @__PURE__ */ (0,jsx_runtime.jsx)(
       "div",
       {
         style: {
           position: "absolute",
-          left: "50%",
-          transform: "translateX(-50%)",
-          opacity: captionOpacity,
-          background: "rgba(0,0,0,0.78)",
-          backdropFilter: "blur(10px)",
-          borderRadius: 10,
-          border: "1px solid rgba(255,255,255,0.18)",
-          padding: "14px 40px",
-          whiteSpace: "nowrap",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
           pointerEvents: "none",
-          zIndex: 20,
-          ...activeCaption.style
+          zIndex: 15,
+          opacity,
+          ...positionStyle
         },
         children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
           "span",
           {
             style: {
               fontFamily: "'Inter', sans-serif",
-              fontWeight: 500,
-              fontSize: 32,
+              fontWeight: 400,
               color: "#ffffff",
-              letterSpacing: "0.02em",
-              textShadow: "0 1px 6px rgba(0,0,0,0.9)",
-              ...activeCaption.spanStyle
+              textAlign: "center",
+              whiteSpace: "nowrap",
+              ...overlay.textStyle
             },
-            children: activeCaption.text
+            children: overlay.text
           }
         )
-      }
-    )
+      },
+      index
+    );
+  });
+  return /* @__PURE__ */ (0,jsx_runtime.jsxs)(esm.AbsoluteFill, { style: { backgroundColor: "#000" }, children: [
+    /* @__PURE__ */ (0,jsx_runtime.jsx)("div", { ref, style: { width, height, position: "absolute" } }),
+    renderedOverlays,
+    /* @__PURE__ */ (0,jsx_runtime.jsx)(CaptionContainer, { frame }),
+    /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.Sequence, { from: 11, children: /* @__PURE__ */ (0,jsx_runtime.jsx)(esm.Audio, { src: (0,esm.staticFile)("sfx/warm_chime.mp3"), volume: 0.8 }) })
   ] });
 };
 
@@ -1244,18 +2916,32 @@ const KoreaComposition = () => {
 
 
 
+
 const RemotionRoot = () => {
-  return /* @__PURE__ */ (0,jsx_runtime.jsx)(jsx_runtime.Fragment, { children: /* @__PURE__ */ (0,jsx_runtime.jsx)(
-    esm.Composition,
-    {
-      id: "KoreaScene1",
-      component: KoreaComposition,
-      durationInFrames: 2100,
-      fps: 30,
-      width: 1080,
-      height: 1920
-    }
-  ) });
+  return /* @__PURE__ */ (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, { children: [
+    /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      esm.Composition,
+      {
+        id: "KoreaScene1",
+        component: KoreaComposition,
+        durationInFrames: 4110,
+        fps: 30,
+        width: 1080,
+        height: 1920
+      }
+    ),
+    /* @__PURE__ */ (0,jsx_runtime.jsx)(
+      esm.Composition,
+      {
+        id: "BangladeshScene1",
+        component: BangladeshComposition,
+        durationInFrames: 105,
+        fps: 30,
+        width: 1080,
+        height: 1920
+      }
+    )
+  ] });
 };
 
 ;// ./src/index.ts
@@ -1588,6 +3274,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.maplibregl-map{font:12px/20px Helveti
 
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Playfair+Display:ital,wght@1,700&family=Inter:wght@400;500;700&display=swap);"]);
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
 @layer properties;
@@ -1757,11 +3444,11 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/*! tailwindcss v4.2.0 | MIT License |
   }
 }
 @layer utilities {
-  .visible {
-    visibility: visible;
-  }
   .absolute {
     position: absolute;
+  }
+  .relative {
+    position: relative;
   }
   .container {
     width: 100%;
@@ -1781,11 +3468,23 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/*! tailwindcss v4.2.0 | MIT License |
       max-width: 96rem;
     }
   }
+  .block {
+    display: block;
+  }
   .flex {
     display: flex;
   }
+  .grid {
+    display: grid;
+  }
+  .hidden {
+    display: none;
+  }
   .inline {
     display: inline;
+  }
+  .inline-block {
+    display: inline-block;
   }
   .grow {
     flex-grow: 1;
@@ -1803,8 +3502,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/*! tailwindcss v4.2.0 | MIT License |
   .italic {
     font-style: italic;
   }
+  .shadow {
+    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
   .blur {
     --tw-blur: blur(8px);
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .drop-shadow {
+    --tw-drop-shadow-size: drop-shadow(0 1px 2px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.1))) drop-shadow(0 1px 1px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.06)));
+    --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow( 0 1px 1px rgb(0 0 0 / 0.06));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .backdrop-filter {
@@ -1836,6 +3547,71 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/*! tailwindcss v4.2.0 | MIT License |
   syntax: "*";
   inherits: false;
   initial-value: solid;
+}
+@property --tw-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-inset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-shadow-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+@property --tw-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-inset-ring-color {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-inset-ring-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
+}
+@property --tw-ring-inset {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --tw-ring-offset-color {
+  syntax: "*";
+  inherits: false;
+  initial-value: #fff;
+}
+@property --tw-ring-offset-shadow {
+  syntax: "*";
+  inherits: false;
+  initial-value: 0 0 #0000;
 }
 @property --tw-blur {
   syntax: "*";
@@ -1935,6 +3711,20 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/*! tailwindcss v4.2.0 | MIT License |
       --tw-skew-x: initial;
       --tw-skew-y: initial;
       --tw-border-style: solid;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -1960,7 +3750,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/*! tailwindcss v4.2.0 | MIT License |
     }
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/index.css"],"names":[],"mappings":"AAAA,gEAAgE;AAChE,iBAAiB;AACjB,yCAAyC;AACzC;EACE;IACE;6DACyD;IACzD;iDAC6C;IAC7C,uCAAuC;IACvC,wEAAwE;IACxE;;KAEC;IACD,4CAA4C;IAC5C;;KAEC;IACD;;KAEC;EACH;AACF;AACA;EACE;IACE,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,eAAe;EACjB;EACA;IACE,gBAAgB;IAChB,8BAA8B;IAC9B,WAAW;IACX,6JAA6J;IAC7J,mEAAmE;IACnE,yEAAyE;IACzE,wCAAwC;EAC1C;EACA;IACE,oBAAoB;EACtB;EACA;IACE,SAAS;IACT,cAAc;IACd,qBAAqB;EACvB;EACA;IACE,yCAAyC;IACzC,iCAAiC;EACnC;EACA;IACE,kBAAkB;IAClB,oBAAoB;EACtB;EACA;IACE,cAAc;IACd,gCAAgC;IAChC,wBAAwB;EAC1B;EACA;IACE,mBAAmB;EACrB;EACA;IACE,kJAAkJ;IAClJ,0EAA0E;IAC1E,8EAA8E;IAC9E,cAAc;EAChB;EACA;IACE,cAAc;EAChB;EACA;IACE,cAAc;IACd,cAAc;IACd,kBAAkB;IAClB,wBAAwB;EAC1B;EACA;IACE,eAAe;EACjB;EACA;IACE,WAAW;EACb;EACA;IACE,cAAc;IACd,qBAAqB;IACrB,yBAAyB;EAC3B;EACA;IACE,aAAa;EACf;EACA;IACE,wBAAwB;EAC1B;EACA;IACE,kBAAkB;EACpB;EACA;IACE,gBAAgB;EAClB;EACA;IACE,cAAc;IACd,sBAAsB;EACxB;EACA;IACE,eAAe;IACf,YAAY;EACd;EACA;IACE,aAAa;IACb,8BAA8B;IAC9B,gCAAgC;IAChC,uBAAuB;IACvB,cAAc;IACd,gBAAgB;IAChB,6BAA6B;IAC7B,UAAU;EACZ;EACA;IACE,mBAAmB;EACrB;EACA;IACE,0BAA0B;EAC5B;EACA;IACE,sBAAsB;EACxB;EACA;IACE,UAAU;IACV,mBAAmB;IACnB;MACE,yDAAyD;IAC3D;EACF;EACA;IACE,gBAAgB;EAClB;EACA;IACE,wBAAwB;EAC1B;EACA;IACE,eAAe;IACf,mBAAmB;EACrB;EACA;IACE,oBAAoB;EACtB;EACA;IACE,UAAU;EACZ;EACA;IACE,gBAAgB;EAClB;EACA;IACE,gBAAgB;EAClB;EACA;IACE,kBAAkB;EACpB;EACA;IACE,YAAY;EACd;EACA;IACE,wBAAwB;EAC1B;AACF;AACA;EACE;IACE,mBAAmB;EACrB;EACA;IACE,kBAAkB;EACpB;EACA;IACE,WAAW;IACX;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;EACF;EACA;IACE,aAAa;EACf;EACA;IACE,eAAe;EACjB;EACA;IACE,YAAY;EACd;EACA;IACE,0GAA0G;EAC5G;EACA;IACE,oCAAoC;IACpC,iBAAiB;EACnB;EACA;IACE,yBAAyB;EAC3B;EACA;IACE,kBAAkB;EACpB;EACA;IACE,oBAAoB;IACpB,0LAA0L;EAC5L;EACA;IACE,wRAAwR;IACxR,gRAAgR;EAClR;AACF;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;EACf,oBAAoB;AACtB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,sBAAsB;EACtB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE;IACE;MACE,sBAAsB;MACtB,sBAAsB;MACtB,sBAAsB;MACtB,oBAAoB;MACpB,oBAAoB;MACpB,wBAAwB;MACxB,kBAAkB;MAClB,wBAAwB;MACxB,sBAAsB;MACtB,uBAAuB;MACvB,wBAAwB;MACxB,oBAAoB;MACpB,qBAAqB;MACrB,sBAAsB;MACtB,mBAAmB;MACnB,yBAAyB;MACzB,+BAA+B;MAC/B,4BAA4B;MAC5B,8BAA8B;MAC9B,2BAA2B;MAC3B,iCAAiC;MACjC,+BAA+B;MAC/B,gCAAgC;MAChC,iCAAiC;MACjC,6BAA6B;MAC7B,8BAA8B;MAC9B,+BAA+B;MAC/B,4BAA4B;IAC9B;EACF;AACF","sourcesContent":["/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */\n@layer properties;\n@layer theme, base, components, utilities;\n@layer theme {\n  :root, :host {\n    --font-sans: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\",\n      \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,\n      \"Liberation Mono\", \"Courier New\", monospace;\n    --default-font-family: var(--font-sans);\n    --default-font-feature-settings: var(--font-sans--font-feature-settings);\n    --default-font-variation-settings: var(\n      --font-sans--font-variation-settings\n    );\n    --default-mono-font-family: var(--font-mono);\n    --default-mono-font-feature-settings: var(\n      --font-mono--font-feature-settings\n    );\n    --default-mono-font-variation-settings: var(\n      --font-mono--font-variation-settings\n    );\n  }\n}\n@layer base {\n  *, ::after, ::before, ::backdrop, ::file-selector-button {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    border: 0 solid;\n  }\n  html, :host {\n    line-height: 1.5;\n    -webkit-text-size-adjust: 100%;\n    tab-size: 4;\n    font-family: var( --default-font-family, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\" );\n    font-feature-settings: var(--default-font-feature-settings, normal);\n    font-variation-settings: var( --default-font-variation-settings, normal );\n    -webkit-tap-highlight-color: transparent;\n  }\n  body {\n    line-height: inherit;\n  }\n  hr {\n    height: 0;\n    color: inherit;\n    border-top-width: 1px;\n  }\n  abbr:where([title]) {\n    -webkit-text-decoration: underline dotted;\n    text-decoration: underline dotted;\n  }\n  h1, h2, h3, h4, h5, h6 {\n    font-size: inherit;\n    font-weight: inherit;\n  }\n  a {\n    color: inherit;\n    -webkit-text-decoration: inherit;\n    text-decoration: inherit;\n  }\n  b, strong {\n    font-weight: bolder;\n  }\n  code, kbd, samp, pre {\n    font-family: var( --default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace );\n    font-feature-settings: var( --default-mono-font-feature-settings, normal );\n    font-variation-settings: var( --default-mono-font-variation-settings, normal );\n    font-size: 1em;\n  }\n  small {\n    font-size: 80%;\n  }\n  sub, sup {\n    font-size: 75%;\n    line-height: 0;\n    position: relative;\n    vertical-align: baseline;\n  }\n  sub {\n    bottom: -0.25em;\n  }\n  sup {\n    top: -0.5em;\n  }\n  table {\n    text-indent: 0;\n    border-color: inherit;\n    border-collapse: collapse;\n  }\n  :-moz-focusring {\n    outline: auto;\n  }\n  progress {\n    vertical-align: baseline;\n  }\n  summary {\n    display: list-item;\n  }\n  ol, ul, menu {\n    list-style: none;\n  }\n  img, svg, video, canvas, audio, iframe, embed, object {\n    display: block;\n    vertical-align: middle;\n  }\n  img, video {\n    max-width: 100%;\n    height: auto;\n  }\n  button, input, select, optgroup, textarea, ::file-selector-button {\n    font: inherit;\n    font-feature-settings: inherit;\n    font-variation-settings: inherit;\n    letter-spacing: inherit;\n    color: inherit;\n    border-radius: 0;\n    background-color: transparent;\n    opacity: 1;\n  }\n  :where(select:is([multiple], [size])) optgroup {\n    font-weight: bolder;\n  }\n  :where(select:is([multiple], [size])) optgroup option {\n    padding-inline-start: 20px;\n  }\n  ::file-selector-button {\n    margin-inline-end: 4px;\n  }\n  ::placeholder {\n    opacity: 1;\n    color: currentColor;\n    @supports (color: color-mix(in lab, red, red)) {\n      color: color-mix(in oklab, currentColor 50%, transparent);\n    }\n  }\n  textarea {\n    resize: vertical;\n  }\n  ::-webkit-search-decoration {\n    -webkit-appearance: none;\n  }\n  ::-webkit-date-and-time-value {\n    min-height: 1lh;\n    text-align: inherit;\n  }\n  ::-webkit-datetime-edit {\n    display: inline-flex;\n  }\n  ::-webkit-datetime-edit-fields-wrapper {\n    padding: 0;\n  }\n  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {\n    padding-block: 0;\n  }\n  :-moz-ui-invalid {\n    box-shadow: none;\n  }\n  button, input:where([type=\"button\"], [type=\"reset\"], [type=\"submit\"]), ::file-selector-button {\n    appearance: button;\n  }\n  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {\n    height: auto;\n  }\n  [hidden]:where(:not([hidden=\"until-found\"])) {\n    display: none !important;\n  }\n}\n@layer utilities {\n  .visible {\n    visibility: visible;\n  }\n  .absolute {\n    position: absolute;\n  }\n  .container {\n    width: 100%;\n    @media (width >= 40rem) {\n      max-width: 40rem;\n    }\n    @media (width >= 48rem) {\n      max-width: 48rem;\n    }\n    @media (width >= 64rem) {\n      max-width: 64rem;\n    }\n    @media (width >= 80rem) {\n      max-width: 80rem;\n    }\n    @media (width >= 96rem) {\n      max-width: 96rem;\n    }\n  }\n  .flex {\n    display: flex;\n  }\n  .inline {\n    display: inline;\n  }\n  .grow {\n    flex-grow: 1;\n  }\n  .transform {\n    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);\n  }\n  .border {\n    border-style: var(--tw-border-style);\n    border-width: 1px;\n  }\n  .uppercase {\n    text-transform: uppercase;\n  }\n  .italic {\n    font-style: italic;\n  }\n  .blur {\n    --tw-blur: blur(8px);\n    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);\n  }\n  .backdrop-filter {\n    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);\n    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);\n  }\n}\n@property --tw-rotate-x {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-rotate-y {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-rotate-z {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-skew-x {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-skew-y {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-border-style {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: solid;\n}\n@property --tw-blur {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-brightness {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-contrast {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-grayscale {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-hue-rotate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-invert {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-opacity {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-saturate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-sepia {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-drop-shadow {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-drop-shadow-color {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-drop-shadow-alpha {\n  syntax: \"<percentage>\";\n  inherits: false;\n  initial-value: 100%;\n}\n@property --tw-drop-shadow-size {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-blur {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-brightness {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-contrast {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-grayscale {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-hue-rotate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-invert {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-opacity {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-saturate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-sepia {\n  syntax: \"*\";\n  inherits: false;\n}\n@layer properties {\n  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {\n    *, ::before, ::after, ::backdrop {\n      --tw-rotate-x: initial;\n      --tw-rotate-y: initial;\n      --tw-rotate-z: initial;\n      --tw-skew-x: initial;\n      --tw-skew-y: initial;\n      --tw-border-style: solid;\n      --tw-blur: initial;\n      --tw-brightness: initial;\n      --tw-contrast: initial;\n      --tw-grayscale: initial;\n      --tw-hue-rotate: initial;\n      --tw-invert: initial;\n      --tw-opacity: initial;\n      --tw-saturate: initial;\n      --tw-sepia: initial;\n      --tw-drop-shadow: initial;\n      --tw-drop-shadow-color: initial;\n      --tw-drop-shadow-alpha: 100%;\n      --tw-drop-shadow-size: initial;\n      --tw-backdrop-blur: initial;\n      --tw-backdrop-brightness: initial;\n      --tw-backdrop-contrast: initial;\n      --tw-backdrop-grayscale: initial;\n      --tw-backdrop-hue-rotate: initial;\n      --tw-backdrop-invert: initial;\n      --tw-backdrop-opacity: initial;\n      --tw-backdrop-saturate: initial;\n      --tw-backdrop-sepia: initial;\n    }\n  }\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/index.css"],"names":[],"mappings":"AAAA,gEAAgE;AAEhE,iBAAiB;AACjB,yCAAyC;AACzC;EACE;IACE;6DACyD;IACzD;iDAC6C;IAC7C,uCAAuC;IACvC,wEAAwE;IACxE;;KAEC;IACD,4CAA4C;IAC5C;;KAEC;IACD;;KAEC;EACH;AACF;AACA;EACE;IACE,sBAAsB;IACtB,SAAS;IACT,UAAU;IACV,eAAe;EACjB;EACA;IACE,gBAAgB;IAChB,8BAA8B;IAC9B,WAAW;IACX,6JAA6J;IAC7J,mEAAmE;IACnE,yEAAyE;IACzE,wCAAwC;EAC1C;EACA;IACE,oBAAoB;EACtB;EACA;IACE,SAAS;IACT,cAAc;IACd,qBAAqB;EACvB;EACA;IACE,yCAAyC;IACzC,iCAAiC;EACnC;EACA;IACE,kBAAkB;IAClB,oBAAoB;EACtB;EACA;IACE,cAAc;IACd,gCAAgC;IAChC,wBAAwB;EAC1B;EACA;IACE,mBAAmB;EACrB;EACA;IACE,kJAAkJ;IAClJ,0EAA0E;IAC1E,8EAA8E;IAC9E,cAAc;EAChB;EACA;IACE,cAAc;EAChB;EACA;IACE,cAAc;IACd,cAAc;IACd,kBAAkB;IAClB,wBAAwB;EAC1B;EACA;IACE,eAAe;EACjB;EACA;IACE,WAAW;EACb;EACA;IACE,cAAc;IACd,qBAAqB;IACrB,yBAAyB;EAC3B;EACA;IACE,aAAa;EACf;EACA;IACE,wBAAwB;EAC1B;EACA;IACE,kBAAkB;EACpB;EACA;IACE,gBAAgB;EAClB;EACA;IACE,cAAc;IACd,sBAAsB;EACxB;EACA;IACE,eAAe;IACf,YAAY;EACd;EACA;IACE,aAAa;IACb,8BAA8B;IAC9B,gCAAgC;IAChC,uBAAuB;IACvB,cAAc;IACd,gBAAgB;IAChB,6BAA6B;IAC7B,UAAU;EACZ;EACA;IACE,mBAAmB;EACrB;EACA;IACE,0BAA0B;EAC5B;EACA;IACE,sBAAsB;EACxB;EACA;IACE,UAAU;IACV,mBAAmB;IACnB;MACE,yDAAyD;IAC3D;EACF;EACA;IACE,gBAAgB;EAClB;EACA;IACE,wBAAwB;EAC1B;EACA;IACE,eAAe;IACf,mBAAmB;EACrB;EACA;IACE,oBAAoB;EACtB;EACA;IACE,UAAU;EACZ;EACA;IACE,gBAAgB;EAClB;EACA;IACE,gBAAgB;EAClB;EACA;IACE,kBAAkB;EACpB;EACA;IACE,YAAY;EACd;EACA;IACE,wBAAwB;EAC1B;AACF;AACA;EACE;IACE,kBAAkB;EACpB;EACA;IACE,kBAAkB;EACpB;EACA;IACE,WAAW;IACX;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;IACA;MACE,gBAAgB;IAClB;EACF;EACA;IACE,cAAc;EAChB;EACA;IACE,aAAa;EACf;EACA;IACE,aAAa;EACf;EACA;IACE,aAAa;EACf;EACA;IACE,eAAe;EACjB;EACA;IACE,qBAAqB;EACvB;EACA;IACE,YAAY;EACd;EACA;IACE,0GAA0G;EAC5G;EACA;IACE,oCAAoC;IACpC,iBAAiB;EACnB;EACA;IACE,yBAAyB;EAC3B;EACA;IACE,kBAAkB;EACpB;EACA;IACE,0HAA0H;IAC1H,sIAAsI;EACxI;EACA;IACE,oBAAoB;IACpB,0LAA0L;EAC5L;EACA;IACE,iKAAiK;IACjK,mGAAmG;IACnG,0LAA0L;EAC5L;EACA;IACE,0LAA0L;EAC5L;EACA;IACE,wRAAwR;IACxR,gRAAgR;EAClR;AACF;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;EACf,oBAAoB;AACtB;AACA;EACE,WAAW;EACX,eAAe;EACf,wBAAwB;AAC1B;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,sBAAsB;EACtB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,WAAW;EACX,eAAe;EACf,wBAAwB;AAC1B;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,sBAAsB;EACtB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;EACf,wBAAwB;AAC1B;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;EACf,wBAAwB;AAC1B;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,kBAAkB;EAClB,eAAe;EACf,kBAAkB;AACpB;AACA;EACE,WAAW;EACX,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,WAAW;EACX,eAAe;EACf,wBAAwB;AAC1B;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,sBAAsB;EACtB,eAAe;EACf,mBAAmB;AACrB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE,WAAW;EACX,eAAe;AACjB;AACA;EACE;IACE;MACE,sBAAsB;MACtB,sBAAsB;MACtB,sBAAsB;MACtB,oBAAoB;MACpB,oBAAoB;MACpB,wBAAwB;MACxB,sBAAsB;MACtB,0BAA0B;MAC1B,uBAAuB;MACvB,4BAA4B;MAC5B,gCAAgC;MAChC,6BAA6B;MAC7B,wBAAwB;MACxB,2BAA2B;MAC3B,8BAA8B;MAC9B,iCAAiC;MACjC,wBAAwB;MACxB,2BAA2B;MAC3B,4BAA4B;MAC5B,kCAAkC;MAClC,kBAAkB;MAClB,wBAAwB;MACxB,sBAAsB;MACtB,uBAAuB;MACvB,wBAAwB;MACxB,oBAAoB;MACpB,qBAAqB;MACrB,sBAAsB;MACtB,mBAAmB;MACnB,yBAAyB;MACzB,+BAA+B;MAC/B,4BAA4B;MAC5B,8BAA8B;MAC9B,2BAA2B;MAC3B,iCAAiC;MACjC,+BAA+B;MAC/B,gCAAgC;MAChC,iCAAiC;MACjC,6BAA6B;MAC7B,8BAA8B;MAC9B,+BAA+B;MAC/B,4BAA4B;IAC9B;EACF;AACF","sourcesContent":["/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */\n@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Playfair+Display:ital,wght@1,700&family=Inter:wght@400;500;700&display=swap');\n@layer properties;\n@layer theme, base, components, utilities;\n@layer theme {\n  :root, :host {\n    --font-sans: ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\",\n      \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,\n      \"Liberation Mono\", \"Courier New\", monospace;\n    --default-font-family: var(--font-sans);\n    --default-font-feature-settings: var(--font-sans--font-feature-settings);\n    --default-font-variation-settings: var(\n      --font-sans--font-variation-settings\n    );\n    --default-mono-font-family: var(--font-mono);\n    --default-mono-font-feature-settings: var(\n      --font-mono--font-feature-settings\n    );\n    --default-mono-font-variation-settings: var(\n      --font-mono--font-variation-settings\n    );\n  }\n}\n@layer base {\n  *, ::after, ::before, ::backdrop, ::file-selector-button {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    border: 0 solid;\n  }\n  html, :host {\n    line-height: 1.5;\n    -webkit-text-size-adjust: 100%;\n    tab-size: 4;\n    font-family: var( --default-font-family, ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\" );\n    font-feature-settings: var(--default-font-feature-settings, normal);\n    font-variation-settings: var( --default-font-variation-settings, normal );\n    -webkit-tap-highlight-color: transparent;\n  }\n  body {\n    line-height: inherit;\n  }\n  hr {\n    height: 0;\n    color: inherit;\n    border-top-width: 1px;\n  }\n  abbr:where([title]) {\n    -webkit-text-decoration: underline dotted;\n    text-decoration: underline dotted;\n  }\n  h1, h2, h3, h4, h5, h6 {\n    font-size: inherit;\n    font-weight: inherit;\n  }\n  a {\n    color: inherit;\n    -webkit-text-decoration: inherit;\n    text-decoration: inherit;\n  }\n  b, strong {\n    font-weight: bolder;\n  }\n  code, kbd, samp, pre {\n    font-family: var( --default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace );\n    font-feature-settings: var( --default-mono-font-feature-settings, normal );\n    font-variation-settings: var( --default-mono-font-variation-settings, normal );\n    font-size: 1em;\n  }\n  small {\n    font-size: 80%;\n  }\n  sub, sup {\n    font-size: 75%;\n    line-height: 0;\n    position: relative;\n    vertical-align: baseline;\n  }\n  sub {\n    bottom: -0.25em;\n  }\n  sup {\n    top: -0.5em;\n  }\n  table {\n    text-indent: 0;\n    border-color: inherit;\n    border-collapse: collapse;\n  }\n  :-moz-focusring {\n    outline: auto;\n  }\n  progress {\n    vertical-align: baseline;\n  }\n  summary {\n    display: list-item;\n  }\n  ol, ul, menu {\n    list-style: none;\n  }\n  img, svg, video, canvas, audio, iframe, embed, object {\n    display: block;\n    vertical-align: middle;\n  }\n  img, video {\n    max-width: 100%;\n    height: auto;\n  }\n  button, input, select, optgroup, textarea, ::file-selector-button {\n    font: inherit;\n    font-feature-settings: inherit;\n    font-variation-settings: inherit;\n    letter-spacing: inherit;\n    color: inherit;\n    border-radius: 0;\n    background-color: transparent;\n    opacity: 1;\n  }\n  :where(select:is([multiple], [size])) optgroup {\n    font-weight: bolder;\n  }\n  :where(select:is([multiple], [size])) optgroup option {\n    padding-inline-start: 20px;\n  }\n  ::file-selector-button {\n    margin-inline-end: 4px;\n  }\n  ::placeholder {\n    opacity: 1;\n    color: currentColor;\n    @supports (color: color-mix(in lab, red, red)) {\n      color: color-mix(in oklab, currentColor 50%, transparent);\n    }\n  }\n  textarea {\n    resize: vertical;\n  }\n  ::-webkit-search-decoration {\n    -webkit-appearance: none;\n  }\n  ::-webkit-date-and-time-value {\n    min-height: 1lh;\n    text-align: inherit;\n  }\n  ::-webkit-datetime-edit {\n    display: inline-flex;\n  }\n  ::-webkit-datetime-edit-fields-wrapper {\n    padding: 0;\n  }\n  ::-webkit-datetime-edit, ::-webkit-datetime-edit-year-field, ::-webkit-datetime-edit-month-field, ::-webkit-datetime-edit-day-field, ::-webkit-datetime-edit-hour-field, ::-webkit-datetime-edit-minute-field, ::-webkit-datetime-edit-second-field, ::-webkit-datetime-edit-millisecond-field, ::-webkit-datetime-edit-meridiem-field {\n    padding-block: 0;\n  }\n  :-moz-ui-invalid {\n    box-shadow: none;\n  }\n  button, input:where([type=\"button\"], [type=\"reset\"], [type=\"submit\"]), ::file-selector-button {\n    appearance: button;\n  }\n  ::-webkit-inner-spin-button, ::-webkit-outer-spin-button {\n    height: auto;\n  }\n  [hidden]:where(:not([hidden=\"until-found\"])) {\n    display: none !important;\n  }\n}\n@layer utilities {\n  .absolute {\n    position: absolute;\n  }\n  .relative {\n    position: relative;\n  }\n  .container {\n    width: 100%;\n    @media (width >= 40rem) {\n      max-width: 40rem;\n    }\n    @media (width >= 48rem) {\n      max-width: 48rem;\n    }\n    @media (width >= 64rem) {\n      max-width: 64rem;\n    }\n    @media (width >= 80rem) {\n      max-width: 80rem;\n    }\n    @media (width >= 96rem) {\n      max-width: 96rem;\n    }\n  }\n  .block {\n    display: block;\n  }\n  .flex {\n    display: flex;\n  }\n  .grid {\n    display: grid;\n  }\n  .hidden {\n    display: none;\n  }\n  .inline {\n    display: inline;\n  }\n  .inline-block {\n    display: inline-block;\n  }\n  .grow {\n    flex-grow: 1;\n  }\n  .transform {\n    transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);\n  }\n  .border {\n    border-style: var(--tw-border-style);\n    border-width: 1px;\n  }\n  .uppercase {\n    text-transform: uppercase;\n  }\n  .italic {\n    font-style: italic;\n  }\n  .shadow {\n    --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));\n    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);\n  }\n  .blur {\n    --tw-blur: blur(8px);\n    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);\n  }\n  .drop-shadow {\n    --tw-drop-shadow-size: drop-shadow(0 1px 2px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.1))) drop-shadow(0 1px 1px var(--tw-drop-shadow-color, rgb(0 0 0 / 0.06)));\n    --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow( 0 1px 1px rgb(0 0 0 / 0.06));\n    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);\n  }\n  .filter {\n    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);\n  }\n  .backdrop-filter {\n    -webkit-backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);\n    backdrop-filter: var(--tw-backdrop-blur,) var(--tw-backdrop-brightness,) var(--tw-backdrop-contrast,) var(--tw-backdrop-grayscale,) var(--tw-backdrop-hue-rotate,) var(--tw-backdrop-invert,) var(--tw-backdrop-opacity,) var(--tw-backdrop-saturate,) var(--tw-backdrop-sepia,);\n  }\n}\n@property --tw-rotate-x {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-rotate-y {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-rotate-z {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-skew-x {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-skew-y {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-border-style {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: solid;\n}\n@property --tw-shadow {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: 0 0 #0000;\n}\n@property --tw-shadow-color {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-shadow-alpha {\n  syntax: \"<percentage>\";\n  inherits: false;\n  initial-value: 100%;\n}\n@property --tw-inset-shadow {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: 0 0 #0000;\n}\n@property --tw-inset-shadow-color {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-inset-shadow-alpha {\n  syntax: \"<percentage>\";\n  inherits: false;\n  initial-value: 100%;\n}\n@property --tw-ring-color {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-ring-shadow {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: 0 0 #0000;\n}\n@property --tw-inset-ring-color {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-inset-ring-shadow {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: 0 0 #0000;\n}\n@property --tw-ring-inset {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-ring-offset-width {\n  syntax: \"<length>\";\n  inherits: false;\n  initial-value: 0px;\n}\n@property --tw-ring-offset-color {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: #fff;\n}\n@property --tw-ring-offset-shadow {\n  syntax: \"*\";\n  inherits: false;\n  initial-value: 0 0 #0000;\n}\n@property --tw-blur {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-brightness {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-contrast {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-grayscale {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-hue-rotate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-invert {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-opacity {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-saturate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-sepia {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-drop-shadow {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-drop-shadow-color {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-drop-shadow-alpha {\n  syntax: \"<percentage>\";\n  inherits: false;\n  initial-value: 100%;\n}\n@property --tw-drop-shadow-size {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-blur {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-brightness {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-contrast {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-grayscale {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-hue-rotate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-invert {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-opacity {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-saturate {\n  syntax: \"*\";\n  inherits: false;\n}\n@property --tw-backdrop-sepia {\n  syntax: \"*\";\n  inherits: false;\n}\n@layer properties {\n  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {\n    *, ::before, ::after, ::backdrop {\n      --tw-rotate-x: initial;\n      --tw-rotate-y: initial;\n      --tw-rotate-z: initial;\n      --tw-skew-x: initial;\n      --tw-skew-y: initial;\n      --tw-border-style: solid;\n      --tw-shadow: 0 0 #0000;\n      --tw-shadow-color: initial;\n      --tw-shadow-alpha: 100%;\n      --tw-inset-shadow: 0 0 #0000;\n      --tw-inset-shadow-color: initial;\n      --tw-inset-shadow-alpha: 100%;\n      --tw-ring-color: initial;\n      --tw-ring-shadow: 0 0 #0000;\n      --tw-inset-ring-color: initial;\n      --tw-inset-ring-shadow: 0 0 #0000;\n      --tw-ring-inset: initial;\n      --tw-ring-offset-width: 0px;\n      --tw-ring-offset-color: #fff;\n      --tw-ring-offset-shadow: 0 0 #0000;\n      --tw-blur: initial;\n      --tw-brightness: initial;\n      --tw-contrast: initial;\n      --tw-grayscale: initial;\n      --tw-hue-rotate: initial;\n      --tw-invert: initial;\n      --tw-opacity: initial;\n      --tw-saturate: initial;\n      --tw-sepia: initial;\n      --tw-drop-shadow: initial;\n      --tw-drop-shadow-color: initial;\n      --tw-drop-shadow-alpha: 100%;\n      --tw-drop-shadow-size: initial;\n      --tw-backdrop-blur: initial;\n      --tw-backdrop-brightness: initial;\n      --tw-backdrop-contrast: initial;\n      --tw-backdrop-grayscale: initial;\n      --tw-backdrop-hue-rotate: initial;\n      --tw-backdrop-invert: initial;\n      --tw-backdrop-opacity: initial;\n      --tw-backdrop-saturate: initial;\n      --tw-backdrop-sepia: initial;\n    }\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -32484,7 +34274,7 @@ var NoReactInternals = {
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	__webpack_require__(6507);
-/******/ 	__webpack_require__(4836);
+/******/ 	__webpack_require__(633);
 /******/ 	__webpack_require__(3610);
 /******/ 	var __webpack_exports__ = __webpack_require__(3482);
 /******/ 	

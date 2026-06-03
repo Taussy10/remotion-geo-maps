@@ -1,7 +1,8 @@
 import "./index.css";
 import { Composition } from "remotion";
-import { KoreaComposition } from "./KoreaComposition";
-import { BangladeshComposition } from "./BangladeshComposition";
+import { KoreaComposition } from "./korea/KoreaComposition";
+import { BangladeshComposition } from "./bangladesh/BangladeshComposition";
+
 
 export const RemotionRoot: React.FC = () => {
   return (

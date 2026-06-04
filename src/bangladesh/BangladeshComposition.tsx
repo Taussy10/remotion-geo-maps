@@ -737,7 +737,7 @@ export const BangladeshComposition: React.FC = () => {
         sources: {
           satellite: {
             type: "raster",
-            tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+            tiles: ["https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"],
             tileSize: 256,
             attribution: "Tiles © Esri"
           }
@@ -766,6 +766,7 @@ export const BangladeshComposition: React.FC = () => {
   // ── FRAME UPDATES ───────────────────────────────────────────────────
   useEffect(() => {
     if (!map || !mapLoaded) return;
+    const h = delayRender(`bangladesh-frame-${frame}`);
 
     // Camera uses absolute frame
     const camera = getCameraPosition(frame, s.cameraKeyframes);
@@ -774,10 +775,38 @@ export const BangladeshComposition: React.FC = () => {
     const camChanged = !lc || lc.zoom !== camera.zoom || lc.pitch !== camera.pitch || lc.bearing !== camera.bearing || lc.center[0] !== camera.center[0] || lc.center[1] !== camera.center[1];
     if (camChanged) { map.jumpTo({ center: camera.center, zoom: camera.zoom, pitch: camera.pitch, bearing: camera.bearing }); lastCameraRef.current = camera; }
 
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      map.off("render", onRender);
+      map.off("idle", onIdle);
+      continueRender(h);
+    };
 
+    const onRender = () => {
+      if (map.isStyleLoaded() && map.areTilesLoaded()) finish();
+    };
+    
+    const onIdle = () => finish();
+
+    map.on("render", onRender);
+    map.on("idle", onIdle);
 
     map.triggerRepaint();
-  }, [frame, map, mapLoaded]);
+
+    // Fallback: if the map is already fully loaded and tiles are ready
+    requestAnimationFrame(() => {
+      if (map.isStyleLoaded() && map.areTilesLoaded()) {
+        finish();
+      }
+    });
+
+    return () => {
+      map.off("render", onRender);
+      map.off("idle", onIdle);
+    };
+  }, [frame, map, mapLoaded, delayRender, continueRender]);
 
   // ── RENDER ──────────────────────────────────────────────────────────
   return (

@@ -888,6 +888,7 @@ export const KoreaComposition: React.FC = () => {
   // ── PER-FRAME EFFECT — deterministic jumpTo + setPaintProperty ──
   useEffect(() => {
     if (!map || !mapLoaded) return;
+    const h = delayRender(`korea-frame-${frame}`);
 
     // Camera transitions
     const { center, zoom } = getCameraPosition(frame, storyboard.cameraKeyframes);
@@ -1104,8 +1105,37 @@ export const KoreaComposition: React.FC = () => {
       map.setPaintProperty("38th-line", "line-dasharray", [1, 0]);
     }
 
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      map.off("render", onRender);
+      map.off("idle", onIdle);
+      continueRender(h);
+    };
+
+    const onRender = () => {
+      if (map.isStyleLoaded() && map.areTilesLoaded()) finish();
+    };
+    
+    const onIdle = () => finish();
+
+    map.on("render", onRender);
+    map.on("idle", onIdle);
+
     map.triggerRepaint();
-  }, [frame, map, mapLoaded]);
+
+    requestAnimationFrame(() => {
+      if (map.isStyleLoaded() && map.areTilesLoaded()) {
+        finish();
+      }
+    });
+
+    return () => {
+      map.off("render", onRender);
+      map.off("idle", onIdle);
+    };
+  }, [frame, map, mapLoaded, delayRender, continueRender]);
 
   // ── RENDER TEXT OVERLAYS & CAPTIONS ──
 

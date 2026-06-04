@@ -163,9 +163,33 @@ const RadialFillOverlay: React.FC<RadialFillProps> = ({ id, geojson, map, frame,
   const radius = rawT * maxR;
   const pathD = useProjectedPath(map, geojson);
   const clipId = `flood-${id}`;
+  
+  // Line drawing animation progress
+  const dashOffset = interpolate(frame, [startFrame, endFrame], [100, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+
   return (
     <svg style={{ position: "absolute", top: 0, left: 0, width, height, pointerEvents: "none", zIndex: 10, overflow: "hidden" }} width={width} height={height}>
-      <defs><clipPath id={clipId}><circle cx={center.x} cy={center.y} r={radius} /></clipPath></defs>
+      <defs>
+        <clipPath id={clipId}><circle cx={center.x} cy={center.y} r={radius} /></clipPath>
+        <filter id={`glow-${id}`} x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+        </filter>
+      </defs>
+      
+      {/* Animated glowing border (outer) */}
+      <path 
+        d={pathD} fill="none" stroke="#ffffff" strokeWidth={6} strokeOpacity={opacity} 
+        filter={`url(#glow-${id})`}
+        pathLength="100" strokeDasharray="100" strokeDashoffset={dashOffset} 
+      />
+      
+      {/* Animated solid border (inner core) */}
+      <path 
+        d={pathD} fill="none" stroke="#ffffff" strokeWidth={1.5} strokeOpacity={opacity} 
+        pathLength="100" strokeDasharray="100" strokeDashoffset={dashOffset} 
+      />
+
+      {/* Radial fill (clipped) */}
       <path d={pathD} fill={color} fillOpacity={opacity} clipPath={`url(#${clipId})`} fillRule="evenodd" />
     </svg>
   );
@@ -601,6 +625,45 @@ const PopulationEmojis: React.FC<{ map: maplibregl.Map | null, frame: number, st
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// SCENE 1 POPULATION EMOJIS (DENSELY)
+// ─────────────────────────────────────────────────────────────────────────────
+const Scene1PopulationEmojis: React.FC<{ map: maplibregl.Map | null, frame: number }> = ({ map, frame }) => {
+  if (!map || frame < 10 || frame > 104) return null;
+  const tIn = frame - 10;
+  const tOut = 104 - frame;
+  const opacityIn = interpolate(tIn, [0, 15], [0, 1], { extrapolateRight: "clamp" });
+  const opacityOut = interpolate(tOut, [0, 4], [0, 1], { extrapolateRight: "clamp" });
+  const masterOpacity = Math.min(opacityIn, opacityOut);
+  
+  const popCoords: [number, number][] = [
+    [90.0, 24.5], [89.0, 24.0], [91.5, 24.8], [90.5, 23.5],
+    [89.5, 23.0], [91.0, 23.0], [90.2, 22.5], [89.2, 25.5],
+    [91.8, 22.0], [90.8, 24.2], [88.8, 24.8], [89.8, 23.8],
+    [89.0, 25.0], [91.2, 24.0], [89.5, 22.2], [90.8, 22.5]
+  ];
+
+  return (
+    <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 26, opacity: masterOpacity }}>
+      {popCoords.map((coord, i) => {
+        const pt = map.project(coord);
+        const pulse = interpolate(Math.sin((frame + i * 10) / 10), [-1, 1], [0.8, 1.2]);
+        return (
+          <div key={i} style={{ 
+            position: "absolute", 
+            left: pt.x, top: pt.y, 
+            transform: `translate(-50%, -50%) scale(${pulse})`, 
+            fontSize: 40,
+            filter: "drop-shadow(0 2px 5px rgba(0,0,0,0.8))"
+          }}>
+            👥
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // PROJECTED TEXT + SIZE LABEL OVERLAYS
 // ─────────────────────────────────────────────────────────────────────────────
 type Overlay = typeof s.textOverlays[number];
@@ -672,29 +735,22 @@ export const BangladeshComposition: React.FC = () => {
       style: {
         version: 8,
         sources: {
-          satellite: { type: "raster", tiles: ["https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"], tileSize: 256, attribution: "Google" },
-          "bangladesh-src": { type: "geojson", data: bangladeshData as maplibregl.GeoJSONSourceSpecification["data"] },
-          "greece-src":     { type: "geojson", data: greeceData     as maplibregl.GeoJSONSourceSpecification["data"] },
-          "russia-src":     { type: "geojson", data: russiaData     as maplibregl.GeoJSONSourceSpecification["data"] },
+          satellite: {
+            type: "raster",
+            tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+            tileSize: 256,
+            attribution: "Tiles © Esri"
+          }
         },
         layers: [
-          { id: "satellite", type: "raster", source: "satellite", minzoom: 0, maxzoom: 22 },
-          // Bangladesh — SVG handles fill; MapLibre layer always 0
-          { id: "bangladesh-fill",         type: "fill", source: "bangladesh-src", paint: { "fill-color": "#cc5500", "fill-opacity": 0 } },
-          { id: "bangladesh-border-outer", type: "line", source: "bangladesh-src", paint: { "line-color": "#ffffff", "line-width": 10, "line-blur": 7,  "line-opacity": 0 } },
-          { id: "bangladesh-border-mid",   type: "line", source: "bangladesh-src", paint: { "line-color": "#ffffff", "line-width": 5,  "line-blur": 3,  "line-opacity": 0 } },
-          { id: "bangladesh-border-core",  type: "line", source: "bangladesh-src", paint: { "line-color": "#ffffff", "line-width": 1.5,"line-blur": 0,  "line-opacity": 0 } },
-          // Greece — SVG handles fill; MapLibre layer always 0
-          { id: "greece-fill",         type: "fill", source: "greece-src", paint: { "fill-color": "#003d99", "fill-opacity": 0 } },
-          { id: "greece-border-outer", type: "line", source: "greece-src", paint: { "line-color": "#4499ff", "line-width": 10, "line-blur": 7,  "line-opacity": 0 } },
-          { id: "greece-border-mid",   type: "line", source: "greece-src", paint: { "line-color": "#4499ff", "line-width": 5,  "line-blur": 3,  "line-opacity": 0 } },
-          { id: "greece-border-core",  type: "line", source: "greece-src", paint: { "line-color": "#aaccff", "line-width": 1.5,"line-blur": 0,  "line-opacity": 0 } },
-          // Russia — SVG handles fill; MapLibre layer always 0
-          { id: "russia-fill",         type: "fill", source: "russia-src", paint: { "fill-color": "#cc2200", "fill-opacity": 0 } },
-          { id: "russia-border-outer", type: "line", source: "russia-src", paint: { "line-color": "#ffffff", "line-width": 10, "line-blur": 7,  "line-opacity": 0 } },
-          { id: "russia-border-mid",   type: "line", source: "russia-src", paint: { "line-color": "#ffffff", "line-width": 5,  "line-blur": 3,  "line-opacity": 0 } },
-          { id: "russia-border-core",  type: "line", source: "russia-src", paint: { "line-color": "#ffffff", "line-width": 1.5,"line-blur": 0,  "line-opacity": 0 } },
-        ],
+          {
+            id: "satellite",
+            type: "raster",
+            source: "satellite",
+            minzoom: 0,
+            maxzoom: 19
+          }
+        ]
       },
       center: [85.0, 24.0] as [number, number],
       zoom: 3.2,
@@ -718,13 +774,7 @@ export const BangladeshComposition: React.FC = () => {
     const camChanged = !lc || lc.zoom !== camera.zoom || lc.pitch !== camera.pitch || lc.bearing !== camera.bearing || lc.center[0] !== camera.center[0] || lc.center[1] !== camera.center[1];
     if (camChanged) { map.jumpTo({ center: camera.center, zoom: camera.zoom, pitch: camera.pitch, bearing: camera.bearing }); lastCameraRef.current = camera; }
 
-    // Layer opacities
-    (["bangladesh-border-outer", "bangladesh-border-mid", "bangladesh-border-core", "greece-border-outer", "greece-border-mid", "greece-border-core", "russia-border-outer", "russia-border-mid", "russia-border-core"] as const).forEach((id) => {
-      const keys = s.layerAnimations[id as keyof typeof s.layerAnimations];
-      if (!keys) return;
-      const opacity = getLayerOpacity(frame, keys);
-      if (lastOpacitiesRef.current[id] !== opacity) { map.setPaintProperty(id, "line-opacity", opacity); lastOpacitiesRef.current[id] = opacity; }
-    });
+
 
     map.triggerRepaint();
   }, [frame, map, mapLoaded]);
@@ -748,6 +798,11 @@ export const BangladeshComposition: React.FC = () => {
           centroid={s.bangladeshReveal.centroid as [number, number]}
         />
       </div>
+      
+      {/* 👥 Dense Population Emojis for Scene 1 */}
+      {frame >= 10 && frame <= 104 && (
+        <Scene1PopulationEmojis map={map} frame={frame} />
+      )}
 
       {/* ── SCENE 2 ──────────────────────────────────────────────────── */}
       {/* Greece radial flood fill — activates when camera zooms into Greece */}

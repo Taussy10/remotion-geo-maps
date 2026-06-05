@@ -1,0 +1,97 @@
+{
+  "cameraKeyframes": [
+    {
+      "frame": 0,
+      "center": [43.0, 32.0],
+      "zoom": 3.5,
+      "pitch": 0,
+      "bearing": 0
+    },
+    {
+      "frame": 60,
+      "center": [43.0, 32.0],
+      "zoom": 3.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 120,
+      "center": [34.85, 31.04],
+      "zoom": 5.0,
+      "pitch": 20,
+      "bearing": 5,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 180,
+      "center": [43.0, 32.0],
+      "zoom": 4.0,
+      "pitch": 10,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 227,
+      "center": [53.68, 32.42],
+      "zoom": 5.5,
+      "pitch": 30,
+      "bearing": -10,
+      "easing": "quadOut"
+    }
+  ],
+  "planeAnimation": {
+    "startFrame": 120,
+    "endFrame": 180,
+    "startCoords": [34.85, 31.04],
+    "endCoords": [53.68, 32.42]
+  },
+  "bombingSequence": {
+    "startFrame": 180,
+    "endFrame": 227,
+    "targetCoords": [53.68, 32.42]
+  },
+  "textOverlays": [
+    {
+      "text": "ISRAEL",
+      "coords": [34.85, 31.04],
+      "fadeIn": [21, 31],
+      "fadeOut": [120, 130],
+      "textStyle": {
+        "fontFamily": "Arial, sans-serif",
+        "fontWeight": 800,
+        "fontSize": 40,
+        "color": "#ffffff",
+        "textShadow": "0 0 10px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8)"
+      }
+    },
+    {
+      "text": "IRAN",
+      "coords": [53.68, 32.42],
+      "fadeIn": [100, 110],
+      "fadeOut": [180, 190],
+      "textStyle": {
+        "fontFamily": "Arial, sans-serif",
+        "fontWeight": 800,
+        "fontSize": 40,
+        "color": "#ffffff",
+        "textShadow": "0 0 10px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.8)"
+      }
+    },
+    {
+      "type": "screen",
+      "text": "ENEMIES",
+      "coords": [44.0, 32.0],
+      "fadeIn": [200, 205],
+      "fadeOut": [250, 260],
+      "textStyle": {
+        "fontFamily": "Arial, sans-serif",
+        "fontWeight": 900,
+        "fontSize": 90,
+        "letterSpacing": "0.05em",
+        "color": "#ffffff",
+        "textShadow": "0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000"
+      }
+    }
+  ]
+}

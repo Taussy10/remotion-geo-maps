@@ -1,0 +1,1581 @@
+{
+  "audio_file": "audio.mp3",
+  "fps": 30,
+  "words": [
+    {
+      "word": "Do",
+      "start": 0.0,
+      "end": 0.24,
+      "frame_start": 0,
+      "frame_end": 7
+    },
+    {
+      "word": "you",
+      "start": 0.24,
+      "end": 0.34,
+      "frame_start": 7,
+      "frame_end": 10
+    },
+    {
+      "word": "know",
+      "start": 0.34,
+      "end": 0.46,
+      "frame_start": 10,
+      "frame_end": 14
+    },
+    {
+      "word": "why",
+      "start": 0.46,
+      "end": 0.7,
+      "frame_start": 14,
+      "frame_end": 21
+    },
+    {
+      "word": "Israel",
+      "start": 0.7,
+      "end": 1.08,
+      "frame_start": 21,
+      "frame_end": 32
+    },
+    {
+      "word": "and",
+      "start": 1.08,
+      "end": 1.36,
+      "frame_start": 32,
+      "frame_end": 41
+    },
+    {
+      "word": "Iran",
+      "start": 1.36,
+      "end": 1.66,
+      "frame_start": 41,
+      "frame_end": 50
+    },
+    {
+      "word": "are",
+      "start": 1.66,
+      "end": 2.04,
+      "frame_start": 50,
+      "frame_end": 61
+    },
+    {
+      "word": "enemies?",
+      "start": 2.04,
+      "end": 2.36,
+      "frame_start": 61,
+      "frame_end": 71
+    },
+    {
+      "word": "Today,",
+      "start": 2.7,
+      "end": 2.94,
+      "frame_start": 81,
+      "frame_end": 88
+    },
+    {
+      "word": "the",
+      "start": 3.2,
+      "end": 3.3,
+      "frame_start": 96,
+      "frame_end": 99
+    },
+    {
+      "word": "two",
+      "start": 3.3,
+      "end": 3.5,
+      "frame_start": 99,
+      "frame_end": 105
+    },
+    {
+      "word": "countries",
+      "start": 3.5,
+      "end": 3.82,
+      "frame_start": 105,
+      "frame_end": 115
+    },
+    {
+      "word": "attack",
+      "start": 3.82,
+      "end": 4.14,
+      "frame_start": 115,
+      "frame_end": 124
+    },
+    {
+      "word": "each",
+      "start": 4.14,
+      "end": 4.44,
+      "frame_start": 124,
+      "frame_end": 133
+    },
+    {
+      "word": "other",
+      "start": 4.44,
+      "end": 4.66,
+      "frame_start": 133,
+      "frame_end": 140
+    },
+    {
+      "word": "and",
+      "start": 4.66,
+      "end": 4.84,
+      "frame_start": 140,
+      "frame_end": 145
+    },
+    {
+      "word": "are",
+      "start": 4.84,
+      "end": 4.94,
+      "frame_start": 145,
+      "frame_end": 148
+    },
+    {
+      "word": "considered",
+      "start": 4.94,
+      "end": 5.28,
+      "frame_start": 148,
+      "frame_end": 158
+    },
+    {
+      "word": "among",
+      "start": 5.28,
+      "end": 5.58,
+      "frame_start": 158,
+      "frame_end": 167
+    },
+    {
+      "word": "the",
+      "start": 5.58,
+      "end": 5.82,
+      "frame_start": 167,
+      "frame_end": 175
+    },
+    {
+      "word": "biggest",
+      "start": 5.82,
+      "end": 6.06,
+      "frame_start": 175,
+      "frame_end": 182
+    },
+    {
+      "word": "enemies",
+      "start": 6.06,
+      "end": 6.4,
+      "frame_start": 182,
+      "frame_end": 192
+    },
+    {
+      "word": "in",
+      "start": 6.4,
+      "end": 6.72,
+      "frame_start": 192,
+      "frame_end": 202
+    },
+    {
+      "word": "the",
+      "start": 6.72,
+      "end": 6.8,
+      "frame_start": 202,
+      "frame_end": 204
+    },
+    {
+      "word": "entire",
+      "start": 6.8,
+      "end": 7.18,
+      "frame_start": 204,
+      "frame_end": 215
+    },
+    {
+      "word": "world.",
+      "start": 7.18,
+      "end": 7.56,
+      "frame_start": 215,
+      "frame_end": 227
+    },
+    {
+      "word": "But",
+      "start": 7.76,
+      "end": 7.88,
+      "frame_start": 233,
+      "frame_end": 236
+    },
+    {
+      "word": "here",
+      "start": 7.88,
+      "end": 8.14,
+      "frame_start": 236,
+      "frame_end": 244
+    },
+    {
+      "word": "is",
+      "start": 8.14,
+      "end": 8.3,
+      "frame_start": 244,
+      "frame_end": 249
+    },
+    {
+      "word": "what",
+      "start": 8.3,
+      "end": 8.5,
+      "frame_start": 249,
+      "frame_end": 255
+    },
+    {
+      "word": "most",
+      "start": 8.5,
+      "end": 8.78,
+      "frame_start": 255,
+      "frame_end": 263
+    },
+    {
+      "word": "people",
+      "start": 8.78,
+      "end": 9.02,
+      "frame_start": 263,
+      "frame_end": 271
+    },
+    {
+      "word": "don't",
+      "start": 9.02,
+      "end": 9.26,
+      "frame_start": 271,
+      "frame_end": 278
+    },
+    {
+      "word": "know,",
+      "start": 9.26,
+      "end": 9.46,
+      "frame_start": 278,
+      "frame_end": 284
+    },
+    {
+      "word": "even",
+      "start": 9.6,
+      "end": 9.78,
+      "frame_start": 288,
+      "frame_end": 293
+    },
+    {
+      "word": "though",
+      "start": 9.78,
+      "end": 9.98,
+      "frame_start": 293,
+      "frame_end": 299
+    },
+    {
+      "word": "just",
+      "start": 9.98,
+      "end": 10.22,
+      "frame_start": 299,
+      "frame_end": 307
+    },
+    {
+      "word": "50",
+      "start": 10.22,
+      "end": 10.56,
+      "frame_start": 307,
+      "frame_end": 317
+    },
+    {
+      "word": "years",
+      "start": 10.56,
+      "end": 10.76,
+      "frame_start": 317,
+      "frame_end": 323
+    },
+    {
+      "word": "ago,",
+      "start": 10.76,
+      "end": 11.06,
+      "frame_start": 323,
+      "frame_end": 332
+    },
+    {
+      "word": "they",
+      "start": 11.24,
+      "end": 11.36,
+      "frame_start": 337,
+      "frame_end": 341
+    },
+    {
+      "word": "were",
+      "start": 11.36,
+      "end": 11.52,
+      "frame_start": 341,
+      "frame_end": 346
+    },
+    {
+      "word": "actually",
+      "start": 11.52,
+      "end": 11.92,
+      "frame_start": 346,
+      "frame_end": 358
+    },
+    {
+      "word": "close",
+      "start": 11.92,
+      "end": 12.32,
+      "frame_start": 358,
+      "frame_end": 370
+    },
+    {
+      "word": "friends.",
+      "start": 12.32,
+      "end": 12.78,
+      "frame_start": 370,
+      "frame_end": 383
+    },
+    {
+      "word": "Before",
+      "start": 13.28,
+      "end": 13.52,
+      "frame_start": 398,
+      "frame_end": 406
+    },
+    {
+      "word": "1979,",
+      "start": 13.52,
+      "end": 14.16,
+      "frame_start": 406,
+      "frame_end": 425
+    },
+    {
+      "word": "Iran",
+      "start": 14.68,
+      "end": 14.84,
+      "frame_start": 440,
+      "frame_end": 445
+    },
+    {
+      "word": "was",
+      "start": 14.84,
+      "end": 15.04,
+      "frame_start": 445,
+      "frame_end": 451
+    },
+    {
+      "word": "ruled",
+      "start": 15.04,
+      "end": 15.22,
+      "frame_start": 451,
+      "frame_end": 457
+    },
+    {
+      "word": "by",
+      "start": 15.22,
+      "end": 15.42,
+      "frame_start": 457,
+      "frame_end": 463
+    },
+    {
+      "word": "the",
+      "start": 15.42,
+      "end": 15.54,
+      "frame_start": 463,
+      "frame_end": 466
+    },
+    {
+      "word": "Shah,",
+      "start": 15.54,
+      "end": 15.72,
+      "frame_start": 466,
+      "frame_end": 472
+    },
+    {
+      "word": "a",
+      "start": 16.16,
+      "end": 16.3,
+      "frame_start": 485,
+      "frame_end": 489
+    },
+    {
+      "word": "pro",
+      "start": 16.3,
+      "end": 16.56,
+      "frame_start": 489,
+      "frame_end": 497
+    },
+    {
+      "word": "-western",
+      "start": 16.56,
+      "end": 17.04,
+      "frame_start": 497,
+      "frame_end": 511
+    },
+    {
+      "word": "king",
+      "start": 17.04,
+      "end": 17.44,
+      "frame_start": 511,
+      "frame_end": 523
+    },
+    {
+      "word": "who",
+      "start": 17.44,
+      "end": 17.7,
+      "frame_start": 523,
+      "frame_end": 531
+    },
+    {
+      "word": "maintained",
+      "start": 17.7,
+      "end": 18.02,
+      "frame_start": 531,
+      "frame_end": 541
+    },
+    {
+      "word": "warm",
+      "start": 18.02,
+      "end": 18.38,
+      "frame_start": 541,
+      "frame_end": 551
+    },
+    {
+      "word": "relations",
+      "start": 18.38,
+      "end": 18.74,
+      "frame_start": 551,
+      "frame_end": 562
+    },
+    {
+      "word": "with",
+      "start": 18.74,
+      "end": 19.02,
+      "frame_start": 562,
+      "frame_end": 571
+    },
+    {
+      "word": "Israel.",
+      "start": 19.02,
+      "end": 19.34,
+      "frame_start": 571,
+      "frame_end": 580
+    },
+    {
+      "word": "The",
+      "start": 19.7,
+      "end": 19.82,
+      "frame_start": 591,
+      "frame_end": 595
+    },
+    {
+      "word": "two",
+      "start": 19.82,
+      "end": 20.04,
+      "frame_start": 595,
+      "frame_end": 601
+    },
+    {
+      "word": "countries",
+      "start": 20.04,
+      "end": 20.4,
+      "frame_start": 601,
+      "frame_end": 612
+    },
+    {
+      "word": "traded",
+      "start": 20.4,
+      "end": 20.78,
+      "frame_start": 612,
+      "frame_end": 623
+    },
+    {
+      "word": "goods,",
+      "start": 20.78,
+      "end": 21.14,
+      "frame_start": 623,
+      "frame_end": 634
+    },
+    {
+      "word": "shared",
+      "start": 21.52,
+      "end": 21.82,
+      "frame_start": 646,
+      "frame_end": 655
+    },
+    {
+      "word": "intelligence,",
+      "start": 21.82,
+      "end": 22.28,
+      "frame_start": 655,
+      "frame_end": 668
+    },
+    {
+      "word": "and",
+      "start": 22.62,
+      "end": 22.64,
+      "frame_start": 679,
+      "frame_end": 679
+    },
+    {
+      "word": "worked",
+      "start": 22.64,
+      "end": 22.88,
+      "frame_start": 679,
+      "frame_end": 686
+    },
+    {
+      "word": "closely",
+      "start": 22.88,
+      "end": 23.36,
+      "frame_start": 686,
+      "frame_end": 701
+    },
+    {
+      "word": "together.",
+      "start": 23.36,
+      "end": 23.72,
+      "frame_start": 701,
+      "frame_end": 712
+    },
+    {
+      "word": "But",
+      "start": 24.04,
+      "end": 24.2,
+      "frame_start": 721,
+      "frame_end": 726
+    },
+    {
+      "word": "in",
+      "start": 24.2,
+      "end": 24.34,
+      "frame_start": 726,
+      "frame_end": 730
+    },
+    {
+      "word": "1979,",
+      "start": 24.34,
+      "end": 24.88,
+      "frame_start": 730,
+      "frame_end": 746
+    },
+    {
+      "word": "everything",
+      "start": 25.44,
+      "end": 25.74,
+      "frame_start": 763,
+      "frame_end": 772
+    },
+    {
+      "word": "changed.",
+      "start": 25.74,
+      "end": 26.22,
+      "frame_start": 772,
+      "frame_end": 787
+    },
+    {
+      "word": "That",
+      "start": 26.22,
+      "end": 26.86,
+      "frame_start": 787,
+      "frame_end": 806
+    },
+    {
+      "word": "year,",
+      "start": 26.86,
+      "end": 27.14,
+      "frame_start": 806,
+      "frame_end": 814
+    },
+    {
+      "word": "the",
+      "start": 27.32,
+      "end": 27.42,
+      "frame_start": 820,
+      "frame_end": 823
+    },
+    {
+      "word": "Iranian",
+      "start": 27.42,
+      "end": 27.76,
+      "frame_start": 823,
+      "frame_end": 833
+    },
+    {
+      "word": "Revolution",
+      "start": 27.76,
+      "end": 28.3,
+      "frame_start": 833,
+      "frame_end": 849
+    },
+    {
+      "word": "overthrew",
+      "start": 28.3,
+      "end": 28.96,
+      "frame_start": 849,
+      "frame_end": 869
+    },
+    {
+      "word": "the",
+      "start": 28.96,
+      "end": 29.1,
+      "frame_start": 869,
+      "frame_end": 873
+    },
+    {
+      "word": "Shah",
+      "start": 29.1,
+      "end": 29.36,
+      "frame_start": 873,
+      "frame_end": 881
+    },
+    {
+      "word": "and",
+      "start": 29.36,
+      "end": 29.6,
+      "frame_start": 881,
+      "frame_end": 888
+    },
+    {
+      "word": "brought",
+      "start": 29.6,
+      "end": 29.82,
+      "frame_start": 888,
+      "frame_end": 895
+    },
+    {
+      "word": "Islamic",
+      "start": 29.82,
+      "end": 30.16,
+      "frame_start": 895,
+      "frame_end": 905
+    },
+    {
+      "word": "leaders",
+      "start": 30.16,
+      "end": 30.68,
+      "frame_start": 905,
+      "frame_end": 920
+    },
+    {
+      "word": "to",
+      "start": 30.68,
+      "end": 30.92,
+      "frame_start": 920,
+      "frame_end": 928
+    },
+    {
+      "word": "power.",
+      "start": 30.92,
+      "end": 31.22,
+      "frame_start": 928,
+      "frame_end": 937
+    },
+    {
+      "word": "This",
+      "start": 31.58,
+      "end": 31.7,
+      "frame_start": 947,
+      "frame_end": 951
+    },
+    {
+      "word": "leadership",
+      "start": 31.7,
+      "end": 32.18,
+      "frame_start": 951,
+      "frame_end": 965
+    },
+    {
+      "word": "viewed",
+      "start": 32.18,
+      "end": 32.6,
+      "frame_start": 965,
+      "frame_end": 978
+    },
+    {
+      "word": "Israel",
+      "start": 32.6,
+      "end": 32.9,
+      "frame_start": 978,
+      "frame_end": 987
+    },
+    {
+      "word": "as",
+      "start": 32.9,
+      "end": 33.18,
+      "frame_start": 987,
+      "frame_end": 995
+    },
+    {
+      "word": "an",
+      "start": 33.18,
+      "end": 33.28,
+      "frame_start": 995,
+      "frame_end": 998
+    },
+    {
+      "word": "oppressor",
+      "start": 33.28,
+      "end": 33.76,
+      "frame_start": 998,
+      "frame_end": 1013
+    },
+    {
+      "word": "that",
+      "start": 33.76,
+      "end": 33.92,
+      "frame_start": 1013,
+      "frame_end": 1018
+    },
+    {
+      "word": "attacks",
+      "start": 33.92,
+      "end": 34.3,
+      "frame_start": 1018,
+      "frame_end": 1029
+    },
+    {
+      "word": "innocent",
+      "start": 34.3,
+      "end": 34.72,
+      "frame_start": 1029,
+      "frame_end": 1042
+    },
+    {
+      "word": "Palestinians",
+      "start": 34.72,
+      "end": 35.1,
+      "frame_start": 1042,
+      "frame_end": 1053
+    },
+    {
+      "word": "and",
+      "start": 35.1,
+      "end": 35.58,
+      "frame_start": 1053,
+      "frame_end": 1067
+    },
+    {
+      "word": "cut",
+      "start": 35.58,
+      "end": 35.86,
+      "frame_start": 1067,
+      "frame_end": 1076
+    },
+    {
+      "word": "diplomatic",
+      "start": 35.86,
+      "end": 36.24,
+      "frame_start": 1076,
+      "frame_end": 1087
+    },
+    {
+      "word": "relations",
+      "start": 36.24,
+      "end": 36.88,
+      "frame_start": 1087,
+      "frame_end": 1106
+    },
+    {
+      "word": "almost",
+      "start": 36.88,
+      "end": 37.22,
+      "frame_start": 1106,
+      "frame_end": 1117
+    },
+    {
+      "word": "immediately.",
+      "start": 37.22,
+      "end": 37.66,
+      "frame_start": 1117,
+      "frame_end": 1130
+    },
+    {
+      "word": "To",
+      "start": 38.12,
+      "end": 38.28,
+      "frame_start": 1144,
+      "frame_end": 1148
+    },
+    {
+      "word": "support",
+      "start": 38.28,
+      "end": 38.64,
+      "frame_start": 1148,
+      "frame_end": 1159
+    },
+    {
+      "word": "the",
+      "start": 38.64,
+      "end": 38.8,
+      "frame_start": 1159,
+      "frame_end": 1164
+    },
+    {
+      "word": "Palestinian",
+      "start": 38.8,
+      "end": 39.24,
+      "frame_start": 1164,
+      "frame_end": 1177
+    },
+    {
+      "word": "cause,",
+      "start": 39.24,
+      "end": 39.76,
+      "frame_start": 1177,
+      "frame_end": 1193
+    },
+    {
+      "word": "Iran",
+      "start": 40.04,
+      "end": 40.3,
+      "frame_start": 1201,
+      "frame_end": 1209
+    },
+    {
+      "word": "began",
+      "start": 40.3,
+      "end": 40.7,
+      "frame_start": 1209,
+      "frame_end": 1221
+    },
+    {
+      "word": "supporting",
+      "start": 40.7,
+      "end": 41.1,
+      "frame_start": 1221,
+      "frame_end": 1233
+    },
+    {
+      "word": "groups",
+      "start": 41.1,
+      "end": 41.46,
+      "frame_start": 1233,
+      "frame_end": 1244
+    },
+    {
+      "word": "to",
+      "start": 41.46,
+      "end": 41.68,
+      "frame_start": 1244,
+      "frame_end": 1250
+    },
+    {
+      "word": "attack",
+      "start": 41.68,
+      "end": 42.08,
+      "frame_start": 1250,
+      "frame_end": 1262
+    },
+    {
+      "word": "Israel,",
+      "start": 42.08,
+      "end": 42.44,
+      "frame_start": 1262,
+      "frame_end": 1273
+    },
+    {
+      "word": "and",
+      "start": 42.86,
+      "end": 43.04,
+      "frame_start": 1286,
+      "frame_end": 1291
+    },
+    {
+      "word": "these",
+      "start": 43.04,
+      "end": 43.22,
+      "frame_start": 1291,
+      "frame_end": 1297
+    },
+    {
+      "word": "groups",
+      "start": 43.22,
+      "end": 43.52,
+      "frame_start": 1297,
+      "frame_end": 1306
+    },
+    {
+      "word": "started",
+      "start": 43.52,
+      "end": 44.04,
+      "frame_start": 1306,
+      "frame_end": 1321
+    },
+    {
+      "word": "attacking",
+      "start": 44.04,
+      "end": 44.36,
+      "frame_start": 1321,
+      "frame_end": 1331
+    },
+    {
+      "word": "Israel.",
+      "start": 44.36,
+      "end": 44.74,
+      "frame_start": 1331,
+      "frame_end": 1342
+    },
+    {
+      "word": "As",
+      "start": 44.98,
+      "end": 45.14,
+      "frame_start": 1349,
+      "frame_end": 1354
+    },
+    {
+      "word": "a",
+      "start": 45.14,
+      "end": 45.22,
+      "frame_start": 1354,
+      "frame_end": 1357
+    },
+    {
+      "word": "result,",
+      "start": 45.22,
+      "end": 45.54,
+      "frame_start": 1357,
+      "frame_end": 1366
+    },
+    {
+      "word": "Israel",
+      "start": 45.84,
+      "end": 46.1,
+      "frame_start": 1375,
+      "frame_end": 1383
+    },
+    {
+      "word": "became",
+      "start": 46.1,
+      "end": 46.4,
+      "frame_start": 1383,
+      "frame_end": 1392
+    },
+    {
+      "word": "angry.",
+      "start": 46.4,
+      "end": 46.86,
+      "frame_start": 1392,
+      "frame_end": 1406
+    },
+    {
+      "word": "Then",
+      "start": 47.34,
+      "end": 47.58,
+      "frame_start": 1420,
+      "frame_end": 1427
+    },
+    {
+      "word": "Iran",
+      "start": 47.58,
+      "end": 47.94,
+      "frame_start": 1427,
+      "frame_end": 1438
+    },
+    {
+      "word": "took",
+      "start": 47.94,
+      "end": 48.2,
+      "frame_start": 1438,
+      "frame_end": 1446
+    },
+    {
+      "word": "the",
+      "start": 48.2,
+      "end": 48.36,
+      "frame_start": 1446,
+      "frame_end": 1451
+    },
+    {
+      "word": "decision",
+      "start": 48.36,
+      "end": 48.72,
+      "frame_start": 1451,
+      "frame_end": 1462
+    },
+    {
+      "word": "to",
+      "start": 48.72,
+      "end": 48.92,
+      "frame_start": 1462,
+      "frame_end": 1468
+    },
+    {
+      "word": "remove",
+      "start": 48.92,
+      "end": 49.2,
+      "frame_start": 1468,
+      "frame_end": 1476
+    },
+    {
+      "word": "Israel",
+      "start": 49.2,
+      "end": 49.62,
+      "frame_start": 1476,
+      "frame_end": 1489
+    },
+    {
+      "word": "from",
+      "start": 49.62,
+      "end": 49.84,
+      "frame_start": 1489,
+      "frame_end": 1495
+    },
+    {
+      "word": "the",
+      "start": 49.84,
+      "end": 49.96,
+      "frame_start": 1495,
+      "frame_end": 1499
+    },
+    {
+      "word": "map",
+      "start": 49.96,
+      "end": 50.32,
+      "frame_start": 1499,
+      "frame_end": 1510
+    },
+    {
+      "word": "of",
+      "start": 50.32,
+      "end": 50.5,
+      "frame_start": 1510,
+      "frame_end": 1515
+    },
+    {
+      "word": "the",
+      "start": 50.5,
+      "end": 50.6,
+      "frame_start": 1515,
+      "frame_end": 1518
+    },
+    {
+      "word": "world",
+      "start": 50.6,
+      "end": 50.88,
+      "frame_start": 1518,
+      "frame_end": 1526
+    },
+    {
+      "word": "so",
+      "start": 50.88,
+      "end": 51.28,
+      "frame_start": 1526,
+      "frame_end": 1538
+    },
+    {
+      "word": "it",
+      "start": 51.28,
+      "end": 51.4,
+      "frame_start": 1538,
+      "frame_end": 1542
+    },
+    {
+      "word": "started",
+      "start": 51.4,
+      "end": 51.72,
+      "frame_start": 1542,
+      "frame_end": 1552
+    },
+    {
+      "word": "a",
+      "start": 51.72,
+      "end": 51.88,
+      "frame_start": 1552,
+      "frame_end": 1556
+    },
+    {
+      "word": "nuclear",
+      "start": 51.88,
+      "end": 52.12,
+      "frame_start": 1556,
+      "frame_end": 1564
+    },
+    {
+      "word": "program.",
+      "start": 52.12,
+      "end": 52.68,
+      "frame_start": 1564,
+      "frame_end": 1580
+    },
+    {
+      "word": "As",
+      "start": 52.86,
+      "end": 53.04,
+      "frame_start": 1586,
+      "frame_end": 1591
+    },
+    {
+      "word": "Iran",
+      "start": 53.04,
+      "end": 53.32,
+      "frame_start": 1591,
+      "frame_end": 1600
+    },
+    {
+      "word": "moved",
+      "start": 53.32,
+      "end": 53.56,
+      "frame_start": 1600,
+      "frame_end": 1607
+    },
+    {
+      "word": "closer",
+      "start": 53.56,
+      "end": 53.96,
+      "frame_start": 1607,
+      "frame_end": 1619
+    },
+    {
+      "word": "to",
+      "start": 53.96,
+      "end": 54.18,
+      "frame_start": 1619,
+      "frame_end": 1625
+    },
+    {
+      "word": "developing",
+      "start": 54.18,
+      "end": 54.58,
+      "frame_start": 1625,
+      "frame_end": 1637
+    },
+    {
+      "word": "nuclear",
+      "start": 54.58,
+      "end": 54.92,
+      "frame_start": 1637,
+      "frame_end": 1648
+    },
+    {
+      "word": "weapons,",
+      "start": 54.92,
+      "end": 55.42,
+      "frame_start": 1648,
+      "frame_end": 1663
+    },
+    {
+      "word": "Israel",
+      "start": 55.42,
+      "end": 56.14,
+      "frame_start": 1663,
+      "frame_end": 1684
+    },
+    {
+      "word": "became",
+      "start": 56.14,
+      "end": 56.46,
+      "frame_start": 1684,
+      "frame_end": 1694
+    },
+    {
+      "word": "increasingly",
+      "start": 56.46,
+      "end": 57.28,
+      "frame_start": 1694,
+      "frame_end": 1718
+    },
+    {
+      "word": "threatened",
+      "start": 57.28,
+      "end": 57.92,
+      "frame_start": 1718,
+      "frame_end": 1738
+    },
+    {
+      "word": "because",
+      "start": 57.92,
+      "end": 58.54,
+      "frame_start": 1738,
+      "frame_end": 1756
+    },
+    {
+      "word": "its",
+      "start": 58.54,
+      "end": 58.76,
+      "frame_start": 1756,
+      "frame_end": 1763
+    },
+    {
+      "word": "enemy",
+      "start": 58.76,
+      "end": 59.14,
+      "frame_start": 1763,
+      "frame_end": 1774
+    },
+    {
+      "word": "could",
+      "start": 59.14,
+      "end": 59.6,
+      "frame_start": 1774,
+      "frame_end": 1788
+    },
+    {
+      "word": "one",
+      "start": 59.6,
+      "end": 59.8,
+      "frame_start": 1788,
+      "frame_end": 1794
+    },
+    {
+      "word": "day",
+      "start": 59.8,
+      "end": 59.98,
+      "frame_start": 1794,
+      "frame_end": 1799
+    },
+    {
+      "word": "remove",
+      "start": 59.98,
+      "end": 60.3,
+      "frame_start": 1799,
+      "frame_end": 1809
+    },
+    {
+      "word": "Israel",
+      "start": 60.3,
+      "end": 60.64,
+      "frame_start": 1809,
+      "frame_end": 1819
+    },
+    {
+      "word": "from",
+      "start": 60.64,
+      "end": 60.86,
+      "frame_start": 1819,
+      "frame_end": 1826
+    },
+    {
+      "word": "the",
+      "start": 60.86,
+      "end": 60.96,
+      "frame_start": 1826,
+      "frame_end": 1829
+    },
+    {
+      "word": "map.",
+      "start": 60.96,
+      "end": 61.2,
+      "frame_start": 1829,
+      "frame_end": 1836
+    },
+    {
+      "word": "Israel",
+      "start": 61.3,
+      "end": 61.52,
+      "frame_start": 1839,
+      "frame_end": 1846
+    },
+    {
+      "word": "started",
+      "start": 61.52,
+      "end": 61.86,
+      "frame_start": 1846,
+      "frame_end": 1856
+    },
+    {
+      "word": "eliminating",
+      "start": 61.86,
+      "end": 62.36,
+      "frame_start": 1856,
+      "frame_end": 1871
+    },
+    {
+      "word": "Iranian",
+      "start": 62.36,
+      "end": 62.92,
+      "frame_start": 1871,
+      "frame_end": 1888
+    },
+    {
+      "word": "nuclear",
+      "start": 62.92,
+      "end": 63.24,
+      "frame_start": 1888,
+      "frame_end": 1897
+    },
+    {
+      "word": "scientists",
+      "start": 63.24,
+      "end": 63.72,
+      "frame_start": 1897,
+      "frame_end": 1912
+    },
+    {
+      "word": "and",
+      "start": 63.72,
+      "end": 63.98,
+      "frame_start": 1912,
+      "frame_end": 1919
+    },
+    {
+      "word": "launched",
+      "start": 63.98,
+      "end": 64.32,
+      "frame_start": 1919,
+      "frame_end": 1930
+    },
+    {
+      "word": "cyber",
+      "start": 64.32,
+      "end": 64.76,
+      "frame_start": 1930,
+      "frame_end": 1943
+    },
+    {
+      "word": "attacks.",
+      "start": 64.76,
+      "end": 65.12,
+      "frame_start": 1943,
+      "frame_end": 1954
+    },
+    {
+      "word": "Iran",
+      "start": 65.52,
+      "end": 65.84,
+      "frame_start": 1966,
+      "frame_end": 1975
+    },
+    {
+      "word": "attacked",
+      "start": 65.84,
+      "end": 66.2,
+      "frame_start": 1975,
+      "frame_end": 1986
+    },
+    {
+      "word": "Israel",
+      "start": 66.2,
+      "end": 66.58,
+      "frame_start": 1986,
+      "frame_end": 1997
+    },
+    {
+      "word": "through",
+      "start": 66.58,
+      "end": 66.82,
+      "frame_start": 1997,
+      "frame_end": 2005
+    },
+    {
+      "word": "proxies.",
+      "start": 66.82,
+      "end": 67.48,
+      "frame_start": 2005,
+      "frame_end": 2024
+    },
+    {
+      "word": "For",
+      "start": 67.9,
+      "end": 67.94,
+      "frame_start": 2037,
+      "frame_end": 2038
+    },
+    {
+      "word": "years,",
+      "start": 67.94,
+      "end": 68.24,
+      "frame_start": 2038,
+      "frame_end": 2047
+    },
+    {
+      "word": "Israel",
+      "start": 68.4,
+      "end": 68.72,
+      "frame_start": 2052,
+      "frame_end": 2062
+    },
+    {
+      "word": "and",
+      "start": 68.72,
+      "end": 68.9,
+      "frame_start": 2062,
+      "frame_end": 2067
+    },
+    {
+      "word": "Iran",
+      "start": 68.9,
+      "end": 69.16,
+      "frame_start": 2067,
+      "frame_end": 2075
+    },
+    {
+      "word": "fought",
+      "start": 69.16,
+      "end": 69.5,
+      "frame_start": 2075,
+      "frame_end": 2085
+    },
+    {
+      "word": "indirectly",
+      "start": 69.5,
+      "end": 69.92,
+      "frame_start": 2085,
+      "frame_end": 2098
+    },
+    {
+      "word": "through",
+      "start": 69.92,
+      "end": 70.28,
+      "frame_start": 2098,
+      "frame_end": 2108
+    },
+    {
+      "word": "allies",
+      "start": 70.28,
+      "end": 70.62,
+      "frame_start": 2108,
+      "frame_end": 2119
+    },
+    {
+      "word": "and",
+      "start": 70.62,
+      "end": 70.9,
+      "frame_start": 2119,
+      "frame_end": 2127
+    },
+    {
+      "word": "armed",
+      "start": 70.9,
+      "end": 71.12,
+      "frame_start": 2127,
+      "frame_end": 2134
+    },
+    {
+      "word": "groups",
+      "start": 71.12,
+      "end": 71.44,
+      "frame_start": 2134,
+      "frame_end": 2143
+    },
+    {
+      "word": "across",
+      "start": 71.44,
+      "end": 71.76,
+      "frame_start": 2143,
+      "frame_end": 2153
+    },
+    {
+      "word": "the",
+      "start": 71.76,
+      "end": 72.02,
+      "frame_start": 2153,
+      "frame_end": 2161
+    },
+    {
+      "word": "region.",
+      "start": 72.02,
+      "end": 72.24,
+      "frame_start": 2161,
+      "frame_end": 2167
+    },
+    {
+      "word": "But",
+      "start": 72.8,
+      "end": 72.84,
+      "frame_start": 2184,
+      "frame_end": 2185
+    },
+    {
+      "word": "on",
+      "start": 72.84,
+      "end": 72.94,
+      "frame_start": 2185,
+      "frame_end": 2188
+    },
+    {
+      "word": "February",
+      "start": 72.94,
+      "end": 73.2,
+      "frame_start": 2188,
+      "frame_end": 2196
+    },
+    {
+      "word": "28,",
+      "start": 73.2,
+      "end": 73.84,
+      "frame_start": 2196,
+      "frame_end": 2215
+    },
+    {
+      "word": "2026,",
+      "start": 74.0,
+      "end": 74.62,
+      "frame_start": 2220,
+      "frame_end": 2239
+    },
+    {
+      "word": "Israel",
+      "start": 75.28,
+      "end": 75.44,
+      "frame_start": 2258,
+      "frame_end": 2263
+    },
+    {
+      "word": "and",
+      "start": 75.44,
+      "end": 75.64,
+      "frame_start": 2263,
+      "frame_end": 2269
+    },
+    {
+      "word": "the",
+      "start": 75.64,
+      "end": 75.74,
+      "frame_start": 2269,
+      "frame_end": 2272
+    },
+    {
+      "word": "United",
+      "start": 75.74,
+      "end": 75.96,
+      "frame_start": 2272,
+      "frame_end": 2279
+    },
+    {
+      "word": "States",
+      "start": 75.96,
+      "end": 76.34,
+      "frame_start": 2279,
+      "frame_end": 2290
+    },
+    {
+      "word": "attacked",
+      "start": 76.34,
+      "end": 76.56,
+      "frame_start": 2290,
+      "frame_end": 2297
+    },
+    {
+      "word": "Iran",
+      "start": 76.56,
+      "end": 76.96,
+      "frame_start": 2297,
+      "frame_end": 2309
+    },
+    {
+      "word": "and",
+      "start": 76.96,
+      "end": 77.2,
+      "frame_start": 2309,
+      "frame_end": 2316
+    },
+    {
+      "word": "eliminated",
+      "start": 77.2,
+      "end": 77.66,
+      "frame_start": 2316,
+      "frame_end": 2330
+    },
+    {
+      "word": "the",
+      "start": 77.66,
+      "end": 78.0,
+      "frame_start": 2330,
+      "frame_end": 2340
+    },
+    {
+      "word": "supreme",
+      "start": 78.0,
+      "end": 78.26,
+      "frame_start": 2340,
+      "frame_end": 2348
+    },
+    {
+      "word": "leader.",
+      "start": 78.26,
+      "end": 78.64,
+      "frame_start": 2348,
+      "frame_end": 2359
+    }
+  ]
+}

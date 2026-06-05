@@ -46,6 +46,46 @@
       "pitch": 0,
       "bearing": 0,
       "easing": "quadInOut"
+    },
+    {
+      "frame": 420,
+      "center": [43.0, 32.0],
+      "zoom": 6,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 445,
+      "center": [53.68, 32.42],
+      "zoom": 5.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 520,
+      "center": [43.0, 32.0],
+      "zoom": 5.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 600,
+      "center": [43.0, 32.0],
+      "zoom": 5.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 750,
+      "center": [43.0, 32.0],
+      "zoom": 4.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
     }
   ],
   "statCards": [
@@ -65,6 +105,26 @@
     "endFrame": 383,
     "israelStartCoords": [34.85, 31.04],
     "iranStartCoords": [53.68, 32.42],
+    "meetCoords": [43.0, 32.0]
+  },
+  "scene1979": {
+    "textStart": 406,
+    "textEnd": 440,
+    "textCoords": [43.0, 32.0],
+    "shahStart": 460,
+    "shahCoords": [53.68, 32.42],
+    "netanyahuStart": 520,
+    "netanyahuCoords": [34.85, 31.04],
+    "heartStart": 540,
+    "endFrame": 590
+  },
+  "cooperationScene": {
+    "goodsStart": 612,
+    "intelStart": 646,
+    "handshakeStart": 680,
+    "endFrame": 750,
+    "israelCoords": [34.85, 31.04],
+    "iranCoords": [53.68, 32.42],
     "meetCoords": [43.0, 32.0]
   },
   "planeAnimation": {

@@ -59,6 +59,32 @@ const CountryBall: React.FC<{
   )
 }
 
+const GoodsBox: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100">
+    <rect x="10" y="20" width="80" height="70" fill="#cc9966" stroke="#8b5a2b" strokeWidth="5" rx="5" />
+    <line x1="10" y1="55" x2="90" y2="55" stroke="#8b5a2b" strokeWidth="5" />
+    <line x1="30" y1="20" x2="30" y2="90" stroke="#8b5a2b" strokeWidth="3" opacity="0.5" />
+    <line x1="50" y1="20" x2="50" y2="90" stroke="#8b5a2b" strokeWidth="3" opacity="0.5" />
+    <line x1="70" y1="20" x2="70" y2="90" stroke="#8b5a2b" strokeWidth="3" opacity="0.5" />
+    <rect x="40" y="18" width="20" height="74" fill="#e6c280" opacity="0.8" />
+  </svg>
+);
+
+const Microchip: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100">
+    {[15, 30, 45, 60, 75].map(x => (
+      <React.Fragment key={x}>
+        <rect x={x - 3} y="5" width="6" height="15" fill="#c0c0c0" />
+        <rect x={x - 3} y="80" width="6" height="15" fill="#c0c0c0" />
+      </React.Fragment>
+    ))}
+    <rect x="5" y="20" width="90" height="60" fill="#2d2d2d" stroke="#1a1a1a" strokeWidth="3" rx="5" />
+    <path d="M 20 40 L 40 40 L 50 30" fill="none" stroke="#4CAF50" strokeWidth="2" />
+    <path d="M 20 60 L 40 60 L 50 70" fill="none" stroke="#4CAF50" strokeWidth="2" />
+    <circle cx="50" cy="50" r="10" fill="#333" stroke="#4CAF50" strokeWidth="2" />
+  </svg>
+);
+
 
 // Helper function to calculate camera interpolation
 function getCameraPosition(frame: number, keyframes: any[]) {
@@ -101,6 +127,11 @@ export const IsraelIranComp: React.FC = () => {
   const [textPositions, setTextPositions] = useState<{ x: number; y: number }[]>([]);
   const [cbIsraelPos, setCbIsraelPos] = useState({ x: -1000, y: -1000 });
   const [cbIranPos, setCbIranPos] = useState({ x: -1000, y: -1000 });
+  const [s1979Pos, setS1979Pos] = useState({ x: -1000, y: -1000 });
+  const [shahPos, setShahPos] = useState({ x: -1000, y: -1000 });
+  const [netanyahuPos, setNetanyahuPos] = useState({ x: -1000, y: -1000 });
+  const [coopIsraelPos, setCoopIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [coopIranPos, setCoopIranPos] = useState({ x: -1000, y: -1000 });
 
   useEffect(() => {
     if (!ref.current) return;
@@ -244,6 +275,26 @@ export const IsraelIranComp: React.FC = () => {
       setCbIranPos({ x: irpt.x, y: irpt.y });
     }
 
+    // 1979 Scene positioning
+    const s1979 = storyboard.scene1979;
+    if (s1979) {
+      const p1 = map.project(s1979.textCoords as [number, number]);
+      setS1979Pos({ x: p1.x, y: p1.y });
+      const p2 = map.project(s1979.shahCoords as [number, number]);
+      setShahPos({ x: p2.x, y: p2.y });
+      const p3 = map.project(s1979.netanyahuCoords as [number, number]);
+      setNetanyahuPos({ x: p3.x, y: p3.y });
+    }
+
+    // Cooperation Scene positioning
+    const coop = storyboard.cooperationScene;
+    if (coop && frame >= coop.goodsStart && frame <= coop.endFrame) {
+      const p1 = map.project(coop.israelCoords as [number, number]);
+      setCoopIsraelPos({ x: p1.x, y: p1.y });
+      const p2 = map.project(coop.iranCoords as [number, number]);
+      setCoopIranPos({ x: p2.x, y: p2.y });
+    }
+
   }, [frame, map, mapLoaded]);
 
   const { planeAnimation, bombingSequence } = storyboard;
@@ -379,6 +430,129 @@ export const IsraelIranComp: React.FC = () => {
               <div style={{ position: "absolute", left: cbIranPos.x, top: cbIranPos.y, opacity: interpolate(frame, [storyboard.countryBalls.startFrame, storyboard.countryBalls.startFrame + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
                 <CountryBall type="iran" size={220} flipX frame={frame} isHandshaking={frame >= storyboard.countryBalls.startFrame + 20} />
               </div>
+            </>
+          )}
+
+          {/* 1979 Scene Elements */}
+          {storyboard.scene1979 && (
+            <>
+              {/* 1979 Glowing Text */}
+              {frame >= storyboard.scene1979.textStart && frame <= storyboard.scene1979.textEnd && (
+                <div style={{
+                  position: "absolute", left: s1979Pos.x, top: s1979Pos.y,
+                  transform: "translate(-50%, -50%)",
+                  fontSize: 150, fontWeight: 900, color: "white",
+                  textShadow: "0 4px 10px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.5)",
+                  opacity: interpolate(frame, [storyboard.scene1979.textStart, storyboard.scene1979.textStart + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+                }}>
+                  1979
+                </div>
+              )}
+
+              {/* Shah Image popping up from Iran */}
+              {frame >= storyboard.scene1979.shahStart && frame <= storyboard.scene1979.endFrame && (
+                <div style={{
+                  position: "absolute", left: shahPos.x, top: shahPos.y,
+                  transform: `translate(-50%, calc(-50% + ${interpolate(frame, [storyboard.scene1979.shahStart, storyboard.scene1979.shahStart + 15], [100, -150], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px))`,
+                  opacity: interpolate(frame, [storyboard.scene1979.shahStart, storyboard.scene1979.shahStart + 10, storyboard.scene1979.endFrame - 10, storyboard.scene1979.endFrame], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                  width: 250, height: 250, borderRadius: 20, overflow: "hidden",
+                  border: "8px solid #fff", boxShadow: "0 15px 30px rgba(0,0,0,0.6)",
+                  zIndex: 40
+                }}>
+                  <img src={staticFile("shah.png")} alt="Shah" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.src = "https://dummyimage.com/400x400/000/fff&text=Shah"; }} />
+                </div>
+              )}
+
+              {/* Netanyahu Image popping up from Israel */}
+              {frame >= storyboard.scene1979.netanyahuStart && frame <= storyboard.scene1979.endFrame && (
+                <div style={{
+                  position: "absolute", left: netanyahuPos.x, top: netanyahuPos.y,
+                  transform: `translate(-50%, calc(-50% + ${interpolate(frame, [storyboard.scene1979.netanyahuStart, storyboard.scene1979.netanyahuStart + 15], [100, -150], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px))`,
+                  opacity: interpolate(frame, [storyboard.scene1979.netanyahuStart, storyboard.scene1979.netanyahuStart + 10, storyboard.scene1979.endFrame - 10, storyboard.scene1979.endFrame], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                  width: 250, height: 250, borderRadius: 20, overflow: "hidden",
+                  border: "8px solid #fff", boxShadow: "0 15px 30px rgba(0,0,0,0.6)",
+                  zIndex: 40
+                }}>
+                  <img src={staticFile("netanyahu.png")} alt="Netanyahu" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                </div>
+              )}
+
+              {/* Relations Heart */}
+              {frame >= storyboard.scene1979.heartStart && frame <= storyboard.scene1979.endFrame && (
+                <div style={{
+                  position: "absolute",
+                  left: (shahPos.x + netanyahuPos.x) / 2,
+                  top: ((shahPos.y + netanyahuPos.y) / 2) - 150,
+                  fontSize: 150,
+                  opacity: interpolate(frame, [storyboard.scene1979.heartStart, storyboard.scene1979.heartStart + 15, storyboard.scene1979.endFrame - 10, storyboard.scene1979.endFrame], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                  transform: `translate(-50%, -50%) scale(${interpolate(frame, [storyboard.scene1979.heartStart, storyboard.scene1979.heartStart + 15], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.elastic(1) })})`,
+                  zIndex: 45,
+                  textShadow: "0 0 30px rgba(255, 0, 0, 0.8)"
+                }}>
+                  ❤️
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Cooperation Scene Elements */}
+          {storyboard.cooperationScene && frame >= storyboard.cooperationScene.goodsStart && frame <= storyboard.cooperationScene.endFrame && (
+            <>
+              {/* Goods (Iran to Israel) */}
+              {frame >= storyboard.cooperationScene.goodsStart && frame <= storyboard.cooperationScene.intelStart && (
+                <>
+                  {[0, 1, 2].map((i) => {
+                    const startF = storyboard.cooperationScene.goodsStart + i * 10;
+                    if (frame < startF || frame > startF + 25) return null;
+                    const progress = interpolate(frame, [startF, startF + 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+                    
+                    const x = coopIranPos.x + (coopIsraelPos.x - coopIranPos.x) * progress;
+                    const arc = Math.sin(progress * Math.PI) * -150;
+                    const y = coopIranPos.y + (coopIsraelPos.y - coopIranPos.y) * progress + arc;
+                    const opacity = interpolate(frame, [startF, startF + 5, startF + 15, startF + 20], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
+                    return (
+                      <div key={`box-${i}`} style={{ position: "absolute", left: x, top: y, opacity, transform: "translate(-50%, -50%)", zIndex: 45 }}>
+                        <GoodsBox size={100} />
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+
+              {/* Intelligence / Microchips (Israel to Iran) */}
+              {frame >= storyboard.cooperationScene.intelStart && frame <= storyboard.cooperationScene.handshakeStart && (
+                <>
+                  {[0, 1, 2].map((i) => {
+                    const startF = storyboard.cooperationScene.intelStart + i * 10;
+                    if (frame < startF || frame > startF + 25) return null;
+                    const progress = interpolate(frame, [startF, startF + 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+                    
+                    const x = coopIsraelPos.x + (coopIranPos.x - coopIsraelPos.x) * progress;
+                    const arc = Math.sin(progress * Math.PI) * -150;
+                    const y = coopIsraelPos.y + (coopIranPos.y - coopIsraelPos.y) * progress + arc;
+                    const opacity = interpolate(frame, [startF, startF + 5, startF + 15, startF + 20], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+
+                    return (
+                      <div key={`chip-${i}`} style={{ position: "absolute", left: x, top: y, opacity, transform: "translate(-50%, -50%)", zIndex: 45 }}>
+                        <Microchip size={90} />
+                      </div>
+                    );
+                  })}
+                </>
+              )}
+
+              {/* Handshaking Coins */}
+              {frame >= storyboard.cooperationScene.handshakeStart && (
+                <>
+                  <div style={{ position: "absolute", left: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [coopIsraelPos.x, (coopIsraelPos.x + coopIranPos.x) / 2 - 80], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), top: (coopIsraelPos.y + coopIranPos.y) / 2, opacity: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                    <CountryBall type="israel" size={220} frame={frame} isHandshaking={frame >= storyboard.cooperationScene.handshakeStart + 10} />
+                  </div>
+                  <div style={{ position: "absolute", left: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [coopIranPos.x, (coopIsraelPos.x + coopIranPos.x) / 2 + 80], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), top: (coopIsraelPos.y + coopIranPos.y) / 2, opacity: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                    <CountryBall type="iran" size={220} flipX frame={frame} isHandshaking={frame >= storyboard.cooperationScene.handshakeStart + 10} />
+                  </div>
+                </>
+              )}
             </>
           )}
 

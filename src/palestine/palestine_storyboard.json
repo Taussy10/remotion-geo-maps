@@ -1,0 +1,149 @@
+{
+  "cameraKeyframes": [
+    {
+      "frame": 0,
+      "center": [45.0, 31.0],
+      "zoom": 4,
+      "pitch": 0,
+      "bearing": 0
+    },
+    {
+      "frame": 60,
+      "center": [35.2, 31.5],
+      "zoom": 8.5,
+      "pitch": 45,
+      "bearing": 15,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 100,
+      "center": [35.2, 31.5],
+      "zoom": 7.5,
+      "pitch": 30,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 155,
+      "center": [35.2, 31.5],
+      "zoom": 7.0,
+      "pitch": 30,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 176,
+      "center": [35.2, 31.5],
+      "zoom": 8.0,
+      "pitch": 40,
+      "bearing": 5,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 259,
+      "center": [35.2, 31.5],
+      "zoom": 9.0,
+      "pitch": 50,
+      "bearing": 10,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 270,
+      "center": [35.2, 31.5],
+      "zoom": 7.5,
+      "pitch": 20,
+      "bearing": 0,
+      "easing": "quadInOut"
+    }
+  ],
+  "textOverlays": [
+    {
+      "text": "Palestine",
+      "coords": [35.2, 31.5],
+      "fadeIn": [46, 56],
+      "fadeOut": [90, 100],
+      "offsetY": -45,
+      "textStyle": {
+        "fontSize": "40px",
+        "fontWeight": 600,
+        "textShadow": "0 4px 8px rgba(0,0,0,0.8), 0 0 15px rgba(255,255,255,0.4)",
+        "letterSpacing": "2px",
+        "color": "#ffffff"
+      }
+    },
+    {
+      "text": "Controversial?",
+      "coords": [35.2, 31.5],
+      "fadeIn": [46, 56],
+      "fadeOut": [90, 100],
+      "offsetY": 15,
+      "textStyle": {
+        "fontFamily": "Arial, sans-serif",
+        "fontWeight": 900,
+        "fontSize": "90px",
+        "letterSpacing": "0.05em",
+        "color": "#ffffff",
+        "textShadow": "0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000"
+      }
+    },
+    {
+      "text": "INDEPENDENCE",
+      "coords": [35.2, 31.5],
+      "fadeIn": [176, 186],
+      "fadeOut": [255, 260],
+      "offsetY": -20,
+      "textStyle": {
+        "fontFamily": "Arial, sans-serif",
+        "fontWeight": 900,
+        "fontSize": "110px",
+        "letterSpacing": "0.05em",
+        "color": "#ffffff",
+        "textShadow": "0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 60px #FFD700, 0 0 80px #FFD700"
+      }
+    }
+  ],
+  "statCards": [
+    {
+      "startValue": 2026,
+      "endValue": 1988,
+      "fadeIn": [110, 115],
+      "countDuration": [115, 145],
+      "fadeOut": [155, 160],
+      "coords": [35.2, 31.5],
+      "offsetY": 0,
+      "textStyle": {
+        "fontFamily": "monospace, sans-serif",
+        "fontWeight": 900,
+        "fontSize": "100px",
+        "letterSpacing": "0.1em",
+        "color": "#ffffff",
+        "textShadow": "0 0 20px #00aaff, 0 0 40px #00aaff, 0 0 60px #00aaff, 0 8px 10px rgba(0,0,0,0.8)"
+      }
+    }
+  ],
+  "svgAnimations": [
+    {
+      "country": "palestine",
+      "floodFill": [0, 60],
+      "borderDraw": [60, 100],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "combined",
+      "floodFill": [329, 340],
+      "borderDraw": [329, 340],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "combined",
+      "floodFill": [355, 365],
+      "borderDraw": [355, 365],
+      "color": "#00aaff"
+    }
+  ],
+  "handFlagAnimation": {
+    "fadeIn": [176, 190],
+    "fadeOut": [250, 260],
+    "coords": [35.2, 31.5]
+  }
+}

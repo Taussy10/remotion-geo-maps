@@ -1,207 +1,337 @@
-import React from "react";
-import { AbsoluteFill, Sequence, Audio, staticFile, useVideoConfig } from "remotion";
-import audioData from "./palestine_audio_remotion.json"; // Ensure audio file is in public folder or adjust path
+import React, { useEffect, useRef, useState } from "react";
+import { AbsoluteFill, Audio, Img, staticFile, useVideoConfig, useCurrentFrame, useDelayRender, interpolate, Easing, spring } from "remotion";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+import audioData from "./palestine_audio_remotion.json";
+import palestineData from "../data/palestine.json";
+import israelData from "../data/israel.json";
+import combinedData from "../data/israel_palestine_combined.json";
+import storyboard from "./palestine_storyboard.json";
+
+interface CameraKeyframe {
+  frame: number;
+  center: [number, number];
+  zoom: number;
+  pitch: number;
+  bearing: number;
+  easing?: string;
+}
+
+function getCameraPosition(frame: number, kf: CameraKeyframe[]) {
+  if (kf.length === 0) return { center: [35.2, 31.5] as [number, number], zoom: 5, pitch: 0, bearing: 0 };
+  if (frame <= kf[0].frame) return kf[0];
+  if (frame >= kf[kf.length - 1].frame) return kf[kf.length - 1];
+  
+  for (let i = 0; i < kf.length - 1; i++) {
+    const a = kf[i], b = kf[i + 1];
+    if (frame >= a.frame && frame <= b.frame) {
+      const ease = b.easing === "quadInOut" ? Easing.inOut(Easing.quad) : undefined;
+      const o = { extrapolateLeft: "clamp" as const, extrapolateRight: "clamp" as const, easing: ease };
+      
+      return {
+        center: [
+          interpolate(frame, [a.frame, b.frame], [a.center[0], b.center[0]], o),
+          interpolate(frame, [a.frame, b.frame], [a.center[1], b.center[1]], o)
+        ] as [number, number],
+        zoom: interpolate(frame, [a.frame, b.frame], [a.zoom, b.zoom], o),
+        pitch: interpolate(frame, [a.frame, b.frame], [a.pitch, b.pitch], o),
+        bearing: interpolate(frame, [a.frame, b.frame], [a.bearing, b.bearing], o)
+      };
+    }
+  }
+  return kf[0];
+}
+
+const getSvgPathFromGeoJson = (map: maplibregl.Map | null, geojson: any) => {
+  if (!map || !geojson || !geojson.features || geojson.features.length === 0) return "";
+  
+  const feature = geojson.features[0];
+  const geometry = feature.geometry;
+  if (!geometry) return "";
+  
+  let path = "";
+  const processCoordinates = (coords: any[]) => {
+    coords.forEach((ring: any[]) => {
+      ring.forEach((point: [number, number], index: number) => {
+        const px = map.project(point);
+        if (index === 0) path += `M ${px.x} ${px.y} `;
+        else path += `L ${px.x} ${px.y} `;
+      });
+      path += "Z ";
+    });
+  };
+
+  if (geometry.type === "Polygon") {
+    processCoordinates(geometry.coordinates);
+  } else if (geometry.type === "MultiPolygon") {
+    geometry.coordinates.forEach((polygon: any) => {
+      processCoordinates(polygon);
+    });
+  }
+  
+  return path;
+};
 
 export const PalestineComp: React.FC = () => {
-  const { fps } = useVideoConfig();
-  
+  const { fps, width, height } = useVideoConfig();
+  const frame = useCurrentFrame();
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const { delayRender, continueRender } = useDelayRender();
+  const [handle] = useState(() => delayRender("Loading map..."));
+  const [map, setMap] = useState<maplibregl.Map | null>(null);
+  const lastState = useRef("");
+
+  useEffect(() => {
+    if (!mapContainer.current) return;
+    const mapInstance = new maplibregl.Map({
+      container: mapContainer.current,
+      style: {
+        version: 8,
+        sources: {
+          satellite: {
+            type: "raster",
+            tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+            tileSize: 256,
+          }
+        },
+        layers: [
+          { id: "satellite", type: "raster", source: "satellite", minzoom: 0, maxzoom: 22 }
+        ]
+      },
+      interactive: false,
+      fadeDuration: 0,
+      center: [45.0, 31.0],
+      zoom: 3.5
+    });
+
+    mapInstance.on("load", () => {
+      setMap(mapInstance);
+      continueRender(handle);
+    });
+
+    return () => mapInstance.remove();
+  }, [continueRender, handle]);
+
+  useEffect(() => {
+    if (!map) return;
+    // Use camera keyframes from the JSON storyboard
+    const camera = getCameraPosition(frame, storyboard.cameraKeyframes as CameraKeyframe[]);
+    const stateKey = `${camera.center[0]}-${camera.center[1]}-${camera.zoom}-${camera.pitch}-${camera.bearing}`;
+    if (lastState.current !== stateKey) {
+      map.jumpTo(camera);
+      map.triggerRepaint();
+      lastState.current = stateKey;
+    }
+  }, [frame, map]);
+
   return (
     <AbsoluteFill style={{ backgroundColor: "#111", color: "white", fontFamily: "sans-serif" }}>
-      {/* <Audio src={staticFile("audio.mp3")} /> */}
       <Audio src={staticFile(audioData.audio_file)} />
       
-      <Sequence from={0} durationInFrames={60 || 1} name="Scene 1">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 1</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {0}s to {2}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {0} to {60}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"Why is Palestine so controversial?"}</p>
+      {/* MapLibre Container */}
+      <AbsoluteFill ref={mapContainer} style={{ zIndex: 0 }} />
+      
+      {/* SVG Overlay Layer */}
+      {map && (
+        <AbsoluteFill style={{ zIndex: 1, pointerEvents: "none" }}>
+          <svg width={width} height={height}>
+            <defs>
+              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+              </filter>
+            </defs>
+
+            {storyboard.svgAnimations && (Array.isArray(storyboard.svgAnimations) ? storyboard.svgAnimations : [storyboard.svgAnimations]).map((anim, index) => {
+              const borderStart = anim.borderDraw?.[0] ?? 60;
+              const borderEnd = anim.borderDraw?.[1] ?? 100;
+              
+              const dashOffset = interpolate(frame, [borderStart, borderEnd], [100, 0], {
+                extrapolateLeft: "clamp",
+                extrapolateRight: "clamp",
+                easing: Easing.out(Easing.cubic)
+              });
+
+              const floodStart = anim.floodFill?.[0] ?? 0;
+              const floodEnd = anim.floodFill?.[1] ?? 60;
+
+              const floodRadius = interpolate(frame, [floodStart, floodEnd], [0, 150], {
+                extrapolateLeft: "clamp",
+                extrapolateRight: "clamp",
+                easing: Easing.out(Easing.cubic)
+              });
+
+              let countryData = palestineData;
+              if (anim.country === "israel") countryData = israelData;
+              if (anim.country === "combined") countryData = combinedData;
+
+              const svgPathData = getSvgPathFromGeoJson(map, countryData);
+
+              // Don't render if it hasn't started yet
+              if (frame < floodStart && frame < borderStart) return null;
+
+              return (
+                <g key={`svg-anim-${index}`}>
+                  <defs>
+                    <clipPath id={`radial-flood-${index}`}>
+                      <circle cx={width / 2} cy={height / 2} r={`${floodRadius}%`} />
+                    </clipPath>
+                  </defs>
+
+                  {/* Radial Flood Fill */}
+                  <path
+                    d={svgPathData}
+                    fill={anim.color || "#4CAF50"}
+                    fillOpacity={0.6}
+                    clipPath={`url(#radial-flood-${index})`}
+                  />
+
+                  {/* Glowing White Border Drawing In */}
+                  <path
+                    d={svgPathData}
+                    fill="none"
+                    stroke="#ffffff"
+                    strokeWidth={4}
+                    pathLength="100"
+                    strokeDasharray="100"
+                    strokeDashoffset={dashOffset}
+                    filter="url(#glow)"
+                    strokeLinecap="round"
+                  />
+                </g>
+              );
+            })}
+          </svg>
         </AbsoluteFill>
-      </Sequence>
-      <Sequence from={71} durationInFrames={29 || 1} name="Scene 2">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 2</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {2.38}s to {3.34}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {71} to {100}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"To understand the situation,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={110} durationInFrames={45 || 1} name="Scene 3">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 3</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {3.66}s to {5.16}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {110} to {155}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"we have to go back to 1988,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={176} durationInFrames={83 || 1} name="Scene 4">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 4</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {5.86}s to {8.62}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {176} to {259}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"when Palestine officially declared itself an independent state."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={266} durationInFrames={134 || 1} name="Scene 5">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 5</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {8.86}s to {13.34}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {266} to {400}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"The reason this remains controversial is that both Palestinians and Israelis claim the same land."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={414} durationInFrames={84 || 1} name="Scene 6">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 6</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {13.8}s to {16.6}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {414} to {498}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"Palestinians believe Palestine should exist as an independent country."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={504} durationInFrames={119 || 1} name="Scene 7">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 7</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {16.8}s to {20.78}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {504} to {623}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"Israel also claims religious and security ties to much of the same territory."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={640} durationInFrames={21 || 1} name="Scene 8">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 8</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {21.34}s to {22.04}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {640} to {661}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"On top of that,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={675} durationInFrames={63 || 1} name="Scene 9">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 9</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {22.5}s to {24.6}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {675} to {738}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"Palestinian people are extremely different from Israelis."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={751} durationInFrames={15 || 1} name="Scene 10">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 10</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {25.02}s to {25.52}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {751} to {766}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"For starters,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={779} durationInFrames={48 || 1} name="Scene 11">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 11</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {25.98}s to {27.56}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {779} to {827}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"the majority of Palestinians are Muslims."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={840} durationInFrames={49 || 1} name="Scene 12">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 12</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {28}s to {29.62}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {840} to {889}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"While the majority of Israelis are Jews,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={905} durationInFrames={29 || 1} name="Scene 13">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 13</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {30.18}s to {31.12}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {905} to {934}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"but back to the question,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={947} durationInFrames={52 || 1} name="Scene 14">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 14</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {31.58}s to {33.3}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {947} to {999}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"why is Palestine so controversial?"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1019} durationInFrames={174 || 1} name="Scene 15">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 15</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {33.98}s to {39.78}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1019} to {1193}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"The answer is that there is still no universal agreement on whether Palestine should be recognized as a fully independent country."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1196} durationInFrames={6 || 1} name="Scene 16">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 16</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {39.88}s to {40.08}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1196} to {1202}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"Today,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1205} durationInFrames={93 || 1} name="Scene 17">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 17</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {40.18}s to {43.26}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1205} to {1298}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"more than 140 countries recognize Palestine as a state."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1303} durationInFrames={7 || 1} name="Scene 18">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 18</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {43.42}s to {43.68}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1303} to {1310}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"However,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1318} durationInFrames={22 || 1} name="Scene 19">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 19</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {43.94}s to {44.66}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1318} to {1340}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"several countries,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1352} durationInFrames={48 || 1} name="Scene 20">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 20</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {45.06}s to {46.68}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1352} to {1400}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"including Israel and the United States,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1406} durationInFrames={53 || 1} name="Scene 21">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 21</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {46.86}s to {48.62}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1406} to {1459}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"do not fully recognize Palestinian statehood."}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1462} durationInFrames={4 || 1} name="Scene 22">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 22</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {48.72}s to {48.88}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1462} to {1466}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"Anyway,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1472} durationInFrames={18 || 1} name="Scene 23">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 23</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {49.08}s to {49.66}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1472} to {1490}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"if you learned something,"}</p>
-        </AbsoluteFill>
-      </Sequence>
-      <Sequence from={1494} durationInFrames={22 || 1} name="Scene 24">
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
-          <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene 24</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {49.8}s to {50.52}s</p>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {1494} to {1516}</p>
-          <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{"hit that red button."}</p>
-        </AbsoluteFill>
-      </Sequence>
+      )}
+
+      {/* Dynamic Text Overlays mapped from Storyboard */}
+      {map && storyboard.textOverlays.map((overlay, index) => {
+        if (frame < overlay.fadeIn[0] || frame > overlay.fadeOut[1]) return null;
+
+        const projected = map.project(overlay.coords as [number, number]);
+        
+        // Setup spring pop-in
+        const scale = spring({
+          frame: frame - overlay.fadeIn[0],
+          fps,
+          config: { damping: 12, stiffness: 90 }
+        });
+        
+        const opacity = interpolate(
+          frame,
+          [overlay.fadeIn[0], overlay.fadeIn[1], overlay.fadeOut[0], overlay.fadeOut[1]],
+          [0, 1, 1, 0],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+        );
+
+        return (
+          <div
+            key={`overlay-${index}`}
+            style={{
+              position: "absolute",
+              top: projected.y + (overlay.offsetY || 0),
+              left: projected.x,
+              transform: `translate(-50%, -50%) scale(${scale})`,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              opacity: opacity,
+              pointerEvents: "none",
+              zIndex: 10
+            }}
+          >
+            <span style={overlay.textStyle}>
+              {overlay.text}
+            </span>
+          </div>
+        );
+      })}
+
+      {/* Dynamic StatCards mapped from Storyboard */}
+      {map && storyboard.statCards && storyboard.statCards.map((card, index) => {
+        if (frame < card.fadeIn[0] || frame > card.fadeOut[1]) return null;
+
+        const projected = map.project(card.coords as [number, number]);
+        
+        // Setup spring pop-in
+        const scale = spring({
+          frame: frame - card.fadeIn[0],
+          fps,
+          config: { damping: 12, stiffness: 90 }
+        });
+        
+        const opacity = interpolate(
+          frame,
+          [card.fadeIn[0], card.fadeIn[1], card.fadeOut[0], card.fadeOut[1]],
+          [0, 1, 1, 0],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+        );
+
+        const currentValue = Math.round(interpolate(
+          frame,
+          card.countDuration,
+          [card.startValue, card.endValue],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.quad) }
+        ));
+
+        return (
+          <div
+            key={`statcard-${index}`}
+            style={{
+              position: "absolute",
+              top: projected.y + (card.offsetY || 0),
+              left: projected.x,
+              transform: `translate(-50%, -50%) scale(${scale})`,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              opacity: opacity,
+              pointerEvents: "none",
+              zIndex: 10
+            }}
+          >
+            <span style={card.textStyle}>
+              {currentValue}
+            </span>
+          </div>
+        );
+      })}
+
+      {/* Flag Image Pop-up Animation from Map */}
+      {map && storyboard.handFlagAnimation && frame >= storyboard.handFlagAnimation.fadeIn[0] && frame <= storyboard.handFlagAnimation.fadeOut[1] && (() => {
+        const projected = map.project(storyboard.handFlagAnimation.coords as [number, number]);
+        
+        // Pop-in spring scale
+        const imageScale = spring({
+          frame: frame - storyboard.handFlagAnimation.fadeIn[0],
+          fps,
+          config: { damping: 12, stiffness: 90 }
+        });
+
+        // Fade out at the end
+        const imageOpacity = interpolate(
+          frame,
+          [storyboard.handFlagAnimation.fadeOut[0], storyboard.handFlagAnimation.fadeOut[1]],
+          [1, 0],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+        );
+
+        return (
+          <div style={{
+            position: "absolute",
+            top: projected.y,
+            left: projected.x,
+            transform: `translate(-50%, -50%) scale(${imageScale})`,
+            opacity: imageOpacity,
+            zIndex: 20,
+            pointerEvents: "none"
+          }}>
+            <Img src={staticFile("images/holding-palestine-flag.png")} style={{ width: "400px", height: "auto" }} />
+          </div>
+        );
+      })()}
+
     </AbsoluteFill>
   );
 };

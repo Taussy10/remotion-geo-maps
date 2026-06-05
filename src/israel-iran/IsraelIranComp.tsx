@@ -706,7 +706,7 @@ export const IsraelIranComp: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <Audio src={staticFile("audio.mp3")} />
+      <Audio src={staticFile("voiceover/iran-israel.mp3")} />
       <div ref={ref} style={{ width: "100%", height: "100%" }} />
       
       {/* Overlays */}

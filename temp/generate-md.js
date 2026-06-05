@@ -22,17 +22,18 @@ let mdContent = `# Palestine Scene Structure
 
 This document details the exact frame boundaries and text for each scene generated from the audio voiceover.
 
-| Scene | Start Frame | End Frame | Duration | Text |
-|-------|-------------|-----------|----------|------|
+| Scene | Time (s) | Frames | Text |
+|-------|----------|--------|------|
 `;
 
 scenes.forEach((sceneWords, index) => {
   const startFrame = sceneWords[0].frame_start;
   const endFrame = sceneWords[sceneWords.length - 1].frame_end;
-  const duration = endFrame - startFrame;
+  const startSec = sceneWords[0].start;
+  const endSec = sceneWords[sceneWords.length - 1].end;
   const text = sceneWords.map(w => w.word).join(" ");
   
-  mdContent += `| **Scene ${index + 1}** | \`${startFrame}\` | \`${endFrame}\` | \`${duration} frames\` | "${text}" |\n`;
+  mdContent += `| **Scene ${index + 1}** | \`${startSec} - ${endSec}\` | \`${startFrame} - ${endFrame}\` | "${text}" |\n`;
 });
 
 mdContent += `

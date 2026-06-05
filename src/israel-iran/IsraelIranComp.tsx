@@ -6,6 +6,59 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import iranData from "./data/iran.json";
 import israelData from "./data/israel.json";
 import storyboard from "./storyboard.json";
+import { IranCoin } from "./components/IranCoin";
+import { IsraelCoin } from "./components/IsraelCoin";
+
+const CountryBall: React.FC<{
+  type: "iran" | "israel";
+  size: number;
+  flipX?: boolean;
+  frame: number;
+  isHandshaking: boolean;
+}> = ({ type, size, flipX, frame, isHandshaking }) => {
+  const bob = isHandshaking ? 0 : Math.sin(frame * 0.8) * 5;
+  const legAngle1 = isHandshaking ? 0 : Math.sin(frame * 0.8) * 20;
+  const legAngle2 = isHandshaking ? 0 : Math.cos(frame * 0.8) * 20;
+  
+  // Left arm (outer arm)
+  const leftArmAngle = isHandshaking ? 0 : Math.sin(frame * 0.8) * 15;
+  
+  // Right arm (inner arm, used for handshake)
+  const rightArmAngle = isHandshaking 
+    ? -70 + Math.sin(frame * 1.5) * 20 // Extend and pump up and down
+    : -Math.sin(frame * 0.8) * 15;
+    
+  // Make handshake arm longer when shaking
+  const rightArmEnd = isHandshaking ? size * 0.4 : size * 0.75;
+
+  return (
+    <div style={{ position: "absolute", width: size, height: size, transform: `translate(-50%, -50%) ${flipX ? "scaleX(-1)" : ""} translateY(${bob}px)`, zIndex: 30 }}>
+      {/* Arms */}
+      <svg style={{ position: "absolute", width: size * 1.5, height: size, top: size * 0.4, left: -size * 0.25, zIndex: 3, overflow: "visible" }}>
+         <g transform={`rotate(${leftArmAngle}, ${size*0.25}, ${size*0.1})`}>
+           <line x1={size*0.25} y1={size*0.1} x2={size*0.75} y2={size*0.1} stroke="#000" strokeWidth={6} strokeLinecap="round" />
+         </g>
+         <g transform={`rotate(${rightArmAngle}, ${size*1.25}, ${size*0.1})`}>
+           <line x1={size*1.25} y1={size*0.1} x2={rightArmEnd} y2={size*0.1} stroke="#000" strokeWidth={6} strokeLinecap="round" />
+         </g>
+      </svg>
+      {/* Body */}
+      <div style={{ position: "absolute", zIndex: 2 }}>
+        {type === "iran" ? <IranCoin size={size} /> : <IsraelCoin size={size} />}
+      </div>
+      {/* Legs */}
+      <svg style={{ position: "absolute", width: size, height: size * 0.5, top: size * 0.85, left: 0, zIndex: 1, overflow: "visible" }}>
+         <g transform={`rotate(${legAngle1}, ${size*0.3}, 0)`}>
+           <line x1={size*0.3} y1={0} x2={size*0.3} y2={size*0.4} stroke="#000" strokeWidth={8} strokeLinecap="round" />
+         </g>
+         <g transform={`rotate(${legAngle2}, ${size*0.7}, 0)`}>
+           <line x1={size*0.7} y1={0} x2={size*0.7} y2={size*0.4} stroke="#000" strokeWidth={8} strokeLinecap="round" />
+         </g>
+      </svg>
+    </div>
+  )
+}
+
 
 // Helper function to calculate camera interpolation
 function getCameraPosition(frame: number, keyframes: any[]) {
@@ -46,6 +99,8 @@ export const IsraelIranComp: React.FC = () => {
   const [planePos, setPlanePos] = useState({ x: -1000, y: -1000 });
   const [bombPos, setBombPos] = useState({ x: -1000, y: -1000 });
   const [textPositions, setTextPositions] = useState<{ x: number; y: number }[]>([]);
+  const [cbIsraelPos, setCbIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [cbIranPos, setCbIranPos] = useState({ x: -1000, y: -1000 });
 
   useEffect(() => {
     if (!ref.current) return;
@@ -172,6 +227,23 @@ export const IsraelIranComp: React.FC = () => {
       setTextPositions(positions);
     }
 
+    // Country balls hugging
+    const cb = storyboard.countryBalls;
+    if (cb && frame >= cb.startFrame && frame <= cb.endFrame) {
+      const huggingFrame = cb.startFrame + 20;
+      
+      const israelLng = interpolate(frame, [cb.startFrame, huggingFrame], [cb.israelStartCoords[0], cb.meetCoords[0] - 1.2], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+      const israelLat = interpolate(frame, [cb.startFrame, huggingFrame], [cb.israelStartCoords[1], cb.meetCoords[1]], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+      
+      const iranLng = interpolate(frame, [cb.startFrame, huggingFrame], [cb.iranStartCoords[0], cb.meetCoords[0] + 1.2], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+      const iranLat = interpolate(frame, [cb.startFrame, huggingFrame], [cb.iranStartCoords[1], cb.meetCoords[1]], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+      
+      const ipt = map.project([israelLng, israelLat]);
+      const irpt = map.project([iranLng, iranLat]);
+      setCbIsraelPos({ x: ipt.x, y: ipt.y });
+      setCbIranPos({ x: irpt.x, y: irpt.y });
+    }
+
   }, [frame, map, mapLoaded]);
 
   const { planeAnimation, bombingSequence } = storyboard;
@@ -235,6 +307,80 @@ export const IsraelIranComp: React.FC = () => {
               </div>
             );
           })}
+
+          {/* Stat Cards (Animated Counters) */}
+          {storyboard.statCards && storyboard.statCards.map((card: any, i: number) => {
+            if (frame < card.fadeIn[0] || frame > card.fadeOut[1]) return null;
+            
+            const opacity = interpolate(
+              frame,
+              [card.fadeIn[0], card.fadeIn[1], card.fadeOut[0], card.fadeOut[1]],
+              [0, 1, 1, 0],
+              { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+            );
+
+            const currentVal = Math.floor(interpolate(
+              frame,
+              [card.startFrame, card.startFrame + card.duration],
+              [card.startValue, card.endValue],
+              { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) }
+            ));
+
+            const pt = map.project(card.coords as [number, number]);
+
+            return (
+              <div
+                key={`stat-${i}`}
+                style={{
+                  position: "absolute",
+                  left: pt.x,
+                  top: pt.y + 100,
+                  transform: "translate(-50%, -50%)",
+                  opacity,
+                  pointerEvents: "none",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#ffffff",
+                  fontFamily: "Arial, sans-serif"
+                }}
+              >
+                <div style={{ fontSize: 120, fontWeight: 900, textShadow: "0 0 20px rgba(0,0,0,0.8), 0 0 40px #ff0000" }}>
+                  {currentVal}
+                </div>
+                <div style={{ fontSize: 40, fontWeight: 700, textShadow: "0 0 10px rgba(0,0,0,0.8)" }}>
+                  {card.label}
+                </div>
+              </div>
+            );
+          })}
+
+          {/* Country Balls Handshaking */}
+          {storyboard.countryBalls && frame >= storyboard.countryBalls.startFrame && frame <= storyboard.countryBalls.endFrame && (
+            <>
+              {/* Red Heart */}
+              <div style={{
+                position: "absolute",
+                left: interpolate(frame, [storyboard.countryBalls.startFrame, storyboard.countryBalls.startFrame + 20], [cbIsraelPos.x, (cbIsraelPos.x + cbIranPos.x) / 2], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                top: ((cbIsraelPos.y + cbIranPos.y) / 2) - 200,
+                fontSize: 100,
+                opacity: interpolate(frame, [storyboard.countryBalls.startFrame + 15, storyboard.countryBalls.startFrame + 25], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                transform: `translate(-50%, -50%) scale(${interpolate(frame, [storyboard.countryBalls.startFrame + 15, storyboard.countryBalls.startFrame + 30], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.elastic(1) })})`,
+                zIndex: 40,
+                textShadow: "0 0 20px rgba(255, 0, 0, 0.8)"
+              }}>
+                ❤️
+              </div>
+              
+              <div style={{ position: "absolute", left: cbIsraelPos.x, top: cbIsraelPos.y, opacity: interpolate(frame, [storyboard.countryBalls.startFrame, storyboard.countryBalls.startFrame + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                <CountryBall type="israel" size={220} frame={frame} isHandshaking={frame >= storyboard.countryBalls.startFrame + 20} />
+              </div>
+              <div style={{ position: "absolute", left: cbIranPos.x, top: cbIranPos.y, opacity: interpolate(frame, [storyboard.countryBalls.startFrame, storyboard.countryBalls.startFrame + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                <CountryBall type="iran" size={220} flipX frame={frame} isHandshaking={frame >= storyboard.countryBalls.startFrame + 20} />
+              </div>
+            </>
+          )}
 
           {/* Blue Plane */}
           {isPlaneVisible && (

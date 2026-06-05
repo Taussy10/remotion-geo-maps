@@ -38,8 +38,35 @@
       "pitch": 30,
       "bearing": -10,
       "easing": "quadOut"
+    },
+    {
+      "frame": 383,
+      "center": [43.0, 32.0],
+      "zoom": 6,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
     }
   ],
+  "statCards": [
+    {
+      "label": "years ago",
+      "startValue": 0,
+      "endValue": 50,
+      "startFrame": 307,
+      "duration": 15,
+      "coords": [43.0, 32.0],
+      "fadeIn": [307, 312],
+      "fadeOut": [332, 337]
+    }
+  ],
+  "countryBalls": {
+    "startFrame": 340,
+    "endFrame": 383,
+    "israelStartCoords": [34.85, 31.04],
+    "iranStartCoords": [53.68, 32.42],
+    "meetCoords": [43.0, 32.0]
+  },
   "planeAnimation": {
     "startFrame": 120,
     "endFrame": 180,

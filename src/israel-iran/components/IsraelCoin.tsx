@@ -14,8 +14,7 @@ export const IsraelCoin: React.FC<{ size?: number }> = ({ size = 120 }) => {
         overflow: "hidden",
         backgroundColor: "#ffffff",
         display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
+        flexDirection: "column"
       }}
     >
       {/* 3D Gloss Effect */}
@@ -33,22 +32,16 @@ export const IsraelCoin: React.FC<{ size?: number }> = ({ size = 120 }) => {
         }}
       />
 
-      {/* Top Blue Stripe */}
-      <div style={{ width: "100%", height: "20%", backgroundColor: "#0038b8", marginTop: "15%" }} />
-
-      {/* Star of David */}
-      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <svg
-          viewBox="0 0 100 100"
-          style={{ height: size * 0.45, width: size * 0.45, zIndex: 5, fill: "none", stroke: "#0038b8", strokeWidth: 5 }}
-        >
-          <polygon points="50,15 90,80 10,80" />
-          <polygon points="50,85 90,20 10,20" />
-        </svg>
-      </div>
-
-      {/* Bottom Blue Stripe */}
-      <div style={{ width: "100%", height: "20%", backgroundColor: "#0038b8", marginBottom: "15%" }} />
+      {/* Actual Flag Image */}
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg" 
+        alt="Israel Flag"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover"
+        }}
+      />
     </div>
   );
 };

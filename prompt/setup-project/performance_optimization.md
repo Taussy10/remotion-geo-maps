@@ -12,3 +12,4 @@ The React component is purely a generic "Engine". All specific scene data must b
 
 ## 3. Build JSON data first of voiceover
 Before writing or editing any visual code in the video component, you must record, edit your audio(just edit no bg music or sfx) then break down the scenes based on audio and define the entire configuration in the JSON data file.
+then create scenes based setence by sentence 

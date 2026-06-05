@@ -12,8 +12,8 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import bboxClip from "@turf/bbox-clip";
 
 // Inlined at build time — same pattern as canada.json / norway.json
-import koreanPeninsulaData from "./korean-peninsula.json";
-import japanData from "./japan.json";
+import koreanPeninsulaData from "../data/korean-peninsula.json";
+import japanData from "../data/japan.json";
 import storyboard from "./korea_storyboard.json";
 
 // NK invasion arrow — from just above 38th parallel southward

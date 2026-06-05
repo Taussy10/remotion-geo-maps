@@ -44,7 +44,7 @@ scenes.forEach((sceneWords, index) => {
   componentCode += `      <Sequence from={${startFrame}} durationInFrames={${durationInFrames} || 1} name="Scene ${index + 1}">
         <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", padding: "40px", textAlign: "center" }}>
           <h1 style={{ fontSize: "60px", color: "#fff" }}>Scene ${index + 1}</h1>
-          <p style={{ fontSize: "40px", color: "#aaa" }}>From {${startSec}s} to {${endSec}s}</p>
+          <p style={{ fontSize: "40px", color: "#aaa" }}>From {${startSec}}s to {${endSec}}s</p>
           <p style={{ fontSize: "40px", color: "#aaa" }}>Frame {${startFrame}} to {${endFrame}}</p>
           <p style={{ fontSize: "50px", color: "#4CAF50", marginTop: "40px" }}>{${JSON.stringify(text)}}</p>
         </AbsoluteFill>

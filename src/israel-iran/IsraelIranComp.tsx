@@ -3,11 +3,11 @@ import { AbsoluteFill, useDelayRender, useVideoConfig, useCurrentFrame, interpol
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-import iranData from "./data/iran.json";
-import israelData from "./data/israel.json";
-import palestineData from "./data/palestine.json";
-import lebanonData from "./data/lebanon.json";
-import yemenData from "./data/yemen.json";
+import iranData from "../data/iran.json";
+import israelData from "../data/israel.json";
+import palestineData from "../data/palestine.json";
+import lebanonData from "../data/lebanon.json";
+import yemenData from "../data/yemen.json";
 import storyboard from "./storyboard.json";
 import { IranCoin } from "./components/IranCoin";
 import { IsraelCoin } from "./components/IsraelCoin";

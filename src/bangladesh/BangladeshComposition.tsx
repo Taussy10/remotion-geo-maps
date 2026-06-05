@@ -12,11 +12,11 @@ import {
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
-import bangladeshData from "./bangladesh.json";
-import greeceData from "./greece.json";
-import russiaData from "./russia.json";
-import deltaData from "./ganges_delta.json";
-import riversData from "./rivers.json";
+import bangladeshData from "../data/bangladesh.json";
+import greeceData from "../data/greece.json";
+import russiaData from "../data/russia.json";
+import deltaData from "../data/ganges_delta.json";
+import riversData from "../data/rivers.json";
 import s from "./storyboard.json";
 import { SplitScreenComparison } from "./SplitScreenComparison";
 

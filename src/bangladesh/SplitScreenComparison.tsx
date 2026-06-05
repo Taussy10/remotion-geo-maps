@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { AbsoluteFill, interpolate, Easing } from "remotion";
 import * as d3 from "d3";
-import bangladeshData from "./bangladesh.json";
-import russiaData from "./russia.json";
+import bangladeshData from "../data/bangladesh.json";
+import russiaData from "../data/russia.json";
 import s from "./storyboard.json";
 
 interface Props {

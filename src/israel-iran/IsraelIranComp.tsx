@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AbsoluteFill, useDelayRender, useVideoConfig, useCurrentFrame, interpolate, Easing, Audio, staticFile } from "remotion";
+import { AbsoluteFill, useDelayRender, useVideoConfig, useCurrentFrame, interpolate, interpolateColors, Easing, Audio, staticFile } from "remotion";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -21,7 +21,9 @@ const CountryBall: React.FC<{
   isHandshaking?: boolean;
   hasGun?: boolean;
   isAngry?: boolean;
-}> = ({ type, size, flipX, frame, isHandshaking, hasGun, isAngry }) => {
+  isSweating?: boolean;
+  wearingGlasses?: boolean;
+}> = ({ type, size, flipX, frame, isHandshaking, hasGun, isAngry, isSweating, wearingGlasses }) => {
   const bob = isHandshaking ? 0 : Math.sin(frame * 0.8) * 5;
   const legAngle1 = isHandshaking ? 0 : Math.sin(frame * 0.8) * 20;
   const legAngle2 = isHandshaking ? 0 : Math.cos(frame * 0.8) * 20;
@@ -79,6 +81,25 @@ const CountryBall: React.FC<{
             transform: `translate(${Math.sin(frame * 2) * 5}px, ${Math.cos(frame * 2) * 5}px) scale(${1 + Math.sin(frame)*0.1})`
           }}>
             😡
+          </div>
+        )}
+        {isSweating && (
+          <div style={{ 
+            position: "absolute", 
+            top: -size*0.1 + Math.sin(frame)*5, 
+            left: -size*0.2, 
+            fontSize: size*0.4,
+            transform: `scale(${1 + Math.sin(frame*2)*0.1})`
+          }}>💦</div>
+        )}
+        {wearingGlasses && (
+          <div style={{ position: "absolute", top: size * 0.25, left: size * 0.1, zIndex: 10 }}>
+            {/* Aviator Sunglasses SVG */}
+            <svg width={size * 0.8} height={size * 0.4} viewBox="0 0 100 50" style={{ filter: "drop-shadow(2px 2px 2px rgba(0,0,0,0.5))" }}>
+              <path d="M 10 20 Q 30 20 45 20 Q 45 40 25 40 Q 5 40 10 20 Z" fill="#2c3e50" stroke="gold" strokeWidth="2" />
+              <path d="M 55 20 Q 70 20 90 20 Q 95 40 75 40 Q 55 40 55 20 Z" fill="#2c3e50" stroke="gold" strokeWidth="2" />
+              <line x1="45" y1="20" x2="55" y2="20" stroke="gold" strokeWidth="3" />
+            </svg>
           </div>
         )}
       </div>
@@ -200,6 +221,104 @@ const Missile: React.FC<{ size: number; color: string }> = ({ size, color }) => 
   </svg>
 );
 
+const Eraser: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" style={{ filter: "drop-shadow(5px 5px 10px rgba(0,0,0,0.5))" }}>
+    <g transform="rotate(-20, 50, 50)">
+      <rect x="20" y="30" width="60" height="40" fill="#e74c3c" rx="5" />
+      <rect x="20" y="30" width="20" height="40" fill="#bdc3c7" rx="5" />
+    </g>
+  </svg>
+);
+
+const NuclearTower: React.FC<{ size: number; frame: number }> = ({ size, frame }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" style={{ overflow: "visible" }}>
+    <path d="M 30 90 Q 50 40 40 10 L 60 10 Q 50 40 70 90 Z" fill="#7f8c8d" stroke="#2c3e50" strokeWidth="2" />
+    <ellipse cx="50" cy="10" rx="10" ry="5" fill="#34495e" />
+    {/* Expanding Shockwaves */}
+    <circle cx="50" cy="-20" r={(frame * 2) % 100} fill="none" stroke="#39ff14" strokeWidth="3" opacity={1 - ((frame * 2) % 100) / 100} />
+    <circle cx="50" cy="-20" r={((frame * 2) + 50) % 100} fill="none" stroke="#39ff14" strokeWidth="3" opacity={1 - (((frame * 2) + 50) % 100) / 100} />
+    {/* Glowing Radioactive Symbol */}
+    <g 
+      transform={`translate(50, -20) scale(${1 + Math.sin(frame * 0.2) * 0.2}) rotate(${frame * 5})`}
+      style={{ filter: "drop-shadow(0px 0px 20px #39ff14)" }}
+    >
+      <circle cx="0" cy="0" r="15" fill="#f1c40f" stroke="#000" strokeWidth="2" />
+      <path d="M 0 0 L 0 -10 A 10 10 0 0 1 8 -5 Z" fill="#000" />
+      <path d="M 0 0 L -8 5 A 10 10 0 0 1 -8 -5 Z" fill="#000" />
+      <path d="M 0 0 L 8 5 A 10 10 0 0 0 0 10 Z" fill="#000" />
+      <circle cx="0" cy="0" r="3" fill="#39ff14" />
+    </g>
+  </svg>
+);
+
+const TargetCrosshair: React.FC<{ size: number; frame: number }> = ({ size, frame }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" style={{ filter: "drop-shadow(0 0 20px #e74c3c)" }}>
+    <g transform={`rotate(${frame * 2}, 50, 50)`}>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#e74c3c" strokeWidth="4" strokeDasharray="15 10" />
+      <circle cx="50" cy="50" r="30" fill="none" stroke="#e74c3c" strokeWidth="2" opacity="0.5" />
+      <line x1="50" y1="0" x2="50" y2="30" stroke="#e74c3c" strokeWidth="4" />
+      <line x1="50" y1="70" x2="50" y2="100" stroke="#e74c3c" strokeWidth="4" />
+      <line x1="0" y1="50" x2="30" y2="50" stroke="#e74c3c" strokeWidth="4" />
+      <line x1="70" y1="50" x2="100" y2="50" stroke="#e74c3c" strokeWidth="4" />
+      <circle cx="50" cy="50" r="5" fill="#e74c3c" />
+    </g>
+  </svg>
+);
+
+const ScientistIcon: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" style={{ filter: "drop-shadow(2px 2px 5px rgba(0,0,0,0.5))" }}>
+    <circle cx="50" cy="30" r="15" fill="#ecf0f1" />
+    <path d="M 25 90 C 25 60 75 60 75 90 Z" fill="#ecf0f1" />
+    <path d="M 45 45 L 55 45 L 55 90 L 45 90 Z" fill="#bdc3c7" />
+    {/* Atom symbol */}
+    <ellipse cx="50" cy="70" rx="10" ry="4" fill="none" stroke="#3498db" strokeWidth="2" transform="rotate(30 50 70)" />
+    <ellipse cx="50" cy="70" rx="10" ry="4" fill="none" stroke="#3498db" strokeWidth="2" transform="rotate(-30 50 70)" />
+    <circle cx="50" cy="70" r="2" fill="#e74c3c" />
+  </svg>
+);
+
+const MatrixRain: React.FC<{ frame: number }> = ({ frame }) => {
+  const drops = new Array(50).fill(0);
+  return (
+    <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 60, overflow: "hidden", color: "#39ff14", fontFamily: "monospace", fontSize: 24, fontWeight: "bold", textShadow: "0 0 5px #39ff14" }}>
+      {drops.map((_, i) => {
+        const x = (i * 25) % 1080;
+        const speed = 10 + (i % 10);
+        const y = ((frame * speed) + (i * 100)) % 2000 - 100;
+        // Using a pseudo-random character based on frame and index
+        const char1 = ((frame + i) % 2 === 0) ? "0" : "1";
+        const char2 = ((frame + i + 1) % 2 === 0) ? "0" : "1";
+        const char3 = ((frame + i + 2) % 2 === 0) ? "0" : "1";
+        return (
+          <div key={i} style={{ position: "absolute", left: x, top: y }}>
+            {char1}<br/>{char2}<br/>{char3}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const IronDome: React.FC<{ size: number; frame: number }> = ({ size, frame }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" style={{ filter: `drop-shadow(0 0 ${10 + Math.sin(frame * 0.5) * 5}px #00ffff)` }}>
+    <path d="M 10 90 A 40 40 0 0 1 90 90 Z" fill="rgba(0, 255, 255, 0.3)" stroke="#00ffff" strokeWidth="3" />
+    {/* Hexagon pattern overlay */}
+    <path d="M 30 70 L 40 55 L 60 55 L 70 70" fill="none" stroke="#ffffff" strokeWidth="1" opacity="0.5" />
+    <path d="M 50 35 L 40 55 M 50 35 L 60 55" fill="none" stroke="#ffffff" strokeWidth="1" opacity="0.5" />
+  </svg>
+);
+
+const BlueGasCloud: React.FC<{ size: number; frame: number }> = ({ size, frame }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100" style={{ filter: "drop-shadow(0 0 20px #3498db)" }}>
+    <g transform={`scale(${1 + (frame % 30) * 0.05}) translate(-${(frame % 30)}, -${(frame % 30)})`} opacity={1 - (frame % 30)/30}>
+      <circle cx="50" cy="50" r="30" fill="rgba(52, 152, 219, 0.8)" />
+      <circle cx="30" cy="40" r="25" fill="rgba(41, 128, 185, 0.8)" />
+      <circle cx="70" cy="40" r="25" fill="rgba(41, 128, 185, 0.8)" />
+      <circle cx="50" cy="20" r="20" fill="rgba(52, 152, 219, 0.6)" />
+    </g>
+  </svg>
+);
+
 // Helper function to calculate camera interpolation
 function getCameraPosition(frame: number, keyframes: any[]) {
   if (keyframes.length === 0) return { center: [0, 0], zoom: 0, pitch: 0, bearing: 0 };
@@ -256,6 +375,32 @@ export const IsraelIranComp: React.FC = () => {
   const [proxyLebanonPos, setProxyLebanonPos] = useState({ x: -1000, y: -1000 });
   const [proxyYemenPos, setProxyYemenPos] = useState({ x: -1000, y: -1000 });
   const [proxyIsraelPos, setProxyIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [eraseIsraelPos, setEraseIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [erasePalestinePos, setErasePalestinePos] = useState({ x: -1000, y: -1000 });
+  const [eraseLebanonPos, setEraseLebanonPos] = useState({ x: -1000, y: -1000 });
+  const [nukeIranPos, setNukeIranPos] = useState({ x: -1000, y: -1000 });
+  const [threatIsraelPos, setThreatIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [scientistPos, setScientistPos] = useState<{x: number, y: number}[]>([]);
+  const [swarmYemenPos, setSwarmYemenPos] = useState({ x: -1000, y: -1000 });
+  const [swarmLebanonPos, setSwarmLebanonPos] = useState({ x: -1000, y: -1000 });
+  const [swarmIsraelPos, setSwarmIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [shadowIsraelPos, setShadowIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [shadowYemenPos, setShadowYemenPos] = useState({ x: -1000, y: -1000 });
+  const [shadowLebanonPos, setShadowLebanonPos] = useState({ x: -1000, y: -1000 });
+  const [finalIsraelPos, setFinalIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [finalIranPos, setFinalIranPos] = useState({ x: -1000, y: -1000 });
+
+  // Calculate Israel's color and opacity for the erasure scene
+  let israelLabelOpacity = 1;
+  let israelColor = "#2196f3";
+  let israelBorderColor = "#2196f3";
+
+  if (storyboard.erasureScene && frame >= storyboard.erasureScene.eraseStart) {
+    const progress = interpolate(frame, [storyboard.erasureScene.eraseStart + 10, storyboard.erasureScene.eraseStart + 25], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+    israelLabelOpacity = 1 - progress;
+    israelColor = "#2196f3";
+    israelBorderColor = "#2196f3";
+  }
 
   useEffect(() => {
     if (!ref.current) return;
@@ -318,13 +463,13 @@ export const IsraelIranComp: React.FC = () => {
             id: "israel-fill",
             type: "fill",
             source: "israel-src",
-            paint: { "fill-color": "#0038b8", "fill-opacity": 0.8 },
+            paint: { "fill-color": israelColor as any, "fill-opacity": 0.8 },
           },
           {
             id: "israel-border-outer",
             type: "line",
             source: "israel-src",
-            paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 },
+            paint: { "line-color": israelBorderColor as any, "line-width": 8, "line-blur": 5, "line-opacity": 0.8 },
           },
           {
             id: "israel-border-core",
@@ -485,7 +630,58 @@ export const IsraelIranComp: React.FC = () => {
       setProxyIsraelPos(map.project(proxy.israelCoords as [number, number]));
     }
 
-  }, [frame, map, mapLoaded]);
+    // Erasure Scene positioning
+    const erasure = storyboard.erasureScene;
+    if (erasure && frame >= erasure.startFrame && frame <= erasure.endFrame) {
+      setEraseIsraelPos(map.project(erasure.israelCoords as [number, number]));
+      setErasePalestinePos(map.project(erasure.palestineCoords as [number, number]));
+      setEraseLebanonPos(map.project(erasure.lebanonCoords as [number, number]));
+    }
+
+    // Nuclear Scene positioning
+    const nuke = storyboard.nuclearScene;
+    if (nuke && frame >= nuke.startFrame && frame <= nuke.endFrame) {
+      setNukeIranPos(map.project(nuke.iranCoords as [number, number]));
+    }
+
+    // Threat Scene positioning
+    const threat = storyboard.threatScene;
+    if (threat && frame >= threat.startFrame && frame <= threat.endFrame) {
+      setThreatIsraelPos(map.project(threat.israelCoords as [number, number]));
+    }
+
+    // Counter Attack Scene positioning
+    const counter = storyboard.counterAttackScene;
+    if (counter && frame >= counter.startFrame && frame <= counter.endFrame) {
+      setScientistPos(counter.scientists.map(c => map.project(c as [number, number])));
+      // Ensure nukeIranPos is still updated if we are rendering the glitch tower
+      setNukeIranPos(map.project([53.68, 32.42]));
+    }
+
+    // Swarm Scene positioning
+    const swarm = storyboard.proxySwarmScene;
+    if (swarm && frame >= swarm.startFrame && frame <= swarm.endFrame) {
+      setSwarmYemenPos(map.project(swarm.yemenCoords as [number, number]));
+      setSwarmLebanonPos(map.project(swarm.lebanonCoords as [number, number]));
+      setSwarmIsraelPos(map.project(swarm.israelCoords as [number, number]));
+    }
+
+    // Shadow War Scene positioning
+    const shadow = storyboard.shadowWarScene;
+    if (shadow && frame >= shadow.startFrame && frame <= shadow.endFrame) {
+      setShadowIsraelPos(map.project(shadow.israelCoords as [number, number]));
+      setShadowYemenPos(map.project(shadow.yemenCoords as [number, number]));
+      setShadowLebanonPos(map.project(shadow.lebanonCoords as [number, number]));
+    }
+
+    // Final Attack Scene positioning
+    const finalAtt = storyboard.finalAttackScene;
+    if (finalAtt && frame >= finalAtt.startFrame && frame <= finalAtt.endFrame) {
+      setFinalIsraelPos(map.project(finalAtt.israelCoords as [number, number]));
+      setFinalIranPos(map.project(finalAtt.iranCoords as [number, number]));
+    }
+
+  }, [frame, map, mapLoaded, israelColor]);
 
   const { planeAnimation, bombingSequence } = storyboard;
   const isPlaneVisible = frame >= planeAnimation.startFrame && frame <= planeAnimation.endFrame;
@@ -955,6 +1151,463 @@ export const IsraelIranComp: React.FC = () => {
                 }}>
                   <CountryBall type="israel" size={200} frame={frame} isAngry={true} />
                 </div>
+              )}
+            </>
+          )}
+
+          {/* Erasure Scene */}
+          {storyboard.erasureScene && frame >= storyboard.erasureScene.startFrame && frame <= storyboard.erasureScene.endFrame && (
+            <>
+              {/* Labels */}
+              <div style={{ position: "absolute", left: erasePalestinePos.x, top: erasePalestinePos.y, transform: "translate(-50%, -50%)", color: "white", fontSize: 30, fontWeight: "bold", textShadow: "2px 2px 5px black", zIndex: 40 }}>
+                PALESTINE
+              </div>
+              <div style={{ position: "absolute", left: eraseLebanonPos.x, top: eraseLebanonPos.y, transform: "translate(-50%, -50%)", color: "white", fontSize: 30, fontWeight: "bold", textShadow: "2px 2px 5px black", zIndex: 40 }}>
+                LEBANON
+              </div>
+              <div style={{ position: "absolute", left: eraseIsraelPos.x, top: eraseIsraelPos.y, transform: "translate(-50%, -50%)", color: "white", fontSize: 30, fontWeight: "bold", textShadow: "2px 2px 5px black", opacity: israelLabelOpacity, zIndex: 40 }}>
+                ISRAEL
+              </div>
+              {/* Israel Coin - hidden after erase */}
+              <div style={{ position: "absolute", left: eraseIsraelPos.x, top: eraseIsraelPos.y, transform: "translate(-50%, -50%) scale(0.6)", opacity: israelLabelOpacity, zIndex: 45 }}>
+                <CountryBall type="israel" size={200} frame={frame} />
+              </div>
+
+              {/* The Giant Eraser */}
+              {frame >= storyboard.erasureScene.eraseStart && (
+                <div style={{
+                  position: "absolute",
+                  left: interpolate(frame, [storyboard.erasureScene.eraseStart, storyboard.erasureScene.eraseStart + 20], [eraseIsraelPos.x + 300, eraseIsraelPos.x - 300], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                  top: eraseIsraelPos.y - 100,
+                  transform: "translate(-50%, -50%) scale(4)",
+                  zIndex: 60
+                }}>
+                  <Eraser size={100} />
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Nuclear Scene */}
+          {storyboard.nuclearScene && frame >= storyboard.nuclearScene.startFrame && frame <= storyboard.nuclearScene.endFrame && (
+            <>
+              <div style={{
+                position: "absolute",
+                left: nukeIranPos.x,
+                top: nukeIranPos.y,
+                transform: `translate(-50%, -100%) scale(${interpolate(frame, [storyboard.nuclearScene.startFrame, storyboard.nuclearScene.startFrame + 10], [0, 4], { easing: Easing.out(Easing.back()), extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`,
+                zIndex: 50
+              }}>
+                <NuclearTower size={100} frame={frame} />
+              </div>
+            </>
+          )}
+
+          {/* Threat Scene */}
+          {storyboard.threatScene && frame >= storyboard.threatScene.startFrame && frame <= storyboard.threatScene.endFrame && (
+            <>
+              {/* Vignette (Threat Atmosphere) */}
+              <div style={{
+                position: "absolute",
+                top: 0, left: 0, width: "100%", height: "100%",
+                background: "radial-gradient(circle, transparent 30%, rgba(0,0,0,0.8) 100%)",
+                pointerEvents: "none",
+                opacity: interpolate(frame, [storyboard.threatScene.startFrame, storyboard.threatScene.startFrame + 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                zIndex: 48
+              }} />
+
+              {/* Panicked Israel */}
+              <div style={{
+                position: "absolute",
+                left: threatIsraelPos.x,
+                top: threatIsraelPos.y,
+                transform: "translate(-50%, -50%) scale(0.8)",
+                zIndex: 49
+              }}>
+                <CountryBall type="israel" size={200} frame={frame} isSweating={true} />
+              </div>
+
+              {/* Giant Red Crosshair Lock-On */}
+              {frame >= storyboard.threatScene.crosshairStart && (
+                <>
+                  <div style={{
+                    position: "absolute",
+                    left: threatIsraelPos.x,
+                    top: threatIsraelPos.y,
+                    transform: `translate(-50%, -50%) scale(${interpolate(frame, [storyboard.threatScene.crosshairStart, storyboard.threatScene.crosshairStart + 30], [5, 1], { easing: Easing.out(Easing.back()), extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`,
+                    zIndex: 60
+                  }}>
+                    <TargetCrosshair size={300} frame={frame} />
+                  </div>
+                  {/* Warning Pulses */}
+                  <div style={{
+                    position: "absolute",
+                    top: 0, left: 0, width: "100%", height: "100%",
+                    background: "rgba(231, 76, 60, 0.2)",
+                    opacity: (Math.sin(frame * 0.5) + 1) / 2,
+                    pointerEvents: "none",
+                    zIndex: 48
+                  }} />
+                </>
+              )}
+            </>
+          )}
+
+          {/* Counter Attack Scene */}
+          {storyboard.counterAttackScene && frame >= storyboard.counterAttackScene.startFrame && frame <= storyboard.counterAttackScene.endFrame && (
+            <>
+              {/* Assassinations */}
+              {scientistPos.map((pos, index) => {
+                const blastFrame = storyboard.counterAttackScene.startFrame + 24 + (index * 20);
+                const isAlive = frame < blastFrame;
+                const isBlasting = frame >= blastFrame && frame <= blastFrame + 10;
+                const isTargeting = frame >= blastFrame - 15 && frame < blastFrame;
+                
+                return (
+                  <div key={index} style={{ position: "absolute", left: pos.x, top: pos.y, transform: "translate(-50%, -50%)", zIndex: 55 }}>
+                    {isAlive && <ScientistIcon size={80} />}
+                    {isTargeting && (
+                      <div style={{ position: "absolute", top: "50%", left: "50%", transform: `translate(-50%, -50%) scale(${1 + Math.sin(frame)*0.2})`, opacity: 0.8 }}>
+                        <TargetCrosshair size={100} frame={frame} />
+                      </div>
+                    )}
+                    {isBlasting && (
+                      <div style={{ transform: "scale(4)", fontSize: 50 }}>💥</div>
+                    )}
+                  </div>
+                );
+              })}
+
+              {/* Cyber Attack */}
+              {frame >= storyboard.counterAttackScene.cyberAttackStart && (
+                <>
+                  <MatrixRain frame={frame} />
+                  
+                  {/* Glitching Nuclear Tower */}
+                  <div style={{
+                    position: "absolute",
+                    left: nukeIranPos.x,
+                    top: nukeIranPos.y,
+                    transform: `translate(-50%, -100%) scale(4)`,
+                    zIndex: 65,
+                    filter: frame % 4 < 2 ? "hue-rotate(90deg) brightness(2) drop-shadow(0 0 20px #e74c3c)" : "none"
+                  }}>
+                    <NuclearTower size={100} frame={frame} />
+                    {frame % 6 < 3 && <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%) scale(2)", fontSize: 40, textShadow: "0 0 10px white" }}>⚡</div>}
+                  </div>
+
+                  {/* HACKED Stamp */}
+                  <div style={{
+                    position: "absolute",
+                    left: "50%",
+                    top: "50%",
+                    transform: `translate(-50%, -50%) scale(${interpolate(frame, [storyboard.counterAttackScene.cyberAttackStart, storyboard.counterAttackScene.cyberAttackStart + 10], [5, 1], { easing: Easing.out(Easing.back()), extrapolateLeft: "clamp", extrapolateRight: "clamp" })}) rotate(-15deg)`,
+                    color: "#e74c3c",
+                    fontSize: 120,
+                    fontWeight: 900,
+                    letterSpacing: "0.1em",
+                    textShadow: "0 0 20px #e74c3c, 5px 5px 0px #c0392b",
+                    border: "10px solid #e74c3c",
+                    padding: "20px 40px",
+                    boxShadow: "0 0 20px #e74c3c, inset 0 0 20px #e74c3c",
+                    zIndex: 70,
+                    opacity: 0.9
+                  }}>
+                    HACKED
+                  </div>
+                </>
+              )}
+            </>
+          )}
+
+          {/* Proxy Swarm Scene */}
+          {storyboard.proxySwarmScene && frame >= storyboard.proxySwarmScene.startFrame && frame <= storyboard.proxySwarmScene.endFrame && (
+            <>
+              {/* Target (Israel) */}
+              <div style={{ position: "absolute", left: swarmIsraelPos.x, top: swarmIsraelPos.y, transform: "translate(-50%, -50%) scale(0.6)", zIndex: 45 }}>
+                <CountryBall type="israel" size={200} frame={frame} isSweating={frame >= storyboard.proxySwarmScene.swarmStart} />
+              </div>
+
+              {/* The Iron Dome */}
+              {frame >= storyboard.proxySwarmScene.interceptStart - 10 && (
+                <div style={{
+                  position: "absolute",
+                  left: swarmIsraelPos.x,
+                  top: swarmIsraelPos.y,
+                  transform: `translate(-50%, -80%) scale(${interpolate(frame, [storyboard.proxySwarmScene.interceptStart - 10, storyboard.proxySwarmScene.interceptStart], [0, 3], { easing: Easing.out(Easing.back()), extrapolateLeft: "clamp", extrapolateRight: "clamp" })})`,
+                  zIndex: 48,
+                  opacity: interpolate(frame, [storyboard.proxySwarmScene.interceptStart - 10, storyboard.proxySwarmScene.interceptStart], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+                }}>
+                  <IronDome size={100} frame={frame} />
+                </div>
+              )}
+
+              {/* The Swarm */}
+              {frame >= storyboard.proxySwarmScene.swarmStart && (
+                <>
+                  {/* Generate 20 missiles from Yemen and 20 from Lebanon */}
+                  {Array.from({ length: 40 }).map((_, i) => {
+                    const isYemen = i % 2 === 0;
+                    const startPos = isYemen ? swarmYemenPos : swarmLebanonPos;
+                    const color = isYemen ? "#f1c40f" : "#e74c3c"; // Yellow for Yemen, Red for Lebanon
+                    
+                    // Add deterministic randomness based on index
+                    const delay = (i * 3) % 30; 
+                    const speed = 20 + (i % 10);
+                    const arcHeight = 50 + (i * 10) % 150;
+                    const offsetX = (i * 5) % 100 - 50;
+                    const offsetY = (i * 7) % 100 - 50;
+
+                    const targetX = swarmIsraelPos.x + offsetX;
+                    const targetY = swarmIsraelPos.y - 30 + offsetY; // Aim slightly above Israel (where dome is)
+
+                    const missileStart = storyboard.proxySwarmScene.swarmStart + delay;
+                    const missileEnd = missileStart + speed;
+
+                    if (frame < missileStart || frame > missileEnd + 5) return null; // Show blast for 5 frames
+
+                    const isExploding = frame >= missileEnd;
+                    
+                    if (isExploding && frame >= storyboard.proxySwarmScene.interceptStart) {
+                       return (
+                         <div key={i} style={{ position: "absolute", left: targetX, top: targetY, transform: "translate(-50%, -50%) scale(2)", zIndex: 60, filter: "drop-shadow(0 0 10px white)" }}>
+                           💥
+                         </div>
+                       );
+                    } else if (!isExploding) {
+                      const t = interpolate(frame, [missileStart, missileEnd], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+                      // Quadratic bezier
+                      const currentX = Math.pow(1-t, 2) * startPos.x + 2*(1-t)*t * ((startPos.x + targetX)/2) + Math.pow(t, 2) * targetX;
+                      const currentY = Math.pow(1-t, 2) * startPos.y + 2*(1-t)*t * ((startPos.y + targetY)/2 - arcHeight) + Math.pow(t, 2) * targetY;
+                      
+                      const angle = Math.atan2(targetY - startPos.y, targetX - startPos.x) * (180 / Math.PI);
+
+                      return (
+                        <div key={i} style={{
+                          position: "absolute",
+                          left: currentX,
+                          top: currentY,
+                          width: 15,
+                          height: 4,
+                          backgroundColor: color,
+                          borderRadius: 2,
+                          transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+                          boxShadow: `0 0 10px ${color}, -10px 0 10px #f39c12`,
+                          zIndex: 55
+                        }} />
+                      );
+                    }
+                    return null;
+                  })}
+                </>
+              )}
+            </>
+          )}
+
+          {/* Shadow War Scene */}
+          {storyboard.shadowWarScene && frame >= storyboard.shadowWarScene.startFrame && frame <= storyboard.shadowWarScene.endFrame && (
+            <>
+              {/* Aviator Israel */}
+              <div style={{ position: "absolute", left: shadowIsraelPos.x, top: shadowIsraelPos.y, transform: "translate(-50%, -50%) scale(0.6)", zIndex: 45 }}>
+                <CountryBall type="israel" size={200} frame={frame} wearingGlasses={true} />
+              </div>
+
+              {/* The Blue Jets & Gas Impact */}
+              {frame >= storyboard.shadowWarScene.jetLaunchStart && (
+                <>
+                  {/* Jet to Lebanon */}
+                  {(() => {
+                     const startPos = shadowIsraelPos;
+                     const targetPos = shadowLebanonPos;
+                     // Fly through the target (double the distance)
+                     const endX = startPos.x + (targetPos.x - startPos.x) * 2;
+                     const endY = startPos.y + (targetPos.y - startPos.y) * 2;
+                     
+                     const flightStart = storyboard.shadowWarScene.jetLaunchStart;
+                     const flightDuration = 60; // 60 frames to fly entire distance
+                     const flightEnd = flightStart + flightDuration;
+                     
+                     // Bomb drops when jet is at halfway point (which is exactly targetPos)
+                     const dropStart = flightStart + flightDuration / 2;
+                     const dropEnd = dropStart + 15;
+
+                     const angle = Math.atan2(targetPos.y - startPos.y, targetPos.x - startPos.x) * (180 / Math.PI);
+                     
+                     return (
+                       <>
+                         {/* The Jet */}
+                         {frame >= flightStart && frame <= flightEnd && (
+                           <div style={{ 
+                             position: "absolute", 
+                             left: interpolate(frame, [flightStart, flightEnd], [startPos.x, endX]), 
+                             top: interpolate(frame, [flightStart, flightEnd], [startPos.y, endY]), 
+                             width: 60, height: 60, transform: `translate(-50%, -50%) rotate(${angle + 90}deg)`, zIndex: 65 
+                           }}>
+                             <svg viewBox="0 0 24 24" style={{ width: "100%", height: "100%", fill: "#0038b8", filter: "drop-shadow(0 10px 10px rgba(0,0,0,0.8))" }}>
+                               <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />
+                             </svg>
+                           </div>
+                         )}
+                         
+                         {/* The Bomb */}
+                         {frame >= dropStart && frame < dropEnd && (
+                           <div style={{
+                             position: "absolute", left: targetPos.x, top: targetPos.y,
+                             transform: `translate(-50%, -50%) scale(${interpolate(frame, [dropStart, dropEnd], [1.3, 0.4])})`, zIndex: 60,
+                             width: 12, height: 24, borderRadius: "50% 50% 35% 35%",
+                             backgroundColor: "#3498db", border: "1px solid rgba(255,255,255,0.8)",
+                             boxShadow: "0 4px 8px rgba(0,0,0,0.5)"
+                           }} />
+                         )}
+                         
+                         {/* The Explosion */}
+                         {frame >= dropEnd && (
+                           <div style={{ position: "absolute", left: targetPos.x, top: targetPos.y, transform: "translate(-50%, -50%) scale(2)", zIndex: 60 }}>
+                             <BlueGasCloud size={100} frame={frame - dropEnd} />
+                           </div>
+                         )}
+                       </>
+                     );
+                  })()}
+
+                  {/* Jet to Yemen */}
+                  {(() => {
+                     const startPos = shadowIsraelPos;
+                     const targetPos = shadowYemenPos;
+                     const endX = startPos.x + (targetPos.x - startPos.x) * 2;
+                     const endY = startPos.y + (targetPos.y - startPos.y) * 2;
+                     
+                     const flightStart = storyboard.shadowWarScene.jetLaunchStart + 10;
+                     const flightDuration = 80;
+                     const flightEnd = flightStart + flightDuration;
+                     
+                     const dropStart = flightStart + flightDuration / 2;
+                     const dropEnd = dropStart + 15;
+
+                     const angle = Math.atan2(targetPos.y - startPos.y, targetPos.x - startPos.x) * (180 / Math.PI);
+                     
+                     return (
+                       <>
+                         {/* The Jet */}
+                         {frame >= flightStart && frame <= flightEnd && (
+                           <div style={{ 
+                             position: "absolute", 
+                             left: interpolate(frame, [flightStart, flightEnd], [startPos.x, endX]), 
+                             top: interpolate(frame, [flightStart, flightEnd], [startPos.y, endY]), 
+                             width: 60, height: 60, transform: `translate(-50%, -50%) rotate(${angle + 90}deg)`, zIndex: 65 
+                           }}>
+                             <svg viewBox="0 0 24 24" style={{ width: "100%", height: "100%", fill: "#0038b8", filter: "drop-shadow(0 10px 10px rgba(0,0,0,0.8))" }}>
+                               <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />
+                             </svg>
+                           </div>
+                         )}
+                         
+                         {/* The Bomb */}
+                         {frame >= dropStart && frame < dropEnd && (
+                           <div style={{
+                             position: "absolute", left: targetPos.x, top: targetPos.y,
+                             transform: `translate(-50%, -50%) scale(${interpolate(frame, [dropStart, dropEnd], [1.3, 0.4])})`, zIndex: 60,
+                             width: 12, height: 24, borderRadius: "50% 50% 35% 35%",
+                             backgroundColor: "#3498db", border: "1px solid rgba(255,255,255,0.8)",
+                             boxShadow: "0 4px 8px rgba(0,0,0,0.5)"
+                           }} />
+                         )}
+                         
+                         {/* The Explosion */}
+                         {frame >= dropEnd && (
+                           <div style={{ position: "absolute", left: targetPos.x, top: targetPos.y, transform: "translate(-50%, -50%) scale(2)", zIndex: 60 }}>
+                             <BlueGasCloud size={100} frame={frame - dropEnd} />
+                           </div>
+                         )}
+                       </>
+                     );
+                  })()}
+                </>
+              )}
+            </>
+          )}
+
+          {/* Final Attack Scene */}
+          {storyboard.finalAttackScene && frame >= storyboard.finalAttackScene.startFrame && frame <= storyboard.finalAttackScene.endFrame && (
+            <>
+              {/* Ali Khamenei Portrait */}
+              {frame < storyboard.finalAttackScene.jetLaunchStart + 60 && (
+                <div style={{
+                  position: "absolute", left: finalIranPos.x, top: finalIranPos.y - 40,
+                  transform: "translate(-50%, -50%)", zIndex: 40,
+                  opacity: interpolate(frame, [storyboard.finalAttackScene.startFrame, storyboard.finalAttackScene.startFrame + 15], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
+                }}>
+                  <div style={{ width: 120, height: 120, borderRadius: "50%", overflow: "hidden", border: "4px solid gold", boxShadow: "0 0 20px rgba(0,0,0,0.5)" }}>
+                    <img src={staticFile("ali-khamenei.png")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  </div>
+                </div>
+              )}
+
+              {/* The Jets (3 Blue, 3 Black) */}
+              {frame >= storyboard.finalAttackScene.jetLaunchStart && (
+                <>
+                  {Array.from({ length: 6 }).map((_, i) => {
+                    const isBlue = i < 3;
+                    const color = isBlue ? "#0038b8" : "#111111"; // Blue or Black
+                    const startPos = finalIsraelPos;
+                    const targetPos = finalIranPos;
+                    
+                    const endX = startPos.x + (targetPos.x - startPos.x) * 2;
+                    const endY = startPos.y + (targetPos.y - startPos.y) * 2;
+                    
+                    const delay = i * 4; // Stagger launches
+                    const flightStart = storyboard.finalAttackScene.jetLaunchStart + delay;
+                    const flightDuration = 90; // Double duration to fly past
+                    const flightEnd = flightStart + flightDuration;
+                    
+                    const dropStart = flightStart + flightDuration / 2;
+                    const dropEnd = dropStart + 15;
+                    
+                    if (frame < flightStart) return null;
+
+                    // Slight offsets so they fly in formation
+                    const offsetX = (i % 3) * 30 - 30;
+                    const offsetY = (i % 3) * 20 - 20;
+
+                    const angle = Math.atan2(targetPos.y - startPos.y, targetPos.x - startPos.x) * (180 / Math.PI);
+                    
+                    return (
+                      <React.Fragment key={i}>
+                         {/* The Jet */}
+                         {frame <= flightEnd && (
+                           <div style={{ 
+                             position: "absolute", 
+                             left: interpolate(frame, [flightStart, flightEnd], [startPos.x, endX]) + offsetX, 
+                             top: interpolate(frame, [flightStart, flightEnd], [startPos.y, endY]) + offsetY, 
+                             width: 60, height: 60, transform: `translate(-50%, -50%) rotate(${angle + 90}deg)`, zIndex: 65 
+                           }}>
+                             <svg viewBox="0 0 24 24" style={{ width: "100%", height: "100%", fill: color, filter: "drop-shadow(0 10px 10px rgba(0,0,0,0.8))" }}>
+                               <path d="M21,16V14L13,9V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21L15,22V20.5L13,19V13.5L21,16Z" />
+                             </svg>
+                           </div>
+                         )}
+                         
+                         {/* The Bomb */}
+                         {frame >= dropStart && frame < dropEnd && (
+                           <div style={{
+                             position: "absolute", left: targetPos.x + offsetX, top: targetPos.y + offsetY,
+                             transform: `translate(-50%, -50%) scale(${interpolate(frame, [dropStart, dropEnd], [1.3, 0.4])})`, zIndex: 60,
+                             width: 12, height: 24, borderRadius: "50% 50% 35% 35%",
+                             backgroundColor: "#111111", border: "1px solid rgba(255,255,255,0.8)",
+                             boxShadow: "0 4px 8px rgba(0,0,0,0.5)"
+                           }} />
+                         )}
+                         
+                         {/* The Explosion */}
+                         {frame >= dropEnd && frame < dropEnd + 30 && (
+                           <div style={{ position: "absolute", left: targetPos.x + offsetX, top: targetPos.y + offsetY, transform: "translate(-50%, -50%) scale(2.5)", zIndex: 60 }}>
+                             <BlueGasCloud size={100} frame={frame - dropEnd} />
+                           </div>
+                         )}
+                      </React.Fragment>
+                    );
+                  })}
+                </>
               )}
             </>
           )}

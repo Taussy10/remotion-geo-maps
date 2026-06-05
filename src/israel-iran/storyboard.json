@@ -161,8 +161,88 @@
     },
     {
       "frame": 1420,
+      "center": [35.2, 32.5],
+      "zoom": 7.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1530,
+      "center": [35.2, 32.5],
+      "zoom": 7.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1550,
+      "center": [53.68, 32.42],
+      "zoom": 5.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1660,
+      "center": [53.68, 32.42],
+      "zoom": 5.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1680,
       "center": [34.85, 31.04],
       "zoom": 6.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1836,
+      "center": [53.68, 32.42],
+      "zoom": 5.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1954,
+      "center": [53.68, 32.42],
+      "zoom": 5.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1966,
+      "center": [44.0, 25.0],
+      "zoom": 4.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 2037,
+      "center": [44.0, 25.0],
+      "zoom": 4.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 2167,
+      "center": [44.0, 25.0],
+      "zoom": 4.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 2359,
+      "center": [53.68, 32.42],
+      "zoom": 5.0,
       "pitch": 0,
       "bearing": 0,
       "easing": "quadInOut"
@@ -241,6 +321,60 @@
     "lebanonCoords": [35.8, 33.8],
     "yemenCoords": [47.5, 15.5],
     "israelCoords": [34.85, 31.04]
+  },
+  "erasureScene": {
+    "startFrame": 1420,
+    "eraseStart": 1476,
+    "endFrame": 1530,
+    "israelCoords": [34.85, 31.04],
+    "palestineCoords": [35.2, 32.0],
+    "lebanonCoords": [35.8, 33.8]
+  },
+  "nuclearScene": {
+    "startFrame": 1538,
+    "endFrame": 1663,
+    "iranCoords": [53.68, 32.42]
+  },
+  "threatScene": {
+    "startFrame": 1663,
+    "crosshairStart": 1738,
+    "endFrame": 1836,
+    "israelCoords": [34.85, 31.04]
+  },
+  "counterAttackScene": {
+    "startFrame": 1836,
+    "cyberAttackStart": 1912,
+    "endFrame": 1954,
+    "scientists": [
+      [51.38, 35.68],
+      [51.66, 32.65],
+      [59.61, 36.29]
+    ]
+  },
+  "proxySwarmScene": {
+    "startFrame": 1954,
+    "swarmStart": 1966,
+    "interceptStart": 2000,
+    "endFrame": 2037,
+    "yemenCoords": [47.5, 15.5],
+    "lebanonCoords": [35.8, 33.8],
+    "israelCoords": [34.85, 31.04]
+  },
+  "shadowWarScene": {
+    "startFrame": 2037,
+    "jetLaunchStart": 2085,
+    "endFrame": 2167,
+    "israelCoords": [34.85, 31.04],
+    "yemenCoords": [47.5, 15.5],
+    "lebanonCoords": [35.8, 33.8]
+  },
+  "finalAttackScene": {
+    "startFrame": 2167,
+    "jetLaunchStart": 2220,
+    "bombDropStart": 2297,
+    "endFrame": 2359,
+    "israelCoords": [34.85, 31.04],
+    "iranCoords": [53.68, 32.42]
   },
   "planeAnimation": {
     "startFrame": 120,

@@ -10,5 +10,5 @@ Everything must be strictly deterministic and driven by Remotion's `useCurrentFr
 Do not hardcode specific animation timings, text strings, or coordinates into the `.tsx` React components. 
 The React component is purely a generic "Engine". All specific scene data must be read from the external configuration file (e.g., `palestine_storyboard.json`).
 
-## 3. Build JSON data first
+## 3. Build JSON data first of voiceover
 Before writing or editing any visual code in the video component, you must record, edit your audio(just edit no bg music or sfx) then break down the scenes based on audio and define the entire configuration in the JSON data file.

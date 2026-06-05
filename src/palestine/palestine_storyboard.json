@@ -54,6 +54,174 @@
       "pitch": 20,
       "bearing": 0,
       "easing": "quadInOut"
+    },
+    {
+      "frame": 400,
+      "center": [35.2, 31.5],
+      "zoom": 7.3,
+      "pitch": 25,
+      "bearing": -5,
+      "easing": "linear"
+    },
+    {
+      "frame": 414,
+      "center": [35.2, 31.5],
+      "zoom": 7.6,
+      "pitch": 35,
+      "bearing": 5,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 498,
+      "center": [35.2, 31.5],
+      "zoom": 7.8,
+      "pitch": 45,
+      "bearing": 10,
+      "easing": "linear"
+    },
+    {
+      "frame": 504,
+      "center": [35.2, 31.5],
+      "zoom": 7.0,
+      "pitch": 15,
+      "bearing": -10,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 623,
+      "center": [35.2, 31.5],
+      "zoom": 6.8,
+      "pitch": 20,
+      "bearing": -15,
+      "easing": "linear"
+    },
+    {
+      "frame": 640,
+      "center": [35.05, 31.85],
+      "zoom": 9.0,
+      "pitch": 40,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 738,
+      "center": [35.05, 31.85],
+      "zoom": 9.5,
+      "pitch": 45,
+      "bearing": 5,
+      "easing": "linear"
+    },
+    {
+      "frame": 751,
+      "center": [35.2, 31.8],
+      "zoom": 8.5,
+      "pitch": 30,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 827,
+      "center": [35.2, 31.8],
+      "zoom": 8.5,
+      "pitch": 30,
+      "bearing": 0,
+      "easing": "linear"
+    },
+    {
+      "frame": 840,
+      "center": [34.8, 31.0],
+      "zoom": 7.5,
+      "pitch": 25,
+      "bearing": -5,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 889,
+      "center": [34.8, 31.0],
+      "zoom": 7.5,
+      "pitch": 25,
+      "bearing": -5,
+      "easing": "linear"
+    },
+    {
+      "frame": 905,
+      "center": [34.8, 31.0],
+      "zoom": 7.5,
+      "pitch": 20,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 947,
+      "center": [35.2, 31.5],
+      "zoom": 7.5,
+      "pitch": 20,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 999,
+      "center": [35.2, 31.5],
+      "zoom": 7.5,
+      "pitch": 20,
+      "bearing": 0,
+      "easing": "linear"
+    },
+    {
+      "frame": 1019,
+      "center": [35.2, 31.5],
+      "zoom": 7.5,
+      "pitch": 20,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1193,
+      "center": [35.2, 31.5],
+      "zoom": 5.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "linear"
+    },
+    {
+      "frame": 1205,
+      "center": [35.2, 31.5],
+      "zoom": 5.0,
+      "pitch": 25,
+      "bearing": -10,
+      "easing": "linear"
+    },
+    {
+      "frame": 1298,
+      "center": [35.2, 31.5],
+      "zoom": 5.0,
+      "pitch": 15,
+      "bearing": 15,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1303,
+      "center": [35.2, 31.5],
+      "zoom": 5.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1352,
+      "center": [35.2, 31.5],
+      "zoom": 5.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "linear"
+    },
+    {
+      "frame": 1400,
+      "center": [35.2, 31.5],
+      "zoom": 5.0,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "linear"
     }
   ],
   "textOverlays": [
@@ -64,10 +232,49 @@
       "fadeOut": [90, 100],
       "offsetY": -45,
       "textStyle": {
-        "fontSize": "40px",
-        "fontWeight": 600,
-        "textShadow": "0 4px 8px rgba(0,0,0,0.8), 0 0 15px rgba(255,255,255,0.4)",
-        "letterSpacing": "2px",
+        "fontSize": "60px",
+        "fontWeight": 800,
+        "textShadow": "0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5), 0 4px 6px rgba(0,0,0,0.8)",
+        "letterSpacing": "4px",
+        "color": "#ffffff"
+      }
+    },
+    {
+      "text": "Palestinians",
+      "coords": [34.5, 32.5],
+      "fadeIn": [329, 335],
+      "fadeOut": [348, 354],
+      "offsetY": 0,
+      "textStyle": {
+        "fontSize": "70px",
+        "fontWeight": 900,
+        "textShadow": "0 0 15px rgba(76, 175, 80, 0.8), 0 0 30px rgba(76, 175, 80, 0.5)",
+        "color": "#ffffff"
+      }
+    },
+    {
+      "text": "Israelis",
+      "coords": [35.5, 31.0],
+      "fadeIn": [355, 360],
+      "fadeOut": [400, 410],
+      "offsetY": 0,
+      "textStyle": {
+        "fontSize": "70px",
+        "fontWeight": 900,
+        "textShadow": "0 0 15px rgba(0, 170, 255, 0.8), 0 0 30px rgba(0, 170, 255, 0.5)",
+        "color": "#ffffff"
+      }
+    },
+    {
+      "text": "INDEPENDENT",
+      "coords": [35.2, 31.0],
+      "fadeIn": [440, 450],
+      "fadeOut": [498, 508],
+      "offsetY": 0,
+      "textStyle": {
+        "fontSize": "90px",
+        "fontWeight": 900,
+        "textShadow": "0 0 20px rgba(76, 175, 80, 0.8), 0 0 40px rgba(76, 175, 80, 0.5)",
         "color": "#ffffff"
       }
     },
@@ -100,6 +307,179 @@
         "color": "#ffffff",
         "textShadow": "0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 60px #FFD700, 0 0 80px #FFD700"
       }
+    },
+    {
+      "text": "Palestine",
+      "coords": [35.2, 31.5],
+      "fadeIn": [947, 957],
+      "fadeOut": [990, 1000],
+      "offsetY": -45,
+      "textStyle": {
+        "fontSize": "60px",
+        "fontWeight": 800,
+        "textShadow": "0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5), 0 4px 6px rgba(0,0,0,0.8)",
+        "letterSpacing": "4px",
+        "color": "#ffffff"
+      }
+    },
+    {
+      "text": "Controversial?",
+      "coords": [35.2, 31.5],
+      "fadeIn": [960, 970],
+      "fadeOut": [990, 1000],
+      "offsetY": 25,
+      "textStyle": {
+        "fontFamily": "Arial, sans-serif",
+        "fontWeight": 900,
+        "fontSize": "90px",
+        "letterSpacing": "0.05em",
+        "color": "#ffffff",
+        "textShadow": "0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000"
+      }
+    },
+    {
+      "text": "RECOGNIZED?",
+      "coords": [35.2, 31.5],
+      "fadeIn": [1019, 1029],
+      "fadeOut": [1180, 1193],
+      "offsetY": 0,
+      "textStyle": {
+        "fontSize": "100px",
+        "fontWeight": 900,
+        "letterSpacing": "4px",
+        "color": "#ffffff",
+        "textShadow": "0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.5), 0 4px 6px rgba(0, 0, 0, 0.8)"
+      }
+    }
+  ],
+
+  "svgAnimations": [
+    {
+      "country": "palestine",
+      "floodFill": [0, 60],
+      "borderDraw": [60, 100],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "combined",
+      "floodFill": [329, 340],
+      "borderDraw": [329, 340],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "combined",
+      "floodFill": [355, 365],
+      "borderDraw": [355, 365],
+      "color": "#00aaff"
+    },
+    {
+      "country": "palestine",
+      "floodFill": [414, 424],
+      "borderDraw": [414, 424],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "combined",
+      "floodFill": [504, 514],
+      "borderDraw": [504, 514],
+      "color": "#00aaff"
+    },
+    {
+      "country": "israel",
+      "floodFill": [640, 660],
+      "borderDraw": [640, 660],
+      "color": "#00aaff"
+    },
+    {
+      "country": "palestine",
+      "floodFill": [640, 660],
+      "borderDraw": [640, 660],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "palestine",
+      "floodFill": [751, 761],
+      "borderDraw": [751, 761],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "israel",
+      "floodFill": [840, 850],
+      "borderDraw": [840, 850],
+      "color": "#00aaff"
+    },
+    {
+      "country": "palestine",
+      "floodFill": [947, 957],
+      "borderDraw": [947, 957],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "recognizing",
+      "floodFill": [1160, 1180],
+      "borderDraw": [1193, 1220],
+      "color": "#4CAF50"
+    },
+    {
+      "country": "usa",
+      "floodFill": [1299, 1300],
+      "borderDraw": [1352, 1372],
+      "color": "#00aaff",
+      "originalCenter": [-95.7, 37.0],
+      "targetCenter": [35.0, 41.5],
+      "scale": 0.25
+    }
+  ],
+  "peopleIcons": [
+    { "color": "#00aaff", "coords": [34.8, 31.2], "fadeIn": [650, 660], "fadeOut": [750, 760] },
+    { "color": "#00aaff", "coords": [34.9, 31.8], "fadeIn": [652, 662], "fadeOut": [750, 760] },
+    { "color": "#00aaff", "coords": [35.0, 32.5], "fadeIn": [654, 664], "fadeOut": [750, 760] },
+    { "color": "#4CAF50", "coords": [35.2, 31.5], "fadeIn": [650, 660], "fadeOut": [750, 760] },
+    { "color": "#4CAF50", "coords": [35.3, 32.1], "fadeIn": [652, 662], "fadeOut": [750, 760] },
+    { "color": "#4CAF50", "coords": [35.4, 31.8], "fadeIn": [654, 664], "fadeOut": [750, 760] }
+  ],
+  "notEqualAnimation": {
+    "fadeIn": [675, 685],
+    "fadeOut": [750, 760],
+    "coords": [35.05, 31.85]
+  },
+  "handFlagAnimations": [
+    {
+      "fadeIn": [176, 190],
+      "fadeOut": [250, 260],
+      "coords": [35.2, 31.5]
+    },
+    {
+      "fadeIn": [440, 450],
+      "fadeOut": [498, 508],
+      "coords": [35.2, 31.5]
+    }
+  ],
+  "iconAnimations": [
+    {
+      "icon": "star",
+      "fadeIn": [530, 540],
+      "fadeOut": [623, 633],
+      "coords": [34.4, 31.5]
+    },
+    {
+      "icon": "shield",
+      "fadeIn": [560, 570],
+      "fadeOut": [623, 633],
+      "coords": [35.4, 31.5],
+      "color": "#ff4d4d"
+    },
+    {
+      "icon": "crescent",
+      "fadeIn": [760, 770],
+      "fadeOut": [820, 827],
+      "coords": [35.3, 32.1]
+    },
+    {
+      "icon": "star",
+      "fadeIn": [850, 860],
+      "fadeOut": [880, 889],
+      "coords": [34.8, 30.7]
     }
   ],
   "statCards": [
@@ -119,31 +499,42 @@
         "color": "#ffffff",
         "textShadow": "0 0 20px #00aaff, 0 0 40px #00aaff, 0 0 60px #00aaff, 0 8px 10px rgba(0,0,0,0.8)"
       }
-    }
-  ],
-  "svgAnimations": [
-    {
-      "country": "palestine",
-      "floodFill": [0, 60],
-      "borderDraw": [60, 100],
-      "color": "#4CAF50"
     },
     {
-      "country": "combined",
-      "floodFill": [329, 340],
-      "borderDraw": [329, 340],
-      "color": "#4CAF50"
+      "startValue": 0,
+      "endValue": 98,
+      "suffix": "%",
+      "fadeIn": [765, 775],
+      "countDuration": [775, 800],
+      "fadeOut": [820, 827],
+      "coords": [35.2, 31.7],
+      "offsetY": 0,
+      "textStyle": {
+        "fontFamily": "monospace, sans-serif",
+        "fontWeight": 900,
+        "fontSize": "100px",
+        "letterSpacing": "0.1em",
+        "color": "#ffffff",
+        "textShadow": "0 0 20px #4CAF50, 0 0 40px #4CAF50, 0 0 60px #4CAF50, 0 8px 10px rgba(0,0,0,0.8)"
+      }
     },
     {
-      "country": "combined",
-      "floodFill": [355, 365],
-      "borderDraw": [355, 365],
-      "color": "#00aaff"
+      "startValue": 0,
+      "endValue": 74,
+      "suffix": "%",
+      "fadeIn": [855, 865],
+      "countDuration": [865, 880],
+      "fadeOut": [880, 889],
+      "coords": [34.7, 31.2],
+      "offsetY": 0,
+      "textStyle": {
+        "fontFamily": "monospace, sans-serif",
+        "fontWeight": 900,
+        "fontSize": "100px",
+        "letterSpacing": "0.1em",
+        "color": "#ffffff",
+        "textShadow": "0 0 20px #00aaff, 0 0 40px #00aaff, 0 0 60px #00aaff, 0 8px 10px rgba(0,0,0,0.8)"
+      }
     }
-  ],
-  "handFlagAnimation": {
-    "fadeIn": [176, 190],
-    "fadeOut": [250, 260],
-    "coords": [35.2, 31.5]
-  }
+  ]
 }

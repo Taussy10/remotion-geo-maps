@@ -3,6 +3,9 @@
 ## Overview
 A highly cinematic technique in motion graphics is having borders or lines "draw" themselves onto the screen. In Remotion, this can be achieved elegantly by rendering GeoJSON paths as SVG `<path>` elements layered over the map, rather than relying on MapLibre's internal vector line layers.
 
+## Design Rule: When to Use
+**Crucial Standard:** When the camera is panning or flying to a new country (e.g., across the globe or zoomed out), the solid base color (`floodFill`) should already be fully filled before the camera arrives (using an instant duration or fading in early). The **glowing animated border trace (`borderDraw`)**, however, must trigger exactly when the camera physically reaches and centers on the country! This creates an impactful, premium reveal.
+
 ## Implementation Prompt
 
 **Prompt to give the AI:**

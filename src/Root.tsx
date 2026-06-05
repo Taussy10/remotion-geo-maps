@@ -45,7 +45,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="PalestineComp"
         component={PalestineComp}
-        durationInFrames={1550}
+        durationInFrames={1520}
         fps={30}
         width={1080}
         height={1920}

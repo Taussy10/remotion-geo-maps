@@ -128,9 +128,41 @@
       "easing": "quadInOut"
     },
     {
-      "frame": 1250,
+      "frame": 1130,
       "center": [43.0, 32.0],
       "zoom": 4.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1160,
+      "center": [41.6, 24.6],
+      "zoom": 3.8,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1340,
+      "center": [41.6, 24.6],
+      "zoom": 3.8,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1360,
+      "center": [34.85, 31.04],
+      "zoom": 6.5,
+      "pitch": 0,
+      "bearing": 0,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 1420,
+      "center": [34.85, 31.04],
+      "zoom": 6.5,
       "pitch": 0,
       "bearing": 0,
       "easing": "quadInOut"
@@ -198,6 +230,17 @@
     "endFrame": 1150,
     "israelCoords": [34.85, 31.04],
     "iranCoords": [53.68, 32.42]
+  },
+  "proxyWarScene": {
+    "startFrame": 1144,
+    "supplyStart": 1200,
+    "attackStart": 1286,
+    "angryStart": 1349,
+    "endFrame": 1420,
+    "iranCoords": [53.68, 32.42],
+    "lebanonCoords": [35.8, 33.8],
+    "yemenCoords": [47.5, 15.5],
+    "israelCoords": [34.85, 31.04]
   },
   "planeAnimation": {
     "startFrame": 120,

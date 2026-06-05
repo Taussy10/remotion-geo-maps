@@ -6,6 +6,8 @@ import "maplibre-gl/dist/maplibre-gl.css";
 import iranData from "./data/iran.json";
 import israelData from "./data/israel.json";
 import palestineData from "./data/palestine.json";
+import lebanonData from "./data/lebanon.json";
+import yemenData from "./data/yemen.json";
 import storyboard from "./storyboard.json";
 import { IranCoin } from "./components/IranCoin";
 import { IsraelCoin } from "./components/IsraelCoin";
@@ -16,9 +18,10 @@ const CountryBall: React.FC<{
   size: number;
   flipX?: boolean;
   frame: number;
-  isHandshaking: boolean;
+  isHandshaking?: boolean;
   hasGun?: boolean;
-}> = ({ type, size, flipX, frame, isHandshaking, hasGun }) => {
+  isAngry?: boolean;
+}> = ({ type, size, flipX, frame, isHandshaking, hasGun, isAngry }) => {
   const bob = isHandshaking ? 0 : Math.sin(frame * 0.8) * 5;
   const legAngle1 = isHandshaking ? 0 : Math.sin(frame * 0.8) * 20;
   const legAngle2 = isHandshaking ? 0 : Math.cos(frame * 0.8) * 20;
@@ -67,6 +70,17 @@ const CountryBall: React.FC<{
       {/* Body */}
       <div style={{ position: "absolute", zIndex: 2 }}>
         {type === "iran" ? <IranCoin size={size} /> : type === "palestine" ? <PalestineCoin size={size} /> : <IsraelCoin size={size} />}
+        {isAngry && (
+          <div style={{ 
+            position: "absolute", 
+            top: -size * 0.3, 
+            right: size * 0.5, 
+            fontSize: size * 0.6,
+            transform: `translate(${Math.sin(frame * 2) * 5}px, ${Math.cos(frame * 2) * 5}px) scale(${1 + Math.sin(frame)*0.1})`
+          }}>
+            😡
+          </div>
+        )}
       </div>
       {/* Legs */}
       <svg style={{ position: "absolute", width: size, height: size * 0.5, top: size * 0.85, left: 0, zIndex: 1, overflow: "visible" }}>
@@ -151,6 +165,41 @@ const GiantScissors: React.FC<{ size: number; frame: number; cutFrame: number }>
   );
 };
 
+const MoneyBag: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100">
+    <path d="M 30 40 Q 10 90 50 90 Q 90 90 70 40 C 60 20 40 20 30 40 Z" fill="#f1c40f" stroke="#d35400" strokeWidth="4" />
+    <path d="M 40 40 Q 50 10 60 40 Z" fill="#e67e22" />
+    <text x="50" y="70" fontSize="30" fill="#d35400" textAnchor="middle" fontWeight="bold">$</text>
+  </svg>
+);
+
+const WeaponCrate: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100">
+    <rect x="10" y="30" width="80" height="50" fill="#34495e" stroke="#2c3e50" strokeWidth="5" rx="3" />
+    <line x1="10" y1="45" x2="90" y2="45" stroke="#2c3e50" strokeWidth="3" />
+    <line x1="10" y1="60" x2="90" y2="60" stroke="#2c3e50" strokeWidth="3" />
+    <rect x="35" y="45" width="30" height="20" fill="#e74c3c" rx="2" />
+    <text x="50" y="60" fontSize="15" fill="#fff" textAnchor="middle" fontWeight="bold">🧨</text>
+  </svg>
+);
+
+const Missile: React.FC<{ size: number; color: string }> = ({ size, color }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100">
+    <g transform="rotate(45, 50, 50)">
+      {/* Body */}
+      <rect x="40" y="20" width="20" height="50" fill="#bdc3c7" />
+      {/* Tip */}
+      <path d="M 40 20 L 50 0 L 60 20 Z" fill={color} />
+      {/* Fins */}
+      <path d="M 40 60 L 25 75 L 40 70 Z" fill={color} />
+      <path d="M 60 60 L 75 75 L 60 70 Z" fill={color} />
+      {/* Engine Flame */}
+      <path d="M 45 70 L 50 90 L 55 70 Z" fill="#f39c12" />
+      <path d="M 47 70 L 50 100 L 53 70 Z" fill="#e74c3c" opacity="0.8" />
+    </g>
+  </svg>
+);
+
 // Helper function to calculate camera interpolation
 function getCameraPosition(frame: number, keyframes: any[]) {
   if (keyframes.length === 0) return { center: [0, 0], zoom: 0, pitch: 0, bearing: 0 };
@@ -203,6 +252,10 @@ export const IsraelIranComp: React.FC = () => {
   const [oppIsraelPos, setOppIsraelPos] = useState({ x: -1000, y: -1000 });
   const [cutIsraelPos, setCutIsraelPos] = useState({ x: -1000, y: -1000 });
   const [cutIranPos, setCutIranPos] = useState({ x: -1000, y: -1000 });
+  const [proxyIranPos, setProxyIranPos] = useState({ x: -1000, y: -1000 });
+  const [proxyLebanonPos, setProxyLebanonPos] = useState({ x: -1000, y: -1000 });
+  const [proxyYemenPos, setProxyYemenPos] = useState({ x: -1000, y: -1000 });
+  const [proxyIsraelPos, setProxyIsraelPos] = useState({ x: -1000, y: -1000 });
 
   useEffect(() => {
     if (!ref.current) return;
@@ -232,6 +285,8 @@ export const IsraelIranComp: React.FC = () => {
             type: "geojson",
             data: palestineData as any,
           },
+          "lebanon-src": { type: "geojson", data: lebanonData as any },
+          "yemen-src": { type: "geojson", data: yemenData as any },
         },
         layers: [
           {
@@ -295,6 +350,12 @@ export const IsraelIranComp: React.FC = () => {
             source: "palestine-src",
             paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 },
           },
+          { id: "lebanon-fill", type: "fill", source: "lebanon-src", paint: { "fill-color": "#ff9800", "fill-opacity": 0.8 } },
+          { id: "lebanon-border-outer", type: "line", source: "lebanon-src", paint: { "line-color": "#ff9800", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 } },
+          { id: "lebanon-border-core", type: "line", source: "lebanon-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 } },
+          { id: "yemen-fill", type: "fill", source: "yemen-src", paint: { "fill-color": "#ffeb3b", "fill-opacity": 0.8 } },
+          { id: "yemen-border-outer", type: "line", source: "yemen-src", paint: { "line-color": "#ffeb3b", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 } },
+          { id: "yemen-border-core", type: "line", source: "yemen-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 } },
         ],
       },
       center: storyboard.cameraKeyframes[0].center as [number, number],
@@ -413,6 +474,15 @@ export const IsraelIranComp: React.FC = () => {
       setCutIsraelPos({ x: p1.x, y: p1.y });
       const p2 = map.project(cut.iranCoords as [number, number]);
       setCutIranPos({ x: p2.x, y: p2.y });
+    }
+
+    // Proxy War Scene positioning
+    const proxy = storyboard.proxyWarScene;
+    if (proxy && frame >= proxy.startFrame && frame <= proxy.endFrame) {
+      setProxyIranPos(map.project(proxy.iranCoords as [number, number]));
+      setProxyLebanonPos(map.project(proxy.lebanonCoords as [number, number]));
+      setProxyYemenPos(map.project(proxy.yemenCoords as [number, number]));
+      setProxyIsraelPos(map.project(proxy.israelCoords as [number, number]));
     }
 
   }, [frame, map, mapLoaded]);
@@ -816,6 +886,76 @@ export const IsraelIranComp: React.FC = () => {
               }}>
                 <GiantScissors size={350} frame={frame} cutFrame={storyboard.cutRelationsScene.cutFrame} />
               </div>
+            </>
+          )}
+
+          {/* Proxy War Scene */}
+          {storyboard.proxyWarScene && frame >= storyboard.proxyWarScene.startFrame && frame <= storyboard.proxyWarScene.endFrame && (
+            <>
+              {/* Supply Lines: Iran to Lebanon & Yemen */}
+              {frame >= storyboard.proxyWarScene.supplyStart && frame <= storyboard.proxyWarScene.attackStart && (
+                <>
+                  <div style={{
+                    position: "absolute",
+                    left: interpolate(frame, [storyboard.proxyWarScene.supplyStart, storyboard.proxyWarScene.supplyStart + 30], [proxyIranPos.x, proxyLebanonPos.x], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    top: interpolate(frame, [storyboard.proxyWarScene.supplyStart, storyboard.proxyWarScene.supplyStart + 30], [proxyIranPos.y, proxyLebanonPos.y], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) - Math.sin(interpolate(frame, [storyboard.proxyWarScene.supplyStart, storyboard.proxyWarScene.supplyStart + 30], [0, Math.PI], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })) * 150,
+                    opacity: interpolate(frame, [storyboard.proxyWarScene.supplyStart, storyboard.proxyWarScene.supplyStart + 10, storyboard.proxyWarScene.supplyStart + 25, storyboard.proxyWarScene.supplyStart + 30], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    transform: "translate(-50%, -50%) scale(1.5)", zIndex: 40
+                  }}><MoneyBag size={50} /></div>
+
+                  <div style={{
+                    position: "absolute",
+                    left: interpolate(frame, [storyboard.proxyWarScene.supplyStart + 15, storyboard.proxyWarScene.supplyStart + 45], [proxyIranPos.x, proxyYemenPos.x], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    top: interpolate(frame, [storyboard.proxyWarScene.supplyStart + 15, storyboard.proxyWarScene.supplyStart + 45], [proxyIranPos.y, proxyYemenPos.y], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) - Math.sin(interpolate(frame, [storyboard.proxyWarScene.supplyStart + 15, storyboard.proxyWarScene.supplyStart + 45], [0, Math.PI], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })) * 150,
+                    opacity: interpolate(frame, [storyboard.proxyWarScene.supplyStart + 15, storyboard.proxyWarScene.supplyStart + 25, storyboard.proxyWarScene.supplyStart + 40, storyboard.proxyWarScene.supplyStart + 45], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    transform: "translate(-50%, -50%) scale(1.5)", zIndex: 40
+                  }}><WeaponCrate size={50} /></div>
+                </>
+              )}
+
+              {/* Missiles: Lebanon & Yemen to Israel */}
+              {frame >= storyboard.proxyWarScene.attackStart && frame <= storyboard.proxyWarScene.angryStart && (
+                <>
+                  {/* Lebanon Missile */}
+                  <div style={{
+                    position: "absolute",
+                    left: interpolate(frame, [storyboard.proxyWarScene.attackStart, storyboard.proxyWarScene.attackStart + 20], [proxyLebanonPos.x, proxyIsraelPos.x], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.quad) }),
+                    top: interpolate(frame, [storyboard.proxyWarScene.attackStart, storyboard.proxyWarScene.attackStart + 20], [proxyLebanonPos.y, proxyIsraelPos.y], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.quad) }),
+                    opacity: interpolate(frame, [storyboard.proxyWarScene.attackStart, storyboard.proxyWarScene.attackStart + 5, storyboard.proxyWarScene.attackStart + 18, storyboard.proxyWarScene.attackStart + 20], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    transform: `translate(-50%, -50%) rotate(${Math.atan2(proxyIsraelPos.y - proxyLebanonPos.y, proxyIsraelPos.x - proxyLebanonPos.x)}rad) scale(1.5)`, zIndex: 40
+                  }}><Missile size={40} color="#ff9800" /></div>
+
+                  {/* Yemen Missile */}
+                  <div style={{
+                    position: "absolute",
+                    left: interpolate(frame, [storyboard.proxyWarScene.attackStart + 10, storyboard.proxyWarScene.attackStart + 30], [proxyYemenPos.x, proxyIsraelPos.x], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.quad) }),
+                    top: interpolate(frame, [storyboard.proxyWarScene.attackStart + 10, storyboard.proxyWarScene.attackStart + 30], [proxyYemenPos.y, proxyIsraelPos.y], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.quad) }),
+                    opacity: interpolate(frame, [storyboard.proxyWarScene.attackStart + 10, storyboard.proxyWarScene.attackStart + 15, storyboard.proxyWarScene.attackStart + 28, storyboard.proxyWarScene.attackStart + 30], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    transform: `translate(-50%, -50%) rotate(${Math.atan2(proxyIsraelPos.y - proxyYemenPos.y, proxyIsraelPos.x - proxyYemenPos.x)}rad) scale(1.5)`, zIndex: 40
+                  }}><Missile size={40} color="#ffeb3b" /></div>
+
+                  {/* Blasts */}
+                  {frame >= storyboard.proxyWarScene.attackStart + 18 && frame <= storyboard.proxyWarScene.attackStart + 25 && (
+                    <div style={{ position: "absolute", left: proxyIsraelPos.x, top: proxyIsraelPos.y, transform: "translate(-50%, -50%) scale(4)", fontSize: 50, zIndex: 45 }}>💥</div>
+                  )}
+                  {frame >= storyboard.proxyWarScene.attackStart + 28 && frame <= storyboard.proxyWarScene.attackStart + 35 && (
+                    <div style={{ position: "absolute", left: proxyIsraelPos.x + 20, top: proxyIsraelPos.y + 20, transform: "translate(-50%, -50%) scale(4)", fontSize: 50, zIndex: 45 }}>💥</div>
+                  )}
+                </>
+              )}
+
+              {/* Angry Israel */}
+              {frame >= storyboard.proxyWarScene.angryStart && (
+                <div style={{
+                  position: "absolute",
+                  left: proxyIsraelPos.x,
+                  top: proxyIsraelPos.y,
+                  opacity: interpolate(frame, [storyboard.proxyWarScene.angryStart, storyboard.proxyWarScene.angryStart + 5], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                  zIndex: 45
+                }}>
+                  <CountryBall type="israel" size={200} frame={frame} isAngry={true} />
+                </div>
+              )}
             </>
           )}
 

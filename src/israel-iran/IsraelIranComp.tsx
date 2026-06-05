@@ -5,17 +5,20 @@ import "maplibre-gl/dist/maplibre-gl.css";
 
 import iranData from "./data/iran.json";
 import israelData from "./data/israel.json";
+import palestineData from "./data/palestine.json";
 import storyboard from "./storyboard.json";
 import { IranCoin } from "./components/IranCoin";
 import { IsraelCoin } from "./components/IsraelCoin";
+import { PalestineCoin } from "./components/PalestineCoin";
 
 const CountryBall: React.FC<{
-  type: "iran" | "israel";
+  type: "iran" | "israel" | "palestine";
   size: number;
   flipX?: boolean;
   frame: number;
   isHandshaking: boolean;
-}> = ({ type, size, flipX, frame, isHandshaking }) => {
+  hasGun?: boolean;
+}> = ({ type, size, flipX, frame, isHandshaking, hasGun }) => {
   const bob = isHandshaking ? 0 : Math.sin(frame * 0.8) * 5;
   const legAngle1 = isHandshaking ? 0 : Math.sin(frame * 0.8) * 20;
   const legAngle2 = isHandshaking ? 0 : Math.cos(frame * 0.8) * 20;
@@ -38,13 +41,32 @@ const CountryBall: React.FC<{
          <g transform={`rotate(${leftArmAngle}, ${size*0.25}, ${size*0.1})`}>
            <line x1={size*0.25} y1={size*0.1} x2={size*0.75} y2={size*0.1} stroke="#000" strokeWidth={6} strokeLinecap="round" />
          </g>
-         <g transform={`rotate(${rightArmAngle}, ${size*1.25}, ${size*0.1})`}>
-           <line x1={size*1.25} y1={size*0.1} x2={rightArmEnd} y2={size*0.1} stroke="#000" strokeWidth={6} strokeLinecap="round" />
-         </g>
+          <g transform={`rotate(${rightArmAngle}, ${size*1.25}, ${size*0.1})`}>
+            <line x1={size*1.25} y1={size*0.1} x2={rightArmEnd} y2={size*0.1} stroke="#000" strokeWidth={6} strokeLinecap="round" />
+            {hasGun && (
+              <g transform={`translate(${rightArmEnd}, ${size*0.05}) rotate(5)`}>
+                {/* Big Gun SVG attached to the hand */}
+                <g transform="scale(3) translate(-5, -5)">
+                  {/* Gun Body */}
+                  <rect x="0" y="0" width="40" height="12" fill="#2c3e50" rx="2" />
+                  {/* Gun Barrel */}
+                  <rect x="40" y="2" width="25" height="6" fill="#7f8c8d" />
+                  {/* Gun Handle */}
+                  <rect x="5" y="10" width="10" height="20" fill="#34495e" transform="skewX(-15)" rx="2" />
+                  {/* Magazine */}
+                  <rect x="20" y="12" width="12" height="15" fill="#2c3e50" rx="1" />
+                  {/* Scope */}
+                  <rect x="15" y="-6" width="20" height="6" fill="#34495e" rx="1" />
+                  {/* Laser Sight Line */}
+                  <line x1="65" y1="5" x2="120" y2="5" stroke="#ff0000" strokeWidth="1" strokeDasharray="4,4" />
+                </g>
+              </g>
+            )}
+          </g>
       </svg>
       {/* Body */}
       <div style={{ position: "absolute", zIndex: 2 }}>
-        {type === "iran" ? <IranCoin size={size} /> : <IsraelCoin size={size} />}
+        {type === "iran" ? <IranCoin size={size} /> : type === "palestine" ? <PalestineCoin size={size} /> : <IsraelCoin size={size} />}
       </div>
       {/* Legs */}
       <svg style={{ position: "absolute", width: size, height: size * 0.5, top: size * 0.85, left: 0, zIndex: 1, overflow: "visible" }}>
@@ -85,6 +107,49 @@ const Microchip: React.FC<{ size: number }> = ({ size }) => (
   </svg>
 );
 
+const PunchingHand: React.FC<{ size: number }> = ({ size }) => (
+  <svg width={size} height={size} viewBox="0 0 100 100">
+    <g transform="rotate(-15, 50, 50)">
+      {/* Arm/Sleeve */}
+      <rect x="60" y="30" width="60" height="40" fill="#3a5a40" />
+      {/* Fist Base */}
+      <circle cx="50" cy="50" r="25" fill="#f1c27d" stroke="#c08552" strokeWidth="4" />
+      {/* Knuckles */}
+      <circle cx="35" cy="40" r="10" fill="#e0a96d" />
+      <circle cx="30" cy="55" r="10" fill="#e0a96d" />
+      <circle cx="38" cy="68" r="10" fill="#e0a96d" />
+      {/* Thumb */}
+      <path d="M 45 35 Q 20 20 30 45" fill="none" stroke="#c08552" strokeWidth="8" strokeLinecap="round" />
+      {/* Motion lines */}
+      <line x1="80" y1="20" x2="100" y2="20" stroke="#fff" strokeWidth="4" strokeDasharray="5,5" />
+      <line x1="85" y1="80" x2="105" y2="80" stroke="#fff" strokeWidth="4" strokeDasharray="5,5" />
+    </g>
+  </svg>
+);
+
+const GiantScissors: React.FC<{ size: number; frame: number; cutFrame: number }> = ({ size, frame, cutFrame }) => {
+  // Scissors start open (angle = 30 deg), then slam shut at cutFrame
+  const angle = interpolate(frame, [cutFrame - 5, cutFrame, cutFrame + 10], [45, 0, 10], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" style={{ overflow: "visible" }}>
+      <g transform="translate(50, 50)">
+        {/* Top Blade */}
+        <g transform={`rotate(${angle})`}>
+          <path d="M 0 -5 L -40 -15 C -45 -15 -50 -5 -40 0 L 50 0 Z" fill="#bdc3c7" stroke="#7f8c8d" strokeWidth="2" />
+          <circle cx="-35" cy="-7" r="10" fill="none" stroke="#e74c3c" strokeWidth="4" />
+        </g>
+        {/* Bottom Blade */}
+        <g transform={`rotate(${-angle})`}>
+          <path d="M 0 5 L -40 15 C -45 15 -50 5 -40 0 L 50 0 Z" fill="#95a5a6" stroke="#7f8c8d" strokeWidth="2" />
+          <circle cx="-35" cy="7" r="10" fill="none" stroke="#e74c3c" strokeWidth="4" />
+        </g>
+        {/* Hinge Pin */}
+        <circle cx="0" cy="0" r="3" fill="#2c3e50" />
+      </g>
+    </svg>
+  );
+};
 
 // Helper function to calculate camera interpolation
 function getCameraPosition(frame: number, keyframes: any[]) {
@@ -132,6 +197,12 @@ export const IsraelIranComp: React.FC = () => {
   const [netanyahuPos, setNetanyahuPos] = useState({ x: -1000, y: -1000 });
   const [coopIsraelPos, setCoopIsraelPos] = useState({ x: -1000, y: -1000 });
   const [coopIranPos, setCoopIranPos] = useState({ x: -1000, y: -1000 });
+  const [revIsraelPos, setRevIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [revIranPos, setRevIranPos] = useState({ x: -1000, y: -1000 });
+  const [oppPalestinePos, setOppPalestinePos] = useState({ x: -1000, y: -1000 });
+  const [oppIsraelPos, setOppIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [cutIsraelPos, setCutIsraelPos] = useState({ x: -1000, y: -1000 });
+  const [cutIranPos, setCutIranPos] = useState({ x: -1000, y: -1000 });
 
   useEffect(() => {
     if (!ref.current) return;
@@ -156,6 +227,10 @@ export const IsraelIranComp: React.FC = () => {
           "israel-src": {
             type: "geojson",
             data: israelData as any,
+          },
+          "palestine-src": {
+            type: "geojson",
+            data: palestineData as any,
           },
         },
         layers: [
@@ -200,6 +275,24 @@ export const IsraelIranComp: React.FC = () => {
             id: "israel-border-core",
             type: "line",
             source: "israel-src",
+            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 },
+          },
+          {
+            id: "palestine-fill",
+            type: "fill",
+            source: "palestine-src",
+            paint: { "fill-color": "#ce1126", "fill-opacity": 0.8 },
+          },
+          {
+            id: "palestine-border-outer",
+            type: "line",
+            source: "palestine-src",
+            paint: { "line-color": "#009736", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 },
+          },
+          {
+            id: "palestine-border-core",
+            type: "line",
+            source: "palestine-src",
             paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 },
           },
         ],
@@ -293,6 +386,33 @@ export const IsraelIranComp: React.FC = () => {
       setCoopIsraelPos({ x: p1.x, y: p1.y });
       const p2 = map.project(coop.iranCoords as [number, number]);
       setCoopIranPos({ x: p2.x, y: p2.y });
+    }
+
+    // Revolution Scene positioning
+    const rev = storyboard.revolutionScene;
+    if (rev && frame >= rev.brokenHeartStart && frame <= rev.endFrame) {
+      const p1 = map.project(rev.israelCoords as [number, number]);
+      setRevIsraelPos({ x: p1.x, y: p1.y });
+      const p2 = map.project(rev.iranCoords as [number, number]);
+      setRevIranPos({ x: p2.x, y: p2.y });
+    }
+
+    // Oppressor Scene positioning
+    const opp = storyboard.oppressorScene;
+    if (opp && frame >= opp.startFrame && frame <= opp.endFrame) {
+      const p1 = map.project(opp.palestineCoords as [number, number]);
+      setOppPalestinePos({ x: p1.x, y: p1.y });
+      const p2 = map.project(opp.israelCoords as [number, number]);
+      setOppIsraelPos({ x: p2.x, y: p2.y });
+    }
+
+    // Cut Relations Scene positioning
+    const cut = storyboard.cutRelationsScene;
+    if (cut && frame >= cut.startFrame && frame <= cut.endFrame) {
+      const p1 = map.project(cut.israelCoords as [number, number]);
+      setCutIsraelPos({ x: p1.x, y: p1.y });
+      const p2 = map.project(cut.iranCoords as [number, number]);
+      setCutIranPos({ x: p2.x, y: p2.y });
     }
 
   }, [frame, map, mapLoaded]);
@@ -545,14 +665,157 @@ export const IsraelIranComp: React.FC = () => {
               {/* Handshaking Coins */}
               {frame >= storyboard.cooperationScene.handshakeStart && (
                 <>
-                  <div style={{ position: "absolute", left: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [coopIsraelPos.x, (coopIsraelPos.x + coopIranPos.x) / 2 - 80], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), top: (coopIsraelPos.y + coopIranPos.y) / 2, opacity: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
-                    <CountryBall type="israel" size={220} frame={frame} isHandshaking={frame >= storyboard.cooperationScene.handshakeStart + 10} />
+                  <div style={{ position: "absolute", left: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [coopIsraelPos.x, (coopIsraelPos.x + coopIranPos.x) / 2 - 80], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), top: (coopIsraelPos.y + coopIranPos.y) / 2, opacity: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10, 715, 725], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                    <CountryBall type="israel" size={220} frame={frame} isHandshaking={frame >= storyboard.cooperationScene.handshakeStart + 10 && frame <= 720} />
                   </div>
-                  <div style={{ position: "absolute", left: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [coopIranPos.x, (coopIsraelPos.x + coopIranPos.x) / 2 + 80], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), top: (coopIsraelPos.y + coopIranPos.y) / 2, opacity: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
-                    <CountryBall type="iran" size={220} flipX frame={frame} isHandshaking={frame >= storyboard.cooperationScene.handshakeStart + 10} />
+                  <div style={{ position: "absolute", left: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10], [coopIranPos.x, (coopIsraelPos.x + coopIranPos.x) / 2 + 80], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }), top: (coopIsraelPos.y + coopIranPos.y) / 2, opacity: interpolate(frame, [storyboard.cooperationScene.handshakeStart, storyboard.cooperationScene.handshakeStart + 10, 715, 725], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                    <CountryBall type="iran" size={220} flipX frame={frame} isHandshaking={frame >= storyboard.cooperationScene.handshakeStart + 10 && frame <= 720} />
                   </div>
                 </>
               )}
+            </>
+          )}
+
+          {/* Revolution Scene Elements */}
+          {storyboard.revolutionScene && frame >= storyboard.revolutionScene.brokenHeartStart && frame <= storyboard.revolutionScene.endFrame && (
+            <>
+              {/* Broken Heart */}
+              {frame >= storyboard.revolutionScene.brokenHeartStart && frame <= storyboard.revolutionScene.shahPunchStart && (
+                <div style={{
+                  position: "absolute",
+                  left: (revIsraelPos.x + revIranPos.x) / 2,
+                  top: ((revIsraelPos.y + revIranPos.y) / 2) - 150,
+                  fontSize: 180,
+                  opacity: interpolate(frame, [storyboard.revolutionScene.brokenHeartStart, storyboard.revolutionScene.brokenHeartStart + 15, storyboard.revolutionScene.shahPunchStart - 10, storyboard.revolutionScene.shahPunchStart], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                  transform: `translate(-50%, -50%) scale(${interpolate(frame, [storyboard.revolutionScene.brokenHeartStart, storyboard.revolutionScene.brokenHeartStart + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.elastic(1) })})`,
+                  zIndex: 45,
+                  textShadow: "0 0 30px rgba(0, 0, 0, 0.8)"
+                }}>
+                  💔
+                </div>
+              )}
+
+              {/* Shah getting punched out */}
+              {frame >= storyboard.revolutionScene.shahPunchStart && frame <= storyboard.revolutionScene.allahGlowStart && (
+                <>
+                  {/* Shah Portrait */}
+                  <div style={{
+                    position: "absolute",
+                    left: revIranPos.x + interpolate(frame, [storyboard.revolutionScene.shahPunchStart + 15, storyboard.revolutionScene.shahPunchStart + 25], [0, -800], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    top: revIranPos.y,
+                    transform: `translate(-50%, -50%) rotate(${interpolate(frame, [storyboard.revolutionScene.shahPunchStart + 15, storyboard.revolutionScene.shahPunchStart + 25], [0, -180], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}deg)`,
+                    opacity: interpolate(frame, [storyboard.revolutionScene.shahPunchStart, storyboard.revolutionScene.shahPunchStart + 5, storyboard.revolutionScene.shahPunchStart + 23, storyboard.revolutionScene.shahPunchStart + 25], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    width: 250, height: 250, borderRadius: 20, overflow: "hidden",
+                    border: "8px solid #fff", boxShadow: "0 15px 30px rgba(0,0,0,0.6)",
+                    zIndex: 40
+                  }}>
+                    <img src={staticFile("shah.png")} alt="Shah" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.src = "https://dummyimage.com/400x400/000/fff&text=Shah"; }} />
+                  </div>
+
+                  {/* Punching Hand */}
+                  <div style={{
+                    position: "absolute",
+                    left: revIranPos.x + interpolate(frame, [storyboard.revolutionScene.shahPunchStart + 5, storyboard.revolutionScene.shahPunchStart + 15], [400, 50], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.exp) }),
+                    top: revIranPos.y,
+                    transform: `translate(-50%, -50%)`,
+                    opacity: interpolate(frame, [storyboard.revolutionScene.shahPunchStart + 5, storyboard.revolutionScene.shahPunchStart + 10, storyboard.revolutionScene.shahPunchStart + 20, storyboard.revolutionScene.shahPunchStart + 30], [0, 1, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                    zIndex: 45
+                  }}>
+                    <PunchingHand size={300} />
+                  </div>
+                </>
+              )}
+
+              {/* Glowing Allah Text */}
+              {frame >= storyboard.revolutionScene.allahGlowStart && (
+                <div style={{
+                  position: "absolute",
+                  left: revIranPos.x,
+                  top: revIranPos.y,
+                  fontSize: 200,
+                  fontWeight: "bold",
+                  color: "#ffffff",
+                  textShadow: "0 0 40px #4CAF50, 0 0 80px #4CAF50, 0 0 120px #4CAF50",
+                  opacity: interpolate(frame, [storyboard.revolutionScene.allahGlowStart, storyboard.revolutionScene.allahGlowStart + 20], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                  transform: `translate(-50%, -50%) scale(${interpolate(frame, [storyboard.revolutionScene.allahGlowStart, storyboard.revolutionScene.allahGlowStart + 20], [0.5, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.elastic(1) })})`,
+                  zIndex: 50
+                }}>
+                  الله
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Oppressor Scene Elements */}
+          {storyboard.oppressorScene && frame >= storyboard.oppressorScene.startFrame && frame <= storyboard.oppressorScene.endFrame && (
+            <>
+              {/* Palestine CountryBall */}
+              <div style={{
+                position: "absolute",
+                left: oppPalestinePos.x,
+                top: oppPalestinePos.y,
+                opacity: interpolate(frame, [storyboard.oppressorScene.startFrame, storyboard.oppressorScene.startFrame + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+              }}>
+                <CountryBall type="palestine" size={180} flipX frame={frame} isHandshaking={false} />
+              </div>
+
+              {/* Israel CountryBall aiming gun */}
+              {frame >= storyboard.oppressorScene.gunStart && (
+                <div style={{
+                  position: "absolute",
+                  left: interpolate(frame, [storyboard.oppressorScene.gunStart, storyboard.oppressorScene.gunStart + 15], [oppPalestinePos.x - 600, oppPalestinePos.x - 150], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back()) }),
+                  top: oppIsraelPos.y,
+                  opacity: interpolate(frame, [storyboard.oppressorScene.gunStart, storyboard.oppressorScene.gunStart + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })
+                }}>
+                  <CountryBall type="israel" size={200} frame={frame} isHandshaking={false} hasGun={true} />
+                </div>
+              )}
+            </>
+          )}
+
+          {/* Cut Relations Scene */}
+          {storyboard.cutRelationsScene && frame >= storyboard.cutRelationsScene.startFrame && frame <= storyboard.cutRelationsScene.endFrame && (
+            <>
+              {/* The Cord */}
+              {frame < storyboard.cutRelationsScene.cutFrame ? (
+                <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 35, overflow: "visible" }}>
+                  <line 
+                    x1={cutIsraelPos.x} y1={cutIsraelPos.y} 
+                    x2={cutIranPos.x} y2={cutIranPos.y} 
+                    stroke="#f1c40f" strokeWidth="12" 
+                    filter="drop-shadow(0px 0px 15px #f39c12)"
+                  />
+                </svg>
+              ) : (
+                <svg style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 35, overflow: "visible" }}>
+                  <line 
+                    x1={cutIsraelPos.x} y1={cutIsraelPos.y} 
+                    x2={((cutIsraelPos.x + cutIranPos.x) / 2) - interpolate(frame, [storyboard.cutRelationsScene.cutFrame, storyboard.cutRelationsScene.cutFrame + 20], [0, 400], { easing: Easing.out(Easing.back()), extrapolateLeft: "clamp", extrapolateRight: "clamp" })} 
+                    y2={((cutIsraelPos.y + cutIranPos.y) / 2) + interpolate(frame, [storyboard.cutRelationsScene.cutFrame, storyboard.cutRelationsScene.cutFrame + 20], [0, 100], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} 
+                    stroke="#f1c40f" strokeWidth="12" strokeDasharray="10,20" strokeLinecap="round"
+                    filter="drop-shadow(0px 0px 20px #e74c3c)"
+                  />
+                  <line 
+                    x1={cutIranPos.x} y1={cutIranPos.y} 
+                    x2={((cutIsraelPos.x + cutIranPos.x) / 2) + interpolate(frame, [storyboard.cutRelationsScene.cutFrame, storyboard.cutRelationsScene.cutFrame + 20], [0, 400], { easing: Easing.out(Easing.back()), extrapolateLeft: "clamp", extrapolateRight: "clamp" })} 
+                    y2={((cutIsraelPos.y + cutIranPos.y) / 2) - interpolate(frame, [storyboard.cutRelationsScene.cutFrame, storyboard.cutRelationsScene.cutFrame + 20], [0, 100], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })} 
+                    stroke="#f1c40f" strokeWidth="12" strokeDasharray="10,20" strokeLinecap="round"
+                    filter="drop-shadow(0px 0px 20px #e74c3c)"
+                  />
+                </svg>
+              )}
+
+              {/* The Giant Scissors */}
+              <div style={{
+                position: "absolute",
+                left: (cutIsraelPos.x + cutIranPos.x) / 2,
+                top: (cutIsraelPos.y + cutIranPos.y) / 2,
+                transform: `translate(-50%, -50%) scale(${interpolate(frame, [storyboard.cutRelationsScene.startFrame, storyboard.cutRelationsScene.startFrame + 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back()) })})`,
+                opacity: interpolate(frame, [storyboard.cutRelationsScene.endFrame - 10, storyboard.cutRelationsScene.endFrame], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+                zIndex: 40
+              }}>
+                <GiantScissors size={350} frame={frame} cutFrame={storyboard.cutRelationsScene.cutFrame} />
+              </div>
             </>
           )}
 

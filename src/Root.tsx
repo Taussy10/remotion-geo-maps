@@ -4,6 +4,7 @@ import { KoreaComposition } from "./korea/KoreaComposition";
 import { BangladeshComposition } from "./bangladesh/BangladeshComposition";
 import { IsraelIranComp } from "./israel-iran/IsraelIranComp";
 import { Test } from "./Test";
+import { PalestineComp } from "./palestine/PalestineComp";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -37,6 +38,14 @@ export const RemotionRoot: React.FC = () => {
         id="IsraelIranScene"
         component={IsraelIranComp}
         durationInFrames={2359}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="PalestineComp"
+        component={PalestineComp}
+        durationInFrames={1550}
         fps={30}
         width={1080}
         height={1920}

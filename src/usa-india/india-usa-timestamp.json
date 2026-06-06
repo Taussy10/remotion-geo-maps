@@ -1,0 +1,1427 @@
+{
+  "audio_file": "audio.mp3",
+  "fps": 30,
+  "words": [
+    {
+      "word": "Let's",
+      "start": 0.0,
+      "end": 0.26,
+      "frame_start": 0,
+      "frame_end": 8
+    },
+    {
+      "word": "compare",
+      "start": 0.26,
+      "end": 0.5,
+      "frame_start": 8,
+      "frame_end": 15
+    },
+    {
+      "word": "India",
+      "start": 0.5,
+      "end": 0.8,
+      "frame_start": 15,
+      "frame_end": 24
+    },
+    {
+      "word": "to",
+      "start": 0.8,
+      "end": 0.98,
+      "frame_start": 24,
+      "frame_end": 29
+    },
+    {
+      "word": "the",
+      "start": 0.98,
+      "end": 1.08,
+      "frame_start": 29,
+      "frame_end": 32
+    },
+    {
+      "word": "United",
+      "start": 1.08,
+      "end": 1.26,
+      "frame_start": 32,
+      "frame_end": 38
+    },
+    {
+      "word": "States.",
+      "start": 1.26,
+      "end": 1.7,
+      "frame_start": 38,
+      "frame_end": 51
+    },
+    {
+      "word": "India",
+      "start": 1.92,
+      "end": 2.18,
+      "frame_start": 58,
+      "frame_end": 65
+    },
+    {
+      "word": "is",
+      "start": 2.18,
+      "end": 2.32,
+      "frame_start": 65,
+      "frame_end": 70
+    },
+    {
+      "word": "home",
+      "start": 2.32,
+      "end": 2.5,
+      "frame_start": 70,
+      "frame_end": 75
+    },
+    {
+      "word": "to",
+      "start": 2.5,
+      "end": 2.66,
+      "frame_start": 75,
+      "frame_end": 80
+    },
+    {
+      "word": "over",
+      "start": 2.66,
+      "end": 2.88,
+      "frame_start": 80,
+      "frame_end": 86
+    },
+    {
+      "word": "1",
+      "start": 2.88,
+      "end": 3.1,
+      "frame_start": 86,
+      "frame_end": 93
+    },
+    {
+      "word": ".4",
+      "start": 3.1,
+      "end": 3.54,
+      "frame_start": 93,
+      "frame_end": 106
+    },
+    {
+      "word": "billion",
+      "start": 3.54,
+      "end": 3.96,
+      "frame_start": 106,
+      "frame_end": 119
+    },
+    {
+      "word": "people,",
+      "start": 3.96,
+      "end": 4.32,
+      "frame_start": 119,
+      "frame_end": 130
+    },
+    {
+      "word": "while",
+      "start": 4.56,
+      "end": 4.8,
+      "frame_start": 137,
+      "frame_end": 144
+    },
+    {
+      "word": "the",
+      "start": 4.8,
+      "end": 4.92,
+      "frame_start": 144,
+      "frame_end": 148
+    },
+    {
+      "word": "United",
+      "start": 4.92,
+      "end": 5.12,
+      "frame_start": 148,
+      "frame_end": 154
+    },
+    {
+      "word": "States",
+      "start": 5.12,
+      "end": 5.54,
+      "frame_start": 154,
+      "frame_end": 166
+    },
+    {
+      "word": "is",
+      "start": 5.54,
+      "end": 5.7,
+      "frame_start": 166,
+      "frame_end": 171
+    },
+    {
+      "word": "home",
+      "start": 5.7,
+      "end": 5.9,
+      "frame_start": 171,
+      "frame_end": 177
+    },
+    {
+      "word": "to",
+      "start": 5.9,
+      "end": 6.02,
+      "frame_start": 177,
+      "frame_end": 181
+    },
+    {
+      "word": "over",
+      "start": 6.02,
+      "end": 6.22,
+      "frame_start": 181,
+      "frame_end": 187
+    },
+    {
+      "word": "340",
+      "start": 6.22,
+      "end": 7.04,
+      "frame_start": 187,
+      "frame_end": 211
+    },
+    {
+      "word": "million",
+      "start": 7.04,
+      "end": 7.4,
+      "frame_start": 211,
+      "frame_end": 222
+    },
+    {
+      "word": "people.",
+      "start": 7.4,
+      "end": 7.76,
+      "frame_start": 222,
+      "frame_end": 233
+    },
+    {
+      "word": "This",
+      "start": 8.2,
+      "end": 8.36,
+      "frame_start": 246,
+      "frame_end": 251
+    },
+    {
+      "word": "makes",
+      "start": 8.36,
+      "end": 8.52,
+      "frame_start": 251,
+      "frame_end": 256
+    },
+    {
+      "word": "India",
+      "start": 8.52,
+      "end": 8.84,
+      "frame_start": 256,
+      "frame_end": 265
+    },
+    {
+      "word": "the",
+      "start": 8.84,
+      "end": 8.96,
+      "frame_start": 265,
+      "frame_end": 269
+    },
+    {
+      "word": "most",
+      "start": 8.96,
+      "end": 9.2,
+      "frame_start": 269,
+      "frame_end": 276
+    },
+    {
+      "word": "populous",
+      "start": 9.2,
+      "end": 9.66,
+      "frame_start": 276,
+      "frame_end": 290
+    },
+    {
+      "word": "country",
+      "start": 9.66,
+      "end": 9.98,
+      "frame_start": 290,
+      "frame_end": 299
+    },
+    {
+      "word": "in",
+      "start": 9.98,
+      "end": 10.12,
+      "frame_start": 299,
+      "frame_end": 304
+    },
+    {
+      "word": "the",
+      "start": 10.12,
+      "end": 10.2,
+      "frame_start": 304,
+      "frame_end": 306
+    },
+    {
+      "word": "world,",
+      "start": 10.2,
+      "end": 10.44,
+      "frame_start": 306,
+      "frame_end": 313
+    },
+    {
+      "word": "while",
+      "start": 10.6,
+      "end": 10.84,
+      "frame_start": 318,
+      "frame_end": 325
+    },
+    {
+      "word": "the",
+      "start": 10.84,
+      "end": 10.96,
+      "frame_start": 325,
+      "frame_end": 329
+    },
+    {
+      "word": "United",
+      "start": 10.96,
+      "end": 11.16,
+      "frame_start": 329,
+      "frame_end": 335
+    },
+    {
+      "word": "States",
+      "start": 11.16,
+      "end": 11.6,
+      "frame_start": 335,
+      "frame_end": 348
+    },
+    {
+      "word": "ranks",
+      "start": 11.6,
+      "end": 11.82,
+      "frame_start": 348,
+      "frame_end": 355
+    },
+    {
+      "word": "third.",
+      "start": 11.82,
+      "end": 12.26,
+      "frame_start": 355,
+      "frame_end": 368
+    },
+    {
+      "word": "India's",
+      "start": 12.6,
+      "end": 12.98,
+      "frame_start": 378,
+      "frame_end": 389
+    },
+    {
+      "word": "largest",
+      "start": 12.98,
+      "end": 13.2,
+      "frame_start": 389,
+      "frame_end": 396
+    },
+    {
+      "word": "cities",
+      "start": 13.2,
+      "end": 13.58,
+      "frame_start": 396,
+      "frame_end": 407
+    },
+    {
+      "word": "are",
+      "start": 13.58,
+      "end": 13.8,
+      "frame_start": 407,
+      "frame_end": 414
+    },
+    {
+      "word": "Mumbai,",
+      "start": 13.8,
+      "end": 14.08,
+      "frame_start": 414,
+      "frame_end": 422
+    },
+    {
+      "word": "Lahore,",
+      "start": 14.46,
+      "end": 14.84,
+      "frame_start": 434,
+      "frame_end": 445
+    },
+    {
+      "word": "and",
+      "start": 15.06,
+      "end": 15.1,
+      "frame_start": 452,
+      "frame_end": 453
+    },
+    {
+      "word": "Delhi.",
+      "start": 15.1,
+      "end": 15.32,
+      "frame_start": 453,
+      "frame_end": 460
+    },
+    {
+      "word": "The",
+      "start": 15.72,
+      "end": 15.8,
+      "frame_start": 472,
+      "frame_end": 474
+    },
+    {
+      "word": "United",
+      "start": 15.8,
+      "end": 15.96,
+      "frame_start": 474,
+      "frame_end": 479
+    },
+    {
+      "word": "States'",
+      "start": 15.96,
+      "end": 16.32,
+      "frame_start": 479,
+      "frame_end": 490
+    },
+    {
+      "word": "largest",
+      "start": 16.44,
+      "end": 16.7,
+      "frame_start": 493,
+      "frame_end": 501
+    },
+    {
+      "word": "cities",
+      "start": 16.7,
+      "end": 17.1,
+      "frame_start": 501,
+      "frame_end": 513
+    },
+    {
+      "word": "are",
+      "start": 17.1,
+      "end": 17.34,
+      "frame_start": 513,
+      "frame_end": 520
+    },
+    {
+      "word": "New",
+      "start": 17.34,
+      "end": 17.54,
+      "frame_start": 520,
+      "frame_end": 526
+    },
+    {
+      "word": "York",
+      "start": 17.54,
+      "end": 17.72,
+      "frame_start": 526,
+      "frame_end": 532
+    },
+    {
+      "word": "City,",
+      "start": 17.72,
+      "end": 17.94,
+      "frame_start": 532,
+      "frame_end": 538
+    },
+    {
+      "word": "El",
+      "start": 18.28,
+      "end": 18.44,
+      "frame_start": 548,
+      "frame_end": 553
+    },
+    {
+      "word": "Paso,",
+      "start": 18.44,
+      "end": 18.88,
+      "frame_start": 553,
+      "frame_end": 566
+    },
+    {
+      "word": "and",
+      "start": 19.1,
+      "end": 19.28,
+      "frame_start": 573,
+      "frame_end": 578
+    },
+    {
+      "word": "Chicago.",
+      "start": 19.28,
+      "end": 19.58,
+      "frame_start": 578,
+      "frame_end": 587
+    },
+    {
+      "word": "India's",
+      "start": 20.12,
+      "end": 20.46,
+      "frame_start": 604,
+      "frame_end": 614
+    },
+    {
+      "word": "1",
+      "start": 20.46,
+      "end": 20.66,
+      "frame_start": 614,
+      "frame_end": 620
+    },
+    {
+      "word": ".27",
+      "start": 20.66,
+      "end": 21.16,
+      "frame_start": 620,
+      "frame_end": 635
+    },
+    {
+      "word": "million",
+      "start": 21.16,
+      "end": 21.68,
+      "frame_start": 635,
+      "frame_end": 650
+    },
+    {
+      "word": "square",
+      "start": 21.68,
+      "end": 21.92,
+      "frame_start": 650,
+      "frame_end": 658
+    },
+    {
+      "word": "miles",
+      "start": 21.92,
+      "end": 22.32,
+      "frame_start": 658,
+      "frame_end": 670
+    },
+    {
+      "word": "make",
+      "start": 22.32,
+      "end": 22.56,
+      "frame_start": 670,
+      "frame_end": 677
+    },
+    {
+      "word": "it",
+      "start": 22.56,
+      "end": 22.66,
+      "frame_start": 677,
+      "frame_end": 680
+    },
+    {
+      "word": "the",
+      "start": 22.66,
+      "end": 22.78,
+      "frame_start": 680,
+      "frame_end": 683
+    },
+    {
+      "word": "seventh",
+      "start": 22.78,
+      "end": 23.04,
+      "frame_start": 683,
+      "frame_end": 691
+    },
+    {
+      "word": "largest",
+      "start": 23.04,
+      "end": 23.34,
+      "frame_start": 691,
+      "frame_end": 700
+    },
+    {
+      "word": "country",
+      "start": 23.34,
+      "end": 23.74,
+      "frame_start": 700,
+      "frame_end": 712
+    },
+    {
+      "word": "in",
+      "start": 23.74,
+      "end": 23.94,
+      "frame_start": 712,
+      "frame_end": 718
+    },
+    {
+      "word": "the",
+      "start": 23.94,
+      "end": 24.02,
+      "frame_start": 718,
+      "frame_end": 721
+    },
+    {
+      "word": "world.",
+      "start": 24.02,
+      "end": 24.24,
+      "frame_start": 721,
+      "frame_end": 727
+    },
+    {
+      "word": "The",
+      "start": 24.54,
+      "end": 24.66,
+      "frame_start": 736,
+      "frame_end": 740
+    },
+    {
+      "word": "United",
+      "start": 24.66,
+      "end": 24.84,
+      "frame_start": 740,
+      "frame_end": 745
+    },
+    {
+      "word": "States'",
+      "start": 24.84,
+      "end": 25.3,
+      "frame_start": 745,
+      "frame_end": 759
+    },
+    {
+      "word": "3",
+      "start": 25.62,
+      "end": 25.66,
+      "frame_start": 769,
+      "frame_end": 770
+    },
+    {
+      "word": ".8",
+      "start": 25.66,
+      "end": 26.06,
+      "frame_start": 770,
+      "frame_end": 782
+    },
+    {
+      "word": "million",
+      "start": 26.06,
+      "end": 26.36,
+      "frame_start": 782,
+      "frame_end": 791
+    },
+    {
+      "word": "square",
+      "start": 26.36,
+      "end": 26.58,
+      "frame_start": 791,
+      "frame_end": 797
+    },
+    {
+      "word": "miles",
+      "start": 26.58,
+      "end": 26.96,
+      "frame_start": 797,
+      "frame_end": 809
+    },
+    {
+      "word": "make",
+      "start": 26.96,
+      "end": 27.18,
+      "frame_start": 809,
+      "frame_end": 815
+    },
+    {
+      "word": "it",
+      "start": 27.18,
+      "end": 27.32,
+      "frame_start": 815,
+      "frame_end": 820
+    },
+    {
+      "word": "the",
+      "start": 27.32,
+      "end": 27.44,
+      "frame_start": 820,
+      "frame_end": 823
+    },
+    {
+      "word": "fourth",
+      "start": 27.44,
+      "end": 27.74,
+      "frame_start": 823,
+      "frame_end": 832
+    },
+    {
+      "word": "largest.",
+      "start": 27.74,
+      "end": 28.18,
+      "frame_start": 832,
+      "frame_end": 845
+    },
+    {
+      "word": "India",
+      "start": 28.56,
+      "end": 28.96,
+      "frame_start": 857,
+      "frame_end": 869
+    },
+    {
+      "word": "has",
+      "start": 28.96,
+      "end": 29.2,
+      "frame_start": 869,
+      "frame_end": 876
+    },
+    {
+      "word": "a",
+      "start": 29.2,
+      "end": 29.32,
+      "frame_start": 876,
+      "frame_end": 880
+    },
+    {
+      "word": "GDP",
+      "start": 29.32,
+      "end": 29.54,
+      "frame_start": 880,
+      "frame_end": 886
+    },
+    {
+      "word": "of",
+      "start": 29.54,
+      "end": 29.9,
+      "frame_start": 886,
+      "frame_end": 897
+    },
+    {
+      "word": "around",
+      "start": 29.9,
+      "end": 30.14,
+      "frame_start": 897,
+      "frame_end": 904
+    },
+    {
+      "word": "$5",
+      "start": 30.14,
+      "end": 30.48,
+      "frame_start": 904,
+      "frame_end": 914
+    },
+    {
+      "word": "trillion,",
+      "start": 30.48,
+      "end": 30.74,
+      "frame_start": 914,
+      "frame_end": 922
+    },
+    {
+      "word": "giving",
+      "start": 31.42,
+      "end": 31.7,
+      "frame_start": 943,
+      "frame_end": 951
+    },
+    {
+      "word": "it",
+      "start": 31.7,
+      "end": 31.86,
+      "frame_start": 951,
+      "frame_end": 956
+    },
+    {
+      "word": "the",
+      "start": 31.86,
+      "end": 31.98,
+      "frame_start": 956,
+      "frame_end": 959
+    },
+    {
+      "word": "fourth",
+      "start": 31.98,
+      "end": 32.24,
+      "frame_start": 959,
+      "frame_end": 967
+    },
+    {
+      "word": "largest",
+      "start": 32.24,
+      "end": 32.54,
+      "frame_start": 967,
+      "frame_end": 976
+    },
+    {
+      "word": "economy",
+      "start": 32.54,
+      "end": 32.96,
+      "frame_start": 976,
+      "frame_end": 989
+    },
+    {
+      "word": "in",
+      "start": 32.96,
+      "end": 33.16,
+      "frame_start": 989,
+      "frame_end": 995
+    },
+    {
+      "word": "the",
+      "start": 33.16,
+      "end": 33.26,
+      "frame_start": 995,
+      "frame_end": 998
+    },
+    {
+      "word": "world.",
+      "start": 33.26,
+      "end": 33.44,
+      "frame_start": 998,
+      "frame_end": 1003
+    },
+    {
+      "word": "The",
+      "start": 33.72,
+      "end": 33.82,
+      "frame_start": 1012,
+      "frame_end": 1015
+    },
+    {
+      "word": "United",
+      "start": 33.82,
+      "end": 33.98,
+      "frame_start": 1015,
+      "frame_end": 1019
+    },
+    {
+      "word": "States",
+      "start": 33.98,
+      "end": 34.4,
+      "frame_start": 1019,
+      "frame_end": 1032
+    },
+    {
+      "word": "has",
+      "start": 34.4,
+      "end": 34.64,
+      "frame_start": 1032,
+      "frame_end": 1039
+    },
+    {
+      "word": "a",
+      "start": 34.64,
+      "end": 34.78,
+      "frame_start": 1039,
+      "frame_end": 1043
+    },
+    {
+      "word": "GDP",
+      "start": 34.78,
+      "end": 34.98,
+      "frame_start": 1043,
+      "frame_end": 1049
+    },
+    {
+      "word": "of",
+      "start": 34.98,
+      "end": 35.34,
+      "frame_start": 1049,
+      "frame_end": 1060
+    },
+    {
+      "word": "over",
+      "start": 35.34,
+      "end": 35.58,
+      "frame_start": 1060,
+      "frame_end": 1067
+    },
+    {
+      "word": "$30",
+      "start": 35.58,
+      "end": 35.94,
+      "frame_start": 1067,
+      "frame_end": 1078
+    },
+    {
+      "word": "trillion,",
+      "start": 35.94,
+      "end": 36.34,
+      "frame_start": 1078,
+      "frame_end": 1090
+    },
+    {
+      "word": "making",
+      "start": 36.82,
+      "end": 37.08,
+      "frame_start": 1105,
+      "frame_end": 1112
+    },
+    {
+      "word": "it",
+      "start": 37.08,
+      "end": 37.24,
+      "frame_start": 1112,
+      "frame_end": 1117
+    },
+    {
+      "word": "the",
+      "start": 37.24,
+      "end": 37.34,
+      "frame_start": 1117,
+      "frame_end": 1120
+    },
+    {
+      "word": "largest",
+      "start": 37.34,
+      "end": 37.62,
+      "frame_start": 1120,
+      "frame_end": 1129
+    },
+    {
+      "word": "economy",
+      "start": 37.62,
+      "end": 38.06,
+      "frame_start": 1129,
+      "frame_end": 1142
+    },
+    {
+      "word": "on",
+      "start": 38.06,
+      "end": 38.3,
+      "frame_start": 1142,
+      "frame_end": 1149
+    },
+    {
+      "word": "earth.",
+      "start": 38.3,
+      "end": 38.52,
+      "frame_start": 1149,
+      "frame_end": 1156
+    },
+    {
+      "word": "In",
+      "start": 38.84,
+      "end": 38.94,
+      "frame_start": 1165,
+      "frame_end": 1168
+    },
+    {
+      "word": "India,",
+      "start": 38.94,
+      "end": 39.24,
+      "frame_start": 1168,
+      "frame_end": 1177
+    },
+    {
+      "word": "the",
+      "start": 39.42,
+      "end": 39.48,
+      "frame_start": 1183,
+      "frame_end": 1184
+    },
+    {
+      "word": "average",
+      "start": 39.48,
+      "end": 39.8,
+      "frame_start": 1184,
+      "frame_end": 1194
+    },
+    {
+      "word": "man",
+      "start": 39.8,
+      "end": 40.04,
+      "frame_start": 1194,
+      "frame_end": 1201
+    },
+    {
+      "word": "earns",
+      "start": 40.04,
+      "end": 40.36,
+      "frame_start": 1201,
+      "frame_end": 1211
+    },
+    {
+      "word": "$2",
+      "start": 40.36,
+      "end": 40.64,
+      "frame_start": 1211,
+      "frame_end": 1219
+    },
+    {
+      "word": ",800",
+      "start": 40.64,
+      "end": 41.38,
+      "frame_start": 1219,
+      "frame_end": 1241
+    },
+    {
+      "word": "a",
+      "start": 41.38,
+      "end": 41.86,
+      "frame_start": 1241,
+      "frame_end": 1256
+    },
+    {
+      "word": "year,",
+      "start": 41.86,
+      "end": 42.08,
+      "frame_start": 1256,
+      "frame_end": 1262
+    },
+    {
+      "word": "making",
+      "start": 42.34,
+      "end": 42.54,
+      "frame_start": 1270,
+      "frame_end": 1276
+    },
+    {
+      "word": "it",
+      "start": 42.54,
+      "end": 42.72,
+      "frame_start": 1276,
+      "frame_end": 1282
+    },
+    {
+      "word": "comparable",
+      "start": 42.72,
+      "end": 43.04,
+      "frame_start": 1282,
+      "frame_end": 1291
+    },
+    {
+      "word": "to",
+      "start": 43.04,
+      "end": 43.42,
+      "frame_start": 1291,
+      "frame_end": 1303
+    },
+    {
+      "word": "countries",
+      "start": 43.42,
+      "end": 43.74,
+      "frame_start": 1303,
+      "frame_end": 1312
+    },
+    {
+      "word": "like",
+      "start": 43.74,
+      "end": 43.94,
+      "frame_start": 1312,
+      "frame_end": 1318
+    },
+    {
+      "word": "Vietnam",
+      "start": 43.94,
+      "end": 44.3,
+      "frame_start": 1318,
+      "frame_end": 1329
+    },
+    {
+      "word": "and",
+      "start": 44.3,
+      "end": 44.78,
+      "frame_start": 1329,
+      "frame_end": 1343
+    },
+    {
+      "word": "Morocco.",
+      "start": 44.78,
+      "end": 44.98,
+      "frame_start": 1343,
+      "frame_end": 1349
+    },
+    {
+      "word": "The",
+      "start": 45.24,
+      "end": 45.34,
+      "frame_start": 1357,
+      "frame_end": 1360
+    },
+    {
+      "word": "United",
+      "start": 45.34,
+      "end": 45.56,
+      "frame_start": 1360,
+      "frame_end": 1367
+    },
+    {
+      "word": "States'",
+      "start": 45.56,
+      "end": 45.88,
+      "frame_start": 1367,
+      "frame_end": 1376
+    },
+    {
+      "word": "GDP",
+      "start": 46.04,
+      "end": 46.24,
+      "frame_start": 1381,
+      "frame_end": 1387
+    },
+    {
+      "word": "per",
+      "start": 46.24,
+      "end": 46.76,
+      "frame_start": 1387,
+      "frame_end": 1403
+    },
+    {
+      "word": "capita",
+      "start": 46.76,
+      "end": 47.1,
+      "frame_start": 1403,
+      "frame_end": 1413
+    },
+    {
+      "word": "of",
+      "start": 47.1,
+      "end": 47.34,
+      "frame_start": 1413,
+      "frame_end": 1420
+    },
+    {
+      "word": "around",
+      "start": 47.34,
+      "end": 47.54,
+      "frame_start": 1420,
+      "frame_end": 1426
+    },
+    {
+      "word": "$88",
+      "start": 47.54,
+      "end": 47.9,
+      "frame_start": 1426,
+      "frame_end": 1437
+    },
+    {
+      "word": ",000",
+      "start": 47.9,
+      "end": 48.42,
+      "frame_start": 1437,
+      "frame_end": 1453
+    },
+    {
+      "word": "makes",
+      "start": 48.42,
+      "end": 49.02,
+      "frame_start": 1453,
+      "frame_end": 1471
+    },
+    {
+      "word": "it",
+      "start": 49.02,
+      "end": 49.14,
+      "frame_start": 1471,
+      "frame_end": 1474
+    },
+    {
+      "word": "one",
+      "start": 49.14,
+      "end": 49.26,
+      "frame_start": 1474,
+      "frame_end": 1478
+    },
+    {
+      "word": "of",
+      "start": 49.26,
+      "end": 49.36,
+      "frame_start": 1478,
+      "frame_end": 1481
+    },
+    {
+      "word": "the",
+      "start": 49.36,
+      "end": 49.44,
+      "frame_start": 1481,
+      "frame_end": 1483
+    },
+    {
+      "word": "wealthiest",
+      "start": 49.44,
+      "end": 49.92,
+      "frame_start": 1483,
+      "frame_end": 1498
+    },
+    {
+      "word": "major",
+      "start": 49.92,
+      "end": 50.24,
+      "frame_start": 1498,
+      "frame_end": 1507
+    },
+    {
+      "word": "economies",
+      "start": 50.24,
+      "end": 50.64,
+      "frame_start": 1507,
+      "frame_end": 1519
+    },
+    {
+      "word": "in",
+      "start": 50.64,
+      "end": 50.82,
+      "frame_start": 1519,
+      "frame_end": 1525
+    },
+    {
+      "word": "the",
+      "start": 50.82,
+      "end": 50.9,
+      "frame_start": 1525,
+      "frame_end": 1527
+    },
+    {
+      "word": "world.",
+      "start": 50.9,
+      "end": 51.12,
+      "frame_start": 1527,
+      "frame_end": 1534
+    },
+    {
+      "word": "Now",
+      "start": 51.6,
+      "end": 51.76,
+      "frame_start": 1548,
+      "frame_end": 1553
+    },
+    {
+      "word": "for",
+      "start": 51.76,
+      "end": 51.88,
+      "frame_start": 1553,
+      "frame_end": 1556
+    },
+    {
+      "word": "the",
+      "start": 51.88,
+      "end": 51.98,
+      "frame_start": 1556,
+      "frame_end": 1559
+    },
+    {
+      "word": "fun",
+      "start": 51.98,
+      "end": 52.12,
+      "frame_start": 1559,
+      "frame_end": 1564
+    },
+    {
+      "word": "stuff.",
+      "start": 52.12,
+      "end": 52.34,
+      "frame_start": 1564,
+      "frame_end": 1570
+    },
+    {
+      "word": "India's",
+      "start": 52.54,
+      "end": 52.84,
+      "frame_start": 1576,
+      "frame_end": 1585
+    },
+    {
+      "word": "most",
+      "start": 52.84,
+      "end": 52.98,
+      "frame_start": 1585,
+      "frame_end": 1589
+    },
+    {
+      "word": "famous",
+      "start": 52.98,
+      "end": 53.24,
+      "frame_start": 1589,
+      "frame_end": 1597
+    },
+    {
+      "word": "meme",
+      "start": 53.24,
+      "end": 53.56,
+      "frame_start": 1597,
+      "frame_end": 1607
+    },
+    {
+      "word": "And",
+      "start": 57.46,
+      "end": 57.94,
+      "frame_start": 1724,
+      "frame_end": 1738
+    },
+    {
+      "word": "the",
+      "start": 57.94,
+      "end": 58.04,
+      "frame_start": 1738,
+      "frame_end": 1741
+    },
+    {
+      "word": "United",
+      "start": 58.04,
+      "end": 58.24,
+      "frame_start": 1741,
+      "frame_end": 1747
+    },
+    {
+      "word": "States?",
+      "start": 58.24,
+      "end": 58.6,
+      "frame_start": 1747,
+      "frame_end": 1758
+    },
+    {
+      "word": "As",
+      "start": 62.62,
+      "end": 63.1,
+      "frame_start": 1879,
+      "frame_end": 1893
+    },
+    {
+      "word": "for",
+      "start": 63.1,
+      "end": 63.26,
+      "frame_start": 1893,
+      "frame_end": 1898
+    },
+    {
+      "word": "food,",
+      "start": 63.26,
+      "end": 63.5,
+      "frame_start": 1898,
+      "frame_end": 1905
+    },
+    {
+      "word": "India's",
+      "start": 63.74,
+      "end": 64.04,
+      "frame_start": 1912,
+      "frame_end": 1921
+    },
+    {
+      "word": "iconic",
+      "start": 64.04,
+      "end": 64.42,
+      "frame_start": 1921,
+      "frame_end": 1933
+    },
+    {
+      "word": "dish",
+      "start": 64.42,
+      "end": 64.76,
+      "frame_start": 1933,
+      "frame_end": 1943
+    },
+    {
+      "word": "is",
+      "start": 64.76,
+      "end": 64.98,
+      "frame_start": 1943,
+      "frame_end": 1949
+    },
+    {
+      "word": "Kachori.",
+      "start": 64.98,
+      "end": 65.46,
+      "frame_start": 1949,
+      "frame_end": 1964
+    },
+    {
+      "word": "And",
+      "start": 66.16,
+      "end": 66.5,
+      "frame_start": 1985,
+      "frame_end": 1995
+    },
+    {
+      "word": "for",
+      "start": 66.5,
+      "end": 66.64,
+      "frame_start": 1995,
+      "frame_end": 1999
+    },
+    {
+      "word": "the",
+      "start": 66.64,
+      "end": 66.74,
+      "frame_start": 1999,
+      "frame_end": 2002
+    },
+    {
+      "word": "United",
+      "start": 66.74,
+      "end": 66.96,
+      "frame_start": 2002,
+      "frame_end": 2009
+    },
+    {
+      "word": "States,",
+      "start": 66.96,
+      "end": 67.38,
+      "frame_start": 2009,
+      "frame_end": 2021
+    },
+    {
+      "word": "the",
+      "start": 67.68,
+      "end": 67.78,
+      "frame_start": 2030,
+      "frame_end": 2033
+    },
+    {
+      "word": "burger.",
+      "start": 67.78,
+      "end": 67.96,
+      "frame_start": 2033,
+      "frame_end": 2039
+    },
+    {
+      "word": "So,",
+      "start": 68.4,
+      "end": 68.6,
+      "frame_start": 2052,
+      "frame_end": 2058
+    },
+    {
+      "word": "what",
+      "start": 68.88,
+      "end": 69.02,
+      "frame_start": 2066,
+      "frame_end": 2071
+    },
+    {
+      "word": "comparison",
+      "start": 69.02,
+      "end": 69.36,
+      "frame_start": 2071,
+      "frame_end": 2081
+    },
+    {
+      "word": "do",
+      "start": 69.36,
+      "end": 69.54,
+      "frame_start": 2081,
+      "frame_end": 2086
+    },
+    {
+      "word": "you",
+      "start": 69.54,
+      "end": 69.62,
+      "frame_start": 2086,
+      "frame_end": 2089
+    },
+    {
+      "word": "want",
+      "start": 69.62,
+      "end": 69.76,
+      "frame_start": 2089,
+      "frame_end": 2093
+    },
+    {
+      "word": "to",
+      "start": 69.76,
+      "end": 69.86,
+      "frame_start": 2093,
+      "frame_end": 2096
+    },
+    {
+      "word": "see",
+      "start": 69.86,
+      "end": 70.0,
+      "frame_start": 2096,
+      "frame_end": 2100
+    },
+    {
+      "word": "next?",
+      "start": 70.0,
+      "end": 70.22,
+      "frame_start": 2100,
+      "frame_end": 2107
+    }
+  ]
+}

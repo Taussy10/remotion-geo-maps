@@ -1,0 +1,223 @@
+{
+  "activeMapRanges": [
+    { "map": "atlantic", "startFrame": 0,   "endFrame": 14  },
+    { "map": "india",    "startFrame": 15,  "endFrame": 37  },
+    { "map": "usa",      "startFrame": 38,  "endFrame": 57  },
+    { "map": "india",    "startFrame": 58,  "endFrame": 136 },
+    { "map": "usa",      "startFrame": 137, "endFrame": 245 },
+    { "map": "india",    "startFrame": 246, "endFrame": 317 },
+    { "map": "usa",      "startFrame": 318, "endFrame": 368 },
+    { "map": "india",    "startFrame": 369, "endFrame": 460 },
+    { "map": "usa",      "startFrame": 461, "endFrame": 9999 }
+  ],
+
+  "mapCuts": [
+    {
+      "id": "atlantic",
+      "initialCamera": { "center": [-30.0, 20.0], "zoom": 2.2, "pitch": 0, "bearing": 0 },
+      "cameraKeyframes": [
+        { "frame": 0,  "center": [-30.0, 20.0], "zoom": 2.5, "pitch": 0, "bearing": 0 },
+        { "frame": 14, "center": [-30.0, 20.0], "zoom": 2.1, "pitch": 5, "bearing": 0, "easing": "quadInOut" }
+      ]
+    },
+    {
+      "id": "india",
+      "initialCamera": { "center": [78.96, 22.59], "zoom": 4.2, "pitch": 25, "bearing": 10 },
+      "cameraKeyframes": [
+        { "frame": 15,  "center": [78.96, 22.59], "zoom": 4.2, "pitch": 25, "bearing": 10 },
+        { "frame": 37,  "center": [78.96, 21.0],  "zoom": 4.5, "pitch": 30, "bearing": 5,  "easing": "quadInOut" },
+        { "frame": 58,  "center": [78.96, 22.5],  "zoom": 4.8, "pitch": 40, "bearing": 10, "easing": "quadInOut" },
+        { "frame": 136, "center": [78.5,  22.0],  "zoom": 5.0, "pitch": 45, "bearing": 22, "easing": "quadInOut" },
+        { "frame": 246, "center": [78.96, 22.5],  "zoom": 4.8, "pitch": 40, "bearing": 12, "easing": "quadInOut" },
+        { "frame": 313, "center": [78.5,  22.0],  "zoom": 5.0, "pitch": 42, "bearing": 20, "easing": "quadInOut" },
+        { "frame": 318, "center": [78.96, 22.5],  "zoom": 4.8, "pitch": 40, "bearing": 10, "easing": "quadInOut" },
+        { "frame": 368, "center": [78.5,  22.0],  "zoom": 5.0, "pitch": 45, "bearing": 18, "easing": "quadInOut" },
+        { "frame": 378, "center": [72.87, 19.07], "zoom": 6.5, "pitch": 40, "bearing": 15, "easing": "quadInOut" },
+        { "frame": 422, "center": [72.87, 19.07], "zoom": 7.0, "pitch": 45, "bearing": 20, "easing": "quadInOut" },
+        { "frame": 433, "center": [72.87, 19.07], "zoom": 7.0, "pitch": 45, "bearing": 20 },
+        { "frame": 434, "center": [77.21, 28.63], "zoom": 6.5, "pitch": 40, "bearing": 10 },
+        { "frame": 445, "center": [77.21, 28.63], "zoom": 7.0, "pitch": 45, "bearing": 15, "easing": "quadInOut" },
+        { "frame": 451, "center": [77.21, 28.63], "zoom": 7.0, "pitch": 45, "bearing": 15 },
+        { "frame": 452, "center": [74.35, 34.08], "zoom": 6.5, "pitch": 40, "bearing": 8 },
+        { "frame": 460, "center": [74.35, 34.08], "zoom": 7.0, "pitch": 45, "bearing": 12, "easing": "quadInOut" }
+      ]
+    },
+    {
+      "id": "usa",
+      "initialCamera": { "center": [-95.71, 37.09], "zoom": 3.5, "pitch": 25, "bearing": -10 },
+      "cameraKeyframes": [
+        { "frame": 38,  "center": [-95.71, 37.09], "zoom": 3.5, "pitch": 25, "bearing": -10 },
+        { "frame": 57,  "center": [-95.71, 37.09], "zoom": 3.2, "pitch": 20, "bearing": -8, "easing": "quadInOut" },
+        { "frame": 137, "center": [-95.71, 37.09], "zoom": 3.8, "pitch": 40, "bearing": -12, "easing": "quadInOut" },
+        { "frame": 233, "center": [-96.0,  37.0],  "zoom": 4.0, "pitch": 45, "bearing": -20, "easing": "quadInOut" },
+        { "frame": 318, "center": [-95.71, 37.09], "zoom": 3.8, "pitch": 40, "bearing": -12, "easing": "quadInOut" },
+        { "frame": 368, "center": [-96.0,  37.0],  "zoom": 4.0, "pitch": 45, "bearing": -18, "easing": "quadInOut" }
+      ]
+    }
+  ],
+
+  "mapHighlights": {
+    "india": { "fillOpacity": 0.65, "borderOpacity": 1.0, "color": "#ff9933" },
+    "usa":   { "fillOpacity": 0.65, "borderOpacity": 1.0, "color": "#00aaff" }
+  },
+
+  "textOverlays": [
+    {
+      "id": "vs_text",
+      "text": "VS", "map": "atlantic",
+      "coords": [-30.0, 20.0],
+      "fadeIn": [2, 8], "fadeOut": [10, 14], "offsetY": 0,
+      "textStyle": {
+        "fontFamily": "Arial Black, Arial, sans-serif", "fontWeight": 900,
+        "fontSize": "110px", "letterSpacing": "0.08em", "color": "#ff2200",
+        "textShadow": "0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 60px #ff2200, 0 0 100px #ff0000"
+      }
+    },
+    {
+      "id": "india_label", "text": "INDIA", "map": "india",
+      "coords": [78.96, 22.59],
+      "fadeIn": [15, 20], "fadeOut": [33, 37], "offsetY": -50,
+      "textStyle": {
+        "fontFamily": "Arial Black, Arial, sans-serif", "fontWeight": 900,
+        "fontSize": "70px", "color": "#ffffff",
+        "textShadow": "0 0 15px rgba(255,153,51,0.9), 0 0 35px rgba(255,153,51,0.6)"
+      }
+    },
+    {
+      "id": "usa_label", "text": "UNITED STATES", "map": "usa",
+      "coords": [-95.71, 37.09],
+      "fadeIn": [38, 44], "fadeOut": [75, 82], "offsetY": -50,
+      "textStyle": {
+        "fontFamily": "Arial Black, Arial, sans-serif", "fontWeight": 900,
+        "fontSize": "60px", "color": "#ffffff",
+        "textShadow": "0 0 15px rgba(0,170,255,0.9), 0 0 35px rgba(0,170,255,0.6)"
+      }
+    },
+    {
+      "id": "mumbai_label", "text": "MUMBAI", "map": "india",
+      "coords": [72.87, 19.07],
+      "fadeIn": [385, 393], "fadeOut": [416, 422], "offsetY": -60,
+      "textStyle": {
+        "fontFamily": "Arial Black, Arial, sans-serif", "fontWeight": 900,
+        "fontSize": "64px", "color": "#ffffff",
+        "textShadow": "0 0 18px rgba(255,153,51,0.95), 0 0 40px rgba(255,153,51,0.6), 0 2px 8px rgba(0,0,0,0.9)"
+      }
+    },
+    {
+      "id": "delhi_label", "text": "DELHI", "map": "india",
+      "coords": [77.21, 28.63],
+      "fadeIn": [434, 440], "fadeOut": [442, 445], "offsetY": -60,
+      "textStyle": {
+        "fontFamily": "Arial Black, Arial, sans-serif", "fontWeight": 900,
+        "fontSize": "64px", "color": "#ffffff",
+        "textShadow": "0 0 18px rgba(255,153,51,0.95), 0 0 40px rgba(255,153,51,0.6), 0 2px 8px rgba(0,0,0,0.9)"
+      }
+    },
+    {
+      "id": "lahore_label", "text": "LAHORE", "map": "india",
+      "coords": [74.35, 34.08],
+      "fadeIn": [452, 457], "fadeOut": [457, 460], "offsetY": -60,
+      "textStyle": {
+        "fontFamily": "Arial Black, Arial, sans-serif", "fontWeight": 900,
+        "fontSize": "64px", "color": "#ffffff",
+        "textShadow": "0 0 18px rgba(255,153,51,0.95), 0 0 40px rgba(255,153,51,0.6), 0 2px 8px rgba(0,0,0,0.9)"
+      }
+    }
+  ],
+
+  "countdowns": [
+    {
+      "id": "scene4_countdown",
+      "mapTarget": "india",
+      "coords": [78.96, 22.5],
+      "startValue": 10,
+      "endValue": 1,
+      "startFrame": 251,
+      "endFrame": 308,
+      "color": "#ffffff",
+      "glowColor": "rgba(255,255,255,0.9)"
+    },
+    {
+      "id": "scene5_countdown",
+      "mapTarget": "usa",
+      "coords": [-95.71, 37.09],
+      "startValue": 10,
+      "endValue": 3,
+      "startFrame": 323,
+      "endFrame": 363,
+      "color": "#ffffff",
+      "glowColor": "rgba(255,255,255,0.9)"
+    }
+  ],
+
+  "scene2HumanIcons": [
+    { "lng": 78.4, "lat": 23.2, "frameStart": 58 },
+    { "lng": 77.2, "lat": 19.1, "frameStart": 60 },
+    { "lng": 77.1, "lat": 28.6, "frameStart": 61 },
+    { "lng": 72.9, "lat": 19.1, "frameStart": 63 },
+    { "lng": 80.3, "lat": 13.1, "frameStart": 64 },
+    { "lng": 88.4, "lat": 22.6, "frameStart": 66 },
+    { "lng": 77.6, "lat": 12.9, "frameStart": 67 },
+    { "lng": 75.8, "lat": 26.9, "frameStart": 69 },
+    { "lng": 73.9, "lat": 18.5, "frameStart": 70 },
+    { "lng": 85.1, "lat": 25.6, "frameStart": 72 },
+    { "lng": 72.6, "lat": 23.0, "frameStart": 73 },
+    { "lng": 80.9, "lat": 26.8, "frameStart": 75 },
+    { "lng": 81.6, "lat": 21.3, "frameStart": 76 },
+    { "lng": 76.7, "lat": 30.7, "frameStart": 78 },
+    { "lng": 79.1, "lat": 21.1, "frameStart": 79 },
+    { "lng": 77.0, "lat": 11.0, "frameStart": 81 },
+    { "lng": 77.0, "lat": 8.7,  "frameStart": 82 },
+    { "lng": 75.1, "lat": 15.3, "frameStart": 84 },
+    { "lng": 85.8, "lat": 20.3, "frameStart": 85 },
+    { "lng": 83.0, "lat": 25.3, "frameStart": 87 },
+    { "lng": 78.0, "lat": 27.2, "frameStart": 88 },
+    { "lng": 74.9, "lat": 31.6, "frameStart": 90 },
+    { "lng": 73.9, "lat": 29.9, "frameStart": 91 },
+    { "lng": 82.8, "lat": 24.1, "frameStart": 93 },
+    { "lng": 74.7, "lat": 16.8, "frameStart": 94 },
+    { "lng": 78.1, "lat": 9.9,  "frameStart": 96 },
+    { "lng": 79.9, "lat": 14.5, "frameStart": 97 },
+    { "lng": 80.4, "lat": 16.3, "frameStart": 99 },
+    { "lng": 83.3, "lat": 17.7, "frameStart": 100 },
+    { "lng": 72.9, "lat": 20.5, "frameStart": 102 },
+    { "lng": 84.4, "lat": 26.5, "frameStart": 103 },
+    { "lng": 86.4, "lat": 23.8, "frameStart": 105 },
+    { "lng": 91.7, "lat": 26.1, "frameStart": 106 },
+    { "lng": 77.2, "lat": 31.5, "frameStart": 108 },
+    { "lng": 75.9, "lat": 22.7, "frameStart": 109 },
+    { "lng": 84.0, "lat": 22.0, "frameStart": 111 },
+    { "lng": 76.6, "lat": 12.3, "frameStart": 112 },
+    { "lng": 73.3, "lat": 28.0, "frameStart": 114 },
+    { "lng": 79.5, "lat": 29.4, "frameStart": 115 },
+    { "lng": 88.1, "lat": 22.5, "frameStart": 117 },
+    { "lng": 92.7, "lat": 23.7, "frameStart": 118 },
+    { "lng": 93.9, "lat": 24.8, "frameStart": 120 },
+    { "lng": 88.6, "lat": 27.3, "frameStart": 121 },
+    { "lng": 91.4, "lat": 25.4, "frameStart": 123 },
+    { "lng": 85.2, "lat": 19.7, "frameStart": 124 },
+    { "lng": 73.8, "lat": 15.5, "frameStart": 126 },
+    { "lng": 71.2, "lat": 22.3, "frameStart": 127 },
+    { "lng": 76.7, "lat": 10.8, "frameStart": 129 },
+    { "lng": 80.0, "lat": 24.5, "frameStart": 130 },
+    { "lng": 75.8, "lat": 31.1, "frameStart": 132 }
+  ],
+
+  "scene3HumanIcons": [
+    { "lng": -97.0, "lat": 39.0, "frameStart": 145 },
+    { "lng": -87.6, "lat": 41.8, "frameStart": 148 },
+    { "lng": -74.0, "lat": 40.7, "frameStart": 151 },
+    { "lng": -118.2,"lat": 34.1, "frameStart": 154 },
+    { "lng": -80.2, "lat": 25.8, "frameStart": 157 },
+    { "lng": -90.2, "lat": 29.9, "frameStart": 160 },
+    { "lng": -104.9,"lat": 39.7, "frameStart": 163 },
+    { "lng": -122.4,"lat": 37.8, "frameStart": 166 },
+    { "lng": -112.1,"lat": 33.4, "frameStart": 169 },
+    { "lng": -96.8, "lat": 32.8, "frameStart": 172 },
+    { "lng": -86.2, "lat": 32.4, "frameStart": 175 },
+    { "lng": -77.0, "lat": 38.9, "frameStart": 178 },
+    { "lng": -71.1, "lat": 42.4, "frameStart": 181 },
+    { "lng": -93.1, "lat": 44.9, "frameStart": 184 },
+    { "lng": -84.5, "lat": 39.1, "frameStart": 187 }
+  ]
+}

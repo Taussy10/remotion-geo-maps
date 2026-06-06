@@ -44,14 +44,38 @@ For scene 3 -> Camera should bear,pitch on USA map zoomed in on the center of th
 For scene 4 -> Camera should bear,pitch on Indian map zoomed in on the center of the map with filled humans and count down from 10 to 1
 
 Scene 5 -> cut to USA Camera should bear,pitch on USA map zoomed in on the center of the map with filled humans and count down from 10 to 3 
-scene 6 -> Camera should bear,pitch on Indian map then show the label on Mumbai on India (you should know where is Mumbai on India)
-Scene 7 -> Show Delhi with delhi (you should know where is Delhi on India)
-Scene 8 show Lahore (show it on Kashmir city ) but keep label as Lahore
+scene 6 -> Camera should bear,pitch on Indian map zoomed out a bit then show the label on Mumbai on India (you should know where is Mumbai on India)
+Scene 7 -> show Lahore (show it on Kashmir city ) but keep label as Lahore
+Scene 8 -> Show Delhi (you should know where is Delhi on India) 
 
 For scene 9,10 and 11 same as above but with USA map and make sure that you know where these cities exist
 
 Scene 12 -> Cut to India map and add animated border white glowing and count down timer 100 to 7 with text 
-Scene 13 -> Same as India but for USA for 100 to4  million
+Scene 13 -> Same as India but for USA for 100 to 4   
 
-14 -> Cut to India -> add money icon throwing on India 
-15 -> do the countdown animation goigng ffrom 100 to 5
+14 -> Cut to India -> Camera should bear,pitch on Indian map add money icon throwing on India from Sky
+15 -> do the countdown animation going ffrom 100 to 4
+
+Scene 16 -> Cut cli to US Camera should bear,pitch on  USA map
+scene 17 -> Do the countdown animation going from 100 to 1
+
+scene 18 ->Camera should bear,pitch on India 
+
+scene 19 -> blend the Indian man on the Indian map(using the center of the map) think somethng by yourself ue the indian-poor-man.png image from public folder -> and do the countdown animation till $2,800 
+
+scene 20 -> For this scene stay on Indian map and create two maps image Vietnam and Morcoo and show them 
+scene 21 -> Camera should bear,pitch -> cut the clip to USA and do the same as we did in 19 scene but with american-rich man
+scene 22 -> Do countdown animation till $88,000
+scene 23 -> 
+scene 24 ->
+scene 25 ->
+scene ->
+scene ->
+scene ->
+scene ->
+scene ->
+
+For scene 20 -> Just add big png image of Vietnam and Morocco  that is it do not make cards
+In scene 16 add multiple money icon throwing on USA from Sky like you did in india but it should be more than Indian filling the whole USA map with money icon from sky 
+
+  

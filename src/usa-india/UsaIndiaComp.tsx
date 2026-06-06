@@ -8,6 +8,7 @@ import {
   Easing,
   Audio,
   staticFile,
+  Img,
 } from "remotion";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -110,7 +111,7 @@ const Caption: React.FC<{ frame: number }> = ({ frame }) => {
     <div
       style={{
         position: "absolute",
-        bottom: 140,
+        bottom: 300, // Increase this value to move the caption higher, decrease it to move it lower.
         left: 0,
         right: 0,
         display: "flex",
@@ -122,16 +123,13 @@ const Caption: React.FC<{ frame: number }> = ({ frame }) => {
     >
       <span
         style={{
-          fontFamily: "'Arial Black', Arial, sans-serif",
+          fontFamily: "'Poppins', sans-serif",
           fontWeight: 900,
-          fontSize: "56px",
+          fontSize: "84px",
           lineHeight: 1.2,
-          color: "#FFE033",
-          textShadow:
-            "0 0 12px #FFD700, 0 0 28px #FFA500, 0 2px 8px rgba(0,0,0,0.95)",
-          backgroundColor: "rgba(0,0,0,0.5)",
-          borderRadius: "12px",
-          padding: "10px 30px",
+          color: "#FFFF00",
+          WebkitTextStroke: "4px #000000",
+          textShadow: "6px 6px 0px #000000",
           display: "inline-block",
         }}
       >
@@ -280,6 +278,28 @@ const Countdown: React.FC<{ frame: number; def: CountdownDef }> = ({ frame, def 
     extrapolateRight: "clamp",
   });
 
+  let labelText = "";
+  let showOrdinal = false;
+
+  if (def.id.includes("scene4") || def.id.includes("scene5")) {
+    labelText = "POPULATION RANK";
+    showOrdinal = true;
+  } else if (def.id.includes("scene12") || def.id.includes("scene13")) {
+    labelText = "LAND AREA RANK";
+    showOrdinal = true;
+  } else if (def.id.includes("scene15") || def.id.includes("scene17")) {
+    labelText = "GDP RANK";
+    showOrdinal = true;
+  }
+
+  const getOrdinal = (n: number) => {
+    const s = ["th", "st", "nd", "rd"];
+    const v = n % 100;
+    return s[(v - 20) % 10] || s[v] || s[0];
+  };
+
+  const suffix = showOrdinal ? getOrdinal(displayValue) : "";
+
   return (
     <div
       style={{
@@ -294,22 +314,435 @@ const Countdown: React.FC<{ frame: number; def: CountdownDef }> = ({ frame, def 
         zIndex: 50,
       }}
     >
+      {labelText && (
+        <span
+          style={{
+            fontFamily: "'Arial Black', Arial, sans-serif",
+            fontWeight: 900,
+            fontSize: "40px",
+            color: "#ffffff",
+            textShadow: `0 0 10px ${def.glowColor}, 0 2px 4px rgba(0,0,0,0.8)`,
+            marginBottom: "20px",
+            letterSpacing: "0.1em",
+          }}
+        >
+          {labelText}
+        </span>
+      )}
       <span
         style={{
-          fontFamily: "monospace, sans-serif",
+          fontFamily: "'Poppins', sans-serif",
           fontWeight: 900,
           fontSize: "220px",
           lineHeight: 1,
-          letterSpacing: "0.05em",
-          color: def.color,
-          textShadow: `0 0 20px ${def.glowColor}, 0 0 50px ${def.glowColor}, 0 0 90px ${def.glowColor}, 0 8px 10px rgba(0,0,0,0.85)`,
+          letterSpacing: "0.02em",
+          color: "#ffffff",
+          WebkitTextStroke: "6px #000000",
+          textShadow: "10px 10px 0px #000000",
           transform: `scale(${pulse})`,
           display: "inline-block",
         }}
       >
         {displayValue}
+        <span style={{ fontSize: "100px", verticalAlign: "super", marginLeft: "4px", WebkitTextStroke: "4px #000000" }}>
+          {suffix}
+        </span>
       </span>
     </div>
+  );
+};
+
+// ─── Earnings Card Component (Scenes 19, 21, 22) ──────────────────────────────
+const EarningsCard: React.FC<{
+  frame: number;
+  map: maplibregl.Map | null;
+  coords: [number, number];
+  imageName: string;
+  startValue: number;
+  endValue: number;
+  startFrame: number;
+  endFrame: number;
+  sceneStart: number;
+  sceneEnd: number;
+  label: string;
+  glowColor: string;
+}> = ({
+  frame,
+  map,
+  coords,
+  imageName,
+  startValue,
+  endValue,
+  startFrame,
+  endFrame,
+  sceneStart,
+  sceneEnd,
+  glowColor,
+}) => {
+  if (!map) return null;
+  if (frame < sceneStart || frame > sceneEnd) return null;
+
+  const projected = map.project(coords);
+
+  const opacity = interpolate(
+    frame,
+    [sceneStart, sceneStart + 8, sceneEnd - 8, sceneEnd],
+    [0, 1, 1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
+
+  const scale = interpolate(
+    frame,
+    [sceneStart, sceneStart + 8],
+    [0.5, 1],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: Easing.out(Easing.back(1.2)),
+    }
+  );
+
+  const rawValue = interpolate(
+    frame,
+    [startFrame, endFrame],
+    [startValue, endValue],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
+  const displayValue = Math.round(rawValue);
+  
+  const formattedValue = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(displayValue);
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: projected.x,
+        top: projected.y,
+        transform: `translate(-50%, -75%) scale(${scale})`,
+        opacity,
+        pointerEvents: "none",
+        zIndex: 60,
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      {/* ── Character Cutout ── */}
+      <div
+        style={{
+          height: "480px",
+          width: "280px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "flex-end",
+          filter: "drop-shadow(0 15px 25px rgba(0,0,0,0.85))",
+          zIndex: 10,
+        }}
+      >
+        <Img
+          src={staticFile(imageName)}
+          style={{
+            height: "100%",
+            width: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+
+      {/* ── Time Travel Countdown Neon Money Value ── */}
+      <span
+        style={{
+          fontFamily: "monospace, sans-serif",
+          fontWeight: 900,
+          fontSize: "90px",
+          letterSpacing: "0.05em",
+          color: "#ffffff",
+          textShadow: `0 0 20px ${glowColor}, 0 0 40px ${glowColor}, 0 0 60px ${glowColor}, 0 8px 10px rgba(0,0,0,0.85)`,
+          marginLeft: "24px",
+          marginBottom: "60px", // Align nicely relative to character chest/waist level
+          zIndex: 5,
+        }}
+      >
+        {formattedValue}
+      </span>
+    </div>
+  );
+};
+
+// ─── Comparable Maps Component (Scene 20) ────────────────────────────────────
+const ComparableMaps: React.FC<{
+  frame: number;
+  map: maplibregl.Map | null;
+}> = ({ frame, map }) => {
+  if (frame < 1270 || frame > 1349) return null;
+
+  const opacity = interpolate(
+    frame,
+    [1270, 1278, 1341, 1349],
+    [0, 1, 1, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+  );
+
+  const popVietnam = interpolate(
+    frame,
+    [1270, 1278],
+    [0.6, 1.0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.2)) }
+  );
+
+  const popMorocco = interpolate(
+    frame,
+    [1276, 1284],
+    [0.6, 1.0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.2)) }
+  );
+
+  const opacityVietnam = interpolate(frame, [1270, 1278], [0, 1], { extrapolateLeft: "clamp" });
+  const opacityMorocco = interpolate(frame, [1276, 1284], [0, 1], { extrapolateLeft: "clamp" });
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        left: 0, top: 0, right: 0, bottom: 0,
+        pointerEvents: "none",
+        zIndex: 60,
+        opacity,
+      }}
+    >
+      <div
+        style={{
+          position: "absolute",
+          left: "60px",
+          top: "22%",
+          transform: `scale(${popVietnam})`,
+          opacity: opacityVietnam,
+          width: "460px",
+          height: "750px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Img
+          src={staticFile("images/vietnam-map.png")}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+
+      <div
+        style={{
+          position: "absolute",
+          right: "60px",
+          top: "22%",
+          transform: `scale(${popMorocco})`,
+          opacity: opacityMorocco,
+          width: "460px",
+          height: "750px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Img
+          src={staticFile("images/morocco-map.png")}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
+// ─── Money Shower Component (Scene 14) ─────────────────────────────────────────
+const gdpMoneyPositions = [
+  { lng: 72.87, lat: 19.07 },
+  { lng: 77.21, lat: 28.63 },
+  { lng: 80.27, lat: 13.08 },
+  { lng: 88.36, lat: 22.57 },
+  { lng: 77.59, lat: 12.97 },
+  { lng: 78.48, lat: 17.38 },
+  { lng: 72.57, lat: 23.02 },
+  { lng: 73.85, lat: 18.52 },
+  { lng: 80.94, lat: 26.85 },
+  { lng: 85.13, lat: 25.59 },
+  { lng: 75.85, lat: 22.71 },
+  { lng: 75.81, lat: 26.91 },
+  { lng: 81.63, lat: 21.25 },
+  { lng: 72.83, lat: 21.17 },
+  { lng: 79.08, lat: 21.14 },
+];
+
+const MoneyShower: React.FC<{ frame: number; map: maplibregl.Map | null }> = ({ frame, map }) => {
+  if (!map) return null;
+  if (frame < 857 || frame > 922) return null;
+
+  return (
+    <>
+      {gdpMoneyPositions.map((pos, i) => {
+        const itemStart = 857 + i * 3;
+        if (frame < itemStart) return null;
+
+        const duration = 15;
+        const progress = interpolate(frame, [itemStart, itemStart + duration], [0, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+
+        const projected = map.project([pos.lng, pos.lat]);
+        const startY = -300;
+        const y = interpolate(progress, [0, 1], [startY, 0]);
+        const opacity = interpolate(frame, [itemStart, itemStart + 3, 915, 922], [0, 1, 1, 0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+
+        const scale = interpolate(progress, [0, 0.8, 1], [0.8, 1.2, 1.0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+
+        const rotate = interpolate(progress, [0, 1], [0, 360 * (i % 2 === 0 ? 1 : -1)]);
+
+        return (
+          <div
+            key={`money-${i}`}
+            style={{
+              position: "absolute",
+              left: projected.x,
+              top: projected.y + y,
+              transform: `translate(-50%, -50%) scale(${scale}) rotate(${rotate}deg)`,
+              opacity,
+              fontSize: "42px",
+              filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.5))",
+              pointerEvents: "none",
+              zIndex: 40,
+            }}
+          >
+            💵
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+const usaGdpMoneyPositions = [
+  { lng: -74.006, lat: 40.7128 },
+  { lng: -118.2437, lat: 34.0522 },
+  { lng: -87.6298, lat: 41.8781 },
+  { lng: -95.3698, lat: 29.7604 },
+  { lng: -80.1918, lat: 25.7617 },
+  { lng: -122.4194, lat: 37.7749 },
+  { lng: -122.3321, lat: 47.6062 },
+  { lng: -84.3880, lat: 33.7490 },
+  { lng: -71.0589, lat: 42.3601 },
+  { lng: -82.9988, lat: 39.9612 },
+  { lng: -97.7431, lat: 30.2672 },
+  { lng: -104.9903, lat: 39.7392 },
+  { lng: -80.8431, lat: 35.2271 },
+  { lng: -112.0740, lat: 33.4484 },
+  { lng: -90.0490, lat: 35.1495 },
+  { lng: -75.1652, lat: 39.9526 },
+  { lng: -93.2650, lat: 44.9778 },
+  { lng: -96.7970, lat: 32.7767 },
+  { lng: -83.0458, lat: 42.3314 },
+  { lng: -86.1581, lat: 39.7684 },
+  { lng: -90.1979, lat: 38.6270 },
+  { lng: -115.1398, lat: 36.1699 },
+  { lng: -120.6596, lat: 35.2828 },
+  { lng: -106.6504, lat: 35.0844 },
+  { lng: -97.5164, lat: 35.4676 },
+  { lng: -89.3985, lat: 30.6944 },
+  { lng: -81.3792, lat: 28.5383 },
+  { lng: -80.1242, lat: 26.1224 },
+  { lng: -77.0369, lat: 38.9072 },
+  { lng: -78.8784, lat: 42.8864 },
+  { lng: -80.0059, lat: 40.4406 },
+  { lng: -84.5120, lat: 39.1031 },
+  { lng: -94.5786, lat: 39.0997 },
+  { lng: -111.8910, lat: 40.7608 },
+  { lng: -116.2023, lat: 43.6150 },
+  { lng: -108.5007, lat: 45.7833 },
+  { lng: -100.7837, lat: 46.8083 },
+  { lng: -96.7265, lat: 43.5473 },
+  { lng: -98.4936, lat: 29.4241 },
+  { lng: -106.4850, lat: 31.7619 },
+  { lng: -94.1266, lat: 30.0860 },
+  { lng: -91.1403, lat: 30.4582 },
+  { lng: -86.5861, lat: 34.7304 },
+  { lng: -82.4572, lat: 27.9506 },
+  { lng: -81.0348, lat: 33.9988 },
+  { lng: -78.6382, lat: 35.7796 },
+  { lng: -76.6122, lat: 39.2904 },
+  { lng: -72.6736, lat: 41.7637 },
+  { lng: -68.7778, lat: 44.8016 },
+  { lng: -119.8138, lat: 39.5296 }
+];
+
+const USAMoneyShower: React.FC<{ frame: number; map: maplibregl.Map | null }> = ({ frame, map }) => {
+  if (!map) return null;
+  if (frame < 1012 || frame > 1090) return null;
+
+  return (
+    <>
+      {usaGdpMoneyPositions.map((pos, i) => {
+        const itemStart = 1012 + (i % 25) * 1.5;
+        if (frame < itemStart) return null;
+
+        const duration = 15;
+        const progress = interpolate(frame, [itemStart, itemStart + duration], [0, 1], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+
+        const projected = map.project([pos.lng, pos.lat]);
+        const startY = -300;
+        const y = interpolate(progress, [0, 1], [startY, 0]);
+        const opacity = interpolate(frame, [itemStart, itemStart + 3, 1083, 1090], [0, 1, 1, 0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+
+        const scale = interpolate(progress, [0, 0.8, 1], [0.8, 1.2, 1.0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+        });
+
+        const rotate = interpolate(progress, [0, 1], [0, 360 * (i % 2 === 0 ? 1 : -1)]);
+
+        return (
+          <div
+            key={`usa-money-${i}`}
+            style={{
+              position: "absolute",
+              left: projected.x,
+              top: projected.y + y,
+              transform: `translate(-50%, -50%) scale(${scale}) rotate(${rotate}deg)`,
+              opacity,
+              fontSize: "42px",
+              filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.5))",
+              pointerEvents: "none",
+              zIndex: 40,
+            }}
+          >
+            💵
+          </div>
+        );
+      })}
+    </>
   );
 };
 
@@ -331,6 +764,12 @@ const CityLabel: React.FC<{
     [0, 1, 1, 0],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
   );
+
+  const isUsa = overlay.map === "usa";
+  const pinColor = isUsa ? "#00aaff" : "#ff9933";
+  const pinShadow = isUsa
+    ? "0 0 12px rgba(0,170,255,0.9), 0 0 30px rgba(0,170,255,0.5)"
+    : "0 0 12px rgba(255,153,51,0.9), 0 0 30px rgba(255,153,51,0.5)";
 
   // Dot marker on the city
   return (
@@ -355,8 +794,8 @@ const CityLabel: React.FC<{
         style={{
           width: 20, height: 20,
           borderRadius: "50%",
-          backgroundColor: "#ff9933",
-          boxShadow: "0 0 12px rgba(255,153,51,0.9), 0 0 30px rgba(255,153,51,0.5)",
+          backgroundColor: pinColor,
+          boxShadow: pinShadow,
           marginBottom: 4,
         }}
       />
@@ -586,6 +1025,23 @@ export const UsaIndiaComp: React.FC = () => {
       mapIndia.triggerRepaint();
       lastIndia.current = key;
     }
+
+    // Animated pulsing white border glow in Scene 12
+    if (frame >= 604 && frame <= 727) {
+      const pulseOpacity = interpolate(
+        Math.sin((frame - 604) * 0.15),
+        [-1, 1],
+        [0.4, 1.0]
+      );
+      mapIndia.setPaintProperty("india-border-glow", "line-opacity", pulseOpacity);
+      mapIndia.setPaintProperty("india-border-glow", "line-width", interpolate(pulseOpacity, [0.4, 1.0], [6, 14]));
+    } else {
+      // Restore standard opacity when not active
+      try {
+        mapIndia.setPaintProperty("india-border-glow", "line-opacity", storyboard.mapHighlights.india.borderOpacity);
+        mapIndia.setPaintProperty("india-border-glow", "line-width", 10);
+      } catch (e) {}
+    }
   }, [frame, mapIndia]);
 
   // ─── Frame Effects: USA camera ────────────────────────────────────────────
@@ -597,6 +1053,23 @@ export const UsaIndiaComp: React.FC = () => {
       mapUSA.jumpTo(cam);
       mapUSA.triggerRepaint();
       lastUSA.current = key;
+    }
+
+    // Animated pulsing white border glow in Scene 13
+    if (frame >= 736 && frame <= 845) {
+      const pulseOpacity = interpolate(
+        Math.sin((frame - 736) * 0.15),
+        [-1, 1],
+        [0.4, 1.0]
+      );
+      mapUSA.setPaintProperty("usa-border-glow", "line-opacity", pulseOpacity);
+      mapUSA.setPaintProperty("usa-border-glow", "line-width", interpolate(pulseOpacity, [0.4, 1.0], [6, 14]));
+    } else {
+      // Restore standard opacity when not active
+      try {
+        mapUSA.setPaintProperty("usa-border-glow", "line-opacity", storyboard.mapHighlights.usa.borderOpacity);
+        mapUSA.setPaintProperty("usa-border-glow", "line-width", 10);
+      } catch (e) {}
     }
   }, [frame, mapUSA]);
 
@@ -645,6 +1118,9 @@ export const UsaIndiaComp: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#111", color: "white" }}>
+      <style>
+        {`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap');`}
+      </style>
 
       {/* ── Background Audio (remove before final render) ── */}
       <Audio src={staticFile("audio.mp3")} volume={1} />
@@ -684,6 +1160,25 @@ export const UsaIndiaComp: React.FC = () => {
         <CityLabel frame={frame} overlayId="mumbai_label" map={mapIndia} />
         <CityLabel frame={frame} overlayId="delhi_label"  map={mapIndia} />
         <CityLabel frame={frame} overlayId="lahore_label" map={mapIndia} />
+        {/* Scene 14: money shower from sky */}
+        <MoneyShower frame={frame} map={mapIndia} />
+        {/* Scene 19: Earnings Card India */}
+        <EarningsCard
+          frame={frame}
+          map={mapIndia}
+          coords={[78.96, 22.59]}
+          imageName="images/indian-poor-man.png"
+          startValue={0}
+          endValue={2800}
+          startFrame={1188}
+          endFrame={1252}
+          sceneStart={1183}
+          sceneEnd={1262}
+          label="AVERAGE ANNUAL INCOME"
+          glowColor="#ff9933"
+        />
+        {/* Scene 20: Comparable maps Vietnam & Morocco */}
+        <ComparableMaps frame={frame} map={mapIndia} />
       </div>
 
       {/* ── Map C: USA ── */}
@@ -704,6 +1199,27 @@ export const UsaIndiaComp: React.FC = () => {
           .filter((cd) => (cd as any).mapTarget === "usa")
           .map((cd) => <Countdown key={cd.id} frame={frame} def={cd as any} />)
         }
+        {/* Scenes 9, 10, 11: city labels */}
+        <CityLabel frame={frame} overlayId="nyc_label" map={mapUSA} />
+        <CityLabel frame={frame} overlayId="elpaso_label" map={mapUSA} />
+        <CityLabel frame={frame} overlayId="chicago_label" map={mapUSA} />
+        {/* Scene 16: USA money shower */}
+        <USAMoneyShower frame={frame} map={mapUSA} />
+        {/* Scene 21 & 22: Earnings Card USA */}
+        <EarningsCard
+          frame={frame}
+          map={mapUSA}
+          coords={[-95.71, 37.09]}
+          imageName="images/american-rich-man.png"
+          startValue={0}
+          endValue={88000}
+          startFrame={1362}
+          endFrame={1520}
+          sceneStart={1357}
+          sceneEnd={1534}
+          label="AVERAGE ANNUAL INCOME"
+          glowColor="#00aaff"
+        />
       </div>
 
       {/* ── Captions — frame-by-frame from timestamps ── */}

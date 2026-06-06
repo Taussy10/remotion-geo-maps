@@ -1,5 +1,6 @@
 # Mathematical Continuous Emoji & Particle Animations
 
+# This is use for creating cloud, rain animation in bangladesh video
 ## Overview
 Instead of hardcoding hundreds of keyframes in a JSON file for ambient background animations (like bouncing emojis, falling rain, floating clouds, or pulsing markers), we can drive their CSS `transform` properties using continuous mathematical functions (like Sine waves and Modulos) tied directly to the Remotion `frame` counter.
 

@@ -1,6 +1,8 @@
 # Cinematic Map Camera & Animation Playbook
 
-We used this in palestine video first scene 
+# We used this in palestine video first scene
+
+
 A reusable reference for the exact camera movement style, animation patterns, and design rules used in the Palestine video. Copy-paste these techniques into any new Remotion map composition.
 
 ---

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AbsoluteFill, useDelayRender, useVideoConfig, useCurrentFrame, interpolate, interpolateColors, Easing, Audio, staticFile } from "remotion";
+import { AbsoluteFill, useDelayRender, useVideoConfig, useCurrentFrame, interpolate, Easing, staticFile } from "remotion";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -392,14 +392,10 @@ export const IsraelIranComp: React.FC = () => {
 
   // Calculate Israel's color and opacity for the erasure scene
   let israelLabelOpacity = 1;
-  let israelColor = "#2196f3";
-  let israelBorderColor = "#2196f3";
 
   if (storyboard.erasureScene && frame >= storyboard.erasureScene.eraseStart) {
     const progress = interpolate(frame, [storyboard.erasureScene.eraseStart + 10, storyboard.erasureScene.eraseStart + 25], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
     israelLabelOpacity = 1 - progress;
-    israelColor = "#2196f3";
-    israelBorderColor = "#2196f3";
   }
 
   useEffect(() => {
@@ -445,62 +441,62 @@ export const IsraelIranComp: React.FC = () => {
             id: "iran-fill",
             type: "fill",
             source: "iran-src",
-            paint: { "fill-color": "#239f40", "fill-opacity": 0.8 },
+            paint: { "fill-color": "#239f40", "fill-opacity": 0 },
           },
           {
             id: "iran-border-outer",
             type: "line",
             source: "iran-src",
-            paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 },
+            paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
           },
           {
             id: "iran-border-core",
             type: "line",
             source: "iran-src",
-            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 },
+            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
           },
           {
             id: "israel-fill",
             type: "fill",
             source: "israel-src",
-            paint: { "fill-color": israelColor as any, "fill-opacity": 0.8 },
+            paint: { "fill-color": "#2196f3", "fill-opacity": 0 },
           },
           {
             id: "israel-border-outer",
             type: "line",
             source: "israel-src",
-            paint: { "line-color": israelBorderColor as any, "line-width": 8, "line-blur": 5, "line-opacity": 0.8 },
+            paint: { "line-color": "#2196f3", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
           },
           {
             id: "israel-border-core",
             type: "line",
             source: "israel-src",
-            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 },
+            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
           },
           {
             id: "palestine-fill",
             type: "fill",
             source: "palestine-src",
-            paint: { "fill-color": "#ce1126", "fill-opacity": 0.8 },
+            paint: { "fill-color": "#ce1126", "fill-opacity": 0 },
           },
           {
             id: "palestine-border-outer",
             type: "line",
             source: "palestine-src",
-            paint: { "line-color": "#009736", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 },
+            paint: { "line-color": "#009736", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
           },
           {
             id: "palestine-border-core",
             type: "line",
             source: "palestine-src",
-            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 },
+            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
           },
-          { id: "lebanon-fill", type: "fill", source: "lebanon-src", paint: { "fill-color": "#ff9800", "fill-opacity": 0.8 } },
-          { id: "lebanon-border-outer", type: "line", source: "lebanon-src", paint: { "line-color": "#ff9800", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 } },
-          { id: "lebanon-border-core", type: "line", source: "lebanon-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 } },
-          { id: "yemen-fill", type: "fill", source: "yemen-src", paint: { "fill-color": "#ffeb3b", "fill-opacity": 0.8 } },
-          { id: "yemen-border-outer", type: "line", source: "yemen-src", paint: { "line-color": "#ffeb3b", "line-width": 8, "line-blur": 5, "line-opacity": 0.8 } },
-          { id: "yemen-border-core", type: "line", source: "yemen-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 1 } },
+          { id: "lebanon-fill", type: "fill", source: "lebanon-src", paint: { "fill-color": "#ff9800", "fill-opacity": 0 } },
+          { id: "lebanon-border-outer", type: "line", source: "lebanon-src", paint: { "line-color": "#ff9800", "line-width": 8, "line-blur": 5, "line-opacity": 0 } },
+          { id: "lebanon-border-core", type: "line", source: "lebanon-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 } },
+          { id: "yemen-fill", type: "fill", source: "yemen-src", paint: { "fill-color": "#ffeb3b", "fill-opacity": 0 } },
+          { id: "yemen-border-outer", type: "line", source: "yemen-src", paint: { "line-color": "#ffeb3b", "line-width": 8, "line-blur": 5, "line-opacity": 0 } },
+          { id: "yemen-border-core", type: "line", source: "yemen-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 } },
         ],
       },
       center: storyboard.cameraKeyframes[0].center as [number, number],
@@ -681,7 +677,80 @@ export const IsraelIranComp: React.FC = () => {
       setFinalIranPos(map.project(finalAtt.iranCoords as [number, number]));
     }
 
-  }, [frame, map, mapLoaded, israelColor]);
+    // Dynamically calculate paint properties based on storyboard.mapHighlights
+    const activeLayers: Record<string, { fillOpacity: number, borderOpacity: number, color: string }> = {
+      israel: { fillOpacity: 0, borderOpacity: 0, color: "#2196f3" },
+      iran: { fillOpacity: 0, borderOpacity: 0, color: "#239f40" },
+      palestine: { fillOpacity: 0, borderOpacity: 0, color: "#ce1126" },
+      lebanon: { fillOpacity: 0, borderOpacity: 0, color: "#ff9800" },
+      yemen: { fillOpacity: 0, borderOpacity: 0, color: "#ffeb3b" }
+    };
+
+    if ((storyboard as any).mapHighlights) {
+      (storyboard as any).mapHighlights.forEach((anim: any) => {
+        const country = anim.country;
+        if (!activeLayers[country]) return;
+
+        const floodStart = anim.floodFill?.[0] ?? 0;
+        const floodEnd = anim.floodFill?.[1] ?? 60;
+        const borderStart = anim.borderDraw?.[0] ?? 60;
+        const borderEnd = anim.borderDraw?.[1] ?? 100;
+
+        if (frame >= floodStart) {
+          const fillOp = interpolate(frame, [floodStart, floodEnd], [0, 0.8], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+            easing: Easing.out(Easing.cubic)
+          });
+          activeLayers[country].fillOpacity = fillOp;
+          if (anim.color) {
+            activeLayers[country].color = anim.color;
+          }
+        }
+
+        if (frame >= borderStart) {
+          const borderOp = interpolate(frame, [borderStart, borderEnd], [0, 1.0], {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+            easing: Easing.out(Easing.cubic)
+          });
+          activeLayers[country].borderOpacity = borderOp;
+        }
+      });
+    }
+
+    // Special scene overrides:
+    // 1. Erasure Scene: Fade out Israel layers starting at erasureScene.eraseStart
+    if (storyboard.erasureScene && frame >= storyboard.erasureScene.eraseStart) {
+      const progress = interpolate(frame, [storyboard.erasureScene.eraseStart + 10, storyboard.erasureScene.eraseStart + 25], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+      activeLayers.israel.fillOpacity *= (1 - progress);
+      activeLayers.israel.borderOpacity *= (1 - progress);
+    }
+
+    // 2. Oppressor Scene: Fade out Palestine layers after the scene ends
+    if (frame > 1050) {
+      const palestineFade = interpolate(frame, [1050, 1060], [1, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp"
+      });
+      activeLayers.palestine.fillOpacity *= palestineFade;
+      activeLayers.palestine.borderOpacity *= palestineFade;
+    }
+
+    // Apply opacities to WebGL layers
+    Object.keys(activeLayers).forEach((country) => {
+      const state = activeLayers[country];
+      map.setPaintProperty(`${country}-fill`, "fill-opacity", state.fillOpacity);
+      map.setPaintProperty(`${country}-fill`, "fill-color", state.color);
+      map.setPaintProperty(`${country}-border-outer`, "line-opacity", state.borderOpacity);
+      map.setPaintProperty(`${country}-border-outer`, "line-color", state.color);
+      map.setPaintProperty(`${country}-border-core`, "line-opacity", state.borderOpacity);
+    });
+
+  }, [frame, map, mapLoaded]);
 
   const { planeAnimation, bombingSequence } = storyboard;
   const isPlaneVisible = frame >= planeAnimation.startFrame && frame <= planeAnimation.endFrame;
@@ -745,7 +814,7 @@ export const IsraelIranComp: React.FC = () => {
           })}
 
           {/* Stat Cards (Animated Counters) */}
-          {storyboard.statCards && storyboard.statCards.map((card: any, i: number) => {
+          {map && storyboard.statCards && storyboard.statCards.map((card: any, i: number) => {
             if (frame < card.fadeIn[0] || frame > card.fadeOut[1]) return null;
             
             const opacity = interpolate(

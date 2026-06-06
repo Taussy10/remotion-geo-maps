@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState, useCallback } from "react";
-import { AbsoluteFill, Audio, Video, Img, staticFile, useVideoConfig, useCurrentFrame, useDelayRender, interpolate, Easing, spring } from "remotion";
+import React, { useEffect, useRef, useState } from "react";
+import { AbsoluteFill, Img, staticFile, useVideoConfig, useCurrentFrame, useDelayRender, interpolate, Easing, spring } from "remotion";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import audioData from "./palestine_audio_remotion.json";
 import palestineData from "../data/palestine.json";
 import israelData from "../data/israel.json";
 import combinedData from "../data/israel_palestine_combined.json";
@@ -16,13 +15,6 @@ const DIVIDED_WORLD_GRID = Array.from({ length: 27 }, (_, x) =>
   Array.from({ length: 21 }, (_, y) => [15 + x * 1.5, 15 + y * 1.5])
 ).flat();
 
-const PersonIcon: React.FC<{ size: number, color: string }> = ({ size, color }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} filter="drop-shadow(0px 4px 4px rgba(0,0,0,0.5))">
-    <circle cx="12" cy="4" r="3" />
-    <path d="M12 9c-3.3 0-6 2.7-6 6v7h3v-7h6v7h3v-7c0-3.3-2.7-6-6-6z" />
-  </svg>
-);
-
 const SoldierIcon: React.FC<{ size: number, color: string }> = ({ size, color }) => (
   <Img
     src={staticFile("images/soldier.jpeg")}
@@ -35,12 +27,6 @@ const SoldierIcon: React.FC<{ size: number, color: string }> = ({ size, color })
       boxShadow: `0 0 20px ${color}, 0 0 40px ${color}55`,
     }}
   />
-);
-
-const CrescentIcon: React.FC<{ size: number, color: string }> = ({ size, color }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill={color} filter={`drop-shadow(0px 0px 15px ${color})`}>
-    <path d="M12.01 2c4.32 0 8.01 2.8 9.39 6.72-2.52-2.31-6.19-2.91-9.4-1.29-3.21 1.62-5.18 5.12-4.74 8.78.23 1.94 1.13 3.66 2.44 4.96C6.18 19.98 2 16.48 2 12c0-5.52 4.49-10 10.01-10z"/>
-  </svg>
 );
 
 interface CameraKeyframe {
@@ -119,33 +105,135 @@ export const PalestineComp: React.FC = () => {
 
   useEffect(() => {
     if (!mapContainer.current) return;
+    const mapStyle = {
+      version: 8 as const,
+      sources: {
+        satellite: {
+          type: "raster" as const,
+          tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
+          tileSize: 256,
+        },
+        "palestine-src": {
+          type: "geojson" as const,
+          data: palestineData as any
+        },
+        "israel-src": {
+          type: "geojson" as const,
+          data: israelData as any
+        },
+        "combined-src": {
+          type: "geojson" as const,
+          data: combinedData as any
+        },
+        "recognizing-src": {
+          type: "geojson" as const,
+          data: recognizingData as any
+        }
+      },
+      layers: [
+        { id: "satellite", type: "raster" as const, source: "satellite", minzoom: 0, maxzoom: 22 },
+        
+        // Palestine layers
+        {
+          id: "palestine-fill",
+          type: "fill" as const,
+          source: "palestine-src",
+          paint: { "fill-color": COLORS.palestineGreen, "fill-opacity": 0 }
+        },
+        {
+          id: "palestine-border-glow",
+          type: "line" as const,
+          source: "palestine-src",
+          paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 4, "line-opacity": 0 }
+        },
+        {
+          id: "palestine-border-core",
+          type: "line" as const,
+          source: "palestine-src",
+          paint: { "line-color": "#ffffff", "line-width": 2, "line-opacity": 0 }
+        },
+
+        // Israel layers
+        {
+          id: "israel-fill",
+          type: "fill" as const,
+          source: "israel-src",
+          paint: { "fill-color": COLORS.israelBlue, "fill-opacity": 0 }
+        },
+        {
+          id: "israel-border-glow",
+          type: "line" as const,
+          source: "israel-src",
+          paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 4, "line-opacity": 0 }
+        },
+        {
+          id: "israel-border-core",
+          type: "line" as const,
+          source: "israel-src",
+          paint: { "line-color": "#ffffff", "line-width": 2, "line-opacity": 0 }
+        },
+
+        // Combined layers
+        {
+          id: "combined-fill",
+          type: "fill" as const,
+          source: "combined-src",
+          paint: { "fill-color": COLORS.palestineGreen, "fill-opacity": 0 }
+        },
+        {
+          id: "combined-border-glow",
+          type: "line" as const,
+          source: "combined-src",
+          paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 4, "line-opacity": 0 }
+        },
+        {
+          id: "combined-border-core",
+          type: "line" as const,
+          source: "combined-src",
+          paint: { "line-color": "#ffffff", "line-width": 2, "line-opacity": 0 }
+        },
+
+        // Recognizing layers
+        {
+          id: "recognizing-fill",
+          type: "fill" as const,
+          source: "recognizing-src",
+          paint: { "fill-color": COLORS.palestineGreen, "fill-opacity": 0 }
+        },
+        {
+          id: "recognizing-border-glow",
+          type: "line" as const,
+          source: "recognizing-src",
+          paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 4, "line-opacity": 0 }
+        },
+        {
+          id: "recognizing-border-core",
+          type: "line" as const,
+          source: "recognizing-src",
+          paint: { "line-color": "#ffffff", "line-width": 2, "line-opacity": 0 }
+        }
+      ]
+    };
+
     const mapInstance = new maplibregl.Map({
       container: mapContainer.current,
-      style: {
-        version: 8,
-        sources: {
-          satellite: {
-            type: "raster",
-            tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"],
-            tileSize: 256,
-          }
-        },
-        layers: [
-          { id: "satellite", type: "raster", source: "satellite", minzoom: 0, maxzoom: 22 }
-        ]
-      },
+      style: mapStyle,
       interactive: false,
       fadeDuration: 0,
       center: [45.0, 31.0],
-      zoom: 3.5
+      zoom: 3.5,
+      attributionControl: false,
+      canvasContextAttributes: { preserveDrawingBuffer: true }
     });
 
     mapInstance.on("load", () => {
       setMap(mapInstance);
-      continueRender(handle);
+      mapInstance.once("idle", () => {
+        continueRender(handle);
+      });
     });
 
-    return () => mapInstance.remove();
+    return () => {};
   }, [continueRender, handle]);
 
   useEffect(() => {
@@ -158,16 +246,71 @@ export const PalestineComp: React.FC = () => {
       map.triggerRepaint();
       lastState.current = stateKey;
     }
+
+    // Reset/recalculate WebGL layer opacities dynamically for the current frame
+    const activeLayers: Record<string, { fillOpacity: number, borderOpacity: number, color: string }> = {
+      palestine: { fillOpacity: 0, borderOpacity: 0, color: COLORS.palestineGreen },
+      israel: { fillOpacity: 0, borderOpacity: 0, color: COLORS.israelBlue },
+      combined: { fillOpacity: 0, borderOpacity: 0, color: COLORS.israelBlue },
+      recognizing: { fillOpacity: 0, borderOpacity: 0, color: COLORS.palestineGreen }
+    };
+
+    storyboard.svgAnimations.forEach((anim) => {
+      const country = anim.country;
+      if (!activeLayers[country]) return;
+
+      const floodStart = anim.floodFill?.[0] ?? 0;
+      const floodEnd = anim.floodFill?.[1] ?? 60;
+      const borderStart = anim.borderDraw?.[0] ?? 60;
+      const borderEnd = anim.borderDraw?.[1] ?? 100;
+
+      if (frame >= floodStart) {
+        const fillOp = interpolate(frame, [floodStart, floodEnd], [0, 0.65], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: Easing.out(Easing.cubic)
+        });
+        activeLayers[country].fillOpacity = fillOp;
+        if (anim.color) {
+          activeLayers[country].color = anim.color;
+        }
+      }
+
+      if (frame >= borderStart) {
+        const borderOp = interpolate(frame, [borderStart, borderEnd], [0, 1.0], {
+          extrapolateLeft: "clamp",
+          extrapolateRight: "clamp",
+          easing: Easing.out(Easing.cubic)
+        });
+        activeLayers[country].borderOpacity = borderOp;
+      }
+    });
+
+    // Apply computed opacities and colors to WebGL layers
+    Object.keys(activeLayers).forEach((country) => {
+      const state = activeLayers[country];
+      map.setPaintProperty(`${country}-fill`, "fill-opacity", state.fillOpacity);
+      map.setPaintProperty(`${country}-fill`, "fill-color", state.color);
+      map.setPaintProperty(`${country}-border-glow`, "line-opacity", state.borderOpacity);
+      map.setPaintProperty(`${country}-border-core`, "line-opacity", state.borderOpacity);
+    });
   }, [frame, map]);
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#111", color: "white", fontFamily: "sans-serif" }}>
 
+      {/* MapContainer (Natively rendering satellite tiles and WebGL shapes on GPU) */}
+      <div 
+        ref={mapContainer} 
+        style={{ 
+          position: "absolute", 
+          width: `${width}px`, 
+          height: `${height}px`, 
+          zIndex: 0
+        }} 
+      />
       
-      {/* MapLibre Container */}
-      <div ref={mapContainer} style={{ position: "absolute", width: "100%", height: "100%", zIndex: 0 }} />
-      
-      {/* SVG Overlay Layer */}
+      {/* SVG Overlay Layer (Only USA size comparison) */}
       {map && (
         <AbsoluteFill style={{ zIndex: 1, pointerEvents: "none" }}>
           <svg width={width} height={height}>
@@ -178,101 +321,76 @@ export const PalestineComp: React.FC = () => {
               </filter>
             </defs>
 
-            {storyboard.svgAnimations && (Array.isArray(storyboard.svgAnimations) ? storyboard.svgAnimations : [storyboard.svgAnimations]).map((anim, index) => {
-              const borderStart = anim.borderDraw?.[0] ?? 60;
-              const borderEnd = anim.borderDraw?.[1] ?? 100;
-              
-              const dashOffset = interpolate(frame, [borderStart, borderEnd], [100, 0], {
-                extrapolateLeft: "clamp",
-                extrapolateRight: "clamp",
-                easing: Easing.out(Easing.cubic)
-              });
+            {storyboard.svgAnimations && (Array.isArray(storyboard.svgAnimations) ? storyboard.svgAnimations : [storyboard.svgAnimations])
+              .filter(anim => anim.country === "usa")
+              .map((anim, index) => {
+                const borderStart = anim.borderDraw?.[0] ?? 60;
+                const borderEnd = anim.borderDraw?.[1] ?? 100;
+                
+                const dashOffset = interpolate(frame, [borderStart, borderEnd], [100, 0], {
+                  extrapolateLeft: "clamp",
+                  extrapolateRight: "clamp",
+                  easing: Easing.out(Easing.cubic)
+                });
 
-              const floodStart = anim.floodFill?.[0] ?? 0;
-              const floodEnd = anim.floodFill?.[1] ?? 60;
+                const floodStart = anim.floodFill?.[0] ?? 0;
+                const floodEnd = anim.floodFill?.[1] ?? 60;
 
-              const floodRadius = interpolate(frame, [floodStart, floodEnd], [0, 150], {
-                extrapolateLeft: "clamp",
-                extrapolateRight: "clamp",
-                easing: Easing.out(Easing.cubic)
-              });
+                const countryData = usaData;
+                const svgPathData = getSvgPathFromGeoJson(map, countryData);
 
-              let countryData: any = palestineData;
-              if (anim.country === "israel") countryData = israelData;
-              if (anim.country === "combined") countryData = combinedData;
-              if (anim.country === "usa") countryData = usaData;
-              if (anim.country === "recognizing") countryData = recognizingData;
+                let targetPx = { x: 0, y: 0 };
+                const scale = (anim as any).scale || 1;
+                let origPx = { x: width / 2, y: height / 2 };
 
-              const svgPathData = getSvgPathFromGeoJson(map, countryData);
+                if ((anim as any).originalCenter && (anim as any).targetCenter) {
+                  origPx = map.project((anim as any).originalCenter as [number, number]);
+                  targetPx = map.project((anim as any).targetCenter as [number, number]);
+                }
+                const effectiveStrokeWidth = 4 / scale;
 
-              // Handle translation and scaling for dragged countries (e.g., USA over Middle East)
-              let dx = 0;
-              let dy = 0;
-              let targetPx = { x: 0, y: 0 };
-              const scale = (anim as any).scale || 1;
-              let origPx = { x: width / 2, y: height / 2 };
+                if (frame < floodStart && frame < borderStart) return null;
 
-              if ((anim as any).originalCenter && (anim as any).targetCenter) {
-                origPx = map.project((anim as any).originalCenter as [number, number]);
-                targetPx = map.project((anim as any).targetCenter as [number, number]);
-                dx = targetPx.x - origPx.x;
-                dy = targetPx.y - origPx.y;
-              }
-              const effectiveStrokeWidth = 4 / scale;
+                const svgTransform = `translate(${targetPx.x}, ${targetPx.y}) scale(${scale}) translate(${-origPx.x}, ${-origPx.y})`;
 
-              // Don't render if it hasn't started yet
-              if (frame < floodStart && frame < borderStart) return null;
+                const clipCx = origPx.x;
+                const clipCy = origPx.y;
+                const maxFloodRadius = Math.sqrt(width * width + height * height) / Math.min(scale, 1) * 1.5;
+                const floodRadiusPx = interpolate(frame, [floodStart, floodEnd], [0, maxFloodRadius], {
+                  extrapolateLeft: "clamp",
+                  extrapolateRight: "clamp",
+                  easing: Easing.out(Easing.cubic)
+                });
 
-              // Build SVG transform: translate path to target, then scale around pivot
-              // Pattern: translate(targetCx, targetCy) scale(s) translate(-origCx, -origCy)
-              const svgTransform = scale !== 1
-                ? `translate(${targetPx.x}, ${targetPx.y}) scale(${scale}) translate(${-origPx.x}, ${-origPx.y})`
-                : `translate(${dx}, ${dy})`;
+                return (
+                  <g key={`svg-anim-usa`} transform={svgTransform}>
+                    <defs>
+                      <clipPath id="radial-flood-usa">
+                        <circle cx={clipCx} cy={clipCy} r={floodRadiusPx} />
+                      </clipPath>
+                    </defs>
 
-              // Clip circle center is in PRE-TRANSFORM local space.
-              // For scaled countries (USA), expand from origPx — the country's own projected center.
-              // For normal countries, expand from screen center.
-              const clipCx = origPx.x;
-              const clipCy = origPx.y;
-              // Radius large enough to cover the country in the local (pre-scale) coordinate space.
-              const maxFloodRadius = Math.sqrt(width * width + height * height) / Math.min(scale, 1) * 1.5;
-              const floodRadiusPx = interpolate(frame, [floodStart, floodEnd], [0, maxFloodRadius], {
-                extrapolateLeft: "clamp",
-                extrapolateRight: "clamp",
-                easing: Easing.out(Easing.cubic)
-              });
+                    <path
+                      d={svgPathData}
+                      fill={anim.color || "#00aaff"}
+                      fillOpacity={0.65}
+                      clipPath="url(#radial-flood-usa)"
+                    />
 
-              return (
-                <g key={`svg-anim-${index}`} transform={svgTransform}>
-                  <defs>
-                    <clipPath id={`radial-flood-${index}`}>
-                      <circle cx={clipCx} cy={clipCy} r={floodRadiusPx} />
-                    </clipPath>
-                  </defs>
-
-                  {/* Radial Flood Fill */}
-                  <path
-                    d={svgPathData}
-                    fill={anim.color || "#4CAF50"}
-                    fillOpacity={0.65}
-                    clipPath={`url(#radial-flood-${index})`}
-                  />
-
-                  {/* Glowing White Border Drawing In */}
-                  <path
-                    d={svgPathData}
-                    fill="none"
-                    stroke="#ffffff"
-                    strokeWidth={effectiveStrokeWidth}
-                    pathLength="100"
-                    strokeDasharray="100"
-                    strokeDashoffset={dashOffset}
-                    filter="url(#glow)"
-                    strokeLinecap="round"
-                  />
-                </g>
-              );
-            })}
+                    <path
+                      d={svgPathData}
+                      fill="none"
+                      stroke="#ffffff"
+                      strokeWidth={effectiveStrokeWidth}
+                      pathLength="100"
+                      strokeDasharray="100"
+                      strokeDashoffset={dashOffset}
+                      filter="url(#glow)"
+                      strokeLinecap="round"
+                    />
+                  </g>
+                );
+              })}
           </svg>
         </AbsoluteFill>
       )}

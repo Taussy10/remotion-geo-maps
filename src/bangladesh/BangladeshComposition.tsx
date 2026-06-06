@@ -968,7 +968,7 @@ export const BangladeshComposition: React.FC = () => {
 
       {/* ── AUDIO ──────────────────────────────────────────────────── */}
       {/* Main Voiceover / Audio Track */}
-      <Audio src={staticFile("audio.MP3")} />
+      {/* <Audio src={staticFile("audio.MP3")} /> */}
     </AbsoluteFill>
   );
 };

@@ -429,5 +429,37 @@
         "textShadow": "0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000, 0 0 80px #ff0000"
       }
     }
+  ],
+  "mapHighlights": [
+    {
+      "country": "israel",
+      "floodFill": [21, 60],
+      "borderDraw": [21, 60],
+      "color": "#2196f3"
+    },
+    {
+      "country": "iran",
+      "floodFill": [100, 140],
+      "borderDraw": [100, 140],
+      "color": "#239f40"
+    },
+    {
+      "country": "palestine",
+      "floodFill": [947, 980],
+      "borderDraw": [947, 980],
+      "color": "#ce1126"
+    },
+    {
+      "country": "lebanon",
+      "floodFill": [1144, 1180],
+      "borderDraw": [1144, 1180],
+      "color": "#ff9800"
+    },
+    {
+      "country": "yemen",
+      "floodFill": [1144, 1180],
+      "borderDraw": [1144, 1180],
+      "color": "#ffeb3b"
+    }
   ]
 }

@@ -706,7 +706,6 @@ export const IsraelIranComp: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <Audio src={staticFile("voiceover/iran-israel.mp3")} />
       <div ref={ref} style={{ width: "100%", height: "100%" }} />
       
       {/* Overlays */}
@@ -845,7 +844,7 @@ export const IsraelIranComp: React.FC = () => {
                   border: "8px solid #fff", boxShadow: "0 15px 30px rgba(0,0,0,0.6)",
                   zIndex: 40
                 }}>
-                  <img src={staticFile("shah.png")} alt="Shah" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.src = "https://dummyimage.com/400x400/000/fff&text=Shah"; }} />
+                  <img src={staticFile("images/shah.png")} alt="Shah" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.src = "https://dummyimage.com/400x400/000/fff&text=Shah"; }} />
                 </div>
               )}
 
@@ -859,7 +858,7 @@ export const IsraelIranComp: React.FC = () => {
                   border: "8px solid #fff", boxShadow: "0 15px 30px rgba(0,0,0,0.6)",
                   zIndex: 40
                 }}>
-                  <img src={staticFile("netanyahu.png")} alt="Netanyahu" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={staticFile("images/netanyahu.png")} alt="Netanyahu" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
               )}
 
@@ -975,7 +974,7 @@ export const IsraelIranComp: React.FC = () => {
                     border: "8px solid #fff", boxShadow: "0 15px 30px rgba(0,0,0,0.6)",
                     zIndex: 40
                   }}>
-                    <img src={staticFile("shah.png")} alt="Shah" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.src = "https://dummyimage.com/400x400/000/fff&text=Shah"; }} />
+                    <img src={staticFile("images/shah.png")} alt="Shah" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.src = "https://dummyimage.com/400x400/000/fff&text=Shah"; }} />
                   </div>
 
                   {/* Punching Hand */}
@@ -1538,7 +1537,7 @@ export const IsraelIranComp: React.FC = () => {
                   opacity: interpolate(frame, [storyboard.finalAttackScene.startFrame, storyboard.finalAttackScene.startFrame + 15], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })
                 }}>
                   <div style={{ width: 120, height: 120, borderRadius: "50%", overflow: "hidden", border: "4px solid gold", boxShadow: "0 0 20px rgba(0,0,0,0.5)" }}>
-                    <img src={staticFile("ali-khamenei.png")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src={staticFile("images/ali-khamenei.png")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   </div>
                 </div>
               )}

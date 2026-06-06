@@ -11,93 +11,6 @@ import recognizingData from "../data/recognizing_countries.json";
 import storyboard from "./palestine_storyboard.json";
 import { COLORS } from "./constants/colors";
 
-// ─────────────────────────────────────────────────────────────────────────────
-// CHROMA KEY VIDEO — Removes green screen in real-time via canvas pixel ops
-// ─────────────────────────────────────────────────────────────────────────────
-const ChromaKeyVideo: React.FC<{
-  src: string;
-  startFrame: number;
-  endFrame: number;
-  width: number;
-  height: number;
-  opacity: number;
-}> = ({ src, startFrame, endFrame, width, height, opacity }) => {
-  const frame = useCurrentFrame();
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const localFrame = frame - startFrame;
-  const fps = 30;
-
-  useEffect(() => {
-    const video = videoRef.current;
-    const canvas = canvasRef.current;
-    if (!video || !canvas) return;
-
-    const ctx = canvas.getContext("2d", { willReadFrequently: true });
-    if (!ctx) return;
-
-    // Seek the hidden video to the current local frame time
-    const targetTime = localFrame / fps;
-    video.currentTime = targetTime;
-
-    const onSeeked = () => {
-      // Draw the video frame
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      // Chroma key: remove green pixels
-      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const data = imageData.data;
-      for (let i = 0; i < data.length; i += 4) {
-        const r = data[i];
-        const g = data[i + 1];
-        const b = data[i + 2];
-        // Check if pixel is "green screen" — green dominant, not too bright/dark
-        if (g > 100 && g > r * 1.4 && g > b * 1.4) {
-          data[i + 3] = 0; // fully transparent
-        }
-      }
-      ctx.putImageData(imageData, 0, 0);
-    };
-
-    video.addEventListener("seeked", onSeeked, { once: true });
-    return () => video.removeEventListener("seeked", onSeeked);
-  }, [localFrame]);
-
-  const containerSize = Math.min(width, height) * 0.65;
-
-  return (
-    <div style={{
-      position: "absolute",
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%, -50%)",
-      width: containerSize,
-      height: containerSize,
-      zIndex: 50,
-      pointerEvents: "none",
-      opacity,
-    }}>
-      {/* Hidden video used as pixel source */}
-      <video
-        ref={videoRef}
-        src={staticFile(src)}
-        style={{ display: "none" }}
-        muted
-        playsInline
-        crossOrigin="anonymous"
-      />
-      {/* Canvas where we draw the chroma-keyed result */}
-      <canvas
-        ref={canvasRef}
-        width={containerSize}
-        height={containerSize}
-        style={{ width: "100%", height: "100%" }}
-      />
-    </div>
-  );
-};
 
 const DIVIDED_WORLD_GRID = Array.from({ length: 27 }, (_, x) => 
   Array.from({ length: 21 }, (_, y) => [15 + x * 1.5, 15 + y * 1.5])
@@ -249,10 +162,10 @@ export const PalestineComp: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#111", color: "white", fontFamily: "sans-serif" }}>
-      <Audio src={staticFile(audioData.audio_file)} />
+
       
       {/* MapLibre Container */}
-      <AbsoluteFill ref={mapContainer} style={{ zIndex: 0 }} />
+      <div ref={mapContainer} style={{ position: "absolute", width: "100%", height: "100%", zIndex: 0 }} />
       
       {/* SVG Overlay Layer */}
       {map && (
@@ -608,20 +521,7 @@ export const PalestineComp: React.FC = () => {
         );
       })}
 
-      {/* Subscribe Green Screen Overlay — Scenes 22-24 (hit the red button) */}
-      {frame >= 1462 && frame <= 1516 && (
-        <ChromaKeyVideo
-          src="green-screen/subscribe_2s.webm"
-          startFrame={1462}
-          endFrame={1516}
-          width={width}
-          height={height}
-          opacity={interpolate(frame, [1462, 1468, 1510, 1516], [0, 1, 1, 0], {
-            extrapolateLeft: "clamp",
-            extrapolateRight: "clamp",
-          })}
-        />
-      )}
+
 
     </AbsoluteFill>
   );

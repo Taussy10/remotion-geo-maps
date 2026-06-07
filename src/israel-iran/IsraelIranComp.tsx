@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AbsoluteFill, useDelayRender, useVideoConfig, useCurrentFrame, interpolate, Easing, staticFile } from "remotion";
+import { AbsoluteFill, useDelayRender, useVideoConfig, useCurrentFrame, interpolate, Easing, staticFile, OffthreadVideo } from "remotion";
+
+const PRE_RENDER_MODE = false; // Set to true to pre-render the clean map video
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 
@@ -9,7 +11,55 @@ import palestineData from "../data/palestine.json";
 import lebanonData from "../data/lebanon.json";
 import yemenData from "../data/yemen.json";
 import storyboard from "./storyboard.json";
+import timestamps from "./audio_remotion.json";
 import { IranCoin } from "./components/IranCoin";
+
+interface WordEntry {
+  word: string;
+  frame_start: number;
+  frame_end: number;
+}
+
+const allWords = timestamps.words as WordEntry[];
+
+const Caption: React.FC<{ frame: number }> = ({ frame }) => {
+  const activeWord = allWords.find(
+    (w) => frame >= w.frame_start && frame < w.frame_end
+  );
+
+  if (!activeWord) return null;
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 300,
+        left: 0,
+        right: 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 100,
+        pointerEvents: "none",
+      }}
+    >
+      <span
+        style={{
+          fontFamily: "'Poppins', sans-serif",
+          fontWeight: 900,
+          fontSize: "84px",
+          lineHeight: 1.2,
+          color: "#FFFF00",
+          WebkitTextStroke: "4px #000000",
+          textShadow: "6px 6px 0px #000000",
+          display: "inline-block",
+        }}
+      >
+        {activeWord.word}
+      </span>
+    </div>
+  );
+};
 import { IsraelCoin } from "./components/IsraelCoin";
 import { PalestineCoin } from "./components/PalestineCoin";
 
@@ -401,119 +451,126 @@ export const IsraelIranComp: React.FC = () => {
   useEffect(() => {
     if (!ref.current) return;
 
+    const mapStyle = PRE_RENDER_MODE
+      ? {
+          version: 8,
+          sources: {
+            satellite: {
+              type: "raster",
+              tiles: [
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+              ],
+              tileSize: 256,
+              attribution: "Esri",
+            },
+            "iran-src": {
+              type: "geojson",
+              data: iranData as any,
+            },
+            "israel-src": {
+              type: "geojson",
+              data: israelData as any,
+            },
+            "palestine-src": {
+              type: "geojson",
+              data: palestineData as any,
+            },
+            "lebanon-src": { type: "geojson", data: lebanonData as any },
+            "yemen-src": { type: "geojson", data: yemenData as any },
+          },
+          layers: [
+            {
+              id: "satellite",
+              type: "raster",
+              source: "satellite",
+              minzoom: 0,
+              maxzoom: 22,
+            },
+            {
+              id: "iran-fill",
+              type: "fill",
+              source: "iran-src",
+              paint: { "fill-color": "#239f40", "fill-opacity": 0 },
+            },
+            {
+              id: "iran-border-outer",
+              type: "line",
+              source: "iran-src",
+              paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
+            },
+            {
+              id: "iran-border-core",
+              type: "line",
+              source: "iran-src",
+              paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
+            },
+            {
+              id: "israel-fill",
+              type: "fill",
+              source: "israel-src",
+              paint: { "fill-color": "#2196f3", "fill-opacity": 0 },
+            },
+            {
+              id: "israel-border-outer",
+              type: "line",
+              source: "israel-src",
+              paint: { "line-color": "#2196f3", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
+            },
+            {
+              id: "israel-border-core",
+              type: "line",
+              source: "israel-src",
+              paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
+            },
+            {
+              id: "palestine-fill",
+              type: "fill",
+              source: "palestine-src",
+              paint: { "fill-color": "#ce1126", "fill-opacity": 0 },
+            },
+            {
+              id: "palestine-border-outer",
+              type: "line",
+              source: "palestine-src",
+              paint: { "line-color": "#009736", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
+            },
+            {
+              id: "palestine-border-core",
+              type: "line",
+              source: "palestine-src",
+              paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
+            },
+            { id: "lebanon-fill", type: "fill", source: "lebanon-src", paint: { "fill-color": "#ff9800", "fill-opacity": 0 } },
+            { id: "lebanon-border-outer", type: "line", source: "lebanon-src", paint: { "line-color": "#ff9800", "line-width": 8, "line-blur": 5, "line-opacity": 0 } },
+            { id: "lebanon-border-core", type: "line", source: "lebanon-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 } },
+            { id: "yemen-fill", type: "fill", source: "yemen-src", paint: { "fill-color": "#ffeb3b", "fill-opacity": 0 } },
+            { id: "yemen-border-outer", type: "line", source: "yemen-src", paint: { "line-color": "#ffeb3b", "line-width": 8, "line-blur": 5, "line-opacity": 0 } },
+            { id: "yemen-border-core", type: "line", source: "yemen-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 } },
+          ],
+        }
+      : { version: 8 as const, sources: {}, layers: [] };
+
     const mapInstance = new maplibregl.Map({
       container: ref.current,
-      style: {
-        version: 8,
-        sources: {
-          satellite: {
-            type: "raster",
-            tiles: [
-              "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-            ],
-            tileSize: 256,
-            attribution: "Esri",
-          },
-          "iran-src": {
-            type: "geojson",
-            data: iranData as any,
-          },
-          "israel-src": {
-            type: "geojson",
-            data: israelData as any,
-          },
-          "palestine-src": {
-            type: "geojson",
-            data: palestineData as any,
-          },
-          "lebanon-src": { type: "geojson", data: lebanonData as any },
-          "yemen-src": { type: "geojson", data: yemenData as any },
-        },
-        layers: [
-          {
-            id: "satellite",
-            type: "raster",
-            source: "satellite",
-            minzoom: 0,
-            maxzoom: 22,
-          },
-          {
-            id: "iran-fill",
-            type: "fill",
-            source: "iran-src",
-            paint: { "fill-color": "#239f40", "fill-opacity": 0 },
-          },
-          {
-            id: "iran-border-outer",
-            type: "line",
-            source: "iran-src",
-            paint: { "line-color": "#ffffff", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
-          },
-          {
-            id: "iran-border-core",
-            type: "line",
-            source: "iran-src",
-            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
-          },
-          {
-            id: "israel-fill",
-            type: "fill",
-            source: "israel-src",
-            paint: { "fill-color": "#2196f3", "fill-opacity": 0 },
-          },
-          {
-            id: "israel-border-outer",
-            type: "line",
-            source: "israel-src",
-            paint: { "line-color": "#2196f3", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
-          },
-          {
-            id: "israel-border-core",
-            type: "line",
-            source: "israel-src",
-            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
-          },
-          {
-            id: "palestine-fill",
-            type: "fill",
-            source: "palestine-src",
-            paint: { "fill-color": "#ce1126", "fill-opacity": 0 },
-          },
-          {
-            id: "palestine-border-outer",
-            type: "line",
-            source: "palestine-src",
-            paint: { "line-color": "#009736", "line-width": 8, "line-blur": 5, "line-opacity": 0 },
-          },
-          {
-            id: "palestine-border-core",
-            type: "line",
-            source: "palestine-src",
-            paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 },
-          },
-          { id: "lebanon-fill", type: "fill", source: "lebanon-src", paint: { "fill-color": "#ff9800", "fill-opacity": 0 } },
-          { id: "lebanon-border-outer", type: "line", source: "lebanon-src", paint: { "line-color": "#ff9800", "line-width": 8, "line-blur": 5, "line-opacity": 0 } },
-          { id: "lebanon-border-core", type: "line", source: "lebanon-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 } },
-          { id: "yemen-fill", type: "fill", source: "yemen-src", paint: { "fill-color": "#ffeb3b", "fill-opacity": 0 } },
-          { id: "yemen-border-outer", type: "line", source: "yemen-src", paint: { "line-color": "#ffeb3b", "line-width": 8, "line-blur": 5, "line-opacity": 0 } },
-          { id: "yemen-border-core", type: "line", source: "yemen-src", paint: { "line-color": "#ffffff", "line-width": 2, "line-blur": 0, "line-opacity": 0 } },
-        ],
-      },
+      style: mapStyle,
       center: storyboard.cameraKeyframes[0].center as [number, number],
       zoom: storyboard.cameraKeyframes[0].zoom,
       pitch: storyboard.cameraKeyframes[0].pitch || 0,
       bearing: storyboard.cameraKeyframes[0].bearing || 0,
       interactive: false,
       fadeDuration: 0,
+      canvasContextAttributes: { preserveDrawingBuffer: true }
     });
 
     mapInstance.on("load", () => {
       setMap(mapInstance);
       setMapLoaded(true);
-      continueRender(handle);
+      mapInstance.once("idle", () => {
+        continueRender(handle);
+      });
     });
 
-    return () => mapInstance.remove();
+    return () => {};
   }, []);
 
   useEffect(() => {
@@ -741,14 +798,16 @@ export const IsraelIranComp: React.FC = () => {
     }
 
     // Apply opacities to WebGL layers
-    Object.keys(activeLayers).forEach((country) => {
-      const state = activeLayers[country];
-      map.setPaintProperty(`${country}-fill`, "fill-opacity", state.fillOpacity);
-      map.setPaintProperty(`${country}-fill`, "fill-color", state.color);
-      map.setPaintProperty(`${country}-border-outer`, "line-opacity", state.borderOpacity);
-      map.setPaintProperty(`${country}-border-outer`, "line-color", state.color);
-      map.setPaintProperty(`${country}-border-core`, "line-opacity", state.borderOpacity);
-    });
+    if (PRE_RENDER_MODE) {
+      Object.keys(activeLayers).forEach((country) => {
+        const state = activeLayers[country];
+        map.setPaintProperty(`${country}-fill`, "fill-opacity", state.fillOpacity);
+        map.setPaintProperty(`${country}-fill`, "fill-color", state.color);
+        map.setPaintProperty(`${country}-border-outer`, "line-opacity", state.borderOpacity);
+        map.setPaintProperty(`${country}-border-outer`, "line-color", state.color);
+        map.setPaintProperty(`${country}-border-core`, "line-opacity", state.borderOpacity);
+      });
+    }
 
   }, [frame, map, mapLoaded]);
 
@@ -775,10 +834,27 @@ export const IsraelIranComp: React.FC = () => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
-      <div ref={ref} style={{ width: "100%", height: "100%" }} />
+      {!PRE_RENDER_MODE && (
+        <OffthreadVideo
+          src={staticFile("israel-iran-map.mp4")}
+          style={{ position: "absolute", width: "100%", height: "100%", zIndex: 0, objectFit: "cover" }}
+        />
+      )}
+
+      <div 
+        ref={ref} 
+        style={{ 
+          position: "absolute",
+          width: `${width}px`, 
+          height: `${height}px`,
+          zIndex: 0,
+          opacity: PRE_RENDER_MODE ? 1 : 0,
+          pointerEvents: "none"
+        }} 
+      />
       
       {/* Overlays */}
-      {mapLoaded && (
+      {!PRE_RENDER_MODE && mapLoaded && (
         <>
           {/* Text Overlays */}
           {storyboard.textOverlays && storyboard.textOverlays.map((overlay: any, i: number) => {
@@ -1783,6 +1859,10 @@ export const IsraelIranComp: React.FC = () => {
           )}
         </>
       )}
+
+      {/* Frame-by-frame caption/subtitle overlay */}
+      {!PRE_RENDER_MODE && <Caption frame={frame} />}
+
     </AbsoluteFill>
   );
 };

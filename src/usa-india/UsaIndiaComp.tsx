@@ -9,6 +9,7 @@ import {
   Audio,
   staticFile,
   Img,
+  OffthreadVideo,
 } from "remotion";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -17,6 +18,15 @@ import indiaData from "../data/india.json";
 import storyboard from "./usa_india_storyboard.json";
 import timestamps from "./india-usa-timestamp.json";
 import { COLORS } from "./color";
+
+const PRE_RENDER_MODE = false; // Set to true to pre-render the clean map video
+
+const BLANK_STYLE = {
+  version: 8 as const,
+  sources: {},
+  layers: [],
+};
+
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -851,7 +861,7 @@ export const UsaIndiaComp: React.FC = () => {
     if (!containerAtlantic.current) return;
     const m = new maplibregl.Map({
       container: containerAtlantic.current,
-      style: SATELLITE_STYLE,
+      style: PRE_RENDER_MODE ? SATELLITE_STYLE : BLANK_STYLE,
       center: atlanticCut.initialCamera.center as [number, number],
       zoom: atlanticCut.initialCamera.zoom,
       pitch: atlanticCut.initialCamera.pitch,
@@ -874,46 +884,48 @@ export const UsaIndiaComp: React.FC = () => {
   // ─── Initialize Map B: India ─────────────────────────────────────────────
   useEffect(() => {
     if (!containerIndia.current) return;
-    const styleWithIndia = {
-      ...SATELLITE_STYLE,
-      sources: {
-        ...SATELLITE_STYLE.sources,
-        "india-src": { type: "geojson" as const, data: indiaData as any },
-      },
-      layers: [
-        ...SATELLITE_STYLE.layers,
-        {
-          id: "india-fill",
-          type: "fill" as const,
-          source: "india-src",
-          paint: {
-            "fill-color": COLORS.indiaOrange,
-            "fill-opacity": storyboard.mapHighlights.india.fillOpacity,
+    const styleWithIndia = PRE_RENDER_MODE
+      ? {
+          ...SATELLITE_STYLE,
+          sources: {
+            ...SATELLITE_STYLE.sources,
+            "india-src": { type: "geojson" as const, data: indiaData as any },
           },
-        },
-        {
-          id: "india-border-glow",
-          type: "line" as const,
-          source: "india-src",
-          paint: {
-            "line-color": COLORS.whiteHologram,
-            "line-width": 10,
-            "line-blur": 5,
-            "line-opacity": storyboard.mapHighlights.india.borderOpacity,
-          },
-        },
-        {
-          id: "india-border-core",
-          type: "line" as const,
-          source: "india-src",
-          paint: {
-            "line-color": COLORS.whiteHologram,
-            "line-width": 2,
-            "line-opacity": storyboard.mapHighlights.india.borderOpacity,
-          },
-        },
-      ],
-    };
+          layers: [
+            ...SATELLITE_STYLE.layers,
+            {
+              id: "india-fill",
+              type: "fill" as const,
+              source: "india-src",
+              paint: {
+                "fill-color": COLORS.indiaOrange,
+                "fill-opacity": storyboard.mapHighlights.india.fillOpacity,
+              },
+            },
+            {
+              id: "india-border-glow",
+              type: "line" as const,
+              source: "india-src",
+              paint: {
+                "line-color": COLORS.whiteHologram,
+                "line-width": 10,
+                "line-blur": 5,
+                "line-opacity": storyboard.mapHighlights.india.borderOpacity,
+              },
+            },
+            {
+              id: "india-border-core",
+              type: "line" as const,
+              source: "india-src",
+              paint: {
+                "line-color": COLORS.whiteHologram,
+                "line-width": 2,
+                "line-opacity": storyboard.mapHighlights.india.borderOpacity,
+              },
+            },
+          ],
+        }
+      : BLANK_STYLE;
 
     const m = new maplibregl.Map({
       container: containerIndia.current,
@@ -940,46 +952,48 @@ export const UsaIndiaComp: React.FC = () => {
   // ─── Initialize Map C: USA ───────────────────────────────────────────────
   useEffect(() => {
     if (!containerUSA.current) return;
-    const styleWithUSA = {
-      ...SATELLITE_STYLE,
-      sources: {
-        ...SATELLITE_STYLE.sources,
-        "usa-src": { type: "geojson" as const, data: usaData as any },
-      },
-      layers: [
-        ...SATELLITE_STYLE.layers,
-        {
-          id: "usa-fill",
-          type: "fill" as const,
-          source: "usa-src",
-          paint: {
-            "fill-color": COLORS.usaBlue,
-            "fill-opacity": storyboard.mapHighlights.usa.fillOpacity,
+    const styleWithUSA = PRE_RENDER_MODE
+      ? {
+          ...SATELLITE_STYLE,
+          sources: {
+            ...SATELLITE_STYLE.sources,
+            "usa-src": { type: "geojson" as const, data: usaData as any },
           },
-        },
-        {
-          id: "usa-border-glow",
-          type: "line" as const,
-          source: "usa-src",
-          paint: {
-            "line-color": COLORS.whiteHologram,
-            "line-width": 10,
-            "line-blur": 5,
-            "line-opacity": storyboard.mapHighlights.usa.borderOpacity,
-          },
-        },
-        {
-          id: "usa-border-core",
-          type: "line" as const,
-          source: "usa-src",
-          paint: {
-            "line-color": COLORS.whiteHologram,
-            "line-width": 2,
-            "line-opacity": storyboard.mapHighlights.usa.borderOpacity,
-          },
-        },
-      ],
-    };
+          layers: [
+            ...SATELLITE_STYLE.layers,
+            {
+              id: "usa-fill",
+              type: "fill" as const,
+              source: "usa-src",
+              paint: {
+                "fill-color": COLORS.usaBlue,
+                "fill-opacity": storyboard.mapHighlights.usa.fillOpacity,
+              },
+            },
+            {
+              id: "usa-border-glow",
+              type: "line" as const,
+              source: "usa-src",
+              paint: {
+                "line-color": COLORS.whiteHologram,
+                "line-width": 10,
+                "line-blur": 5,
+                "line-opacity": storyboard.mapHighlights.usa.borderOpacity,
+              },
+            },
+            {
+              id: "usa-border-core",
+              type: "line" as const,
+              source: "usa-src",
+              paint: {
+                "line-color": COLORS.whiteHologram,
+                "line-width": 2,
+                "line-opacity": storyboard.mapHighlights.usa.borderOpacity,
+              },
+            },
+          ],
+        }
+      : BLANK_STYLE;
 
     const m = new maplibregl.Map({
       container: containerUSA.current,
@@ -1026,21 +1040,23 @@ export const UsaIndiaComp: React.FC = () => {
       lastIndia.current = key;
     }
 
-    // Animated pulsing white border glow in Scene 12
-    if (frame >= 604 && frame <= 727) {
-      const pulseOpacity = interpolate(
-        Math.sin((frame - 604) * 0.15),
-        [-1, 1],
-        [0.4, 1.0]
-      );
-      mapIndia.setPaintProperty("india-border-glow", "line-opacity", pulseOpacity);
-      mapIndia.setPaintProperty("india-border-glow", "line-width", interpolate(pulseOpacity, [0.4, 1.0], [6, 14]));
-    } else {
-      // Restore standard opacity when not active
-      try {
-        mapIndia.setPaintProperty("india-border-glow", "line-opacity", storyboard.mapHighlights.india.borderOpacity);
-        mapIndia.setPaintProperty("india-border-glow", "line-width", 10);
-      } catch (e) {}
+    if (PRE_RENDER_MODE) {
+      // Animated pulsing white border glow in Scene 12
+      if (frame >= 604 && frame <= 727) {
+        const pulseOpacity = interpolate(
+          Math.sin((frame - 604) * 0.15),
+          [-1, 1],
+          [0.4, 1.0]
+        );
+        mapIndia.setPaintProperty("india-border-glow", "line-opacity", pulseOpacity);
+        mapIndia.setPaintProperty("india-border-glow", "line-width", interpolate(pulseOpacity, [0.4, 1.0], [6, 14]));
+      } else {
+        // Restore standard opacity when not active
+        try {
+          mapIndia.setPaintProperty("india-border-glow", "line-opacity", storyboard.mapHighlights.india.borderOpacity);
+          mapIndia.setPaintProperty("india-border-glow", "line-width", 10);
+        } catch (e) {}
+      }
     }
   }, [frame, mapIndia]);
 
@@ -1055,21 +1071,23 @@ export const UsaIndiaComp: React.FC = () => {
       lastUSA.current = key;
     }
 
-    // Animated pulsing white border glow in Scene 13
-    if (frame >= 736 && frame <= 845) {
-      const pulseOpacity = interpolate(
-        Math.sin((frame - 736) * 0.15),
-        [-1, 1],
-        [0.4, 1.0]
-      );
-      mapUSA.setPaintProperty("usa-border-glow", "line-opacity", pulseOpacity);
-      mapUSA.setPaintProperty("usa-border-glow", "line-width", interpolate(pulseOpacity, [0.4, 1.0], [6, 14]));
-    } else {
-      // Restore standard opacity when not active
-      try {
-        mapUSA.setPaintProperty("usa-border-glow", "line-opacity", storyboard.mapHighlights.usa.borderOpacity);
-        mapUSA.setPaintProperty("usa-border-glow", "line-width", 10);
-      } catch (e) {}
+    if (PRE_RENDER_MODE) {
+      // Animated pulsing white border glow in Scene 13
+      if (frame >= 736 && frame <= 845) {
+        const pulseOpacity = interpolate(
+          Math.sin((frame - 736) * 0.15),
+          [-1, 1],
+          [0.4, 1.0]
+        );
+        mapUSA.setPaintProperty("usa-border-glow", "line-opacity", pulseOpacity);
+        mapUSA.setPaintProperty("usa-border-glow", "line-width", interpolate(pulseOpacity, [0.4, 1.0], [6, 14]));
+      } else {
+        // Restore standard opacity when not active
+        try {
+          mapUSA.setPaintProperty("usa-border-glow", "line-opacity", storyboard.mapHighlights.usa.borderOpacity);
+          mapUSA.setPaintProperty("usa-border-glow", "line-width", 10);
+        } catch (e) {}
+      }
     }
   }, [frame, mapUSA]);
 
@@ -1123,7 +1141,25 @@ export const UsaIndiaComp: React.FC = () => {
       </style>
 
       {/* ── Background Audio (remove before final render) ── */}
-      <Audio src={staticFile("audio.mp3")} volume={1} />
+      {!PRE_RENDER_MODE && (
+        <Audio src={staticFile("audio.mp3")} volume={1} />
+      )}
+
+      {/* ── Pre-rendered background video ── */}
+      {!PRE_RENDER_MODE && (
+        <OffthreadVideo
+          src={staticFile("india-usa-map.mp4")}
+          style={{
+            position: "absolute",
+            width: `${width}px`,
+            height: `${height}px`,
+            top: 0,
+            left: 0,
+            zIndex: 0,
+            objectFit: "cover",
+          }}
+        />
+      )}
 
       {/* ── Map A: Atlantic Ocean (VS scene, frames 0–14) ── */}
       <div
@@ -1134,8 +1170,8 @@ export const UsaIndiaComp: React.FC = () => {
           zIndex: showAtlantic ? 1 : 0,
         }}
       >
-        <div ref={containerAtlantic} style={containerStyle} />
-        {renderOverlay(storyboard.textOverlays.find((o) => o.id === "vs_text")!, mapAtlantic)}
+        <div ref={containerAtlantic} style={{ ...containerStyle, opacity: PRE_RENDER_MODE ? 1 : 0 }} />
+        {!PRE_RENDER_MODE && renderOverlay(storyboard.textOverlays.find((o) => o.id === "vs_text")!, mapAtlantic)}
       </div>
 
       {/* ── Map B: India ── */}
@@ -1147,38 +1183,42 @@ export const UsaIndiaComp: React.FC = () => {
           zIndex: showIndia ? 1 : 0,
         }}
       >
-        <div ref={containerIndia} style={containerStyle} />
-        {renderOverlay(storyboard.textOverlays.find((o) => o.id === "india_label")!, mapIndia)}
-        {/* Scene 2: humans fill India one by one */}
-        <HumanIcons frame={frame} map={mapIndia} />
-        {/* Scene 4 countdown (India) */}
-        {storyboard.countdowns
-          .filter((cd) => (cd as any).mapTarget === "india")
-          .map((cd) => <Countdown key={cd.id} frame={frame} def={cd as any} />)
-        }
-        {/* Scenes 6, 7, 8: city labels */}
-        <CityLabel frame={frame} overlayId="mumbai_label" map={mapIndia} />
-        <CityLabel frame={frame} overlayId="delhi_label"  map={mapIndia} />
-        <CityLabel frame={frame} overlayId="lahore_label" map={mapIndia} />
-        {/* Scene 14: money shower from sky */}
-        <MoneyShower frame={frame} map={mapIndia} />
-        {/* Scene 19: Earnings Card India */}
-        <EarningsCard
-          frame={frame}
-          map={mapIndia}
-          coords={[78.96, 22.59]}
-          imageName="images/indian-poor-man.png"
-          startValue={0}
-          endValue={2800}
-          startFrame={1188}
-          endFrame={1252}
-          sceneStart={1183}
-          sceneEnd={1262}
-          label="AVERAGE ANNUAL INCOME"
-          glowColor="#ff9933"
-        />
-        {/* Scene 20: Comparable maps Vietnam & Morocco */}
-        <ComparableMaps frame={frame} map={mapIndia} />
+        <div ref={containerIndia} style={{ ...containerStyle, opacity: PRE_RENDER_MODE ? 1 : 0 }} />
+        {!PRE_RENDER_MODE && (
+          <>
+            {renderOverlay(storyboard.textOverlays.find((o) => o.id === "india_label")!, mapIndia)}
+            {/* Scene 2: humans fill India one by one */}
+            <HumanIcons frame={frame} map={mapIndia} />
+            {/* Scene 4 countdown (India) */}
+            {storyboard.countdowns
+              .filter((cd) => (cd as any).mapTarget === "india")
+              .map((cd) => <Countdown key={cd.id} frame={frame} def={cd as any} />)
+            }
+            {/* Scenes 6, 7, 8: city labels */}
+            <CityLabel frame={frame} overlayId="mumbai_label" map={mapIndia} />
+            <CityLabel frame={frame} overlayId="delhi_label"  map={mapIndia} />
+            <CityLabel frame={frame} overlayId="lahore_label" map={mapIndia} />
+            {/* Scene 14: money shower from sky */}
+            <MoneyShower frame={frame} map={mapIndia} />
+            {/* Scene 19: Earnings Card India */}
+            <EarningsCard
+              frame={frame}
+              map={mapIndia}
+              coords={[78.96, 22.59]}
+              imageName="images/indian-poor-man.png"
+              startValue={0}
+              endValue={2800}
+              startFrame={1188}
+              endFrame={1252}
+              sceneStart={1183}
+              sceneEnd={1262}
+              label="AVERAGE ANNUAL INCOME"
+              glowColor="#ff9933"
+            />
+            {/* Scene 20: Comparable maps Vietnam & Morocco */}
+            <ComparableMaps frame={frame} map={mapIndia} />
+          </>
+        )}
       </div>
 
       {/* ── Map C: USA ── */}
@@ -1190,40 +1230,70 @@ export const UsaIndiaComp: React.FC = () => {
           zIndex: showUSA ? 1 : 0,
         }}
       >
-        <div ref={containerUSA} style={containerStyle} />
-        {renderOverlay(storyboard.textOverlays.find((o) => o.id === "usa_label")!, mapUSA)}
-        {/* Scene 3 + Scene 5: humans fill USA one by one */}
-        <USAHumanIcons frame={frame} map={mapUSA} />
-        {/* Scene 5 countdown (USA) */}
-        {storyboard.countdowns
-          .filter((cd) => (cd as any).mapTarget === "usa")
-          .map((cd) => <Countdown key={cd.id} frame={frame} def={cd as any} />)
-        }
-        {/* Scenes 9, 10, 11: city labels */}
-        <CityLabel frame={frame} overlayId="nyc_label" map={mapUSA} />
-        <CityLabel frame={frame} overlayId="elpaso_label" map={mapUSA} />
-        <CityLabel frame={frame} overlayId="chicago_label" map={mapUSA} />
-        {/* Scene 16: USA money shower */}
-        <USAMoneyShower frame={frame} map={mapUSA} />
-        {/* Scene 21 & 22: Earnings Card USA */}
-        <EarningsCard
-          frame={frame}
-          map={mapUSA}
-          coords={[-95.71, 37.09]}
-          imageName="images/american-rich-man.png"
-          startValue={0}
-          endValue={88000}
-          startFrame={1362}
-          endFrame={1520}
-          sceneStart={1357}
-          sceneEnd={1534}
-          label="AVERAGE ANNUAL INCOME"
-          glowColor="#00aaff"
-        />
+        <div ref={containerUSA} style={{ ...containerStyle, opacity: PRE_RENDER_MODE ? 1 : 0 }} />
+        {!PRE_RENDER_MODE && (
+          <>
+            {renderOverlay(storyboard.textOverlays.find((o) => o.id === "usa_label")!, mapUSA)}
+            {/* Scene 3 + Scene 5: humans fill USA one by one */}
+            <USAHumanIcons frame={frame} map={mapUSA} />
+            {/* Scene 5 countdown (USA) */}
+            {storyboard.countdowns
+              .filter((cd) => (cd as any).mapTarget === "usa")
+              .map((cd) => <Countdown key={cd.id} frame={frame} def={cd as any} />)
+            }
+            {/* Scenes 9, 10, 11: city labels */}
+            <CityLabel frame={frame} overlayId="nyc_label" map={mapUSA} />
+            <CityLabel frame={frame} overlayId="elpaso_label" map={mapUSA} />
+            <CityLabel frame={frame} overlayId="chicago_label" map={mapUSA} />
+            {/* Scene 16: USA money shower */}
+            <USAMoneyShower frame={frame} map={mapUSA} />
+            {/* Scene 21 & 22: Earnings Card USA */}
+            <EarningsCard
+              frame={frame}
+              map={mapUSA}
+              coords={[-95.71, 37.09]}
+              imageName="images/american-rich-man.png"
+              startValue={0}
+              endValue={88000}
+              startFrame={1362}
+              endFrame={1520}
+              sceneStart={1357}
+              sceneEnd={1534}
+              label="AVERAGE ANNUAL INCOME"
+              glowColor="#00aaff"
+            />
+          </>
+        )}
       </div>
 
       {/* ── Captions — frame-by-frame from timestamps ── */}
-      <Caption frame={frame} />
+      {!PRE_RENDER_MODE && <Caption frame={frame} />}
+
+      {/* ── Channel Handle Watermark (Top Right) ── */}
+      {!PRE_RENDER_MODE && (
+        <div
+          style={{
+            position: "absolute",
+            top: 40,
+            right: 40,
+            zIndex: 150,
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: 800,
+            fontSize: "36px",
+            color: "#ffffff",
+            backgroundColor: "rgba(0, 0, 0, 0.4)",
+            padding: "8px 20px",
+            borderRadius: "30px",
+            border: "2px solid rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(4px)",
+            letterSpacing: "0.5px",
+            pointerEvents: "none",
+            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
+          }}
+        >
+          @geodiary10
+        </div>
+      )}
 
     </AbsoluteFill>
   );

@@ -76,6 +76,10 @@ const { width, height } = useVideoConfig();
 />
 ```
 
+> [!CAUTION]
+> **Outer Wrapper Opacity Gotcha**: Ensure you *only* apply `opacity: PRE_RENDER_MODE ? 1 : 0` to the **inner map canvas container div** (referenced by `ref={mapContainer}`). 
+> Do **NOT** apply it to the outer active-scene wrapper containers (e.g. `Map B: India`, `Map C: USA` wrapper divs). If you set the outer wrapper to `opacity: 0` during playback mode (`PRE_RENDER_MODE = false`), all text overlays, images, countdowns, and coins nested inside it will also be hidden!
+
 ### E. Conditionally Hide/Show Overlays
 Wrap all overlays (SVGs, text overlays, cards, images, audio) inside a check for `!PRE_RENDER_MODE`:
 ```typescript

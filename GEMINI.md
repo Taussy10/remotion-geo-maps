@@ -5,7 +5,7 @@ This document serves as the master checklist and architecture reference for buil
 ---
 
 ## Firstly -> Do not run TypeScript compilation 
-## Secondly -> IF I am using something that will heart the performance and it will lead to flickering, lagging, black, black screen then tell me that and say It will affect the performance I think insead we can do this 
+## Secondly -> IF I am using something that will heart the performance and it will lead to flickering, lagging, black, black screen then let me know and say It will affect the performance I think insead we can do this 
 
 ## 0. AI Instructions
 - Always read the docs https://www.remotion.dev/llms.txt

@@ -110,7 +110,7 @@ const Caption: React.FC<{ frame: number }> = ({ frame }) => {
     <div
       style={{
         position: "absolute",
-        bottom: 140,
+        bottom: 300, // Positioned higher up to clear map details
         left: 0,
         right: 0,
         display: "flex",
@@ -122,16 +122,13 @@ const Caption: React.FC<{ frame: number }> = ({ frame }) => {
     >
       <span
         style={{
-          fontFamily: "'Arial Black', Arial, sans-serif",
+          fontFamily: "'Poppins', sans-serif",
           fontWeight: 900,
-          fontSize: "56px",
+          fontSize: "84px",
           lineHeight: 1.2,
-          color: "#FFE033",
-          textShadow:
-            "0 0 12px #FFD700, 0 0 28px #FFA500, 0 2px 8px rgba(0,0,0,0.95)",
-          backgroundColor: "rgba(0,0,0,0.5)",
-          borderRadius: "12px",
-          padding: "10px 30px",
+          color: "#FFFF00", // Bright yellow
+          WebkitTextStroke: "4px #000000", // Black stroke outline
+          textShadow: "6px 6px 0px #000000", // Flat black offset shadow
           display: "inline-block",
         }}
       >

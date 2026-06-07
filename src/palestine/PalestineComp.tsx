@@ -8,7 +8,55 @@ import combinedData from "../data/israel_palestine_combined.json";
 import usaData from "../data/usa_mainland.json";
 import recognizingData from "../data/recognizing_countries.json";
 import storyboard from "./palestine_storyboard.json";
+import timestamps from "./palestine_audio_remotion.json";
 import { COLORS } from "./constants/colors";
+
+interface WordEntry {
+  word: string;
+  frame_start: number;
+  frame_end: number;
+}
+
+const allWords = timestamps.words as WordEntry[];
+
+const Caption: React.FC<{ frame: number }> = ({ frame }) => {
+  const activeWord = allWords.find(
+    (w) => frame >= w.frame_start && frame < w.frame_end
+  );
+
+  if (!activeWord) return null;
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        bottom: 300,
+        left: 0,
+        right: 0,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 100,
+        pointerEvents: "none",
+      }}
+    >
+      <span
+        style={{
+          fontFamily: "'Poppins', sans-serif",
+          fontWeight: 900,
+          fontSize: "84px",
+          lineHeight: 1.2,
+          color: "#FFFF00",
+          WebkitTextStroke: "4px #000000",
+          textShadow: "6px 6px 0px #000000",
+          display: "inline-block",
+        }}
+      >
+        {activeWord.word}
+      </span>
+    </div>
+  );
+};
 
 
 const DIVIDED_WORLD_GRID = Array.from({ length: 27 }, (_, x) => 
@@ -639,7 +687,8 @@ export const PalestineComp: React.FC = () => {
         );
       })}
 
-
+      {/* Frame-by-frame caption/subtitle overlay */}
+      <Caption frame={frame} />
 
     </AbsoluteFill>
   );

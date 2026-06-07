@@ -10,7 +10,7 @@ This document serves as the master checklist and architecture reference for buil
 ## 0. AI Instructions
 - Always read the docs https://www.remotion.dev/llms.txt
 - **Strict Storyboard Configuration Rule:** Never generate, modify, or invent camera keyframes, motions, zooms, or coordinates in any `storyboard.json` file unless the user explicitly provides the exact timeline values, coordinates, and camera movements. Always ask the user for permission and instructions before editing storyboard configurations.
-- **Drifting Pitch & Bearing Rule:** When camera views are stationary or zoomed out on maps, always introduce minor, slow pitch and bearing changes (and tiny zoom drifts) between the start and end keyframes of the scene to keep the animation dynamic and alive (e.g. drifting pitch by +5 degrees and bearing by +4 degrees) instead of leaving it completely static.
+- **Drifting Pitch, Bearing & Zoom Rule:** To keep map animations alive, never leave the camera completely static. When a camera view is stationary or zoomed out on a map, always introduce a subtle, slow drift (pitch, bearing, and a tiny zoom in or out) between the start and end keyframes of the scene (e.g. drifting pitch by +3 to +5 degrees, bearing by +2 to +4 degrees, and a tiny zoom increment/decrement of 0.05 to 0.1). This simple kinetic motion prevents static camera holds and makes the video feel dynamic and cinematic.
 
 
 

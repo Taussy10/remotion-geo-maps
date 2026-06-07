@@ -1141,25 +1141,9 @@ export const UsaIndiaComp: React.FC = () => {
       </style>
 
       {/* ── Background Audio (remove before final render) ── */}
-      {!PRE_RENDER_MODE && (
+      {/* {!PRE_RENDER_MODE && (
         <Audio src={staticFile("audio.mp3")} volume={1} />
-      )}
-
-      {/* ── Pre-rendered background video ── */}
-      {!PRE_RENDER_MODE && (
-        <OffthreadVideo
-          src={staticFile("india-usa-map.mp4")}
-          style={{
-            position: "absolute",
-            width: `${width}px`,
-            height: `${height}px`,
-            top: 0,
-            left: 0,
-            zIndex: 0,
-            objectFit: "cover",
-          }}
-        />
-      )}
+      )} */}
 
       {/* ── Map A: Atlantic Ocean (VS scene, frames 0–14) ── */}
       <div
@@ -1170,7 +1154,7 @@ export const UsaIndiaComp: React.FC = () => {
           zIndex: showAtlantic ? 1 : 0,
         }}
       >
-        <div ref={containerAtlantic} style={{ ...containerStyle, opacity: PRE_RENDER_MODE ? 1 : 0 }} />
+        <div ref={containerAtlantic} style={{ ...containerStyle, opacity: 1 }} />
         {!PRE_RENDER_MODE && renderOverlay(storyboard.textOverlays.find((o) => o.id === "vs_text")!, mapAtlantic)}
       </div>
 
@@ -1183,7 +1167,7 @@ export const UsaIndiaComp: React.FC = () => {
           zIndex: showIndia ? 1 : 0,
         }}
       >
-        <div ref={containerIndia} style={{ ...containerStyle, opacity: PRE_RENDER_MODE ? 1 : 0 }} />
+        <div ref={containerIndia} style={{ ...containerStyle, opacity: 1 }} />
         {!PRE_RENDER_MODE && (
           <>
             {renderOverlay(storyboard.textOverlays.find((o) => o.id === "india_label")!, mapIndia)}
@@ -1230,7 +1214,7 @@ export const UsaIndiaComp: React.FC = () => {
           zIndex: showUSA ? 1 : 0,
         }}
       >
-        <div ref={containerUSA} style={{ ...containerStyle, opacity: PRE_RENDER_MODE ? 1 : 0 }} />
+        <div ref={containerUSA} style={{ ...containerStyle, opacity: 1 }} />
         {!PRE_RENDER_MODE && (
           <>
             {renderOverlay(storyboard.textOverlays.find((o) => o.id === "usa_label")!, mapUSA)}

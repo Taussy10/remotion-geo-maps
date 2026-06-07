@@ -1,0 +1,49 @@
+{
+  "cameraKeyframes": [
+    {
+      "frame": 0,
+      "center": [-95.71, 37.09],
+      "zoom": 3.5,
+      "pitch": 20,
+      "bearing": -5
+    },
+    {
+      "frame": 120,
+      "center": [-95.71, 37.09],
+      "zoom": 3.6,
+      "pitch": 25,
+      "bearing": -1,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 200,
+      "center": [0.0, -75.0],
+      "zoom": 2.2,
+      "pitch": 30,
+      "bearing": 10,
+      "easing": "quadInOut"
+    },
+    {
+      "frame": 350,
+      "center": [0.0, -75.0],
+      "zoom": 2.3,
+      "pitch": 34,
+      "bearing": 13,
+      "easing": "quadInOut"
+    }
+  ],
+  "mapHighlights": [
+    {
+      "country": "usa",
+      "floodFill": [10, 80],
+      "borderDraw": [10, 80],
+      "color": "#00aaff"
+    },
+    {
+      "country": "antarctica",
+      "floodFill": [230, 300],
+      "borderDraw": [230, 300],
+      "color": "#cce6ff"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import { IsraelIranComp } from "./israel-iran/IsraelIranComp";
 import { Test } from "./Test";
 import { PalestineComp } from "./palestine/PalestineComp";
 import { UsaIndiaComp } from "./usa-india/UsaIndiaComp";
+import { UsaAntarticaComp } from "./usa-antartica/UsaAntarticaComp";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -55,6 +56,14 @@ export const RemotionRoot: React.FC = () => {
         id="india-usa"
         component={UsaIndiaComp}
         durationInFrames={2110}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="usa-antartica"
+        component={UsaAntarticaComp}
+        durationInFrames={350}
         fps={30}
         width={1080}
         height={1920}

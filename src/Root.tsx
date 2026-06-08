@@ -28,14 +28,7 @@ export const RemotionRoot: React.FC = () => {
         width={1080}
         height={1920}
       />
-      <Composition
-        id="Test"
-        component={Test}
-        durationInFrames={100}
-        fps={30}
-        width={1080}
-        height={1920}
-      />
+      
       <Composition
         id="IsraelIranScene"
         component={IsraelIranComp}
@@ -61,9 +54,17 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
       />
       <Composition
+        id="Test"
+        component={Test}
+        durationInFrames={100}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
         id="usa-antartica"
         component={UsaAntarticaComp}
-        durationInFrames={350}
+        durationInFrames={850}
         fps={30}
         width={1080}
         height={1920}

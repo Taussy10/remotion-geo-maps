@@ -6,6 +6,7 @@ dist
 # Ignore the output video from Git
 out/
 temp/
+build/
 
 # Ignore pre-rendered map background videos and any mp4/large binaries
 *.mp4

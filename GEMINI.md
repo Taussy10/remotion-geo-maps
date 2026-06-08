@@ -6,7 +6,7 @@ This document serves as the master checklist and architecture reference for buil
 
 ## Firstly -> Do not run TypeScript compilation 
 ## Secondly -> IF I am using something that will heart the performance and it will lead to flickering, lagging, black, black screen then let me know and say It will affect the performance I think insead we can do this 
-
+## Thirdly -> If ask you something then answer it do not go and start creating and implementing things on your own 
 ## 0. AI Instructions
 - Always read the docs https://www.remotion.dev/llms.txt
 - **Drifting Pitch, Bearing & Zoom Rule:** To keep map animations alive, never leave the camera completely static. When a camera view is stationary or zoomed out on a map, always introduce a subtle, slow drift (pitch, bearing, and a tiny zoom in or out) between the start and end keyframes of the scene (e.g. drifting pitch by +3 to +5 degrees, bearing by +2 to +4 degrees, and a tiny zoom increment/decrement of 0.05 to 0.1). This simple kinetic motion prevents static camera holds and makes the video feel dynamic and cinematic.

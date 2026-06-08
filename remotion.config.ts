@@ -14,3 +14,11 @@ Config.overrideWebpackConfig(enableTailwind);
 
 // WebGL hardware acceleration optimization for MapLibre
 Config.setChromiumOpenGlRenderer('angle');
+
+// Disable Webpack caching
+Config.setCachingEnabled(false);
+
+// Enable experimental Rspack
+// Config.setExperimentalRspackEnabled(true);
+
+
